@@ -1,4 +1,4 @@
-@extends('master')
+@extends('admin.master')
 
 @section('title', 'Password Change')
 @section('toolbar_title', 'Password Change')

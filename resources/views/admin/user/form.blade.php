@@ -1,4 +1,4 @@
-@extends('master')
+@extends('admin.master')
 
 @if (isset($editModeData))
     @section('title', 'Edit User')

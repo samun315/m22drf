@@ -14,12 +14,12 @@ class RoleController extends Controller
     {
         $results = Role::orderBy('id', 'DESC')->paginate(10);
 
-        return view('role.index', ['results' => $results]);
+        return view('admin.role.index', ['results' => $results]);
     }
 
     public function create()
     {
-        return view('role.form');
+        return view('admin.role.form');
     }
 
     public function store(RoleRequest $request)
@@ -48,7 +48,7 @@ class RoleController extends Controller
     {
         $editModeData = Role::findOrFail($id);
 
-        return view('role.form', compact('editModeData'));
+        return view('admin.role.form', compact('editModeData'));
     }
 
     public function update(RoleRequest $request, $id)

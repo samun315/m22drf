@@ -1,4 +1,4 @@
-@extends('master')
+@extends('admin.master')
 
 @section('title', 'Brand List')
 @section('toolbarTitle', 'Brand List')

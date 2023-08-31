@@ -18,7 +18,7 @@
         content="The Holcim Group, legally known as Holcim Limited, is a Swiss-French multinational company that manufactures building materials. It has a presence in around 70 countries, and employs around 72,000 employees" />
     <meta property="og:site_name" content="M22 Charity" />
 
-    @include('layouts.stylesheet')
+    @include('admin.layouts.stylesheet')
 
 </head>
 <!--end::Head-->
@@ -34,18 +34,18 @@
         <div class="page d-flex flex-row flex-column-fluid">
 
             <!--begin::Aside-->
-            @include('layouts.sidebar')
+            @include('admin.layouts.sidebar')
             <!--end::Aside-->
 
             <!--begin::Wrapper-->
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
 
-                @include('layouts.header')
+                @include('admin.layouts.header')
 
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
                     <!--begin::Toolbar-->
-                    @include('layouts.toolbar')
+                    @include('admin.layouts.toolbar')
                     <!--end::Toolbar-->
 
                     <!--begin::Post-->
@@ -56,7 +56,7 @@
                 <!--end::Content-->
 
                 <!--begin::Footer-->
-                @include('layouts.footer')
+                @include('admin.layouts.footer')
                 <!--end::Footer-->
 
             </div>
@@ -66,7 +66,7 @@
     </div>
     <!--end::Root-->
 
-    @include('layouts.script')
+    @include('admin.layouts.script')
 
 </body>
 <!--end::Body-->

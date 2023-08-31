@@ -15,6 +15,6 @@ class DashboardController extends Controller
         $data['category'] = DB::table('categories')->where('status', 'YES')->count();
         $data['users'] = DB::table('users')->where('status', 'YES')->count();
 
-        return view('dashboard', $data);
+        return view('admin.dashboard', $data);
     }
 }

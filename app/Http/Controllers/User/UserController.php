@@ -22,14 +22,14 @@ class UserController extends Controller
             ->select('a.*', 'b.role_name as role_name')
             ->paginate(10);
 
-        return view('user.index', ['results' => $results]);
+        return view('admin.user.index', ['results' => $results]);
     }
 
     public function create()
     {
         $roles = Role::orderBy('id', 'DESC')->where('status', 'YES')->get();
 
-        return view('user.form', compact('roles'));
+        return view('admin.user.form', compact('roles'));
     }
 
     public function store(AdminRequest $request)
@@ -54,7 +54,7 @@ class UserController extends Controller
 
         $data['roles'] = Role::orderBy('id', 'DESC')->where('status', 'YES')->get();
 
-        return view('user.form', $data);
+        return view('admin.user.form', $data);
     }
 
     public function update(AdminRequest $request, $id)
