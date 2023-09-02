@@ -2,11 +2,33 @@
 
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 
 //Private Routes
 Route::middleware(['preventBackHistory', 'admin'])->group(function () {
+
+    //project
+    Route::group(['prefix' => 'project'], function () {
+        Route::get('/index', [ProjectController::class, 'index'])->name('admin.project.index');
+        Route::get('/create', [ProjectController::class, 'create'])->name('admin.project.create');
+        Route::post('/store', [ProjectController::class, 'store'])->name('admin.project.store');
+        Route::get('/{project_id}/edit', [ProjectController::class, 'edit'])->name('admin.project.edit');
+        Route::put('/{project_id}/update', [ProjectController::class, 'update'])->name('admin.project.update');
+        Route::put('/update-status', [ProjectController::class, 'updateStatus'])->name('admin.project.update.status');
+    });
+
+    //event
+    Route::group(['prefix' => 'event'], function () {
+        Route::get('/index', [EventController::class, 'index'])->name('admin.event.index');
+        Route::get('/create', [EventController::class, 'create'])->name('admin.event.create');
+        Route::post('/store', [EventController::class, 'store'])->name('admin.event.store');
+        Route::get('/{event_id}/edit', [EventController::class, 'edit'])->name('admin.event.edit');
+        Route::put('/{event_id}/update', [EventController::class, 'update'])->name('admin.event.update');
+        Route::put('/update-status', [EventController::class, 'updateStatus'])->name('admin.event.update.status');
+    });
 
     //category
     Route::group(['prefix' => 'category'], function () {

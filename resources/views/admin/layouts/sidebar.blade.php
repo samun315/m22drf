@@ -57,6 +57,26 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('project/*') ? 'active' : '' }}"
+                        href="{{ route('admin.project.index') }}">
+                        <span class="menu-icon">
+                            <i class="text-white bi bi-hdd-stack fs-2"></i>
+                        </span>
+                        <span class="menu-title">Manage Project</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('event/*') ? 'active' : '' }}"
+                        href="{{ route('admin.event.index') }}">
+                        <span class="menu-icon">
+                            <i class="text-white bi bi-hdd-stack fs-2"></i>
+                        </span>
+                        <span class="menu-title">Manage Event</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <div class="menu-content pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Blog Management</span>
                     </div>
@@ -68,7 +88,7 @@
                         <span class="menu-icon">
                             <i class="text-white bi bi-hdd-stack fs-2"></i>
                         </span>
-                        <span class="menu-title">Category List</span>
+                        <span class="menu-title">Manage Category</span>
                     </a>
                 </div>
 
@@ -78,7 +98,7 @@
                         <span class="menu-icon">
                             <i class="text-white bi bi-hdd-stack fs-2"></i>
                         </span>
-                        <span class="menu-title">Blog List</span>
+                        <span class="menu-title">Manage Blog</span>
                     </a>
                 </div>
 
