@@ -56,8 +56,9 @@
             <div class="outer-box clearfix">
                 <div class="header-left clearfix pull-left">
                     <div class="logo">
-                        <a href="index.html"><img src="assets/frontend/images/resources/logo.png" alt="Awesome Logo"
-                                title=""></a>
+                        <a href="/">
+                            <img src="assets/frontend/images/resources/logo.png" alt="Logo" title="">
+                        </a>
                     </div>
                 </div>
 
@@ -75,52 +76,12 @@
                         <nav class="main-menu style1 navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li class="dropdown current"><a href="#">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home Page 01</a></li>
-                                            <li><a href="index-2.html">Home Page 02</a></li>
-                                            <li><a href="index-3.html">Home Page 03</a></li>
-                                            <li><a href="index-4.html">Home Page 04</a></li>
-                                            <li><a href="index-5.html">Home Page 05</a></li>
-                                            <li><a href="index-onepage.html">Home OnePage</a></li>
-                                            <li class="dropdown"><a href="#">Header Styles</a>
-                                                <ul>
-                                                    <li><a href="index.html">Header Style One</a></li>
-                                                    <li><a href="index-2.html">Header Style Two</a></li>
-                                                    <li><a href="index-3.html">Header Style Three</a></li>
-                                                    <li><a href="index-4.html">Header Style Four</a></li>
-                                                    <li><a href="index-5.html">Header Style Five</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li class="dropdown"><a href="#">Pages</a>
-                                        <ul>
-                                            <li><a href="events.html">Upcoming Events</a></li>
-                                            <li><a href="events-details.html">Events Details</a></li>
-                                            <li><a href="team.html">Our Team</a></li>
-                                            <li><a href="testimonials.html">Testimonials</a></li>
-                                            <li><a href="faq.html">Faq</a></li>
-                                            <li><a href="error.html">404 Error page</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">causes</a>
-                                        <ul>
-                                            <li><a href="causes-1.html">causes Style 01</a></li>
-                                            <li><a href="causes-2.html">causes Style 02</a></li>
-                                            <li><a href="causes-3.html">causes Style 03</a></li>
-                                            <li><a href="causes-details.html">causes Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">News</a>
-                                        <ul>
-                                            <li><a href="blog.html">News Grid View</a></li>
-                                            <li><a href="blog-2.html">News List View</a></li>
-                                            <li><a href="blog-single.html">News Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li class="current"><a href="/">Home</a></li>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="/project">Project</a></li>
+                                    <li><a href="/event">Event</a></li>
+                                    <li><a href="/blog">Blog</a></li>
+                                    <li><a href="#">Contact</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -165,8 +126,8 @@
             <div class="clearfix">
                 <!--Logo-->
                 <div class="logo float-left">
-                    <a href="index.html" class="img-responsive"><img src="assets/frontend/images/resources/sticky-logo.png"
-                            alt="" title=""></a>
+                    <a href="index.html" class="img-responsive"><img
+                            src="assets/frontend/images/resources/sticky-logo.png" alt="" title=""></a>
                 </div>
                 <!--Right Col-->
                 <div class="right-col float-right">
@@ -186,7 +147,8 @@
         <div class="close-btn"><span class="icon fa fa-times-circle"></span></div>
         <nav class="menu-box">
             <div class="nav-logo"><a href="index.html"><img src="assets/frontend/images/resources/mobilemenu-logo.png"
-                        alt="" title=""></a></div>
+                        alt="" title=""></a>
+            </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>

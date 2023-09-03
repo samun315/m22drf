@@ -16,10 +16,17 @@ Route::get('change-password', [AuthController::class, 'showChangePasswordForm'])
 
 
 //web pages routes
-Route::get('/about-us', [FrontendController::class, 'aboutUs'])->name('frontend.aboutUs');
-Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contactUs');
-Route::get('/project', [FrontendController::class, 'project'])->name('frontend.project');
-Route::get('/event', [FrontendController::class, 'event'])->name('frontend.event');
-Route::get('/blog', [FrontendController::class, 'event'])->name('frontend.blog');
+Route::get('about-us', [FrontendController::class, 'aboutUs'])->name('frontend.aboutUs');
+Route::get('contact-us', [FrontendController::class, 'contactUs'])->name('frontend.contactUs');
 
+//Project
+Route::get('project', [FrontendController::class, 'project'])->name('frontend.project');
+Route::get('project-details/{project_id}', [FrontendController::class, 'projectDetails'])->name('frontend.projectDetails');
 
+//Event
+Route::get('event', [FrontendController::class, 'event'])->name('frontend.event');
+Route::get('event-details/{event_id}', [FrontendController::class, 'eventDetails'])->name('frontend.eventDetails');
+
+//Blog
+Route::get('blog', [FrontendController::class, 'blog'])->name('frontend.blog');
+Route::get('blog-details/{blog_id}', [FrontendController::class, 'blogDetails'])->name('frontend.blogDetails');
