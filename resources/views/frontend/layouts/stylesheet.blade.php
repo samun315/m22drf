@@ -1,5 +1,5 @@
 <meta charset="UTF-8">
-<title>LoveIcon - Responsive HTML 5 Template</title>
+<title>M22 Doctors Foundation</title>
 
 <!-- responsive meta -->
 <meta name="viewport" content="width=device-width, initial-scale=1">

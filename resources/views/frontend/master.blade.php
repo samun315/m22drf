@@ -32,7 +32,7 @@
         <!-- switcher menu -->
         <div class="switcher">
             <div class="switch_btn">
-                <button><img src="assets/images/icon/color-palette.png" alt="Color Palette"> </button>
+                <button><img src="assets/frontend/images/icon/color-palette.png" alt="Color Palette"> </button>
             </div>
             <div class="switch_menu">
                 <!-- color changer -->
@@ -71,7 +71,7 @@
                         <div class="sidebar-info-contents">
                             <div class="content-inner">
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/images/resources/logo-3.png"
+                                    <a href="index.html"><img src="assets/frontend/images/resources/logo-3.png"
                                             alt="" /></a>
                                 </div>
                                 <div class="content-box">
@@ -109,305 +109,10 @@
 
 
         <!-- Main header-->
-        <header class="main-header header-style-one">
-            <div class="header-top">
-                <div class="container">
-                    <div class="outer-box clearfix">
-
-                        <div class="header-top_left pull-left">
-                            <div class="icon">
-                                <img src="assets/images/icon/arrow-1.png" alt="">
-                            </div>
-                            <div class="header-top_left-content">
-                                <div class="theme_carousel header-top_left-carousel owl-theme owl-carousel"
-                                    data-options='{"loop": true, "margin": 0, "autoheight":true, "lazyload":true, "nav": true, "dots": false, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "1139":{ "items" : "1" }, "1200":{ "items" : "1" }}}'>
-                                    <!--Start Single Item-->
-                                    <div class="single-item">
-                                        <p>Sponsor an orphan and feed the poor people with us</p>
-                                    </div>
-                                    <!--End Single Item-->
-                                    <!--Start Single Item-->
-                                    <div class="single-item">
-                                        <p>Sponsor an orphan and feed the poor people with us</p>
-                                    </div>
-                                    <!--End Single Item-->
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="header-top_right pull-right">
-                            <div class="header-social-link-1">
-                                <ul class="clearfix">
-                                    <li>
-                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!--Start Header-->
-            <div class="header">
-                <div class="container">
-                    <div class="outer-box clearfix">
-                        <div class="header-left clearfix pull-left">
-                            <div class="logo">
-                                <a href="index.html"><img src="assets/images/resources/logo.png" alt="Awesome Logo"
-                                        title=""></a>
-                            </div>
-                        </div>
-
-                        <div class="header-right pull-right">
-                            <div class="nav-outer style1 clearfix">
-                                <!--Mobile Navigation Toggler-->
-                                <div class="mobile-nav-toggler">
-                                    <div class="inner">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </div>
-                                </div>
-                                <!-- Main Menu -->
-                                <nav class="main-menu style1 navbar-expand-md navbar-light">
-                                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                        <ul class="navigation clearfix">
-                                            <li class="dropdown current"><a href="#">Home</a>
-                                                <ul>
-                                                    <li><a href="index.html">Home Page 01</a></li>
-                                                    <li><a href="index-2.html">Home Page 02</a></li>
-                                                    <li><a href="index-3.html">Home Page 03</a></li>
-                                                    <li><a href="index-4.html">Home Page 04</a></li>
-                                                    <li><a href="index-5.html">Home Page 05</a></li>
-                                                    <li><a href="index-onepage.html">Home OnePage</a></li>
-                                                    <li class="dropdown"><a href="#">Header Styles</a>
-                                                        <ul>
-                                                            <li><a href="index.html">Header Style One</a></li>
-                                                            <li><a href="index-2.html">Header Style Two</a></li>
-                                                            <li><a href="index-3.html">Header Style Three</a></li>
-                                                            <li><a href="index-4.html">Header Style Four</a></li>
-                                                            <li><a href="index-5.html">Header Style Five</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="about.html">About</a></li>
-                                            <li class="dropdown"><a href="#">Pages</a>
-                                                <ul>
-                                                    <li><a href="events.html">Upcoming Events</a></li>
-                                                    <li><a href="events-details.html">Events Details</a></li>
-                                                    <li><a href="team.html">Our Team</a></li>
-                                                    <li><a href="testimonials.html">Testimonials</a></li>
-                                                    <li><a href="faq.html">Faq</a></li>
-                                                    <li><a href="error.html">404 Error page</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="#">causes</a>
-                                                <ul>
-                                                    <li><a href="causes-1.html">causes Style 01</a></li>
-                                                    <li><a href="causes-2.html">causes Style 02</a></li>
-                                                    <li><a href="causes-3.html">causes Style 03</a></li>
-                                                    <li><a href="causes-details.html">causes Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li class="dropdown"><a href="#">News</a>
-                                                <ul>
-                                                    <li><a href="blog.html">News Grid View</a></li>
-                                                    <li><a href="blog-2.html">News List View</a></li>
-                                                    <li><a href="blog-single.html">News Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </div>
-                                </nav>
-                                <!-- Main Menu End-->
-                            </div>
-
-                            <div class="header-right_buttom">
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                                </div>
-                                <div class="side-content-button">
-                                    <a class="navSidebar-button" href="#">
-                                        <ul>
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
-                                        <ul>
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
-                                        <ul>
-                                            <li></li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End header-->
-
-            <!--Sticky Header-->
-            <div class="sticky-header">
-                <div class="container">
-                    <div class="clearfix">
-                        <!--Logo-->
-                        <div class="logo float-left">
-                            <a href="index.html" class="img-responsive"><img
-                                    src="assets/images/resources/sticky-logo.png" alt="" title=""></a>
-                        </div>
-                        <!--Right Col-->
-                        <div class="right-col float-right">
-                            <!-- Main Menu -->
-                            <nav class="main-menu clearfix">
-                                <!--Keep This Empty / Menu will come through Javascript-->
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End Sticky Header-->
-
-            <!-- Mobile Menu  -->
-            <div class="mobile-menu">
-                <div class="menu-backdrop"></div>
-                <div class="close-btn"><span class="icon fa fa-times-circle"></span></div>
-                <nav class="menu-box">
-                    <div class="nav-logo"><a href="index.html"><img src="assets/images/resources/mobilemenu-logo.png"
-                                alt="" title=""></a></div>
-                    <div class="menu-outer">
-                        <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
-                    </div>
-                    <!--Social Links-->
-                    <div class="social-links">
-                        <ul class="clearfix">
-                            <li><a href="#"><span class="fab fa fa-facebook-square"></span></a></li>
-                            <li><a href="#"><span class="fab fa fa-twitter-square"></span></a></li>
-                            <li><a href="#"><span class="fab fa fa-pinterest-square"></span></a></li>
-                            <li><a href="#"><span class="fab fa fa-google-plus-square"></span></a></li>
-                            <li><a href="#"><span class="fab fa fa-youtube-square"></span></a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <!-- End Mobile Menu -->
-        </header>
-
+        @include('frontend.layouts.header')
 
         <!-- Start Main Slider -->
-        <section class="main-slider style1">
-            <div class="shape2 paroller"></div>
-            <div class="slider-box">
-                <!-- Banner Carousel -->
-                <div class="banner-carousel owl-theme owl-carousel">
-                    <!-- Slide -->
-                    <div class="slide">
-                        <div class="image-layer" style="background-image:url(assets/images/slides/slide-v1-1.jpg)">
-                        </div>
-                        <div class="auto-container">
-                            <div class="content">
-                                <h3>Change the life, Change the world</h3>
-                                <div class="big-title">
-                                    <h2>Every Good<br> Act Is A Charity</h2>
-                                </div>
-                                <div class="border-box"></div>
-                                <div class="text">
-                                    <p>Veniam quis nostrud exercitation sed ullamco laboris</p>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one btn-one-style2" href="about.html">
-                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>how we
-                                            help</span>
-                                    </a>
-                                    <a class="btn-one marlft15" href="about.html">
-                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>support
-                                            us</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide -->
-                    <div class="slide">
-                        <div class="image-layer" style="background-image:url(assets/images/slides/slide-v1-2.jpg)">
-                        </div>
-                        <div class="auto-container">
-                            <div class="content">
-                                <h3>Change the life, Change the world</h3>
-                                <div class="big-title">
-                                    <h2>Every Good<br> Act Is A Charity</h2>
-                                </div>
-                                <div class="border-box"></div>
-                                <div class="text">
-                                    <p>Veniam quis nostrud exercitation sed ullamco laboris</p>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one btn-one-style2" href="about.html">
-                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>how we
-                                            help</span>
-                                    </a>
-                                    <a class="btn-one marlft15" href="about.html">
-                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>support
-                                            us</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Slide -->
-                    <div class="slide">
-                        <div class="image-layer" style="background-image:url(assets/images/slides/slide-v1-3.jpg)">
-                        </div>
-                        <div class="auto-container">
-                            <div class="content">
-                                <h3>Change the life, Change the world</h3>
-                                <div class="big-title">
-                                    <h2>Every Good<br> Act Is A Charity</h2>
-                                </div>
-                                <div class="border-box"></div>
-                                <div class="text">
-                                    <p>Veniam quis nostrud exercitation sed ullamco laboris</p>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one btn-one-style2" href="about.html">
-                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>how we
-                                            help</span>
-                                    </a>
-                                    <a class="btn-one marlft15" href="about.html">
-                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>support
-                                            us</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
+        @include('frontend.layouts.slider')
         <!-- End Main Slider -->
 
 
@@ -419,7 +124,7 @@
                         <div class="inner">
                             <h3>We Change Your Life & World</h3>
                         </div>
-                        <div class="outer"><img src="assets/images/icon/loveicon.png" alt=""></div>
+                        <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                     </div>
                     <h2>Charity With Difference</h2>
                 </div>
@@ -427,23 +132,23 @@
                     <div class="col-xl-12">
                         <div class="features-style1_box">
                             <div class="thm-shape1 wow slideInRight" data-wow-delay="0ms" data-wow-duration="3500ms">
-                                <img class="rotate-me" src="assets/images/shape/thm-shape-1.png" alt="">
+                                <img class="rotate-me" src="assets/frontend/images/shape/thm-shape-1.png" alt="">
                             </div>
                             <div class="row">
                                 <!--Start Features Style1 Single-->
-                                <div class="col-xl-4 col-lg-4 text-center" data-aos="fade-up"
-                                    data-aos-easing="linear" data-aos-duration="500">
+                                <div class="col-xl-4 col-lg-4 text-center" data-aos="fade-up" data-aos-easing="linear"
+                                    data-aos-duration="500">
                                     <div class="features-style1_single">
                                         <div class="icon-holder">
                                             <div class="inner">
-                                                <img src="assets/images/icon/features/feature-v1-1.png"
+                                                <img src="assets/frontend/images/icon/features/feature-v1-1.png"
                                                     alt="">
                                             </div>
                                             <div class="shape1 zoominout">
-                                                <img src="assets/images/icon/features/shape-1.png" alt="">
+                                                <img src="assets/frontend/images/icon/features/shape-1.png" alt="">
                                             </div>
                                             <div class="shape-bg">
-                                                <img src="assets/images/icon/features/feature-v1-1-bg.png"
+                                                <img src="assets/frontend/images/icon/features/feature-v1-1-bg.png"
                                                     alt="">
                                             </div>
                                         </div>
@@ -466,14 +171,14 @@
                                     <div class="features-style1_single style2">
                                         <div class="icon-holder">
                                             <div class="inner">
-                                                <img src="assets/images/icon/features/feature-v1-2.png"
+                                                <img src="assets/frontend/images/icon/features/feature-v1-2.png"
                                                     alt="">
                                             </div>
                                             <div class="shape1 zoominout">
-                                                <img src="assets/images/icon/features/shape-1.png" alt="">
+                                                <img src="assets/frontend/images/icon/features/shape-1.png" alt="">
                                             </div>
                                             <div class="shape-bg">
-                                                <img src="assets/images/icon/features/feature-v1-2-bg.png"
+                                                <img src="assets/frontend/images/icon/features/feature-v1-2-bg.png"
                                                     alt="">
                                             </div>
                                         </div>
@@ -496,14 +201,14 @@
                                     <div class="features-style1_single style3">
                                         <div class="icon-holder">
                                             <div class="inner">
-                                                <img src="assets/images/icon/features/feature-v1-3.png"
+                                                <img src="assets/frontend/images/icon/features/feature-v1-3.png"
                                                     alt="">
                                             </div>
                                             <div class="shape1 zoominout">
-                                                <img src="assets/images/icon/features/shape-1.png" alt="">
+                                                <img src="assets/frontend/images/icon/features/shape-1.png" alt="">
                                             </div>
                                             <div class="shape-bg">
-                                                <img src="assets/images/icon/features/feature-v1-3-bg.png"
+                                                <img src="assets/frontend/images/icon/features/feature-v1-3-bg.png"
                                                     alt="">
                                             </div>
                                         </div>
@@ -532,26 +237,26 @@
         <!--Start Causes Style1 Area-->
         <section class="causes-style1-area">
             <div class="causes-style1-area_bg"
-                style="background-image: url(assets/images/pattern/thm-pattern-1.png);">
+                style="background-image: url(assets/frontend/images/pattern/thm-pattern-1.png);">
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="causes-style1_image-box">
                             <div class="shape wow slideInLeft" data-wow-delay="0ms" data-wow-duration="3500ms">
-                                <img class="zoom-fade" src="assets/images/shape/thm-shape-7.png" alt="">
+                                <img class="zoom-fade" src="assets/frontend/images/shape/thm-shape-7.png" alt="">
                             </div>
                             <div class="causes-style1_image2">
-                                <img src="assets/images/resources/causes-style1_image-2.jpg" alt="">
+                                <img src="assets/frontend/images/resources/causes-style1_image-2.jpg" alt="">
                             </div>
                             <div class="main">
-                                <img src="assets/images/resources/causes-style1_image-1.jpg" alt="">
+                                <img src="assets/frontend/images/resources/causes-style1_image-1.jpg" alt="">
                             </div>
                             <div class="causes-style1_image3">
-                                <img src="assets/images/resources/causes-style1_image-3.jpg" alt="">
+                                <img src="assets/frontend/images/resources/causes-style1_image-3.jpg" alt="">
                             </div>
                             <div class="causes-style1_image4">
-                                <img src="assets/images/resources/causes-style1_image-4.jpg" alt="">
+                                <img src="assets/frontend/images/resources/causes-style1_image-4.jpg" alt="">
                             </div>
 
                         </div>
@@ -616,15 +321,15 @@
 
         <!--Start Cause Style2 Area-->
         <section class="cause-style2-area">
-            <div class="thm-shape1 float-bob"><img src="assets/images/shape/thm-shape-2.png" alt=""></div>
-            <div class="thm-shape2 zoom-fade"><img src="assets/images/shape/thm-shape-3.png" alt=""></div>
+            <div class="thm-shape1 float-bob"><img src="assets/frontend/images/shape/thm-shape-2.png" alt=""></div>
+            <div class="thm-shape2 zoom-fade"><img src="assets/frontend/images/shape/thm-shape-3.png" alt=""></div>
             <div class="auto-container">
                 <div class="sec-title text-center">
                     <div class="sub-title">
                         <div class="inner">
                             <h3>We Change Your Life & World</h3>
                         </div>
-                        <div class="outer"><img src="assets/images/icon/loveicon.png" alt=""></div>
+                        <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                     </div>
                     <h2>Appeals & Donations</h2>
                 </div>
@@ -636,7 +341,7 @@
                             <!--Start Single Cause Style1-->
                             <div class="single-cause-style1">
                                 <div class="img-holder">
-                                    <img src="assets/images/causes/causes-v1-1.jpg" alt="">
+                                    <img src="assets/frontend/images/causes/causes-v1-1.jpg" alt="">
                                 </div>
                                 <div class="text-holder">
                                     <h3><a href="causes-details.html">Education For People</a></h3>
@@ -711,14 +416,14 @@
                                     </div>
                                 </div>
                                 <div class="img-holder">
-                                    <img src="assets/images/causes/causes-v1-2.jpg" alt="">
+                                    <img src="assets/frontend/images/causes/causes-v1-2.jpg" alt="">
                                 </div>
                             </div>
                             <!--End Single Cause Style1-->
                             <!--Start Single Cause Style1-->
                             <div class="single-cause-style1">
                                 <div class="img-holder">
-                                    <img src="assets/images/causes/causes-v1-3.jpg" alt="">
+                                    <img src="assets/frontend/images/causes/causes-v1-3.jpg" alt="">
                                 </div>
                                 <div class="text-holder">
                                     <h3><a href="causes-details.html">Africa Medical Facility</a></h3>
@@ -761,7 +466,7 @@
                             <!--Start Single Cause Style1-->
                             <div class="single-cause-style1">
                                 <div class="img-holder">
-                                    <img src="assets/images/causes/causes-v1-1.jpg" alt="">
+                                    <img src="assets/frontend/images/causes/causes-v1-1.jpg" alt="">
                                 </div>
                                 <div class="text-holder">
                                     <h3><a href="causes-details.html">Education For People</a></h3>
@@ -836,14 +541,14 @@
                                     </div>
                                 </div>
                                 <div class="img-holder">
-                                    <img src="assets/images/causes/causes-v1-2.jpg" alt="">
+                                    <img src="assets/frontend/images/causes/causes-v1-2.jpg" alt="">
                                 </div>
                             </div>
                             <!--End Single Cause Style1-->
                             <!--Start Single Cause Style1-->
                             <div class="single-cause-style1">
                                 <div class="img-holder">
-                                    <img src="assets/images/causes/causes-v1-3.jpg" alt="">
+                                    <img src="assets/frontend/images/causes/causes-v1-3.jpg" alt="">
                                 </div>
                                 <div class="text-holder">
                                     <h3><a href="causes-details.html">Africa Medical Facility</a></h3>
@@ -886,7 +591,7 @@
                             <!--Start Single Cause Style1-->
                             <div class="single-cause-style1">
                                 <div class="img-holder">
-                                    <img src="assets/images/causes/causes-v1-1.jpg" alt="">
+                                    <img src="assets/frontend/images/causes/causes-v1-1.jpg" alt="">
                                 </div>
                                 <div class="text-holder">
                                     <h3><a href="causes-details.html">Education For People</a></h3>
@@ -961,14 +666,14 @@
                                     </div>
                                 </div>
                                 <div class="img-holder">
-                                    <img src="assets/images/causes/causes-v1-2.jpg" alt="">
+                                    <img src="assets/frontend/images/causes/causes-v1-2.jpg" alt="">
                                 </div>
                             </div>
                             <!--End Single Cause Style1-->
                             <!--Start Single Cause Style1-->
                             <div class="single-cause-style1">
                                 <div class="img-holder">
-                                    <img src="assets/images/causes/causes-v1-3.jpg" alt="">
+                                    <img src="assets/frontend/images/causes/causes-v1-3.jpg" alt="">
                                 </div>
                                 <div class="text-holder">
                                     <h3><a href="causes-details.html">Africa Medical Facility</a></h3>
@@ -1018,7 +723,7 @@
         <!--Start Fact Counter Area-->
         <section class="fact-counter-area">
             <div class="fact-counter-area_bg"
-                style="background-image: url(assets/images/parallax-background/fact-counter-area_bg.jpg);"></div>
+                style="background-image: url(assets/frontend/images/parallax-background/fact-counter-area_bg.jpg);"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-xl-7">
@@ -1027,14 +732,14 @@
                                 <li class="single-fact-counter wow slideInLeft" data-wow-delay="200ms"
                                     data-wow-duration="1500ms">
                                     <div class="outer-box">
-                                        <div class="shape1"><img src="assets/images/shape/thm-shape-5.png"
+                                        <div class="shape1"><img src="assets/frontend/images/shape/thm-shape-5.png"
                                                 alt=""></div>
-                                        <div class="shape2 zoominout"><img src="assets/images/shape/thm-shape-6.png"
+                                        <div class="shape2 zoominout"><img src="assets/frontend/images/shape/thm-shape-6.png"
                                                 alt=""></div>
                                         <div class="top">
                                             <div class="icon-box">
                                                 <div class="icon"><img
-                                                        src="assets/images/icon/fact-counter/fact-counter-1.png"
+                                                        src="assets/frontend/images/icon/fact-counter/fact-counter-1.png"
                                                         alt="">
                                                 </div>
                                             </div>
@@ -1051,14 +756,14 @@
                                 <li class="single-fact-counter wow slideInLeft" data-wow-delay="0ms"
                                     data-wow-duration="1500ms">
                                     <div class="outer-box">
-                                        <div class="shape1"><img src="assets/images/shape/thm-shape-5.png"
+                                        <div class="shape1"><img src="assets/frontend/images/shape/thm-shape-5.png"
                                                 alt=""></div>
-                                        <div class="shape2 zoominout"><img src="assets/images/shape/thm-shape-6.png"
+                                        <div class="shape2 zoominout"><img src="assets/frontend/images/shape/thm-shape-6.png"
                                                 alt=""></div>
                                         <div class="top">
                                             <div class="icon-box">
                                                 <div class="icon"><img
-                                                        src="assets/images/icon/fact-counter/fact-counter-2.png"
+                                                        src="assets/frontend/images/icon/fact-counter/fact-counter-2.png"
                                                         alt="">
                                                 </div>
                                             </div>
@@ -1075,14 +780,14 @@
                                 <li class="single-fact-counter wow slideInLeft" data-wow-delay="300ms"
                                     data-wow-duration="1500ms">
                                     <div class="outer-box">
-                                        <div class="shape1"><img src="assets/images/shape/thm-shape-5.png"
+                                        <div class="shape1"><img src="assets/frontend/images/shape/thm-shape-5.png"
                                                 alt=""></div>
-                                        <div class="shape2 zoominout"><img src="assets/images/shape/thm-shape-6.png"
+                                        <div class="shape2 zoominout"><img src="assets/frontend/images/shape/thm-shape-6.png"
                                                 alt=""></div>
                                         <div class="top">
                                             <div class="icon-box">
                                                 <div class="icon"><img
-                                                        src="assets/images/icon/fact-counter/fact-counter-3.png"
+                                                        src="assets/frontend/images/icon/fact-counter/fact-counter-3.png"
                                                         alt="">
                                                 </div>
                                             </div>
@@ -1099,14 +804,14 @@
                                 <li class="single-fact-counter wow slideInLeft" data-wow-delay="100ms"
                                     data-wow-duration="1500ms">
                                     <div class="outer-box">
-                                        <div class="shape1"><img src="assets/images/shape/thm-shape-5.png"
+                                        <div class="shape1"><img src="assets/frontend/images/shape/thm-shape-5.png"
                                                 alt=""></div>
-                                        <div class="shape2 zoominout"><img src="assets/images/shape/thm-shape-6.png"
+                                        <div class="shape2 zoominout"><img src="assets/frontend/images/shape/thm-shape-6.png"
                                                 alt=""></div>
                                         <div class="top">
                                             <div class="icon-box">
                                                 <div class="icon"><img
-                                                        src="assets/images/icon/fact-counter/fact-counter-4.png"
+                                                        src="assets/frontend/images/icon/fact-counter/fact-counter-4.png"
                                                         alt="">
                                                 </div>
                                             </div>
@@ -1152,7 +857,7 @@
                         <div class="inner">
                             <h3>We Change Your Life & World</h3>
                         </div>
-                        <div class="outer"><img src="assets/images/icon/loveicon.png" alt=""></div>
+                        <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                     </div>
                     <h2>Our Mission & Goals</h2>
                 </div>
@@ -1160,16 +865,16 @@
                     <div class="col-xl-12">
                         <div class="mission-goals-content clearfix">
                             <div class="thm-shape1 wow slideInRight" data-wow-delay="0ms" data-wow-duration="3500ms">
-                                <img class="rotate-me" src="assets/images/shape/thm-shape-1.png" alt="">
+                                <img class="rotate-me" src="assets/frontend/images/shape/thm-shape-1.png" alt="">
                             </div>
-                            <div class="thm-shape2"><img src="assets/images/shape/thm-shape-5.png" alt="">
+                            <div class="thm-shape2"><img src="assets/frontend/images/shape/thm-shape-5.png" alt="">
                             </div>
                             <div class="mission-goals-image-box"
-                                style="background-image: url(assets/images/resources/mission-goals.jpg);"></div>
+                                style="background-image: url(assets/frontend/images/resources/mission-goals.jpg);"></div>
                             <div class="text-holder">
                                 <div class="top">
                                     <div class="icon">
-                                        <img src="assets/images/shape/thm-shape-4.png" alt="">
+                                        <img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
                                     </div>
                                     <div class="title">
                                         <h3>Small Donations Make Bigger Impact<br> On Someone’s Life, Act Today!</h3>
@@ -1185,7 +890,7 @@
                                         <div class="icon">
                                             <span class="flaticon-house-insurance"></span>
                                             <div class="shape"><img
-                                                    src="assets/images/shape/mission-goal-shape-1.png" alt="">
+                                                    src="assets/frontend/images/shape/mission-goal-shape-1.png" alt="">
                                             </div>
                                         </div>
                                         <div class="title">
@@ -1196,7 +901,7 @@
                                         <div class="icon">
                                             <span class="flaticon-water"></span>
                                             <div class="shape"><img
-                                                    src="assets/images/shape/mission-goal-shape-2.png" alt="">
+                                                    src="assets/frontend/images/shape/mission-goal-shape-2.png" alt="">
                                             </div>
                                         </div>
                                         <div class="title">
@@ -1207,7 +912,7 @@
                                         <div class="icon">
                                             <span class="flaticon-world"></span>
                                             <div class="shape"><img
-                                                    src="assets/images/shape/mission-goal-shape-3.png" alt="">
+                                                    src="assets/frontend/images/shape/mission-goal-shape-3.png" alt="">
                                             </div>
                                         </div>
                                         <div class="title">
@@ -1229,7 +934,7 @@
 
         <!--Start Donate Form Area-->
         <section class="donate-form-area">
-            <div class="donate-form-area_bg" style="background-image: url(assets/images/pattern/thm-pattern-3.png);">
+            <div class="donate-form-area_bg" style="background-image: url(assets/frontend/images/pattern/thm-pattern-3.png);">
             </div>
             <div class="auto-container">
                 <div class="row">
@@ -1302,7 +1007,7 @@
                         <div class="inner">
                             <h3>We Change Your Life & World</h3>
                         </div>
-                        <div class="outer"><img src="assets/images/icon/loveicon.png" alt=""></div>
+                        <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                     </div>
                     <h2>Meet Our Volunteers</h2>
                 </div>
@@ -1313,7 +1018,7 @@
                         <div class="single-team-style1">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/team/team-v1-1.jpg" alt="" />
+                                    <img src="assets/frontend/images/team/team-v1-1.jpg" alt="" />
                                     <div class="icon">
                                         <span class=""></span>
                                     </div>
@@ -1328,7 +1033,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="shape"><img src="assets/images/shape/thm-shape-4.png" alt="">
+                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
                                 </div>
                             </div>
                             <div class="title-holder text-center">
@@ -1344,7 +1049,7 @@
                         <div class="single-team-style1">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/team/team-v1-2.jpg" alt="" />
+                                    <img src="assets/frontend/images/team/team-v1-2.jpg" alt="" />
                                     <div class="icon">
                                         <span class=""></span>
                                     </div>
@@ -1359,7 +1064,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="shape"><img src="assets/images/shape/thm-shape-4.png" alt="">
+                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
                                 </div>
                             </div>
                             <div class="title-holder text-center">
@@ -1375,7 +1080,7 @@
                         <div class="single-team-style1">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/team/team-v1-3.jpg" alt="" />
+                                    <img src="assets/frontend/images/team/team-v1-3.jpg" alt="" />
                                     <div class="icon">
                                         <span class=""></span>
                                     </div>
@@ -1390,7 +1095,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="shape"><img src="assets/images/shape/thm-shape-4.png" alt="">
+                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
                                 </div>
                             </div>
                             <div class="title-holder text-center">
@@ -1406,7 +1111,7 @@
                         <div class="single-team-style1">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/team/team-v1-4.jpg" alt="" />
+                                    <img src="assets/frontend/images/team/team-v1-4.jpg" alt="" />
                                     <div class="icon">
                                         <span class=""></span>
                                     </div>
@@ -1421,7 +1126,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="shape"><img src="assets/images/shape/thm-shape-4.png" alt="">
+                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
                                 </div>
                             </div>
                             <div class="title-holder text-center">
@@ -1444,7 +1149,7 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="event-style1_image-box"
-                            style="background-image: url(assets/images/resources/event-style1-image.jpg);">
+                            style="background-image: url(assets/frontend/images/resources/event-style1-image.jpg);">
 
                         </div>
                     </div>
@@ -1588,7 +1293,7 @@
         <!--Start Testimonial style1 Area-->
         <section class="testimonial-style1-area">
             <div class="testimonial-style1-area_bg"
-                style="background-image: url(assets/images/pattern/thm-pattern-1.png);"></div>
+                style="background-image: url(assets/frontend/images/pattern/thm-pattern-1.png);"></div>
             <div class="container">
                 <div class="testimonial-style1-content">
                     <div class="testimonial-style1_carousel owl-carousel owl-theme">
@@ -1596,7 +1301,7 @@
                         <div class="single-testimonial-style1">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/testimonial/testimonial-v1-1.png" alt="">
+                                    <img src="assets/frontend/images/testimonial/testimonial-v1-1.png" alt="">
                                 </div>
                             </div>
                             <div class="text-holder">
@@ -1620,7 +1325,7 @@
                         <div class="single-testimonial-style1">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/testimonial/testimonial-v1-1.png" alt="">
+                                    <img src="assets/frontend/images/testimonial/testimonial-v1-1.png" alt="">
                                 </div>
                             </div>
                             <div class="text-holder">
@@ -1644,7 +1349,7 @@
                         <div class="single-testimonial-style1">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/testimonial/testimonial-v1-1.png" alt="">
+                                    <img src="assets/frontend/images/testimonial/testimonial-v1-1.png" alt="">
                                 </div>
                             </div>
                             <div class="text-holder">
@@ -1676,14 +1381,14 @@
 
         <!--Start Blog Style1 Area-->
         <section class="blog-style1-area">
-            <div class="thm-shape1 float-bob"><img src="assets/images/shape/thm-shape-2.png" alt=""></div>
+            <div class="thm-shape1 float-bob"><img src="assets/frontend/images/shape/thm-shape-2.png" alt=""></div>
             <div class="container">
                 <div class="sec-title text-center">
                     <div class="sub-title">
                         <div class="inner">
                             <h3>We Change Your Life &amp; World</h3>
                         </div>
-                        <div class="outer"><img src="assets/images/icon/loveicon.png" alt=""></div>
+                        <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                     </div>
                     <h2>News & Happenings</h2>
                 </div>
@@ -1693,7 +1398,7 @@
                         <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/blog/blog-v1-1.jpg" alt="">
+                                    <img src="assets/frontend/images/blog/blog-v1-1.jpg" alt="">
                                     <div class="overlay-icon">
                                         <a href="blog-single.html"><span class="flaticon-plus"></span></a>
                                     </div>
@@ -1727,7 +1432,7 @@
                         <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/blog/blog-v1-2.jpg" alt="">
+                                    <img src="assets/frontend/images/blog/blog-v1-2.jpg" alt="">
                                     <div class="overlay-icon">
                                         <a href="blog-single.html"><span class="flaticon-plus"></span></a>
                                     </div>
@@ -1761,7 +1466,7 @@
                         <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
                                 <div class="inner">
-                                    <img src="assets/images/blog/blog-v1-3.jpg" alt="">
+                                    <img src="assets/frontend/images/blog/blog-v1-3.jpg" alt="">
                                     <div class="overlay-icon">
                                         <a href="blog-single.html"><span class="flaticon-plus"></span></a>
                                     </div>
@@ -1805,7 +1510,7 @@
                     <div class="col-xl-12">
                         <div class="top-box">
                             <div class="shape wow zoomIn" data-wow-delay="0ms" data-wow-duration="3500ms">
-                                <img class="zoom-fade" src="assets/images/shape/thm-shape-8.png" alt="">
+                                <img class="zoom-fade" src="assets/frontend/images/shape/thm-shape-8.png" alt="">
                             </div>
                             <div class="title">
                                 <h2>Become Support Partner</h2>
@@ -1821,64 +1526,64 @@
                 <ul class="partner-box partner-carousel owl-carousel owl-theme owl-dot-style1">
                     <!--Start Single Partner Logo Box-->
                     <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-1.png" alt="Awesome Image"></a>
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-1.png" alt="Awesome Image"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-2.png" alt="Awesome Image"></a>
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-2.png" alt="Awesome Image"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-3.png" alt="Awesome Image"></a>
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-3.png" alt="Awesome Image"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-4.png" alt="Awesome Image"></a>
-                    </li>
-                    <!--End Single Partner Logo Box-->
-
-                    <!--Start Single Partner Logo Box-->
-                    <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-1.png" alt="Awesome Image"></a>
-                    </li>
-                    <!--End Single Partner Logo Box-->
-                    <!--Start Single Partner Logo Box-->
-                    <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-2.png" alt="Awesome Image"></a>
-                    </li>
-                    <!--End Single Partner Logo Box-->
-                    <!--Start Single Partner Logo Box-->
-                    <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-3.png" alt="Awesome Image"></a>
-                    </li>
-                    <!--End Single Partner Logo Box-->
-                    <!--Start Single Partner Logo Box-->
-                    <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-4.png" alt="Awesome Image"></a>
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-4.png" alt="Awesome Image"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
 
                     <!--Start Single Partner Logo Box-->
                     <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-1.png" alt="Awesome Image"></a>
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-1.png" alt="Awesome Image"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-2.png" alt="Awesome Image"></a>
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-2.png" alt="Awesome Image"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-3.png" alt="Awesome Image"></a>
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-3.png" alt="Awesome Image"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
                     <!--Start Single Partner Logo Box-->
                     <li class="single-partner-logo-box">
-                        <a href="#"><img src="assets/images/brand/brand-logo-4.png" alt="Awesome Image"></a>
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-4.png" alt="Awesome Image"></a>
+                    </li>
+                    <!--End Single Partner Logo Box-->
+
+                    <!--Start Single Partner Logo Box-->
+                    <li class="single-partner-logo-box">
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-1.png" alt="Awesome Image"></a>
+                    </li>
+                    <!--End Single Partner Logo Box-->
+                    <!--Start Single Partner Logo Box-->
+                    <li class="single-partner-logo-box">
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-2.png" alt="Awesome Image"></a>
+                    </li>
+                    <!--End Single Partner Logo Box-->
+                    <!--Start Single Partner Logo Box-->
+                    <li class="single-partner-logo-box">
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-3.png" alt="Awesome Image"></a>
+                    </li>
+                    <!--End Single Partner Logo Box-->
+                    <!--Start Single Partner Logo Box-->
+                    <li class="single-partner-logo-box">
+                        <a href="#"><img src="assets/frontend/images/brand/brand-logo-4.png" alt="Awesome Image"></a>
                     </li>
                     <!--End Single Partner Logo Box-->
 
