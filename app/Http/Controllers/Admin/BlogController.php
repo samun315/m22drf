@@ -26,7 +26,7 @@ class BlogController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
+        $categories = DB::table('categories')->orderBy('id', 'DESC')->get();
 
         return view('admin.blog.form', compact('categories'));
     }
@@ -35,15 +35,16 @@ class BlogController extends Controller
     {
 
         $input                  = $request->all();
+        $input['category_id']    = $request->category_name;
         $input['created_by']    = session('logged_session_data.id');
         $input['created_at']    = Carbon::now();
 
-        $blogImage = $request->file('image');
+        $blogImage = $request->file('banner_img');
 
         if ($blogImage) {
-            $imgName = md5(Str::random(30) . time() . '_' . $request->file('image')) . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('uploads/blog/', $imgName);
-            $input['image'] = $imgName;
+            $imgName = md5(Str::random(30) . time() . '_' . $request->file('banner_img')) . '.' . $request->file('banner_img')->getClientOriginalExtension();
+            $request->file('banner_img')->move('uploads/blog/', $imgName);
+            $input['banner_img'] = $imgName;
         }
 
         try {
@@ -59,7 +60,9 @@ class BlogController extends Controller
 
     public function edit($id)
     {
+        $data['categories'] = DB::table('categories')->orderBy('id', 'DESC')->get();
         $data['editModeData'] = Blog::findOrFail($id);
+
         return view('admin.blog.form', $data);
     }
 
@@ -70,17 +73,17 @@ class BlogController extends Controller
         $input['updated_by']    = session('logged_session_data.id');
         $input['updated_at']    = Carbon::now();
 
-        $blogImage = $request->file('image');
+        $blogImage = $request->file('banner_img');
 
         if ($blogImage) {
-            $imgName = md5(Str::random(30) . time() . '_' . $request->file('image')) . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('uploads/blog/', $imgName);
+            $imgName = md5(Str::random(30) . time() . '_' . $request->file('banner_img')) . '.' . $request->file('banner_img')->getClientOriginalExtension();
+            $request->file('banner_img')->move('uploads/blog/', $imgName);
 
-            if (file_exists('uploads/blog/' . $blog->image) && !empty($blog->image)) {
-                unlink('uploads/blog/' . $blog->image);
+            if (file_exists('uploads/blog/' . $blog->banner_img) && !empty($blog->banner_img)) {
+                unlink('uploads/blog/' . $blog->banner_img);
             }
 
-            $input['image'] = $imgName;
+            $input['banner_img'] = $imgName;
         }
 
         try {

@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('title', 'Blog List')
-@section('toolbarTitle', 'Blog List')
+@section('title', 'Manage Blog')
+@section('toolbarTitle', 'Manage Blog')
 
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -24,7 +24,7 @@
                                         fill="#000000" opacity="0.3"></rect>
                                 </g>
                             </svg>
-                            <span class="card-label fw-bolder fs-3 mb-1">Blog List</span>
+                            <span class="card-label fw-bolder fs-3 mb-1">Manage Blog</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
@@ -56,7 +56,7 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
-                                    <th>Image</th>
+                                    <th>Banner Image</th>
                                     <th>Category Name</th>
                                     <th>Title</th>
                                     <th>Description</th>
@@ -73,11 +73,11 @@
                                         <td> {{ $loop->iteration }} </td>
                                         <td>
                                             <img style="width: 80px; height: 80px; border-radius: 50%"
-                                                src="{{ asset('uploads/blog/' . $value->image) }}" alt="">
+                                                src="{{ asset('uploads/blog/' . $value->banner_img) }}" alt="">
                                         </td>
                                         <td> {{ $value->category_name }} </td>
                                         <td> {{ $value->title }} </td>
-                                        <td> {{ $value->description }} </td>
+                                        <td> {{ $value->details }} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 
@@ -97,7 +97,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.category.edit', $value->id) }}"
+                                            <a href="{{ route('admin.blog.edit', $value->id) }}"
                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -135,15 +135,15 @@
 @section('page_scripts')
 
     <script>
-        function updateStatus(status, category_id) {
+        function updateStatus(status, blog_id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.category.update.status') }}",
+                url: "{{ route('admin.blog.update.status') }}",
                 data: {
-                    category_id: category_id,
+                    blog_id: blog_id,
                     status: status,
                     _token: v_token
                 },
@@ -153,7 +153,7 @@
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Category status successfully updated.',
+                        title: 'Blog status successfully updated.',
                         showConfirmButton: false,
                         timer: 1500
                     })

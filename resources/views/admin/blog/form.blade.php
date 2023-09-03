@@ -50,7 +50,7 @@
                                     </g>
                                 </svg>
                             </span>
-                            Blog List
+                            Manage Blog
                         </a>
                     </div>
                 </div>
@@ -92,28 +92,28 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Name</label>
+                                <label class="required fs-5 fw-bold mb-2">Title</label>
                                 <input type="text"
-                                    class="form-control form-control-solid @error('name') is-invalid @enderror"
-                                    placeholder="Enter name" name="name"
-                                    value="{{ $editModeData->name ?? old('name') }}" />
-                                @error('name')
+                                    class="form-control form-control-solid @error('title') is-invalid @enderror"
+                                    placeholder="Enter title" name="title"
+                                    value="{{ $editModeData->title ?? old('title') }}" />
+                                @error('title')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="fs-5 fw-bold mb-2">Image (if any)</label>
+                                <label class="fs-5 fw-bold mb-2">Banner Image</label>
                                 <input type="file"
-                                    class="form-control form-control-solid @error('image') is-invalid @enderror"
-                                    name="image" />
+                                    class="form-control form-control-solid @error('banner_img') is-invalid @enderror"
+                                    name="banner_img" />
 
-                                @isset($editModeData->image)
-                                    <a target="_blank" href="{{ asset('uploads/blog/' . $editModeData->image) }}">View
+                                @isset($editModeData->banner_img)
+                                    <a target="_blank" href="{{ asset('uploads/blog/' . $editModeData->banner_img) }}">View
                                         Image</a>
                                 @endisset
 
-                                @error('image')
+                                @error('banner_img')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -131,6 +131,15 @@
                                     </option>
                                 </select>
                                 @error('status')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-12 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Details</label>
+                                <textarea class="form-control form-control-solid" placeholder="Enter details" name="details"
+                                    data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
+                                @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
