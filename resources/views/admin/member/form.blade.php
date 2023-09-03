@@ -1,11 +1,11 @@
 @extends('admin.master')
 
 @if (isset($editModeData))
-    @section('title', 'Edit Project')
-    @section('toolbarTitle', 'Edit Project')
+    @section('title', 'Edit Member')
+    @section('toolbarTitle', 'Edit Member')
 @else
-    @section('title', 'Create Project')
-    @section('toolbarTitle', 'Create Project')
+    @section('title', 'Create Member')
+    @section('toolbarTitle', 'Create Member')
 @endif
 
 @section('main-content')
@@ -30,11 +30,11 @@
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
-                                Project</span>
+                                Member</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.project.index') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.member.index') }}" class="btn btn-sm btn-light-success">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@
                                     </g>
                                 </svg>
                             </span>
-                            Manage Project
+                            Manage Member
                         </a>
                     </div>
                 </div>
@@ -62,14 +62,14 @@
                     @include('message')
 
                     <!--begin::Form-->
-                    <form class="form" method="POST" id="kt_project_form" enctype="multipart/form-data"
-                        action="{{ isset($editModeData) ? route('admin.project.update', $editModeData->id) : route('admin.project.store') }}">
+                    <form class="form" method="POST" id="kt_member_form" enctype="multipart/form-data"
+                        action="{{ isset($editModeData) ? route('admin.member.update', $editModeData->id) : route('admin.member.store') }}">
                         @csrf
 
                         @isset($editModeData)
                             @method('PUT')
 
-                            <input type="text" hidden name="project_id" value="{{ $editModeData->id }}">
+                            <input type="text" hidden name="member_id" value="{{ $editModeData->id }}">
                         @endisset
 
                         <div class="row mb-5">
@@ -110,16 +110,15 @@
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Banner Image</label>
                                 <input type="file"
-                                    class="form-control form-control-solid @error('banner_img') is-invalid @enderror"
-                                    name="banner_img" />
+                                    class="form-control form-control-solid @error('image') is-invalid @enderror"
+                                    name="image" />
 
-                                @isset($editModeData->banner_img)
-                                    <a target="_blank"
-                                        href="{{ asset('uploads/project/' . $editModeData->banner_img) }}">View
+                                @isset($editModeData->image)
+                                    <a target="_blank" href="{{ asset('uploads/member/' . $editModeData->image) }}">View
                                         Image</a>
                                 @endisset
 
-                                @error('banner_img')
+                                @error('image')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -172,7 +171,7 @@
     <script>
         var i;
 
-        i = document.querySelector("#kt_project_form");
+        i = document.querySelector("#kt_member_form");
 
         $(i.querySelector('[name="deadline"]')).flatpickr({
             dateFormat: "Y-m-d"

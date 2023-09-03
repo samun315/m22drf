@@ -1,4 +1,4 @@
-<div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside"
+<div id="kt_aside" class="aside aside-light aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside"
     data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true"
     data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start"
     data-kt-drawer-toggle="#kt_aside_mobile_toggle">
@@ -50,7 +50,7 @@
                     <a class="menu-link {{ request()->is('dashboard') ? 'active' : '' }}"
                         href="{{ url('/dashboard') }}">
                         <span class="menu-icon">
-                            <i class="text-white bi bi-grid fs-3"></i>
+                            <i class="bi bi-grid fs-3"></i>
                         </span>
                         <span class="menu-title">Dashboard</span>
                     </a>
@@ -60,9 +60,19 @@
                     <a class="menu-link {{ request()->is('project/*') ? 'active' : '' }}"
                         href="{{ route('admin.project.index') }}">
                         <span class="menu-icon">
-                            <i class="text-white bi bi-hdd-stack fs-2"></i>
+                            <i class="bi bi-hdd-stack fs-2"></i>
                         </span>
                         <span class="menu-title">Manage Project</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('member/*') ? 'active' : '' }}"
+                        href="{{ route('admin.member.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-people fs-2"></i>
+                        </span>
+                        <span class="menu-title">Manage Member</span>
                     </a>
                 </div>
 
@@ -70,7 +80,7 @@
                     <a class="menu-link {{ request()->is('event/*') ? 'active' : '' }}"
                         href="{{ route('admin.event.index') }}">
                         <span class="menu-icon">
-                            <i class="text-white bi bi-hdd-stack fs-2"></i>
+                            <i class="bi bi-hdd-stack fs-2"></i>
                         </span>
                         <span class="menu-title">Manage Event</span>
                     </a>
@@ -86,7 +96,7 @@
                     <a class="menu-link {{ request()->is('category/*') ? 'active' : '' }}"
                         href="{{ route('admin.category.index') }}">
                         <span class="menu-icon">
-                            <i class="text-white bi bi-hdd-stack fs-2"></i>
+                            <i class="bi bi-hdd-stack fs-2"></i>
                         </span>
                         <span class="menu-title">Manage Category</span>
                     </a>
@@ -96,7 +106,7 @@
                     <a class="menu-link {{ request()->is('blog/*') ? 'active' : '' }}"
                         href="{{ route('admin.blog.index') }}">
                         <span class="menu-icon">
-                            <i class="text-white bi bi-hdd-stack fs-2"></i>
+                            <i class="bi bi-hdd-stack fs-2"></i>
                         </span>
                         <span class="menu-title">Manage Blog</span>
                     </a>
@@ -112,7 +122,7 @@
                     class="menu-item menu-accordion {{ request()->is('access-control/*') ? 'show' : '' }}">
                     <span class="menu-link">
                         <span class="menu-icon">
-                            <i class="text-white bi bi-people fs-3"></i>
+                            <i class="bi bi-people fs-3"></i>
                         </span>
                         <span class="menu-title">Access Control</span>
                         <span class="menu-arrow"></span>

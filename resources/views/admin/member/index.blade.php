@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('title', 'Manage Project')
-@section('toolbarTitle', 'Manage Project')
+@section('title', 'Manage Member')
+@section('toolbarTitle', 'Manage Member')
 
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -24,11 +24,11 @@
                                         fill="#000000" opacity="0.3"></rect>
                                 </g>
                             </svg>
-                            <span class="card-label fw-bolder fs-3 mb-1">Manage Project</span>
+                            <span class="card-label fw-bolder fs-3 mb-1">Manage Member</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.project.create') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.member.create') }}" class="btn btn-sm btn-light-success">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
@@ -137,15 +137,15 @@
 @section('page_scripts')
 
     <script>
-        function updateStatus(status, project_id) {
+        function updateStatus(status, member_id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.project.update.status') }}",
+                url: "{{ route('admin.member.update.status') }}",
                 data: {
-                    project_id: project_id,
+                    member_id: member_id,
                     status: status,
                     _token: v_token
                 },
@@ -155,7 +155,7 @@
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Project status successfully updated.',
+                        title: 'Member status successfully updated.',
                         showConfirmButton: false,
                         timer: 1500
                     })

@@ -52,7 +52,7 @@ class EventController extends Controller
     public function edit($id)
     {
         $data['editModeData'] = Event::findOrFail($id);
-        return view('admin.projects.form', $data);
+        return view('admin.event.form', $data);
     }
 
     public function update(EventRequest $request, $id)

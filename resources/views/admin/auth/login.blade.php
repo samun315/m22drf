@@ -72,7 +72,7 @@
                             <!--begin::Heading-->
                             <div class="text-center mb-10">
                                 <!--begin::Title-->
-                                <h1 class="text-dark mb-3">Sign In to Idea Agromart</h1>
+                                <h1 class="text-dark mb-3">Sign In to M22 Doctors Foundation</h1>
                                 <!--end::Title-->
                             </div>
                             <!--begin::Heading-->

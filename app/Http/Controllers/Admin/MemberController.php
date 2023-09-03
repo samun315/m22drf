@@ -3,37 +3,38 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProjectRequest;
-use App\Models\Project;
+use App\Http\Requests\MemberRequest;
+use App\Models\Member;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class MemberController extends Controller
 {
     public function index()
     {
-        $results = Project::orderBy('id', 'DESC')->paginate(10);
+        $results = Member::orderBy('id', 'DESC')->paginate(10);
 
-        return view('admin.project.index', ['results' => $results]);
+        return view('admin.member.index', ['results' => $results]);
     }
 
     public function create()
     {
-        return view('admin.project.form');
+        return view('admin.member.form');
     }
 
-    public function store(ProjectRequest $request)
+    public function store(MemberRequest $request)
     {
+
         $input                  = $request->all();
         $input['created_by']    = session('logged_session_data.id');
         $input['created_at']    = Carbon::now();
 
-        $projectImage = $request->file('banner_img');
+        $memberImage = $request->file('banner_img');
 
-        if ($projectImage) {
+        if ($memberImage) {
             $imgName = md5(Str::random(30) . time() . '_' . $request->file('banner_img')) . '.' . $request->file('banner_img')->getClientOriginalExtension();
-            $request->file('banner_img')->move('uploads/project/', $imgName);
+            $request->file('banner_img')->move('uploads/member/', $imgName);
             $input['banner_img'] = $imgName;
         }
 
@@ -41,8 +42,8 @@ class ProjectController extends Controller
 
             unset($input['_token']);
 
-            Project::create($input);
-            return redirect()->back()->with('success', 'Project created successfully.');
+            Member::create($input);
+            return redirect()->back()->with('success', 'Member created successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -50,33 +51,33 @@ class ProjectController extends Controller
 
     public function edit($id)
     {
-        $data['editModeData'] = Project::findOrFail($id);
-        return view('admin.project.form', $data);
+        $data['editModeData'] = Member::findOrFail($id);
+        return view('admin.member.form', $data);
     }
 
-    public function update(ProjectRequest $request, $id)
+    public function update(MemberRequest $request, $id)
     {
-        $project                = Project::findOrFail($id);
+        $member                = Member::findOrFail($id);
         $input                  = $request->all();
         $input['updated_by']    = session('logged_session_data.id');
         $input['updated_at']    = Carbon::now();
 
-        $projectImage = $request->file('banner_img');
+        $memberImage = $request->file('banner_img');
 
-        if ($projectImage) {
+        if ($memberImage) {
             $imgName = md5(Str::random(30) . time() . '_' . $request->file('banner_img')) . '.' . $request->file('banner_img')->getClientOriginalExtension();
-            $request->file('banner_img')->move('uploads/project/', $imgName);
+            $request->file('banner_img')->move('uploads/member/', $imgName);
 
-            if (file_exists('uploads/project/' . $project->banner_img) && !empty($project->banner_img)) {
-                unlink('uploads/project/' . $project->banner_img);
+            if (file_exists('uploads/member/' . $member->banner_img) && !empty($member->banner_img)) {
+                unlink('uploads/member/' . $member->banner_img);
             }
 
             $input['banner_img'] = $imgName;
         }
 
         try {
-            $project->update($input);
-            return redirect(route('admin.project.index'))->with('success', 'Project updated successfully.');
+            $member->update($input);
+            return redirect(route('admin.member.index'))->with('success', 'Member updated successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -84,7 +85,7 @@ class ProjectController extends Controller
 
     public function updateStatus(Request $request)
     {
-        $data = Project::findOrFail($request->project_id);
+        $data = Member::findOrFail($request->member_id);
         $input['status'] = $request->status;
 
         try {

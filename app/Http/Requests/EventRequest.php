@@ -22,13 +22,13 @@ class EventRequest extends FormRequest
      */
     public function rules(): array
     {
-        if (isset($this->category_id)) {
+        if (isset($this->event_id)) {
 
             return [
-                'title'         => ['required', Rule::unique('events')->ignore($this->category_id)],
+                'title'         => ['required', Rule::unique('events')->ignore($this->event_id)],
                 'details'       => 'required',
                 'date'          => 'required',
-                'banner_img'    => 'required',
+                // 'banner_img'    => 'required',
                 'status'        => 'required',
             ];
         }

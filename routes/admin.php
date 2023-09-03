@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,6 +29,16 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{event_id}/edit', [EventController::class, 'edit'])->name('admin.event.edit');
         Route::put('/{event_id}/update', [EventController::class, 'update'])->name('admin.event.update');
         Route::put('/update-status', [EventController::class, 'updateStatus'])->name('admin.event.update.status');
+    });
+
+    //member
+    Route::group(['prefix' => 'member'], function () {
+        Route::get('/index', [MemberController::class, 'index'])->name('admin.member.index');
+        Route::get('/create', [MemberController::class, 'create'])->name('admin.member.create');
+        Route::post('/store', [MemberController::class, 'store'])->name('admin.member.store');
+        Route::get('/{member_id}/edit', [MemberController::class, 'edit'])->name('admin.member.edit');
+        Route::put('/{member_id}/update', [MemberController::class, 'update'])->name('admin.member.update');
+        Route::put('/update-status', [MemberController::class, 'updateStatus'])->name('admin.member.update.status');
     });
 
     //category

@@ -22,14 +22,14 @@ class ProjectRequest extends FormRequest
      */
     public function rules(): array
     {
-        if (isset($this->category_id)) {
+        if (isset($this->project_id)) {
 
             return [
-                'title'         => ['required', Rule::unique('projects')->ignore($this->category_id)],
+                'title'         => ['required', Rule::unique('projects')->ignore($this->project_id)],
                 'details'       => 'required',
                 'deadline'      => 'required',
                 'budget'        => 'required',
-                'banner_img'    => 'required',
+                // 'banner_img'    => 'required',
                 'status'        => 'required',
             ];
         }

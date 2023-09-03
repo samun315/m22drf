@@ -156,13 +156,7 @@
     </div>
 @endsection
 
-
 @section('page_scripts')
-
-    <script
-        src="{{ asset('assets/backend/plugins/custom/momentjs/cdnjs.cloudflare.com_ajax_libs_moment.js_2.29.3_moment.min.js') }}">
-    </script>
-
     <script>
         var i;
 
