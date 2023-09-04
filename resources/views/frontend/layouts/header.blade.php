@@ -77,7 +77,7 @@
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
                                     <li class="current"><a href="/">Home</a></li>
-                                    <li><a href="#">About</a></li>
+                                    <li><a href="/about-us">About</a></li>
                                     <li><a href="/project">Project</a></li>
                                     <li><a href="/event">Event</a></li>
                                     <li><a href="/blog">Blog</a></li>
