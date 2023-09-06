@@ -20,7 +20,9 @@ class FrontendController extends Controller
 
     public function event()
     {
-        return view('frontend.event.index');
+        $results = DB::table('events')->orderBy('id', 'DESC')->paginate(10);
+
+        return view('frontend.event.index', compact('results'));
     }
 
     public function eventDetails($event_id)
@@ -37,7 +39,9 @@ class FrontendController extends Controller
 
     public function project()
     {
-        return view('frontend.project.index');
+        $results = DB::table('projects')->orderBy('id', 'DESC')->paginate(10);
+
+        return view('frontend.project.index', compact('results'));
     }
 
     public function projectDetails($project_id)
@@ -49,7 +53,9 @@ class FrontendController extends Controller
 
     public function blog()
     {
-        return view('frontend.blog.index');
+        $results = DB::table('blogs')->orderBy('id', 'DESC')->paginate(10);
+
+        return view('frontend.blog.index', compact('results'));
     }
 
     public function blogDetails($blog_id)
