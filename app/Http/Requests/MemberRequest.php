@@ -22,12 +22,12 @@ class MemberRequest extends FormRequest
      */
     public function rules(): array
     {
-        if (isset($this->memebr_id)) {
+        if (isset($this->user_id)) {
 
             return [
                 'name'                          => 'required',
-                'email'                         => ['required', Rule::unique('users')->ignore($this->memebr_id)],
-                'phone_number'                  => ['required', Rule::unique('users')->ignore($this->memebr_id)],
+                'email'                         => ['required', Rule::unique('users')->ignore($this->user_id)],
+                'phone_number'                  => ['required', Rule::unique('users')->ignore($this->user_id)],
                 'present_job'                   => 'required',
                 'date_of_bith'                  => 'required',
                 'spouse_name'                   => 'required',
@@ -40,7 +40,7 @@ class MemberRequest extends FormRequest
                 'extra_curicular_activities'    => 'required',
                 'lifetime_achievement'          => 'required',
                 'special_occasions'             => 'required',
-                'passport_photo'                => 'required',
+                // 'passport_photo'                => 'required',
                 'status'                        => 'required'
             ];
         }

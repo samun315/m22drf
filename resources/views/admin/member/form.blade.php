@@ -70,6 +70,7 @@
                             @method('PUT')
 
                             <input type="text" hidden name="member_id" value="{{ $editModeData->id }}">
+                            <input type="text" hidden name="user_id" value="{{ $editModeData->user_id }}">
                         @endisset
 
                         <div class="row mb-5">

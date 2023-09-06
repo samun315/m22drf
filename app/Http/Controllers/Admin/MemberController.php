@@ -70,7 +70,7 @@ class MemberController extends Controller
     public function edit($id)
     {
         $editModeData =  DB::table('member_details as a')
-            ->select('a.*', 'b.name', 'b.email', 'b.phone_number',)
+            ->select('a.*', 'b.id as user_id', 'b.name', 'b.email', 'b.phone_number',)
             ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
             ->where('a.id', $id)
             ->first();
