@@ -25,7 +25,7 @@
                                     <h5>Support: <a href="tel:+11987654321">1-206-156 7849</a></h5>
                                     <div class="email">
                                         <p><a href="mailto:info@templatepath.com">Email:
-                                                info@love-icon.org</a>
+                                                info@m22charity.org</a>
                                         </p>
                                     </div>
                                 </div>
@@ -60,10 +60,10 @@
                             <h3>About Us</h3>
                         </div>
                         <ul class="footer-widget-links1">
-                            <li><a href="blog.html">About Us</a></li>
+                            <li><a href="/about">About Us</a></li>
                             <li><a href="#">Where We Work</a></li>
                             <li><a href="3">Our History</a></li>
-                            <li><a href="#">Latest News</a></li>
+                            <li><a href="/blog">Latest Blog</a></li>
                             <li><a href="#">Become Volunteer</a></li>
                         </ul>
                     </div>
@@ -114,7 +114,7 @@
         <div class="auto-container">
             <div class="footer-bottom_content_box text-center">
                 <div class="copyright-text">
-                    <p>&copy; 2022 <a href="#">LoveIcon</a> Charity Theme. All rights reserved.</p>
+                    <p>&copy; {{ date('Y') }} <a href="#">M22 Charity.</a> All rights reserved.</p>
                 </div>
                 <div class="footer-social-link">
                     <ul class="social-links-style1">

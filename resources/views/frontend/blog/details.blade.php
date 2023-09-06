@@ -2,7 +2,7 @@
 
 @section('frontend_main_content')
     <!--Start breadcrumb area-->
-    <section class="breadcrumb-area" style="background-image: url(assets/frontend/images/breadcrumb/breadcrumb-1.jpg);">
+    <section class="breadcrumb-area" style="background-image: url(/assets/frontend/images/breadcrumb/breadcrumb-1.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -10,14 +10,18 @@
                         <div class="parallax-scene parallax-scene-1">
                             <div data-depth="0.20" class="parallax-layer shape wow zoomInRight" data-wow-duration="2000ms">
                                 <div class="shape1">
-                                    <img class="float-bob" src="assets/frontend/images/shape/breadcrumb-shape1.png" alt="">
+                                    <img class="float-bob"
+                                        src="{{ asset('assets/frontend/images/shape/breadcrumb-shape1.png') }}"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="parallax-scene parallax-scene-1">
                             <div data-depth="0.20" class="parallax-layer shape wow zoomInRight" data-wow-duration="2000ms">
                                 <div class="shape2">
-                                    <img class="zoominout" src="assets/frontend/images/shape/breadcrumb-shape2.png" alt="">
+                                    <img class="zoominout"
+                                        src="{{ asset('assets/frontend/images/shape/breadcrumb-shape2.png') }}"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
@@ -88,7 +92,8 @@
                                         <h3>Why Donate with LoveIcon</h3>
                                         <div class="blog-details-title-shape wow zoomIn animated"
                                             data-wow-duration="2000ms">
-                                            <img class="zoom-fade" src="assets/frontend/images/shape/cause-details-title-shape.png"
+                                            <img class="zoom-fade"
+                                                src="assets/frontend/images/shape/cause-details-title-shape.png"
                                                 alt="">
                                         </div>
                                     </div>
@@ -101,7 +106,8 @@
                                             <div class="col-xl-6">
                                                 <div class="single-box">
                                                     <div class="icon">
-                                                        <img src="assets/frontend/images/icon/cause/cause-1.png" alt="">
+                                                        <img src="assets/frontend/images/icon/cause/cause-1.png"
+                                                            alt="">
                                                         <div class="icon-bg">
                                                             <img src="assets/frontend/images/icon/cause/cause-1-bg.png"
                                                                 alt="">
@@ -115,7 +121,8 @@
                                                 </div>
                                                 <div class="single-box">
                                                     <div class="icon">
-                                                        <img src="assets/frontend/images/icon/cause/cause-3.png" alt="">
+                                                        <img src="assets/frontend/images/icon/cause/cause-3.png"
+                                                            alt="">
                                                         <div class="icon-bg">
                                                             <img src="assets/frontend/images/icon/cause/cause-3-bg.png"
                                                                 alt="">
@@ -129,7 +136,8 @@
                                                 </div>
                                                 <div class="single-box">
                                                     <div class="icon">
-                                                        <img src="assets/frontend/images/icon/cause/cause-4.png" alt="">
+                                                        <img src="assets/frontend/images/icon/cause/cause-4.png"
+                                                            alt="">
                                                         <div class="icon-bg">
                                                             <img src="assets/frontend/images/icon/cause/cause-4-bg.png"
                                                                 alt="">
@@ -145,7 +153,8 @@
 
                                             <div class="col-xl-6">
                                                 <div class="img-box">
-                                                    <img src="assets/frontend/images/blog/blog-details-2.jpg" alt="">
+                                                    <img src="assets/frontend/images/blog/blog-details-2.jpg"
+                                                        alt="">
                                                 </div>
                                             </div>
 
@@ -160,7 +169,8 @@
                                         <h3>The Challenge</h3>
                                         <div class="blog-details-title-shape wow zoomIn animated"
                                             data-wow-duration="2000ms">
-                                            <img class="zoom-fade" src="assets/frontend/images/shape/cause-details-title-shape.png"
+                                            <img class="zoom-fade"
+                                                src="assets/frontend/images/shape/cause-details-title-shape.png"
                                                 alt="">
                                         </div>
                                     </div>
@@ -254,7 +264,8 @@
                                 <div class="single-comments-box">
                                     <div class="img_box">
                                         <div class="inner">
-                                            <img src="assets/frontend/images/resources/review-1.png" alt="Image">
+                                            <img src="{{ asset('assets/frontend/images/resources/review-1.png') }}"
+                                                alt="Image">
                                         </div>
                                     </div>
                                     <div class="text_box">
@@ -286,7 +297,8 @@
                                 <div class="single-comments-box">
                                     <div class="img_box">
                                         <div class="inner">
-                                            <img src="assets/frontend/images/resources/review-2.png" alt="Image">
+                                            <img src="{{ asset('assets/frontend/images/resources/review-2.png') }}"
+                                                alt="Image">
                                         </div>
                                     </div>
                                     <div class="text_box">
@@ -366,7 +378,8 @@
                         <div class="single-sidebar-box">
                             <div class="sidebar-author-box text-center">
                                 <div class="img-holder">
-                                    <img src="assets/frontend/images/resources/sidebar-author-1.png" alt="">
+                                    <img src="{{ asset('assets/frontend/images/resources/sidebar-author-1.png') }}"
+                                        alt="">
                                 </div>
                                 <div class="title-holder">
                                     <h3>Saima Hayden</h3>
@@ -433,7 +446,8 @@
                                     <li>
                                         <div class="inner">
                                             <div class="img-box">
-                                                <img src="assets/frontend/images/sidebar/campaigns-1.jpg" alt="Awesome Image">
+                                                <img src="{{ asset('assets/frontend/images/sidebar/campaigns-1.jpg') }}"
+                                                    alt="Awesome Image">
                                                 <div class="overlay-content">
                                                     <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
                                                 </div>
@@ -447,7 +461,8 @@
                                     <li>
                                         <div class="inner">
                                             <div class="img-box">
-                                                <img src="assets/frontend/images/sidebar/campaigns-2.jpg" alt="Awesome Image">
+                                                <img src="{{ asset('assets/frontend/images/sidebar/campaigns-2.jpg') }}"
+                                                    alt="Awesome Image">
                                                 <div class="overlay-content">
                                                     <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
                                                 </div>
@@ -461,7 +476,8 @@
                                     <li>
                                         <div class="inner">
                                             <div class="img-box">
-                                                <img src="assets/frontend/images/sidebar/campaigns-3.jpg" alt="Awesome Image">
+                                                <img src="{{ asset('assets/frontend/images/sidebar/campaigns-3.jpg') }}"
+                                                    alt="Awesome Image">
                                                 <div class="overlay-content">
                                                     <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
                                                 </div>
@@ -488,7 +504,8 @@
                                     <li>
                                         <div class="inner">
                                             <div class="img-box">
-                                                <img src="assets/frontend/images/sidebar/gallery-1.jpg" alt="Awesome Image">
+                                                <img src="{{ asset('assets/frontend/images/sidebar/gallery-1.jpg') }}"
+                                                    alt="Awesome Image">
                                                 <div class="overlay-content">
                                                     <a href="causes-details.html">
                                                         <span class="fa fa-link"></span>
@@ -500,7 +517,8 @@
                                     <li>
                                         <div class="inner">
                                             <div class="img-box">
-                                                <img src="assets/frontend/images/sidebar/gallery-2.jpg" alt="Awesome Image">
+                                                <img src="{{ asset('assets/frontend/images/sidebar/gallery-2.jpg') }}"
+                                                    alt="Awesome Image">
                                                 <div class="overlay-content">
                                                     <a href="causes-details.html">
                                                         <span class="fa fa-link"></span>
@@ -512,7 +530,8 @@
                                     <li>
                                         <div class="inner">
                                             <div class="img-box">
-                                                <img src="assets/frontend/images/sidebar/gallery-3.jpg" alt="Awesome Image">
+                                                <img src="{{ asset('assets/frontend/images/sidebar/gallery-3.jpg') }}"
+                                                    alt="Awesome Image">
                                                 <div class="overlay-content">
                                                     <a href="causes-details.html">
                                                         <span class="fa fa-link"></span>
@@ -524,7 +543,8 @@
                                     <li>
                                         <div class="inner">
                                             <div class="img-box">
-                                                <img src="assets/frontend/images/sidebar/gallery-4.jpg" alt="Awesome Image">
+                                                <img src="{{ asset('assets/frontend/images/sidebar/gallery-4.jpg') }}"
+                                                    alt="Awesome Image">
                                                 <div class="overlay-content">
                                                     <a href="causes-details.html">
                                                         <span class="fa fa-link"></span>
@@ -536,7 +556,8 @@
                                     <li>
                                         <div class="inner">
                                             <div class="img-box">
-                                                <img src="assets/frontend/images/sidebar/gallery-5.jpg" alt="Awesome Image">
+                                                <img src="{{ asset('assets/frontend/images/sidebar/gallery-5.jpg') }}"
+                                                    alt="Awesome Image">
                                                 <div class="overlay-content">
                                                     <a href="causes-details.html">
                                                         <span class="fa fa-link"></span>
@@ -548,7 +569,8 @@
                                     <li>
                                         <div class="inner">
                                             <div class="img-box">
-                                                <img src="assets/frontend/images/sidebar/gallery-6.jpg" alt="Awesome Image">
+                                                <img src="{{ asset('assets/frontend/images/sidebar/gallery-6.jpg') }}"
+                                                    alt="Awesome Image">
                                                 <div class="overlay-content">
                                                     <a href="causes-details.html">
                                                         <span class="fa fa-link"></span>
@@ -566,14 +588,15 @@
                         <!--Start Single Sidebar Box-->
                         <div class="single-sidebar-box">
                             <div class="sidebar-slogan-box"
-                                style="background-image: url(assets/frontend/images/sidebar/sidebar-slogan-img.jpg);">
+                                style="background-image: url(/assets/frontend/images/sidebar/sidebar-slogan-img.jpg);">
                                 <div class="icon">
-                                    <img src="assets/frontend/images/icon/thm-logo1.png" alt="" />
+                                    <img src="{{ asset('assets/frontend/images/icon/thm-logo1.png') }}" alt="" />
                                 </div>
                                 <p>Small Donations Bigger Impact</p>
                                 <h2>Education Health<br>for Every Child</h2>
                                 <div class="btn-box">
-                                    <div class="hand"><img src="assets/frontend/images/shape/hand.png" alt=""></div>
+                                    <div class="hand"><img src="{{ asset('assets/frontend/images/shape/hand.png') }}"
+                                            alt=""></div>
                                     <a class="btn-one" href="causes-details.html">
                                         <span class="txt"><i class="arrow1 fa fa-check-circle"></i>donate now</span>
                                     </a>

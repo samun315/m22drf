@@ -56,11 +56,15 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
-                                    <th>Banner Image</th>
-                                    <th>Title</th>
-                                    <th>Budget</th>
-                                    <th>Deadline</th>
-                                    <th>Details</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Spouse Name</th>
+                                    <th>Personal Charity</th>
+                                    <th>Philosopy Life</th>
+                                    <th>Present Address</th>
+                                    <th>Permanent Address</th>
+                                    <th>Village Address</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -72,14 +76,15 @@
                                 @foreach ($results as $value)
                                     <tr>
                                         <td> {{ $loop->iteration }} </td>
-                                        <td>
-                                            <img style="width: 80px; height: 80px; border-radius: 50%"
-                                                src="{{ asset('uploads/project/' . $value->banner_img) }}" alt="">
-                                        </td>
-                                        <td> {{ $value->title }} </td>
-                                        <td> {{ $value->budget }} </td>
-                                        <td> {{ $value->deadline }} </td>
-                                        <td> {{ $value->details }} </td>
+                                        <td> {{ $value->user_name }} </td>
+                                        <td> {{ $value->user_email }} </td>
+                                        <td> {{ $value->user_phone_number }} </td>
+                                        <td> {{ $value->spouse_name }} </td>
+                                        <td> {{ $value->personal_charity }} </td>
+                                        <td> {{ $value->philosopy_life }} </td>
+                                        <td> {{ $value->present_address }} </td>
+                                        <td> {{ $value->permanent_address }} </td>
+                                        <td> {{ $value->village_address }} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 
@@ -99,7 +104,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.project.edit', $value->id) }}"
+                                            <a href="{{ route('admin.member.edit', $value->id) }}"
                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
