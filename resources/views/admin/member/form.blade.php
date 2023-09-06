@@ -75,50 +75,176 @@
                         <div class="row mb-5">
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Title</label>
+                                <label class="required fs-5 fw-bold mb-2">Name</label>
                                 <input type="text"
-                                    class="form-control form-control-solid @error('title') is-invalid @enderror"
-                                    placeholder="Enter title" name="title"
-                                    value="{{ $editModeData->title ?? old('title') }}" />
-                                @error('title')
+                                    class="form-control form-control-solid @error('name') is-invalid @enderror"
+                                    placeholder="Enter name" name="name"
+                                    value="{{ $editModeData->name ?? old('name') }}" />
+                                @error('name')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Budget</label>
-                                <input type="text"
-                                    class="form-control form-control-solid @error('budget') is-invalid @enderror"
-                                    placeholder="Enter budget" name="budget"
-                                    value="{{ $editModeData->budget ?? old('budget') }}" />
-                                @error('budget')
+                                <label class="required fs-5 fw-bold mb-2">Email</label>
+                                <input type="email"
+                                    class="form-control form-control-solid @error('email') is-invalid @enderror"
+                                    placeholder="Enter email" name="email"
+                                    value="{{ $editModeData->email ?? old('email') }}" />
+                                @error('email')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Deadline</label>
+                                <label class="required fs-5 fw-bold mb-2">Phone Number</label>
                                 <input type="text"
-                                    class="form-control form-control-solid @error('deadline') is-invalid @enderror"
-                                    placeholder="Enter deadline" name="deadline"
-                                    value="{{ $editModeData->deadline ?? old('deadline') }}" />
-                                @error('deadline')
+                                    class="form-control form-control-solid @error('phone_number') is-invalid @enderror"
+                                    placeholder="Enter phone number" name="phone_number"
+                                    value="{{ $editModeData->phone_number ?? old('phone_number') }}" />
+                                @error('phone_number')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Banner Image</label>
+                                <label class="required fs-5 fw-bold mb-2">Present Job</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('present_job') is-invalid @enderror"
+                                    placeholder="Enter present job" name="present_job"
+                                    value="{{ $editModeData->present_job ?? old('present_job') }}" />
+                                @error('present_job')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Date Of Bith</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('date_of_bith') is-invalid @enderror"
+                                    placeholder="Enter date of bith" name="date_of_bith"
+                                    value="{{ $editModeData->date_of_bith ?? old('date_of_bith') }}" />
+                                @error('date_of_bith')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Spouse Name</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('spouse_name') is-invalid @enderror"
+                                    placeholder="Enter spouse name" name="spouse_name"
+                                    value="{{ $editModeData->spouse_name ?? old('spouse_name') }}" />
+                                @error('spouse_name')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Personal Charity</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('personal_charity') is-invalid @enderror"
+                                    placeholder="Enter personal charity" name="personal_charity"
+                                    value="{{ $editModeData->personal_charity ?? old('personal_charity') }}" />
+                                @error('personal_charity')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Philosopy Life</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('philosopy_life') is-invalid @enderror"
+                                    placeholder="Enter philosopy life" name="philosopy_life"
+                                    value="{{ $editModeData->philosopy_life ?? old('philosopy_life') }}" />
+                                @error('philosopy_life')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Present Address</label>
+                                <textarea class="form-control form-control-solid" placeholder="Enter present address" name="present_address"
+                                    data-kt-autosize="true">{{ $editModeData->present_address ?? old('present_address') }}</textarea>
+                                @error('present_address')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Permanent Address</label>
+                                <textarea class="form-control form-control-solid" placeholder="Enter permanent address" name="permanent_address"
+                                    data-kt-autosize="true">{{ $editModeData->permanent_address ?? old('permanent_address') }}</textarea>
+                                @error('permanent_address')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Village Address</label>
+                                <textarea class="form-control form-control-solid" placeholder="Enter village address" name="village_address"
+                                    data-kt-autosize="true">{{ $editModeData->village_address ?? old('village_address') }}</textarea>
+
+                                @error('village_address')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Children (Name, Education etc.)</label>
+                                <textarea class="form-control form-control-solid" placeholder="Enter children (Name, Education etc.)" name="children_details"
+                                    data-kt-autosize="true">{{ $editModeData->children_details ?? old('children_details') }}</textarea>
+                                @error('children_details')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">
+                                    Special Occasions
+                                </label>
+                                <p>(Marriage Anniversary, any memorable days, etc.)</p>
+                                <textarea class="form-control form-control-solid" placeholder="Enter special occasions" name="special_occasions"
+                                    data-kt-autosize="true">{{ $editModeData->special_occasions ?? old('special_occasions') }}</textarea>
+                                @error('special_occasions')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Extra Curicular Activities </label>
+                                <p>(Hobbies, Writting, Travelling, Singing, Gardening, etc.)</p>
+                                <textarea class="form-control form-control-solid" placeholder="Enter extra curicular activities" name="extra_curicular_activities"
+                                    data-kt-autosize="true">{{ $editModeData->extra_curicular_activities ?? old('extra_curicular_activities') }}</textarea>
+                                @error('extra_curicular_activities')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Lifetime Achievement</label>
+                                <p>(Member of parliament, Academic Awards, etc.)</p>
+                                <textarea class="form-control form-control-solid" placeholder="Enter lifetime achievement" name="lifetime_achievement"
+                                    data-kt-autosize="true">{{ $editModeData->lifetime_achievement ?? old('lifetime_achievement') }}</textarea>
+                                @error('lifetime_achievement')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-6 fw-bold mb-2">Passport Photo</label>
+                                <p>(Colored with white background)</p>
                                 <input type="file"
-                                    class="form-control form-control-solid @error('image') is-invalid @enderror"
-                                    name="image" />
+                                    class="form-control form-control-solid @error('passport_photo') is-invalid @enderror"
+                                    name="passport_photo" />
 
-                                @isset($editModeData->image)
-                                    <a target="_blank" href="{{ asset('uploads/member/' . $editModeData->image) }}">View
-                                        Image</a>
+                                @isset($editModeData->passport_photo)
+                                    <a target="_blank"
+                                        href="{{ asset('uploads/member/' . $editModeData->passport_photo) }}">View
+                                        Passport Photo</a>
                                 @endisset
 
-                                @error('image')
+                                @error('passport_photo')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -136,15 +262,6 @@
                                     </option>
                                 </select>
                                 @error('status')
-                                    <span class="text-danger mt-2">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="col-md-12 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid" placeholder="Enter details" name="details"
-                                    data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
-                                @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -173,7 +290,7 @@
 
         i = document.querySelector("#kt_member_form");
 
-        $(i.querySelector('[name="deadline"]')).flatpickr({
+        $(i.querySelector('[name="date_of_bith"]')).flatpickr({
             dateFormat: "Y-m-d"
         });
     </script>

@@ -5,9 +5,9 @@
     <!--begin::Brand-->
     <div class="aside-logo flex-column-auto" id="kt_aside_logo">
         <!--begin::Logo-->
-        <a href="{{ url('/dashboard') }}" class="text-white">
-            <img style="height: 45px" src="{{ asset('assets/frontend/images/logo.png') }}" alt="logo">
-            {{-- Ideaagromart --}}
+        <a href="{{ url('/dashboard') }}" class="text-black">
+            {{-- <img style="height: 45px" src="{{ asset('assets/frontend/images/logo.png') }}" alt="logo"> --}}
+            M22 Charity
         </a>
         <!--end::Logo-->
         <!--begin::Aside toggler-->
@@ -50,7 +50,7 @@
                     <a class="menu-link {{ request()->is('dashboard') ? 'active' : '' }}"
                         href="{{ url('/dashboard') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-grid fs-3"></i>
+                            <i class="bi bi-grid fs-3 text-success"></i>
                         </span>
                         <span class="menu-title">Dashboard</span>
                     </a>
@@ -60,7 +60,7 @@
                     <a class="menu-link {{ request()->is('project/*') ? 'active' : '' }}"
                         href="{{ route('admin.project.index') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-hdd-stack fs-2"></i>
+                            <i class="bi bi-printer fs-3 text-info"></i>
                         </span>
                         <span class="menu-title">Manage Project</span>
                     </a>
@@ -70,7 +70,7 @@
                     <a class="menu-link {{ request()->is('member/*') ? 'active' : '' }}"
                         href="{{ route('admin.member.index') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-people fs-2"></i>
+                            <i class="bi bi-people fs-3 text-success"></i>
                         </span>
                         <span class="menu-title">Manage Member</span>
                     </a>
@@ -80,7 +80,7 @@
                     <a class="menu-link {{ request()->is('event/*') ? 'active' : '' }}"
                         href="{{ route('admin.event.index') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-hdd-stack fs-2"></i>
+                            <i class="bi bi-calendar3-event fs-3 text-warning"></i>
                         </span>
                         <span class="menu-title">Manage Event</span>
                     </a>
@@ -96,7 +96,7 @@
                     <a class="menu-link {{ request()->is('category/*') ? 'active' : '' }}"
                         href="{{ route('admin.category.index') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-hdd-stack fs-2"></i>
+                            <i class="bi bi-clipboard-databi bi-clipboard-data fs-3 text-success"></i>
                         </span>
                         <span class="menu-title">Manage Category</span>
                     </a>
@@ -106,7 +106,7 @@
                     <a class="menu-link {{ request()->is('blog/*') ? 'active' : '' }}"
                         href="{{ route('admin.blog.index') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-hdd-stack fs-2"></i>
+                            <i class="bi bi-shield-check fs-3 text-info"></i>
                         </span>
                         <span class="menu-title">Manage Blog</span>
                     </a>
@@ -122,7 +122,7 @@
                     class="menu-item menu-accordion {{ request()->is('access-control/*') ? 'show' : '' }}">
                     <span class="menu-link">
                         <span class="menu-icon">
-                            <i class="bi bi-people fs-3"></i>
+                            <i class="bi bi-sticky fs-3 text-danger"></i>
                         </span>
                         <span class="menu-title">Access Control</span>
                         <span class="menu-arrow"></span>

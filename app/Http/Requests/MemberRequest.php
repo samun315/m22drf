@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class MemberRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class MemberRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +22,47 @@ class MemberRequest extends FormRequest
      */
     public function rules(): array
     {
+        if (isset($this->memebr_id)) {
+
+            return [
+                'name'                          => 'required',
+                'email'                         => ['required', Rule::unique('users')->ignore($this->memebr_id)],
+                'phone_number'                  => ['required', Rule::unique('users')->ignore($this->memebr_id)],
+                'present_job'                   => 'required',
+                'date_of_bith'                  => 'required',
+                'spouse_name'                   => 'required',
+                'personal_charity'              => 'required',
+                'philosopy_life'                => 'required',
+                'present_address'               => 'required',
+                'permanent_address'             => 'required',
+                'village_address'               => 'required',
+                'children_details'              => 'required',
+                'extra_curicular_activities'    => 'required',
+                'lifetime_achievement'          => 'required',
+                'special_occasions'             => 'required',
+                'passport_photo'                => 'required',
+                'status'                        => 'required'
+            ];
+        }
+
         return [
-            //
+            'name'                          => 'required',
+            'email'                         => 'required|unique:users,email',
+            'phone_number'                  => 'required|unique:users,phone_number',
+            'present_job'                   => 'required',
+            'date_of_bith'                  => 'required',
+            'spouse_name'                   => 'required',
+            'personal_charity'              => 'required',
+            'philosopy_life'                => 'required',
+            'present_address'               => 'required',
+            'permanent_address'             => 'required',
+            'village_address'               => 'required',
+            'children_details'              => 'required',
+            'extra_curicular_activities'    => 'required',
+            'lifetime_achievement'          => 'required',
+            'special_occasions'             => 'required',
+            'passport_photo'                => 'required',
+            'status'                        => 'required'
         ];
     }
 }

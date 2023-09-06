@@ -5,15 +5,22 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MemberRequest;
 use App\Models\Member;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class MemberController extends Controller
 {
     public function index()
     {
-        $results = Member::orderBy('id', 'DESC')->paginate(10);
+        $results = DB::table('member_details as a')
+            ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->orderBy('a.id', 'DESC')
+            ->paginate(10);
 
         return view('admin.member.index', ['results' => $results]);
     }
@@ -25,24 +32,35 @@ class MemberController extends Controller
 
     public function store(MemberRequest $request)
     {
-
         $input                  = $request->all();
         $input['created_by']    = session('logged_session_data.id');
         $input['created_at']    = Carbon::now();
 
-        $memberImage = $request->file('banner_img');
+        $passport_photo_image = $request->file('passport_photo');
 
-        if ($memberImage) {
-            $imgName = md5(Str::random(30) . time() . '_' . $request->file('banner_img')) . '.' . $request->file('banner_img')->getClientOriginalExtension();
-            $request->file('banner_img')->move('uploads/member/', $imgName);
-            $input['banner_img'] = $imgName;
+        if ($passport_photo_image) {
+            $imgName = md5(Str::random(30) . time() . '_' . $request->file('passport_photo')) . '.' . $request->file('passport_photo')->getClientOriginalExtension();
+            $request->file('passport_photo')->move('uploads/member/', $imgName);
+            $input['passport_photo'] = $imgName;
         }
+
+        //set user table data
+        $userInputData['name']          = $request->name;
+        $userInputData['email']         = $request->email;
+        $userInputData['phone_number']  = $request->phone_number;
+        $userInputData['role_type']     = "USER";
+        $userInputData['password']      = Hash::make('password'); //set default password for all member when registered by admin user
 
         try {
 
             unset($input['_token']);
 
+            $user =  User::create($userInputData);
+
+            $input['user_id'] = $user->id;
+
             Member::create($input);
+
             return redirect()->back()->with('success', 'Member created successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -51,32 +69,45 @@ class MemberController extends Controller
 
     public function edit($id)
     {
-        $data['editModeData'] = Member::findOrFail($id);
-        return view('admin.member.form', $data);
+        $editModeData =  DB::table('member_details as a')
+            ->select('a.*', 'b.name', 'b.email', 'b.phone_number',)
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->where('a.id', $id)
+            ->first();
+
+        return view('admin.member.form', compact('editModeData'));
     }
 
     public function update(MemberRequest $request, $id)
     {
-        $member                = Member::findOrFail($id);
+        $member                 = Member::findOrFail($id);
         $input                  = $request->all();
         $input['updated_by']    = session('logged_session_data.id');
         $input['updated_at']    = Carbon::now();
 
-        $memberImage = $request->file('banner_img');
+        $passport_photo_image = $request->file('passport_photo');
 
-        if ($memberImage) {
-            $imgName = md5(Str::random(30) . time() . '_' . $request->file('banner_img')) . '.' . $request->file('banner_img')->getClientOriginalExtension();
-            $request->file('banner_img')->move('uploads/member/', $imgName);
+        if ($passport_photo_image) {
+            $imgName = md5(Str::random(30) . time() . '_' . $request->file('passport_photo')) . '.' . $request->file('passport_photo')->getClientOriginalExtension();
+            $request->file('passport_photo')->move('uploads/member/', $imgName);
 
-            if (file_exists('uploads/member/' . $member->banner_img) && !empty($member->banner_img)) {
-                unlink('uploads/member/' . $member->banner_img);
+            if (file_exists('uploads/member/' . $member->passport_photo) && !empty($member->passport_photo)) {
+                unlink('uploads/member/' . $member->passport_photo);
             }
 
-            $input['banner_img'] = $imgName;
+            $input['passport_photo'] = $imgName;
         }
+
+        //set user table data
+        $userUpdateData['name']          = $request->name;
+        $userUpdateData['email']         = $request->email;
+        $userUpdateData['phone_number']  = $request->phone_number;
 
         try {
             $member->update($input);
+
+            User::where('id', $member->user_id)->update($userUpdateData);
+
             return redirect(route('admin.member.index'))->with('success', 'Member updated successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
