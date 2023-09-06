@@ -52,7 +52,7 @@
 
                         <div class="single-blog-style1 single-blog-style2 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
-                                <img src="assets/frontend/images/blog/blog-details-1.jpg" alt="">
+                                <img src="{{ asset('uploads/event/' . $event->banner_img) }}" alt="">
                             </div>
                             <div class="text-holder">
                                 <h3 class="blog-title">

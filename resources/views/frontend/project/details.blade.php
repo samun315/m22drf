@@ -49,7 +49,12 @@
             <div class="row">
                 <div class="col-xl-12">
                     <div class="blog-details-content">
-
+                        <div class="cause-details-image-box">
+                            <img src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="">
+                            <div class="category">
+                                <h6>health &amp; Education</h6>
+                            </div>
+                        </div>
                         <div class="single-blog-style1 single-blog-style2 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
                                 <img src="assets/frontend/images/blog/blog-details-1.jpg" alt="">

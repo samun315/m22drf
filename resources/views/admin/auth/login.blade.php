@@ -33,8 +33,8 @@
                     <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
                         <!--begin::Logo-->
                         <a href="/login" class="py-9 mb-5">
-                            {{-- <img alt="Logo" src="{{ asset('assets/frontend/images/logo.png') }}" class="h-60px" /> --}}
-                            Logo
+                            <img alt="Logo" src="{{ asset('assets/backend/media/logos/m22_logo.png') }}" class="h-150px" />
+
                         </a>
                         <!--end::Logo-->
                         <!--begin::Title-->
@@ -49,7 +49,7 @@
                     </div>
                     <!--end::Content-->
                     <!--begin::Illustration-->
-                    <div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-100px min-h-lg-350px"
+                    <div class="d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-100px min-h-lg-300px"
                         style="background-image: url(assets/backend/media/illustrations/sketchy-1/13.png"></div>
                     <!--end::Illustration-->
                 </div>
