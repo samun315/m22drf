@@ -137,7 +137,7 @@
 
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid" placeholder="Enter details" name="details"
+                                <textarea class="form-control form-control-solid ckeditor" placeholder="Enter details" name="details"
                                     data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
                                 @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
@@ -160,4 +160,16 @@
         </div>
         <!--end::Container-->
     </div>
+@endsection
+
+@section('page_style')
+
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
+
 @endsection
