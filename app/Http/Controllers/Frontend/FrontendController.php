@@ -15,7 +15,9 @@ class FrontendController extends Controller
 
     public function aboutUs()
     {
-        return view('frontend.about.index');
+        $data['volunteers'] = DB::table('volunteers')->get();
+
+        return view('frontend.about.index', $data);
     }
 
     public function event()

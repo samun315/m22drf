@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\VolunteerController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -59,5 +60,15 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{blog_id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
         Route::put('/{blog_id}/update', [BlogController::class, 'update'])->name('admin.blog.update');
         Route::put('/update-status', [BlogController::class, 'updateStatus'])->name('admin.blog.update.status');
+    });
+
+    //Volunteer
+    Route::group(['prefix' => 'volunteer'], function () {
+        Route::get('/index', [VolunteerController::class, 'index'])->name('admin.volunteer.index');
+        Route::get('/create', [VolunteerController::class, 'create'])->name('admin.volunteer.create');
+        Route::post('/store', [VolunteerController::class, 'store'])->name('admin.volunteer.store');
+        Route::get('/{volunteer_id}/edit', [VolunteerController::class, 'edit'])->name('admin.volunteer.edit');
+        Route::put('/{volunteer_id}/update', [VolunteerController::class, 'update'])->name('admin.volunteer.update');
+        Route::put('/update-status', [VolunteerController::class, 'updateStatus'])->name('admin.volunteer.update.status');
     });
 });

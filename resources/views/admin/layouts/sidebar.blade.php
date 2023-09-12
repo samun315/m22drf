@@ -114,6 +114,22 @@
 
                 <div class="menu-item">
                     <div class="menu-content pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">About Us Management</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('volunteer/*') ? 'active' : '' }}"
+                        href="{{ route('admin.volunteer.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-people fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Manage Volunteer</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-content pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">User Management</span>
                     </div>
                 </div>

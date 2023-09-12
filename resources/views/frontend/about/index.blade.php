@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('frontend_title', 'Home')
+@section('frontend_title', 'About Us')
 
 @section('frontend_main_content')
 
@@ -12,18 +12,18 @@
                 <div class="col-xl-12">
                     <div class="inner-content text-center">
                         <div class="parallax-scene parallax-scene-1">
-                            <div data-depth="0.20" class="parallax-layer shape wow zoomInRight"
-                                data-wow-duration="2000ms">
+                            <div data-depth="0.20" class="parallax-layer shape wow zoomInRight" data-wow-duration="2000ms">
                                 <div class="shape1">
-                                    <img class="float-bob" src="assets/frontend/images/shape/breadcrumb-shape1.png" alt="">
+                                    <img class="float-bob" src="assets/frontend/images/shape/breadcrumb-shape1.png"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
                         <div class="parallax-scene parallax-scene-1">
-                            <div data-depth="0.20" class="parallax-layer shape wow zoomInRight"
-                                data-wow-duration="2000ms">
+                            <div data-depth="0.20" class="parallax-layer shape wow zoomInRight" data-wow-duration="2000ms">
                                 <div class="shape2">
-                                    <img class="zoominout" src="assets/frontend/images/shape/breadcrumb-shape2.png" alt="">
+                                    <img class="zoominout" src="assets/frontend/images/shape/breadcrumb-shape2.png"
+                                        alt="">
                                 </div>
                             </div>
                         </div>
@@ -92,8 +92,7 @@
                                             <img src="assets/frontend/images/icon/doller.png" alt="">
                                         </div>
                                         <div class="count-outer count-box style4">
-                                            <span class="count-text" data-speed="3000"
-                                                data-stop="5"></span><span>m</span>
+                                            <span class="count-text" data-speed="3000" data-stop="5"></span><span>m</span>
                                             <h5>Donated Money</h5>
                                         </div>
                                     </div>
@@ -141,7 +140,8 @@
                                             <img src="assets/frontend/images/icon/features/shape-1.png" alt="">
                                         </div>
                                         <div class="shape-bg">
-                                            <img src="assets/frontend/images/icon/features/feature-v1-1-bg.png" alt="">
+                                            <img src="assets/frontend/images/icon/features/feature-v1-1-bg.png"
+                                                alt="">
                                         </div>
                                     </div>
                                     <div class="text-holder">
@@ -163,13 +163,15 @@
                                 <div class="features-style1_single style2">
                                     <div class="icon-holder">
                                         <div class="inner">
-                                            <img src="assets/frontend/images/icon/features/feature-v1-2.png" alt="">
+                                            <img src="assets/frontend/images/icon/features/feature-v1-2.png"
+                                                alt="">
                                         </div>
                                         <div class="shape1 zoominout">
                                             <img src="assets/frontend/images/icon/features/shape-1.png" alt="">
                                         </div>
                                         <div class="shape-bg">
-                                            <img src="assets/frontend/images/icon/features/feature-v1-2-bg.png" alt="">
+                                            <img src="assets/frontend/images/icon/features/feature-v1-2-bg.png"
+                                                alt="">
                                         </div>
                                     </div>
                                     <div class="text-holder">
@@ -191,13 +193,15 @@
                                 <div class="features-style1_single style3">
                                     <div class="icon-holder">
                                         <div class="inner">
-                                            <img src="assets/frontend/images/icon/features/feature-v1-3.png" alt="">
+                                            <img src="assets/frontend/images/icon/features/feature-v1-3.png"
+                                                alt="">
                                         </div>
                                         <div class="shape1 zoominout">
                                             <img src="assets/frontend/images/icon/features/shape-1.png" alt="">
                                         </div>
                                         <div class="shape-bg">
-                                            <img src="assets/frontend/images/icon/features/feature-v1-3-bg.png" alt="">
+                                            <img src="assets/frontend/images/icon/features/feature-v1-3-bg.png"
+                                                alt="">
                                         </div>
                                     </div>
                                     <div class="text-holder">
@@ -307,296 +311,57 @@
                 <div class="col-xl-12 col-lg-12 col-md-12">
                     <div class="theme_carousel team-carousel owl-dot-style1 owl-theme owl-carousel"
                         data-options='{"loop": true, "margin": 30, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "2" } , "992":{ "items" : "3" }, "1200":{ "items" : "4" }}}'>
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-1.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Scott William</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-2.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Liam Irvines</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-3.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Diana Leslie</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-4.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Tania Vandy</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
 
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-1.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
+                        @foreach ($volunteers as $volunteer)
+                            <!--Start Single Team Style1-->
+                            <div class="single-team-style1">
+                                <div class="img-holder">
+                                    <div class="inner">
+                                        <img style="width: 263px; height: 263px; border-radius: 50%"
+                                            src="{{ asset('uploads/volunteer/' . $volunteer->profile_img) }}"
+                                            alt="Profile">
+                                        <div class="icon">
+                                            <span class=""></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Scott William</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-2.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Liam Irvines</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-3.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Diana Leslie</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-4.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Tania Vandy</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
+                                    <div class="overly-box">
+                                        <ul class="social-links">
 
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-1.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
+                                            @if ($volunteer->facebook_link)
+                                                <li>
+                                                    <a target="_blank" href="{{ $volunteer->facebook_link }}">
+                                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                            @if ($volunteer->twitter_link)
+                                                <li>
+                                                    <a target="_blank" href="{{ $volunteer->twitter_link }}">
+                                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+
+                                            @if ($volunteer->instagram_link)
+                                                <li>
+                                                    <a target="_blank" href="{{ $volunteer->instagram_link }}">
+                                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                                    </a>
+                                                </li>
+                                            @endif
+                                        </ul>
                                     </div>
+                                    <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png"
+                                            alt=""></div>
                                 </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
+                                <div class="title-holder text-center">
+                                    <h3><a href="#">{{ $volunteer->name }}</a></h3>
+                                    <p>{{ $volunteer->designation }}</p>
                                 </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
                             </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Scott William</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-2.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Liam Irvines</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-3.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Diana Leslie</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
-                        <!--Start Single Team Style1-->
-                        <div class="single-team-style1">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img src="assets/frontend/images/team/team-v1-4.jpg" alt="" />
-                                    <div class="icon">
-                                        <span class=""></span>
-                                    </div>
-                                </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt=""></div>
-                            </div>
-                            <div class="title-holder text-center">
-                                <h3><a href="#">Tania Vandy</a></h3>
-                                <p>Volunteer</p>
-                            </div>
-                        </div>
-                        <!--End Single Team Style1-->
+                            <!--End Single Team Style1-->
+                        @endforeach
 
                     </div>
                 </div>
@@ -619,11 +384,13 @@
                             <div class="shape1 wow zoomIn" data-wow-delay="0ms" data-wow-duration="3500ms">
                                 <img class="zoom-fade" src="assets/frontend/images/shape/thm-shape-9.png" alt="">
                             </div>
-                            <div class="shape2 float-bob-y"><img src="assets/frontend/images/shape/thm-shape-10.png" alt="">
+                            <div class="shape2 float-bob-y"><img src="assets/frontend/images/shape/thm-shape-10.png"
+                                    alt="">
                             </div>
                             <div class="top">
                                 <div class="icon-box">
-                                    <div class="icon"><img src="assets/frontend/images/icon/fact-counter/fact-counter-1.png"
+                                    <div class="icon"><img
+                                            src="assets/frontend/images/icon/fact-counter/fact-counter-1.png"
                                             alt=""></div>
                                 </div>
                                 <div class="count-outer count-box">
@@ -646,16 +413,17 @@
                             <div class="shape1 wow zoomIn" data-wow-delay="0ms" data-wow-duration="3500ms">
                                 <img class="zoom-fade" src="assets/frontend/images/shape/thm-shape-9.png" alt="">
                             </div>
-                            <div class="shape2 float-bob-y"><img src="assets/frontend/images/shape/thm-shape-10.png" alt="">
+                            <div class="shape2 float-bob-y"><img src="assets/frontend/images/shape/thm-shape-10.png"
+                                    alt="">
                             </div>
                             <div class="top">
                                 <div class="icon-box">
-                                    <div class="icon"><img src="assets/frontend/images/icon/fact-counter/fact-counter-2.png"
+                                    <div class="icon"><img
+                                            src="assets/frontend/images/icon/fact-counter/fact-counter-2.png"
                                             alt=""></div>
                                 </div>
                                 <div class="count-outer count-box style2">
-                                    <span class="count-text" data-speed="3000"
-                                        data-stop="2.64">0</span><span>K</span>
+                                    <span class="count-text" data-speed="3000" data-stop="2.64">0</span><span>K</span>
                                 </div>
                             </div>
                             <div class="text">
@@ -674,16 +442,17 @@
                             <div class="shape1 wow zoomIn" data-wow-delay="0ms" data-wow-duration="3500ms">
                                 <img class="zoom-fade" src="assets/frontend/images/shape/thm-shape-9.png" alt="">
                             </div>
-                            <div class="shape2 float-bob-y"><img src="assets/frontend/images/shape/thm-shape-10.png" alt="">
+                            <div class="shape2 float-bob-y"><img src="assets/frontend/images/shape/thm-shape-10.png"
+                                    alt="">
                             </div>
                             <div class="top">
                                 <div class="icon-box">
-                                    <div class="icon"><img src="assets/frontend/images/icon/fact-counter/fact-counter-3.png"
+                                    <div class="icon"><img
+                                            src="assets/frontend/images/icon/fact-counter/fact-counter-3.png"
                                             alt=""></div>
                                 </div>
                                 <div class="count-outer count-box style3">
-                                    <span class="count-text" data-speed="3000"
-                                        data-stop="13.7">0</span><span>K</span>
+                                    <span class="count-text" data-speed="3000" data-stop="13.7">0</span><span>K</span>
                                 </div>
                             </div>
                             <div class="text">
@@ -702,16 +471,17 @@
                             <div class="shape1 wow zoomIn" data-wow-delay="0ms" data-wow-duration="3500ms">
                                 <img class="zoom-fade" src="assets/frontend/images/shape/thm-shape-9.png" alt="">
                             </div>
-                            <div class="shape2 float-bob-y"><img src="assets/frontend/images/shape/thm-shape-10.png" alt="">
+                            <div class="shape2 float-bob-y"><img src="assets/frontend/images/shape/thm-shape-10.png"
+                                    alt="">
                             </div>
                             <div class="top">
                                 <div class="icon-box">
-                                    <div class="icon"><img src="assets/frontend/images/icon/fact-counter/fact-counter-4.png"
+                                    <div class="icon"><img
+                                            src="assets/frontend/images/icon/fact-counter/fact-counter-4.png"
                                             alt=""></div>
                                 </div>
                                 <div class="count-outer count-box style4">
-                                    <span class="count-text" data-speed="3000"
-                                        data-stop="1.5">0</span><span>K</span>
+                                    <span class="count-text" data-speed="3000" data-stop="1.5">0</span><span>K</span>
                                 </div>
                             </div>
                             <div class="text">
@@ -820,27 +590,32 @@
             <ul class="partner-box partner-carousel-2 owl-carousel owl-theme">
                 <!--Start Single Partner Logo Box-->
                 <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-1.png" alt="Awesome Image"></a>
+                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-1.png"
+                            alt="Awesome Image"></a>
                 </li>
                 <!--End Single Partner Logo Box-->
                 <!--Start Single Partner Logo Box-->
                 <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-2.png" alt="Awesome Image"></a>
+                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-2.png"
+                            alt="Awesome Image"></a>
                 </li>
                 <!--End Single Partner Logo Box-->
                 <!--Start Single Partner Logo Box-->
                 <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-3.png" alt="Awesome Image"></a>
+                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-3.png"
+                            alt="Awesome Image"></a>
                 </li>
                 <!--End Single Partner Logo Box-->
                 <!--Start Single Partner Logo Box-->
                 <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-4.png" alt="Awesome Image"></a>
+                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-4.png"
+                            alt="Awesome Image"></a>
                 </li>
                 <!--End Single Partner Logo Box-->
                 <!--Start Single Partner Logo Box-->
                 <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-5.png" alt="Awesome Image"></a>
+                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-v3-5.png"
+                            alt="Awesome Image"></a>
                 </li>
                 <!--End Single Partner Logo Box-->
             </ul>
