@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('title', 'Manage Volunteer')
-@section('toolbarTitle', 'Manage Volunteer')
+@section('title', 'Manage Project Follow-up')
+@section('toolbarTitle', 'Manage Project Follow-up')
 
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -24,11 +24,11 @@
                                         fill="#000000" opacity="0.3"></rect>
                                 </g>
                             </svg>
-                            <span class="card-label fw-bolder fs-3 mb-1">Manage Volunteer</span>
+                            <span class="card-label fw-bolder fs-3 mb-1">Manage Project Follow-up</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.volunteer.create') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.project_follow_up.create') }}" class="btn btn-sm btn-light-success">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
@@ -140,15 +140,15 @@
 @section('page_scripts')
 
     <script>
-        function updateStatus(status, volunteer_id) {
+        function updateStatus(status, project_follow_up_id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.volunteer.update.status') }}",
+                url: "{{ route('admin.project_follow_up.update.status') }}",
                 data: {
-                    volunteer_id: volunteer_id,
+                    project_follow_up_id: project_follow_up_id,
                     status: status,
                     _token: v_token
                 },
@@ -158,7 +158,7 @@
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Volunteer status successfully updated.',
+                        title: 'Project Follow-up status successfully updated.',
                         showConfirmButton: false,
                         timer: 1500
                     })

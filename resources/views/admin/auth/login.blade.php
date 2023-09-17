@@ -5,7 +5,7 @@
 <head>
     <title>Admin - Login </title>
     <meta charset="utf-8" />
-    <link rel="shortcut icon" href="{{ asset('assets/frontend/images/logo.png') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/backend/media/logos/m22_logo.png') }}" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->

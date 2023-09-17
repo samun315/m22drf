@@ -1,4 +1,4 @@
-<link rel="icon" href="{{ asset('assets/frontend/images/logo.png') }}" type="image/png">
+<link rel="icon" href="{{ asset('assets/backend/media/logos/m22_logo.png') }}" type="image/png">
 
 <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
 

@@ -1,11 +1,11 @@
 @extends('admin.master')
 
 @if (isset($editModeData))
-    @section('title', 'Edit Volunteer')
-    @section('toolbarTitle', 'Edit Volunteer')
+    @section('title', 'Edit Project Follow-up')
+    @section('toolbarTitle', 'Edit Project Follow-up')
 @else
-    @section('title', 'Create Volunteer')
-    @section('toolbarTitle', 'Create Volunteer')
+    @section('title', 'Create Project Follow-up')
+    @section('toolbarTitle', 'Create Project Follow-up')
 @endif
 
 @section('main-content')
@@ -30,11 +30,11 @@
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
-                                Volunteer</span>
+                                Project Follow-up</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.volunteer.index') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.project_follow_up.index') }}" class="btn btn-sm btn-light-success">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@
                                     </g>
                                 </svg>
                             </span>
-                            Manage Volunteer
+                            Manage Project Follow-up
                         </a>
                     </div>
                 </div>
@@ -62,14 +62,14 @@
                     @include('message')
 
                     <!--begin::Form-->
-                    <form class="form" id="kt_volunteer_form" method="POST" enctype="multipart/form-data"
-                        action="{{ isset($editModeData) ? route('admin.volunteer.update', $editModeData->id) : route('admin.volunteer.store') }}">
+                    <form class="form" id="kt_project_follow_up_form" method="POST" enctype="multipart/form-data"
+                        action="{{ isset($editModeData) ? route('admin.project_follow_up.update', $editModeData->id) : route('admin.project_follow_up.store') }}">
                         @csrf
 
                         @isset($editModeData)
                             @method('PUT')
 
-                            <input type="text" hidden name="volunteer_id" value="{{ $editModeData->id }}">
+                            <input type="text" hidden name="project_follow_up_id" value="{{ $editModeData->id }}">
                         @endisset
 
                         <div class="row mb-5">
@@ -130,18 +130,17 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Profile Image</label>
+                                <label class="required fs-5 fw-bold mb-2">Image</label>
                                 <input type="file"
-                                    class="form-control form-control-solid @error('profile_img') is-invalid @enderror"
-                                    name="profile_img" />
+                                    class="form-control form-control-solid @error('image_url') is-invalid @enderror"
+                                    name="image_url" />
 
-                                @isset($editModeData->profile_img)
-                                    <a target="_blank"
-                                        href="{{ asset('uploads/volunteer/' . $editModeData->profile_img) }}">View
-                                        Profile Image</a>
+                                @isset($editModeData->image_url)
+                                    <a target="_blank" href="{{ asset('uploads/volunteer/' . $editModeData->image_url) }}">
+                                        View Image</a>
                                 @endisset
 
-                                @error('profile_img')
+                                @error('image_url')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -184,7 +183,7 @@
     <script>
         var i;
 
-        i = document.querySelector("#kt_volunteer_form");
+        i = document.querySelector("#kt_project_follow_up_form");
 
         $(i.querySelector('[name="date"]')).flatpickr({
             dateFormat: "Y-m-d"
