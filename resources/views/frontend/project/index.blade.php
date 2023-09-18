@@ -43,7 +43,6 @@
     </section>
     <!--End breadcrumb area-->
 
-
     <!--Start Blog Page One-->
     <section class="blog-page-one">
         <div class="container">
@@ -51,44 +50,53 @@
 
                 @foreach ($results as $row)
                     <div class="col-xl-4 col-lg-4">
-                        <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
+                        <div class="single-cause-style1">
                             <div class="img-holder">
-                                <div class="inner">
-                                    <img style="width: 360px; height:300px"
-                                        src="{{ asset('uploads/project/' . $row->banner_img) }}" alt="">
-                                    <div class="overlay-icon">
-                                        <a href="{{ route('frontend.projectDetails', $row->id) }}"><span
-                                                class="flaticon-plus"></span></a>
-                                    </div>
-                                </div>
-                                <div class="date-box">
-                                    <h2>{{ date('d', strtotime($row->deadline)) }}</h2>
-                                    <p>{{ date('M', strtotime($row->deadline)) }}</p>
-                                </div>
+                                @if (isset($row->banner_img))
+                                    <img style="width: 360px; height:351px"
+                                        src="{{ asset('uploads/project/' . $row->banner_img) }}" alt="Banner Image">
+                                @else
+                                    <img style="width: 360px; height:351px"
+                                        src="assets/frontend/images/causes/causes-v1-1.jpg" alt="Banner Image">
+                                @endif
+
                             </div>
                             <div class="text-holder">
-                                <h3 class="blog-title">
-                                    <a href="{{ route('frontend.projectDetails', $row->id) }}">
-                                        {{ $row->title }}
-                                    </a>
-                                </h3>
-                                <div class="text">
-                                    <p>
-                                        {!! $row->details !!}
-                                    </p>
+                                <h3><a href="{{ route('frontend.projectDetails', $row->id) }}">{{ $row->title }}</a></h3>
+                                <p>{!! $row->details !!}</p>
+
+                                <div class="progress-levels progress-levels-style2">
+                                    <!--Skill Box-->
+                                    <div class="progress-box wow">
+                                        <div class="inner count-box">
+                                            <div class="bar">
+                                                <div class="bar-innner">
+                                                    <div class="bar-fill" data-percent="50" title="Book"></div>
+                                                </div>
+                                            </div>
+                                            <div class="bottom-box">
+                                                <div class="rate-box">
+                                                    <p>Achieved<span>৳ {{ number_format($row->budget, 2) }}</span></p>
+                                                    <p>Target<span>৳ {{ number_format($row->budget, 2) }}</span></p>
+                                                </div>
+                                                <div class="skill-percent">
+                                                    <span class="count-text" data-speed="3000" data-stop="50">0</span>
+                                                    <span class="percent">%</span>
+                                                    <p class="outer-text">Pledged So Far</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                {{-- <ul class="meta-info">
-                                    <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">Malay D’soza</a>
-                                    </li>
-                                    <li><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">597
-                                            Comments</a>
-                                    </li>
-                                </ul> --}}
+                                <div class="btns-box">
+                                    <a class="btn-one" href="#"><span class="txt"><i
+                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
+                                </div>
+
                             </div>
                         </div>
                     </div>
                 @endforeach
-
             </div>
             <div class="row">
                 <div class="col-xl-12">

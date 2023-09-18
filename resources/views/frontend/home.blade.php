@@ -49,7 +49,7 @@
                                         <p>Nostrud temp exercitation duis laboris nisi utm aliquip sed duis aute.
                                         </p>
                                         <div class="btns-box">
-                                            <a class="btn-one" href="about.html"><span class="txt"><i
+                                            <a class="btn-one" href="/about-us"><span class="txt"><i
                                                         class="arrow1 fa fa-check-circle"></i>read more</span></a>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
                                         <p>Nostrud temp exercitation duis laboris nisi utm aliquip sed duis aute.
                                         </p>
                                         <div class="btns-box">
-                                            <a class="btn-one" href="about.html"><span class="txt"><i
+                                            <a class="btn-one" href="/about-us"><span class="txt"><i
                                                         class="arrow1 fa fa-check-circle"></i>read more</span></a>
                                         </div>
                                     </div>
@@ -107,7 +107,7 @@
                                         <p>Nostrud temp exercitation duis laboris nisi utm aliquip sed duis aute.
                                         </p>
                                         <div class="btns-box">
-                                            <a class="btn-one" href="about.html"><span class="txt"><i
+                                            <a class="btn-one" href="/about-us"><span class="txt"><i
                                                         class="arrow1 fa fa-check-circle"></i>read more</span></a>
                                         </div>
                                     </div>

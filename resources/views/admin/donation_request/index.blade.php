@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('title', 'Manage Project Follow-up')
-@section('toolbarTitle', 'Manage Project Follow-up')
+@section('title', 'Manage Donation Request')
+@section('toolbarTitle', 'Manage Donation Request')
 
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -24,11 +24,11 @@
                                         fill="#000000" opacity="0.3"></rect>
                                 </g>
                             </svg>
-                            <span class="card-label fw-bolder fs-3 mb-1">Manage Project Follow-up</span>
+                            <span class="card-label fw-bolder fs-3 mb-1">Manage Donation Request</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.project_follow_up.create') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.donation_request.create') }}" class="btn btn-sm btn-light-success">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
@@ -56,10 +56,10 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
-                                    <th>Image</th>
-                                    <th>Project Title</th>
-                                    <th>Title</th>
-                                    <th>Attachment</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Address</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -71,19 +71,10 @@
                                 @foreach ($results as $value)
                                     <tr>
                                         <td> {{ $loop->iteration }} </td>
-                                        <td>
-                                            <img style="width: 80px; height: 80px; border-radius: 50%"
-                                                src="{{ asset('uploads/project_follow_up/' . $value->image_url) }}"
-                                                alt="">
-                                        </td>
-                                        <td> {{ $value->project_title }} </td>
-                                        <td> {{ $value->title }} </td>
-                                        <td>
-                                            <a href="{{ asset('uploads/project_follow_up/' . $value->attachment) }}">
-                                                View
-                                            </a>
-                                        </td>
-                                        <td> {!! $value->details !!} </td>
+                                        <td> {{ $value->name }} </td>
+                                        <td> {{ $value->email }} </td>
+                                        <td> {{ $value->phone_number }} </td>
+                                        <td> {!! $value->address !!} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 
@@ -103,7 +94,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.project_follow_up.edit', $value->project_follow_up_id) }}"
+                                            <a href="{{ route('admin.donation_request.edit', $value->id) }}"
                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -141,15 +132,15 @@
 @section('page_scripts')
 
     <script>
-        function updateStatus(status, project_follow_up_id) {
+        function updateStatus(status, donation_request_id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.project_follow_up.update.status') }}",
+                url: "{{ route('admin.donation_request.update.status') }}",
                 data: {
-                    project_follow_up_id: project_follow_up_id,
+                    donation_request_id: donation_request_id,
                     status: status,
                     _token: v_token
                 },
@@ -159,7 +150,7 @@
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Project Follow-up status successfully updated.',
+                        title: 'Donation request status successfully updated.',
                         showConfirmButton: false,
                         timer: 1500
                     })

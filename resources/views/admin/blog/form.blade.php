@@ -162,7 +162,7 @@
     </div>
 @endsection
 
-@section('page_style')
+@section('page_scripts')
 
     <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 

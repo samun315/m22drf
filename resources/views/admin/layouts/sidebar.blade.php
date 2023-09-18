@@ -87,6 +87,26 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('project-follow-up/*') ? 'active' : '' }}"
+                        href="{{ route('admin.project_follow_up.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-people fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Manage Project Follow-up</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('donation-request/*') ? 'active' : '' }}"
+                        href="{{ route('admin.donation_request.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-archive fs-3 text-info"></i>
+                        </span>
+                        <span class="menu-title">Manage Donation Request</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <div class="menu-content pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Blog Management</span>
                     </div>
@@ -109,16 +129,6 @@
                             <i class="bi bi-shield-check fs-3 text-info"></i>
                         </span>
                         <span class="menu-title">Manage Blog</span>
-                    </a>
-                </div>
-
-                <div class="menu-item">
-                    <a class="menu-link {{ request()->is('project-follow-up/*') ? 'active' : '' }}"
-                        href="{{ route('admin.project_follow_up.index') }}">
-                        <span class="menu-icon">
-                            <i class="bi bi-people fs-3 text-success"></i>
-                        </span>
-                        <span class="menu-title">Manage Project Follow-up</span>
                     </a>
                 </div>
 

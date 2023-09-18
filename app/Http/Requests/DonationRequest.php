@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectFollowUpRequest extends FormRequest
+class DonationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,22 +21,18 @@ class ProjectFollowUpRequest extends FormRequest
      */
     public function rules(): array
     {
-        if (isset($this->project_follow_up_id)) {
+        if (isset($this->donation_request_id)) {
 
             return [
-                'title'             => 'required',
-                'project_name'      => 'required',
-                'details'           => 'required',
+                'name'             => 'required',
+                'phone_number'      => 'required',
                 'status'            => 'required',
             ];
         }
 
         return [
-            'title'             => 'required',
-            'project_name'      => 'required',
-            'image_url'         => 'required',
-            'attachment'        => 'required',
-            'details'           => 'required',
+            'name'             => 'required',
+            'phone_number'      => 'required',
             'status'            => 'required',
         ];
     }
