@@ -5,8 +5,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DonationRequestController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectFollowUpController;
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -81,5 +83,25 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{donation_request_id}/edit', [DonationRequestController::class, 'edit'])->name('admin.donation_request.edit');
         Route::put('/{donation_request_id}/update', [DonationRequestController::class, 'update'])->name('admin.donation_request.update');
         Route::put('/update-status', [DonationRequestController::class, 'updateStatus'])->name('admin.donation_request.update.status');
+    });
+
+    //Slider
+    Route::group(['prefix' => 'slider'], function () {
+        Route::get('/index', [SliderController::class, 'index'])->name('admin.slider.index');
+        Route::get('/create', [SliderController::class, 'create'])->name('admin.slider.create');
+        Route::post('/store', [SliderController::class, 'store'])->name('admin.slider.store');
+        Route::get('/{slider_id}/edit', [SliderController::class, 'edit'])->name('admin.slider.edit');
+        Route::put('/{slider_id}/update', [SliderController::class, 'update'])->name('admin.slider.update');
+        Route::put('/update-status', [SliderController::class, 'updateStatus'])->name('admin.slider.update.status');
+    });
+
+    //Partner
+    Route::group(['prefix' => 'partner'], function () {
+        Route::get('/index', [PartnerController::class, 'index'])->name('admin.partner.index');
+        Route::get('/create', [PartnerController::class, 'create'])->name('admin.partner.create');
+        Route::post('/store', [PartnerController::class, 'store'])->name('admin.partner.store');
+        Route::get('/{partner_id}/edit', [PartnerController::class, 'edit'])->name('admin.partner.edit');
+        Route::put('/{partner_id}/update', [PartnerController::class, 'update'])->name('admin.partner.update');
+        Route::put('/update-status', [PartnerController::class, 'updateStatus'])->name('admin.slider.update.status');
     });
 });

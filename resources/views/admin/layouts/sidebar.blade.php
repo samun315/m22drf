@@ -107,6 +107,26 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('slider/*') ? 'active' : '' }}"
+                        href="{{ route('admin.slider.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-archive fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Manage Slider</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('partner/*') ? 'active' : '' }}"
+                        href="{{ route('admin.partner.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-archive fs-3 text-info"></i>
+                        </span>
+                        <span class="menu-title">Manage Partner</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <div class="menu-content pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Blog Management</span>
                     </div>
