@@ -59,7 +59,7 @@
                                     <th>Banner Image</th>
                                     <th>Category Name</th>
                                     <th>Title</th>
-                                    <th>Description</th>
+                                    {{-- <th>Description</th> --}}
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -77,7 +77,7 @@
                                         </td>
                                         <td> {{ $value->category_name }} </td>
                                         <td> {{ $value->title }} </td>
-                                        <td> {!! $value->details !!} </td>
+                                        {{-- <td> {!! $value->details !!} </td> --}}
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 

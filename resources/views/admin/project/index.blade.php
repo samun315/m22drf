@@ -60,7 +60,8 @@
                                     <th>Title</th>
                                     <th>Budget</th>
                                     <th>Deadline</th>
-                                    <th>Details</th>
+                                    {{-- <th>Details</th> --}}
+                                    <th>Featured</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -79,7 +80,25 @@
                                         <td> {{ $value->title }} </td>
                                         <td> {{ $value->budget }} </td>
                                         <td> {{ $value->deadline }} </td>
-                                        <td> {{ $value->details }} </td>
+                                        {{-- <td> {{ $value->details }} </td> --}}
+                                        <td>
+                                            <label class="form-check form-switch form-check-custom form-check-solid">
+
+                                                @if ($value->featured == 'YES')
+                                                    <input class="form-check-input"
+                                                        onchange="updateFeaturedFeatured('NO', {{ $value->id }})"
+                                                        name="featured" type="checkbox" value="YES" checked="checked" />
+                                                @else
+                                                    <input class="form-check-input"
+                                                        onchange="updateFeaturedFeatured('YES', {{ $value->id }})"
+                                                        name="featured" type="checkbox" value="NO" />
+                                                @endif
+
+                                                <span class="form-check-label fw-bold text-muted">
+                                                    {{ $value->featured }}
+                                                </span>
+                                            </label>
+                                        </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 

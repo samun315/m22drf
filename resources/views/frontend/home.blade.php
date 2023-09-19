@@ -192,11 +192,11 @@
                                     <span class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
                                         Now</span>
                                 </a>
-                                <a class="video-popup cause-video-button" title="Loveicon Video Gallery"
+                                {{-- <a class="video-popup cause-video-button" title="Loveicon Video Gallery"
                                     href="https://www.youtube.com/watch?v=MLpWrANjFbI">
                                     <span class="flaticon-play-button playicon"></span>
                                     <span class="txt">cause video</span>
-                                </a>
+                                </a> --}}
                             </div>
 
                         </div>
@@ -1302,9 +1302,7 @@
                             <ul class="meta-info">
                                 <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">Malay
                                         D’soza</a></li>
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">597
-                                        Comments</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -1336,9 +1334,7 @@
                             <ul class="meta-info">
                                 <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">Andrea
                                         Kay</a></li>
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">1.3k
-                                        Comments</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -1370,9 +1366,7 @@
                             <ul class="meta-info">
                                 <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">Jelly
                                         Bean</a></li>
-                                <li><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">10k
-                                        Comments</a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>

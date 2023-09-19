@@ -40,7 +40,7 @@
                 <div class="col-xl-2 col-lg-4 col-md-3 col-sm-12 wow animated fadeInUp" data-wow-delay="0.3s">
                     <div class="single-footer-widget martop pd40-0">
                         <div class="title">
-                            <h3>Recent Appeals</h3>
+                            <h3>Recent Projects</h3>
                         </div>
                         <ul class="footer-widget-links1">
                             <li><a href="index.html">Asia Africa Pacific</a></li>
@@ -57,14 +57,14 @@
                 <div class="col-xl-2 col-lg-4 col-md-3 col-sm-12 wow animated fadeInUp" data-wow-delay="0.5s">
                     <div class="single-footer-widget martop">
                         <div class="title">
-                            <h3>About Us</h3>
+                            <h3>Quick Access</h3>
                         </div>
                         <ul class="footer-widget-links1">
                             <li><a href="/about">About Us</a></li>
-                            <li><a href="#">Where We Work</a></li>
-                            <li><a href="3">Our History</a></li>
-                            <li><a href="/blog">Latest Blog</a></li>
-                            <li><a href="#">Become Volunteer</a></li>
+                            <li><a href="/project">Project</a></li>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/event">Event</a></li>
+                            <li><a href="/contact-us">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
                 <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 wow animated fadeInUp" data-wow-delay="0.5s">
                     <div class="single-footer-widget martop pdtop40">
                         <div class="title">
-                            <h3>Campaigns</h3>
+                            <h3>Events</h3>
                         </div>
                         <ul class="footer-widget-links1">
                             <li><a href="blog.html">Aid for Refugees</a></li>
