@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DonationRequestController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\HomeSettingController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProjectController;
@@ -102,6 +103,18 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::post('/store', [PartnerController::class, 'store'])->name('admin.partner.store');
         Route::get('/{partner_id}/edit', [PartnerController::class, 'edit'])->name('admin.partner.edit');
         Route::put('/{partner_id}/update', [PartnerController::class, 'update'])->name('admin.partner.update');
-        Route::put('/update-status', [PartnerController::class, 'updateStatus'])->name('admin.slider.update.status');
+        Route::put('/update-status', [PartnerController::class, 'updateStatus'])->name('admin.partner.update.status');
+    });
+
+    //Setting
+    Route::group(['prefix' => 'home-setting'], function () {
+
+        //Mission & Vision Setting
+        Route::get('/mission-vision', [HomeSettingController::class, 'showMissionVisionForm'])->name('admin.setting.showMissionVisionForm');
+        Route::put('/mission-vision/update', [HomeSettingController::class, 'updateMissionVision'])->name('admin.setting.updateMissionVision');
+
+        //Footer Setting
+        Route::get('/footer', [HomeSettingController::class, 'showFooterForm'])->name('admin.footerSetting.showFooterForm');
+        Route::put('/footer/update', [HomeSettingController::class, 'updateFooter'])->name('admin.footerSetting.updateFooter');
     });
 });

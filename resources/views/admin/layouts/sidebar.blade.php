@@ -188,6 +188,43 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="menu-item">
+                    <div class="menu-content pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Settings Management</span>
+                    </div>
+                </div>
+
+                <div data-kt-menu-trigger="click"
+                    class="menu-item menu-accordion {{ request()->is('home-setting/*') ? 'show' : '' }}">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="bi bi-printer fs-3 text-info"></i>
+                        </span>
+                        <span class="menu-title">Home Setting</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion menu-active-bg">
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->is('home-setting/mission-vision') ? 'active' : '' }}"
+                                href="{{ route('admin.setting.showMissionVisionForm') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Mission & Vision Setting</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
+                            <a class="menu-link {{ request()->is('home-setting/footer/*') ? 'active' : '' }}"
+                                href="{{ route('admin.footerSetting.showFooterForm') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Footer Setting</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--end::Menu-->
         </div>
