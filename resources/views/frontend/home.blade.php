@@ -220,378 +220,55 @@
                     </div>
                     <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
-                <h2>Appeals & Donations</h2>
+                <h2>Projects & Donations</h2>
             </div>
             <div class="row">
                 <div class="col-xl-12">
                     <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
                         data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
 
-                        <!--Start Single Cause Style1-->
-                        <div class="single-cause-style1">
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/causes/causes-v1-1.jpg" alt="">
-                            </div>
-                            <div class="text-holder">
-                                <h3><a href="causes-details.html">Education For People</a></h3>
-                                <p>Nostrud aliquips exercitation laboris nisiut temp sed duis autey. Lorem unt ipsum
-                                    sit amet elit dolor.</p>
+                        @foreach ($projects as $project)
+                            <div class="single-cause-style1">
+                                <div class="img-holder">
+                                    <img style="width: 380px; height:370px"
+                                        src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="project">
+                                </div>
+                                <div class="text-holder">
+                                    <h3><a href="causes-details.html">{{ $project->title }}</a></h3>
+                                    <p>{!! $project->details !!}</p>
 
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="50" title="Book"></div>
+                                    <div class="progress-levels progress-levels-style2">
+                                        <!--Skill Box-->
+                                        <div class="progress-box wow">
+                                            <div class="inner count-box">
+                                                <div class="bar">
+                                                    <div class="bar-innner">
+                                                        <div class="bar-fill" data-percent="50" title="Book"></div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>$25,00</span></p>
-                                                    <p>Target<span>$5,000</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="50">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
+                                                <div class="bottom-box">
+                                                    <div class="rate-box">
+                                                        <p>Achieved<span>Tk {{ $project->budget }}</span></p>
+                                                        <p>Target<span>Tk {{ $project->budget }}</span></p>
+                                                    </div>
+                                                    <div class="skill-percent">
+                                                        <span class="count-text" data-speed="3000"
+                                                            data-stop="50">0</span>
+                                                        <span class="percent">%</span>
+                                                        <p class="outer-text">Pledged So Far</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!--End Single Cause Style1-->
-                        <!--Start Single Cause Style1-->
-                        <div class="single-cause-style1 style2">
-                            <div class="text-holder">
-                                <h3><a href="causes-details.html">Poverty - No More</a></h3>
-                                <p>Nostrud aliquips exercitation laboris nisiut temp sed duis autey. Lorem unt ipsum
-                                    sit amet elit dolor.</p>
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="85" title="Book"></div>
-                                                </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>$25,00</span></p>
-                                                    <p>Target<span>$5,000</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="85">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="btns-box">
+                                        <a class="btn-one" href="#"><span class="txt"><i
+                                                    class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
                                     </div>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                                </div>
-                            </div>
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/causes/causes-v1-2.jpg" alt="">
-                            </div>
-                        </div>
-                        <!--End Single Cause Style1-->
-                        <!--Start Single Cause Style1-->
-                        <div class="single-cause-style1">
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/causes/causes-v1-3.jpg" alt="">
-                            </div>
-                            <div class="text-holder">
-                                <h3><a href="causes-details.html">Africa Medical Facility</a></h3>
-                                <p>Nostrud aliquips exercitation laboris nisiut temp sed duis autey. Lorem unt ipsum
-                                    sit amet elit dolor.</p>
 
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="72" title="Book"></div>
-                                                </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>$25,00</span></p>
-                                                    <p>Target<span>$5,000</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="72">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!--End Single Cause Style1-->
-
-                        <!--Start Single Cause Style1-->
-                        <div class="single-cause-style1">
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/causes/causes-v1-1.jpg" alt="">
-                            </div>
-                            <div class="text-holder">
-                                <h3><a href="causes-details.html">Education For People</a></h3>
-                                <p>Nostrud aliquips exercitation laboris nisiut temp sed duis autey. Lorem unt ipsum
-                                    sit amet elit dolor.</p>
-
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="50" title="Book"></div>
-                                                </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>$25,00</span></p>
-                                                    <p>Target<span>$5,000</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="50">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!--End Single Cause Style1-->
-                        <!--Start Single Cause Style1-->
-                        <div class="single-cause-style1 style2">
-                            <div class="text-holder">
-                                <h3><a href="causes-details.html">Poverty - No More</a></h3>
-                                <p>Nostrud aliquips exercitation laboris nisiut temp sed duis autey. Lorem unt ipsum
-                                    sit amet elit dolor.</p>
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="85" title="Book"></div>
-                                                </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>$25,00</span></p>
-                                                    <p>Target<span>$5,000</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="85">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
                                 </div>
                             </div>
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/causes/causes-v1-2.jpg" alt="">
-                            </div>
-                        </div>
-                        <!--End Single Cause Style1-->
-                        <!--Start Single Cause Style1-->
-                        <div class="single-cause-style1">
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/causes/causes-v1-3.jpg" alt="">
-                            </div>
-                            <div class="text-holder">
-                                <h3><a href="causes-details.html">Africa Medical Facility</a></h3>
-                                <p>Nostrud aliquips exercitation laboris nisiut temp sed duis autey. Lorem unt ipsum
-                                    sit amet elit dolor.</p>
-
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="72" title="Book"></div>
-                                                </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>$25,00</span></p>
-                                                    <p>Target<span>$5,000</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="72">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!--End Single Cause Style1-->
-
-                        <!--Start Single Cause Style1-->
-                        <div class="single-cause-style1">
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/causes/causes-v1-1.jpg" alt="">
-                            </div>
-                            <div class="text-holder">
-                                <h3><a href="causes-details.html">Education For People</a></h3>
-                                <p>Nostrud aliquips exercitation laboris nisiut temp sed duis autey. Lorem unt ipsum
-                                    sit amet elit dolor.</p>
-
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="50" title="Book"></div>
-                                                </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>$25,00</span></p>
-                                                    <p>Target<span>$5,000</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="50">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!--End Single Cause Style1-->
-                        <!--Start Single Cause Style1-->
-                        <div class="single-cause-style1 style2">
-                            <div class="text-holder">
-                                <h3><a href="causes-details.html">Poverty - No More</a></h3>
-                                <p>Nostrud aliquips exercitation laboris nisiut temp sed duis autey. Lorem unt ipsum
-                                    sit amet elit dolor.</p>
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="85" title="Book"></div>
-                                                </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>$25,00</span></p>
-                                                    <p>Target<span>$5,000</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="85">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                                </div>
-                            </div>
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/causes/causes-v1-2.jpg" alt="">
-                            </div>
-                        </div>
-                        <!--End Single Cause Style1-->
-                        <!--Start Single Cause Style1-->
-                        <div class="single-cause-style1">
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/causes/causes-v1-3.jpg" alt="">
-                            </div>
-                            <div class="text-holder">
-                                <h3><a href="causes-details.html">Africa Medical Facility</a></h3>
-                                <p>Nostrud aliquips exercitation laboris nisiut temp sed duis autey. Lorem unt ipsum
-                                    sit amet elit dolor.</p>
-
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="72" title="Book"></div>
-                                                </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>$25,00</span></p>
-                                                    <p>Target<span>$5,000</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="72">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!--End Single Cause Style1-->
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -750,20 +427,27 @@
                         <div class="thm-shape2"><img src="assets/frontend/images/shape/thm-shape-5.png" alt="">
                         </div>
                         <div class="mission-goals-image-box"
-                            style="background-image: url(assets/frontend/images/resources/mission-goals.jpg);"></div>
+                            style="background-image: url({{ asset('uploads/mission_vision/' . $mission_vision->image) }});">
+                        </div>
                         <div class="text-holder">
                             <div class="top">
                                 <div class="icon">
                                     <img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
                                 </div>
                                 <div class="title">
-                                    <h3>Small Donations Make Bigger Impact<br> On Someone’s Life, Act Today!</h3>
+                                    <h3>
+                                        @if (isset($mission_vision->title))
+                                            {{ $mission_vision->title }}
+                                        @endif
+                                    </h3>
                                 </div>
                             </div>
                             <div class="text">
-                                <p>Excepteur sint occaecat dui cupidatat non proident sunt culpa officia deserunt
-                                    mollit anim id est laborum. Sed ut dui persic iatis unde oms ipsum dolor sed
-                                    iste natus sit voluptatem.</p>
+                                <p>
+                                    @if (isset($mission_vision->description))
+                                        {!! $mission_vision->description !!}
+                                    @endif
+                                </p>
                             </div>
                             <ul class="clearfix">
                                 <li>
@@ -1049,123 +733,41 @@
 
                         <div class="inner-content">
                             <div class="event-style1-carousel owl-carousel owl-theme owl-nav-style-one">
-                                <!--Start Single Event Style1-->
-                                <div class="single-event-style1">
-                                    <div class="date-box">
-                                        <div class="left">
-                                            <h2>25</h2>
-                                        </div>
-                                        <div class="right">
-                                            <h3>MAR</h3>
-                                        </div>
-                                    </div>
-                                    <div class="meta-info">
-                                        <p>Organized By: <a href="#">LoveIcon</a></p>
-                                    </div>
-                                    <div class="title">
-                                        <h2><a href="events-details.html">Sports Event: Funding<br>the Innocent
-                                                People</a></h2>
-                                    </div>
-                                    <div class="border-box"></div>
-                                    <div class="event-time">
-                                        <div class="icon">
-                                            <span class="flaticon-clock"></span>
-                                        </div>
-                                        <div class="text">
-                                            <p>16:00 EST - Melbourne, AUS</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End Single Event Style1-->
-                                <!--Start Single Event Style1-->
-                                <div class="single-event-style1">
-                                    <div class="date-box">
-                                        <div class="left">
-                                            <h2>17</h2>
-                                        </div>
-                                        <div class="right">
-                                            <h3>APR</h3>
-                                        </div>
-                                    </div>
-                                    <div class="meta-info">
-                                        <p>Organized By: <a href="#">LoveIcon</a></p>
-                                    </div>
-                                    <div class="title">
-                                        <h2><a href="events-details.html">For the Loving Country:<br> Decade of
-                                                Support</a></h2>
-                                    </div>
-                                    <div class="border-box"></div>
-                                    <div class="event-time">
-                                        <div class="icon">
-                                            <span class="flaticon-clock"></span>
-                                        </div>
-                                        <div class="text">
-                                            <p>15:00 EST - Newyork, USA</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End Single Event Style1-->
 
-                                <!--Start Single Event Style1-->
-                                <div class="single-event-style1">
-                                    <div class="date-box">
-                                        <div class="left">
-                                            <h2>25</h2>
+                                @foreach ($events as $event)
+                                    <div class="single-event-style1">
+                                        <div class="date-box">
+                                            <div class="left">
+                                                <h2>{{ date('d', strtotime($event->date)) }}</h2>
+                                            </div>
+                                            <div class="right">
+                                                <h3>{{ date('M', strtotime($event->date)) }}</h3>
+                                            </div>
                                         </div>
-                                        <div class="right">
-                                            <h3>MAR</h3>
+                                        <div class="meta-info">
+                                            <p>Organized By: <a href="#">M22 Charity</a></p>
                                         </div>
-                                    </div>
-                                    <div class="meta-info">
-                                        <p>Organized By: <a href="#">LoveIcon</a></p>
-                                    </div>
-                                    <div class="title">
-                                        <h2><a href="events-details.html">Sports Event: Funding<br>the Innocent
-                                                People</a></h2>
-                                    </div>
-                                    <div class="border-box"></div>
-                                    <div class="event-time">
-                                        <div class="icon">
-                                            <span class="flaticon-clock"></span>
+                                        <div class="title">
+                                            <h2>
+                                                <a href="{{ route('frontend.eventDetails', $event->id) }}">
+                                                    {{ $event->title }}
+                                                </a>
+                                            </h2>
                                         </div>
-                                        <div class="text">
-                                            <p>16:00 EST - Melbourne, AUS</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End Single Event Style1-->
-                                <!--Start Single Event Style1-->
-                                <div class="single-event-style1">
-                                    <div class="date-box">
-                                        <div class="left">
-                                            <h2>17</h2>
-                                        </div>
-                                        <div class="right">
-                                            <h3>APR</h3>
+                                        <div class="border-box"></div>
+                                        <div class="event-time">
+                                            <div class="icon">
+                                                <span class="flaticon-clock"></span>
+                                            </div>
+                                            <div class="text">
+                                                <p>16:00 EST - Melbourne, AUS</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="meta-info">
-                                        <p>Organized By: <a href="#">LoveIcon</a></p>
-                                    </div>
-                                    <div class="title">
-                                        <h2><a href="events-details.html">For the Loving Country:<br> Decade of
-                                                Support</a></h2>
-                                    </div>
-                                    <div class="border-box"></div>
-                                    <div class="event-time">
-                                        <div class="icon">
-                                            <span class="flaticon-clock"></span>
-                                        </div>
-                                        <div class="text">
-                                            <p>15:00 EST - Newyork, USA</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End Single Event Style1-->
+                                @endforeach
 
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -1276,102 +878,38 @@
                 <h2>News & Happenings</h2>
             </div>
             <div class="row text-right-rtl">
-                <!--Start Single blog Style1-->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/blog/blog-v1-1.jpg" alt="">
-                                <div class="overlay-icon">
-                                    <a href="blog-single.html"><span class="flaticon-plus"></span></a>
+                @foreach ($blogs as $blog)
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
+                            <div class="img-holder">
+                                <div class="inner">
+                                    <img style="width: 360px; height:300px"
+                                        src="{{ asset('uploads/blog/' . $blog->banner_img) }}" alt="">
+                                    <div class="overlay-icon">
+                                        <a href="{{ route('frontend.blogDetails', $blog->id) }}"><span
+                                                class="flaticon-plus"></span></a>
+                                    </div>
+                                </div>
+                                <div class="date-box">
+                                    <h2>{{ date('d', strtotime($blog->date)) }}</h2>
+                                    <p>{{ date('M', strtotime($blog->date)) }}</p>
                                 </div>
                             </div>
-                            <div class="date-box">
-                                <h2>03</h2>
-                                <p>MAR</p>
-                            </div>
-                        </div>
-                        <div class="text-holder">
-                            <h3 class="blog-title">
-                                <a href="blog-single.html">Rise of Global Charity in Modern World</a>
-                            </h3>
-                            <div class="text">
-                                <p>Nostrud tem exrcitation duis laboris nisi ut aliquip sed duis aute cupidata con
-                                    proident sunt culpa.</p>
-                            </div>
-                            <ul class="meta-info">
-                                <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">Malay
-                                        D’soza</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single blog Style1-->
-                <!--Start Single blog Style1-->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/blog/blog-v1-2.jpg" alt="">
-                                <div class="overlay-icon">
-                                    <a href="blog-single.html"><span class="flaticon-plus"></span></a>
+                            <div class="text-holder">
+                                <h3 class="blog-title">
+                                    <a href="{{ route('frontend.blogDetails', $blog->id) }}">
+                                        {{ $blog->title }}
+                                    </a>
+                                </h3>
+                                <div class="text">
+                                    <p>
+                                        {!! $blog->details !!}
+                                    </p>
                                 </div>
                             </div>
-                            <div class="date-box style2">
-                                <h2>25</h2>
-                                <p>May</p>
-                            </div>
-                        </div>
-                        <div class="text-holder">
-                            <h3 class="blog-title">
-                                <a href="blog-single.html">How to become a Good Volunteer Today</a>
-                            </h3>
-                            <div class="text">
-                                <p>Nostrud tem exrcitation duis laboris nisi ut aliquip sed duis aute cupidata con
-                                    proident sunt culpa.</p>
-                            </div>
-                            <ul class="meta-info">
-                                <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">Andrea
-                                        Kay</a></li>
-
-                            </ul>
                         </div>
                     </div>
-                </div>
-                <!--End Single blog Style1-->
-                <!--Start Single blog Style1-->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/blog/blog-v1-3.jpg" alt="">
-                                <div class="overlay-icon">
-                                    <a href="blog-single.html"><span class="flaticon-plus"></span></a>
-                                </div>
-                            </div>
-                            <div class="date-box style3">
-                                <h2>19</h2>
-                                <p>Apr</p>
-                            </div>
-                        </div>
-                        <div class="text-holder">
-                            <h3 class="blog-title">
-                                <a href="blog-single.html">Empower the Dropout Innocents is Key</a>
-                            </h3>
-                            <div class="text">
-                                <p>Nostrud tem exrcitation duis laboris nisi ut aliquip sed duis aute cupidata con
-                                    proident sunt culpa.</p>
-                            </div>
-                            <ul class="meta-info">
-                                <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">Jelly
-                                        Bean</a></li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single blog Style1-->
+                @endforeach
 
             </div>
 
@@ -1401,68 +939,13 @@
                 </div>
             </div>
             <ul class="partner-box partner-carousel owl-carousel owl-theme owl-dot-style1">
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-1.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-2.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-3.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-4.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
 
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-1.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-2.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-3.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-4.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-1.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-2.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-3.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
-                <!--Start Single Partner Logo Box-->
-                <li class="single-partner-logo-box">
-                    <a href="#"><img src="assets/frontend/images/brand/brand-logo-4.png" alt="Awesome Image"></a>
-                </li>
-                <!--End Single Partner Logo Box-->
+                @foreach ($partners as $partner)
+                    <li class="single-partner-logo-box">
+                        <a href="javascript:void(0)"><img style="width: 250px; height:130px"
+                                src="{{ asset('uploads/partner/' . $partner->image) }}" alt="Partner Logo"></a>
+                    </li>
+                @endforeach
 
             </ul>
         </div>

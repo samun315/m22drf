@@ -87,7 +87,7 @@
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Budget</label>
-                                <input type="text"
+                                <input type="number"
                                     class="form-control form-control-solid @error('budget') is-invalid @enderror"
                                     placeholder="Enter budget" name="budget"
                                     value="{{ $editModeData->budget ?? old('budget') }}" />

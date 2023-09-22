@@ -3,6 +3,13 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\Event;
+use App\Models\FooterSetting;
+use App\Models\MissionVissionSetting;
+use App\Models\Partner;
+use App\Models\Project;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -10,7 +17,16 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.home');
+        $data['sliders'] = Slider::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['projects'] = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['blogs'] = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['partners'] = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
+
+        $data['mission_vision'] = MissionVissionSetting::first();
+        $data['footer_setting'] = FooterSetting::first();
+
+        return view('frontend.home', $data);
     }
 
     public function aboutUs()

@@ -12,6 +12,6 @@ class Category extends Model
     protected $table = 'categories';
 
     protected $fillable = [
-        'title', 'banner_img', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
+        'name', 'banner_img', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 }

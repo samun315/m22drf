@@ -34,13 +34,13 @@ class LoginController extends Controller
                     session()->put('logged_session_data', $user_data);
                     return redirect()->intended(url('/dashboard'));
                 } else {
-                    return redirect(url('/'))->withInput()->with('error', 'Wrong password');
+                    return redirect(url('/admin-login'))->withInput()->with('error', 'Wrong password');
                 }
             } else {
-                return redirect(url('/'))->withInput()->with('error', 'Please give the valid information');
+                return redirect(url('/admin-login'))->withInput()->with('error', 'Please give the valid information');
             }
         } catch (\Throwable $th) {
-            return redirect(url('/'))->with('error',  $th->getMessage());
+            return redirect(url('/admin-login'))->with('error',  $th->getMessage());
         }
     }
 

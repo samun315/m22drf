@@ -73,7 +73,7 @@
                                         <td> {{ $loop->iteration }} </td>
                                         <td>
                                             <img style="width: 80px; height: 80px; border-radius: 50%"
-                                                src="{{ asset('uploads/project/' . $value->banner_img) }}" alt="">
+                                                src="{{ asset('uploads/slider/' . $value->banner_img) }}" alt="">
                                         </td>
                                         <td> {{ $value->tagline }} </td>
                                         <td> {{ $value->title }} </td>

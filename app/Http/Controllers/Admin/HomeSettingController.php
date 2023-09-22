@@ -41,7 +41,7 @@ class HomeSettingController extends Controller
             $imgName = md5(Str::random(30) . time() . '_' . $request->file('image')) . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->move('uploads/mission_vision/', $imgName);
 
-            if (file_exists('uploads/mission_vision/' . $mission_vision->image) && !empty($mission_vision->image)) {
+            if (!empty($mission_vision->image) && file_exists('uploads/mission_vision/' . $mission_vision->image)) {
                 unlink('uploads/mission_vision/' . $mission_vision->image);
             }
 
@@ -49,7 +49,13 @@ class HomeSettingController extends Controller
         }
 
         try {
-            $mission_vision->update($input);
+
+            if (isset($mission_vision) && !empty($mission_vision)) {
+                $mission_vision->update($input);
+            } else {
+                MissionVissionSetting::create($input);
+            }
+
             return back()->with('success', 'Mission vision updated successfully.');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
@@ -66,7 +72,12 @@ class HomeSettingController extends Controller
         $input['updated_at']    = Carbon::now();
 
         try {
-            $footer_setting->update($input);
+            if (!empty($footer_setting)) {
+                $footer_setting->update($input);
+            } else {
+                FooterSetting::create($input);
+            }
+
             return back()->with('success', 'Footer setting updated successfully.');
         } catch (\Exception $e) {
             return back()->with('error', $e->getMessage());
