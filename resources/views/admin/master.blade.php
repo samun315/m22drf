@@ -34,7 +34,12 @@
         <div class="page d-flex flex-row flex-column-fluid">
 
             <!--begin::Aside-->
-            @include('admin.layouts.sidebar')
+            @if (session('logged_session_data.role_id') == 1)
+                @include('admin.layouts.sidebar')
+            @else
+                @include('admin.layouts.member_sidebar')
+            @endif
+
             <!--end::Aside-->
 
             <!--begin::Wrapper-->

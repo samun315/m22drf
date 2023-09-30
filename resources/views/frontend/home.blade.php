@@ -8,7 +8,6 @@
     @include('frontend.layouts.slider')
     <!-- End Main Slider -->
 
-
     <!--Start Features Style1 Area-->
     <section class="features-style1-area">
         <div class="container">
@@ -234,8 +233,11 @@
                                         src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="project">
                                 </div>
                                 <div class="text-holder">
-                                    <h3><a href="causes-details.html">{{ $project->title }}</a></h3>
-                                    <p>{!! $project->details !!}</p>
+                                    <h3>
+                                        <a
+                                            href="{{ route('frontend.projectDetails', $project->id) }}">{{ $project->title }}</a>
+                                    </h3>
+                                    <p> {!! \Illuminate\Support\Str::limit($project->details, 200) !!} </p>
 
                                     <div class="progress-levels progress-levels-style2">
                                         <!--Skill Box-->
@@ -426,9 +428,13 @@
                         </div>
                         <div class="thm-shape2"><img src="assets/frontend/images/shape/thm-shape-5.png" alt="">
                         </div>
-                        <div class="mission-goals-image-box"
-                            style="background-image: url({{ asset('uploads/mission_vision/' . $mission_vision->image) }});">
-                        </div>
+
+                        @if (isset($mission_vision->image))
+                            <div class="mission-goals-image-box"
+                                style="background-image: url({{ asset('uploads/mission_vision/' . $mission_vision->image) }});">
+                            </div>
+                        @endif
+
                         <div class="text-holder">
                             <div class="top">
                                 <div class="icon">
@@ -878,6 +884,7 @@
                 <h2>News & Happenings</h2>
             </div>
             <div class="row text-right-rtl">
+
                 @foreach ($blogs as $blog)
                     <div class="col-xl-4 col-lg-4">
                         <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
@@ -903,7 +910,7 @@
                                 </h3>
                                 <div class="text">
                                     <p>
-                                        {!! $blog->details !!}
+                                        {!! \Illuminate\Support\Str::limit($blog->details, 200) !!}
                                     </p>
                                 </div>
                             </div>
@@ -912,7 +919,6 @@
                 @endforeach
 
             </div>
-
         </div>
     </section>
     <!--End Blog Style1 Area-->

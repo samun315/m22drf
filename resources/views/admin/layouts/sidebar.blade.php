@@ -107,16 +107,6 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link {{ request()->is('slider/*') ? 'active' : '' }}"
-                        href="{{ route('admin.slider.index') }}">
-                        <span class="menu-icon">
-                            <i class="bi bi-archive fs-3 text-success"></i>
-                        </span>
-                        <span class="menu-title">Manage Slider</span>
-                    </a>
-                </div>
-
-                <div class="menu-item">
                     <a class="menu-link {{ request()->is('partner/*') ? 'active' : '' }}"
                         href="{{ route('admin.partner.index') }}">
                         <span class="menu-icon">
@@ -206,6 +196,16 @@
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
                         <div class="menu-item">
+                            <a class="menu-link {{ request()->is('slider/*') ? 'active' : '' }}"
+                                href="{{ route('admin.slider.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Manage Slider</span>
+                            </a>
+                        </div>
+
+                        <div class="menu-item">
                             <a class="menu-link {{ request()->is('home-setting/mission-vision') ? 'active' : '' }}"
                                 href="{{ route('admin.setting.showMissionVisionForm') }}">
                                 <span class="menu-bullet">
@@ -214,6 +214,7 @@
                                 <span class="menu-title">Mission & Vision Setting</span>
                             </a>
                         </div>
+
                         <div class="menu-item">
                             <a class="menu-link {{ request()->is('home-setting/footer/*') ? 'active' : '' }}"
                                 href="{{ route('admin.footerSetting.showFooterForm') }}">

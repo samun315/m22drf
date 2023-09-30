@@ -16,7 +16,7 @@
                                 </div>
                                 <div class="border-box"></div>
                                 <div class="text">
-                                    <p>{{ $slider->description }}</p>
+                                    <p>{!! $slider->description !!}</p>
                                 </div>
                                 <div class="btns-box">
                                     <a class="btn-one btn-one-style2" href="/about-us">

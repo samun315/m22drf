@@ -1,3 +1,20 @@
+@php
+    $projects = \DB::table('projects')
+        ->orderBy('id', 'DESC')
+        ->where('status', 'YES')
+        ->take(5)
+        ->get();
+
+    $events = \DB::table('events')
+        ->orderBy('id', 'DESC')
+        ->where('status', 'YES')
+        ->take(5)
+        ->get();
+
+    $footer_setting = \DB::table('footer_settings')->first();
+
+@endphp
+
 <footer class="footer-area">
     <!--Start Footer-->
     <div class="footer">
@@ -8,12 +25,14 @@
                     <div class="single-footer-widget">
                         <div class="our-company-info">
                             <div class="footer-logo">
-                                <a href="index.html"> <img src="assets/images/footer/footer-logo.png"
-                                        alt="" /></a>
+                                <a href="/"> <img src="{{ asset('assets/frontend/images/resources/logo.png') }}"
+                                        alt="logo" /></a>
                             </div>
                             <div class="text-box">
-                                <p>Excepteur sint occaecat cupidatat none proident sunt culpa officia deserunt
-                                    mollit anim id est laborum luptatem.
+                                <p>
+                                    @if (isset($footer_setting->address))
+                                        {!! $footer_setting->address !!}
+                                    @endif
                                 </p>
                             </div>
 
@@ -22,10 +41,21 @@
                                     <span class="flaticon-phone-call"></span>
                                 </div>
                                 <div class="support-box">
-                                    <h5>Support: <a href="tel:+11987654321">1-206-156 7849</a></h5>
+                                    <h5>Support:
+
+                                        @if (isset($footer_setting->phone_number))
+                                            <a
+                                                href="tel:{{ $footer_setting->phone_number }}">{{ $footer_setting->phone_number }}</a>
+                                        @endif
+                                    </h5>
                                     <div class="email">
-                                        <p><a href="mailto:info@templatepath.com">Email:
-                                                info@m22charity.org</a>
+                                        <p>
+                                            @if (isset($footer_setting->email))
+                                                <a href="mailto:{{ $footer_setting->email }}">Email:
+                                                    {{ $footer_setting->email }}
+                                                </a>
+                                            @endif
+
                                         </p>
                                     </div>
                                 </div>
@@ -43,11 +73,14 @@
                             <h3>Recent Projects</h3>
                         </div>
                         <ul class="footer-widget-links1">
-                            <li><a href="index.html">Asia Africa Pacific</a></li>
-                            <li><a href="testimonials.html">Somalia Emergency</a></li>
-                            <li><a href="team.html">City Floods Relief</a></li>
-                            <li><a href="#">Medical Emergency</a></li>
-                            <li><a href="contact.html">Covid-19 Emergency</a></li>
+
+                            @foreach ($projects as $project)
+                                <li>
+                                    <a
+                                        href="{{ route('frontend.projectDetails', $project->id) }}">{{ $project->title }}</a>
+                                </li>
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>
@@ -76,11 +109,11 @@
                             <h3>Events</h3>
                         </div>
                         <ul class="footer-widget-links1">
-                            <li><a href="blog.html">Aid for Refugees</a></li>
-                            <li><a href="#">Education</a></li>
-                            <li><a href="3">Quick Response</a></li>
-                            <li><a href="#">Food Health Aid</a></li>
-                            <li><a href="#">Women Programs</a></li>
+
+                            @foreach ($events as $event)
+                                <li><a href="{{ route('frontend.eventDetails', $event->id) }}">{{ $event->title }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
@@ -112,28 +145,49 @@
         <div class="auto-container">
             <div class="footer-bottom_content_box text-center">
                 <div class="copyright-text">
-                    <p>&copy; {{ date('Y') }} <a href="#">M22 Charity.</a> All rights reserved.</p>
+                    <p>&copy; {{ date('Y') }} <a href="javascript::void(0)">M22 Charity.</a> All rights reserved.
+                    </p>
                 </div>
                 <div class="footer-social-link">
                     <ul class="social-links-style1">
-                        <li>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                        </li>
+
+                        @if (isset($footer_setting->twitter_link))
+                            <li>
+
+                                <a target="_blank" href="{{ $footer_setting->twitter_link }}"><i class="fa fa-twitter"
+                                        aria-hidden="true"></i></a>
+                            </li>
+                        @endif
+
+                        @if (isset($footer_setting->facebook_link))
+                            <li>
+                                <a target="_blank" href="{{ $footer_setting->facebook_link }}"><i
+                                        class="fa fa-facebook" aria-hidden="true"></i></a>
+                            </li>
+                        @endif
+
+                        @if (isset($footer_setting->linkedin_link))
+                            <li>
+                                <a target="_blank" href="{{ $footer_setting->linkedin_link }}"><i
+                                        class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </li>
+                        @endif
+
+                        @if (isset($footer_setting->youtube_link))
+                            <li>
+                                <a target="_blank" href="{{ $footer_setting->youtube_link }}"><i class="fa fa-youtube"
+                                        aria-hidden="true"></i></a>
+                            </li>
+                        @endif
+
+                        @if (isset($footer_setting->instagram_link))
+                            <li>
+                                <a target="_blank" href="{{ $footer_setting->instagram_link }}"><i
+                                        class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
-
             </div>
         </div>
     </div>

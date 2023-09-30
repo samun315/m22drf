@@ -19,7 +19,7 @@ class LoginController extends Controller
     {
         try {
 
-            $adminUser = Admin::where('email', $request->email)->orWhere('phone_number', '=', $request->email)->first();
+            $adminUser = Admin::where('email', $request->email)->orWhere('phone_number', '=', $request->email)->where('status', 'YES')->first();
 
             if (!empty($adminUser)) {
                 if (Hash::check($request->password, $adminUser->password)) {
@@ -47,6 +47,6 @@ class LoginController extends Controller
     public function logout()
     {
         Session::flush();
-        return redirect(url('/'))->with('success', 'logout successful ..!');
+        return redirect(url('/admin-login'))->with('success', 'logout successful ..!');
     }
 }
