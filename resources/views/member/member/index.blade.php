@@ -18,13 +18,14 @@
                                 <!--begin::Card body-->
                                 <div class="card-body d-flex flex-center flex-column pt-12 p-9">
                                     <!--begin::Avatar-->
-                                    <div class="symbol symbol-200px symbol-circle mb-5">
+                                    <div class="symbol symbol-200px mb-5">
 
                                         <img src="{{ asset('uploads/member/' . $member->passport_photo) }}" alt="image">
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Name-->
-                                    <a href="#" class="fs-1 text-gray-800 text-hover-primary fw-bolder mb-0">
+                                    <a href="{{ route('member.viewMemberData', $member->user_id) }}"
+                                        class="fs-1 text-gray-800 text-hover-primary fw-bolder mb-0">
                                         {{ $member->user_name }}
                                     </a>
                                     <!--end::Name-->

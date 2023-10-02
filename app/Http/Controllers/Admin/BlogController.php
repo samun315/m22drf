@@ -20,7 +20,6 @@ class BlogController extends Controller
             ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
             ->orderBy('id', 'DESC')->paginate(10);
 
-
         return view('admin.blog.index', ['results' => $results]);
     }
 

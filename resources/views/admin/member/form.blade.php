@@ -122,10 +122,10 @@
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Date Of Bith</label>
                                 <input type="text"
-                                    class="form-control form-control-solid @error('date_of_bith') is-invalid @enderror"
-                                    placeholder="Enter date of bith" name="date_of_bith"
-                                    value="{{ $editModeData->date_of_bith ?? old('date_of_bith') }}" />
-                                @error('date_of_bith')
+                                    class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror"
+                                    placeholder="Enter date of bith" name="date_of_birth"
+                                    value="{{ $editModeData->date_of_birth ?? old('date_of_birth') }}" />
+                                @error('date_of_birth')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -291,7 +291,7 @@
 
         i = document.querySelector("#kt_member_form");
 
-        $(i.querySelector('[name="date_of_bith"]')).flatpickr({
+        $(i.querySelector('[name="date_of_birth"]')).flatpickr({
             dateFormat: "Y-m-d"
         });
     </script>
