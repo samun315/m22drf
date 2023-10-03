@@ -34,7 +34,7 @@
                                         <div class="card-xl-stretch me-md-6">
                                             <!--begin::Overlay-->
                                             <a class="d-block overlay" data-fslightbox="lightbox-hot-sales"
-                                                href="javascript:void(0)">
+                                                href="{{ route('member.viewMemberBlog', $result->blog_id) }}">
                                                 <!--begin::Image-->
                                                 <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-175px"
                                                     style="background-image:url('{{ asset('uploads/blog/' . $result->banner_img) }}')">
@@ -50,7 +50,7 @@
                                             <!--begin::Body-->
                                             <div class="mt-5">
                                                 <!--begin::Title-->
-                                                <a href="#"
+                                                <a href="{{ route('member.viewMemberBlog', $result->blog_id) }}"
                                                     class="fs-4 text-dark fw-bolder text-hover-primary text-dark lh-base">
                                                     {{ $result->title }}
                                                 </a>
