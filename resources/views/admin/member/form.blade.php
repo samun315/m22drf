@@ -193,8 +193,8 @@
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Children (Name, Education etc.)</label>
-                                <textarea class="form-control form-control-solid" placeholder="Enter children (Name, Education etc.)" name="children_details"
-                                    data-kt-autosize="true">{{ $editModeData->children_details ?? old('children_details') }}</textarea>
+                                <textarea class="form-control form-control-solid" placeholder="Enter children (Name, Education etc.)"
+                                    name="children_details" data-kt-autosize="true">{{ $editModeData->children_details ?? old('children_details') }}</textarea>
                                 @error('children_details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
@@ -215,8 +215,8 @@
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Extra Curicular Activities </label>
                                 <p>(Hobbies, Writting, Travelling, Singing, Gardening, etc.)</p>
-                                <textarea class="form-control form-control-solid" placeholder="Enter extra curicular activities" name="extra_curicular_activities"
-                                    data-kt-autosize="true">{{ $editModeData->extra_curicular_activities ?? old('extra_curicular_activities') }}</textarea>
+                                <textarea class="form-control form-control-solid" placeholder="Enter extra curicular activities"
+                                    name="extra_curicular_activities" data-kt-autosize="true">{{ $editModeData->extra_curicular_activities ?? old('extra_curicular_activities') }}</textarea>
                                 @error('extra_curicular_activities')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
@@ -225,8 +225,8 @@
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Lifetime Achievement</label>
                                 <p>(Member of parliament, Academic Awards, etc.)</p>
-                                <textarea class="form-control form-control-solid" placeholder="Enter lifetime achievement" name="lifetime_achievement"
-                                    data-kt-autosize="true">{{ $editModeData->lifetime_achievement ?? old('lifetime_achievement') }}</textarea>
+                                <textarea class="form-control form-control-solid" placeholder="Enter lifetime achievement"
+                                    name="lifetime_achievement" data-kt-autosize="true">{{ $editModeData->lifetime_achievement ?? old('lifetime_achievement') }}</textarea>
                                 @error('lifetime_achievement')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
@@ -250,6 +250,57 @@
                                 @enderror
                             </div>
 
+                            <div class="col-md-4 fv-row mb-5">
+                                <label class="required fs-6 fw-bold mb-2">Student photo</label>
+                                <input type="file"
+                                    class="form-control form-control-solid @error('student_photo') is-invalid @enderror"
+                                    name="student_photo" />
+
+                                @isset($editModeData->student_photo)
+                                    <a target="_blank"
+                                        href="{{ asset('uploads/member/' . $editModeData->student_photo) }}">View
+                                        Student photo</a>
+                                @endisset
+
+                                @error('student_photo')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-4 fv-row mb-5">
+                                <label class="required fs-6 fw-bold mb-2">Doctor photo</label>
+                                <input type="file"
+                                    class="form-control form-control-solid @error('doctor_photo') is-invalid @enderror"
+                                    name="doctor_photo" />
+
+                                @isset($editModeData->doctor_photo)
+                                    <a target="_blank"
+                                        href="{{ asset('uploads/member/' . $editModeData->doctor_photo) }}">View
+                                        Doctor photo</a>
+                                @endisset
+
+                                @error('doctor_photo')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-4 fv-row mb-5">
+                                <label class="required fs-6 fw-bold mb-2">Family photo</label>
+                                <input type="file"
+                                    class="form-control form-control-solid @error('family_photo') is-invalid @enderror"
+                                    name="family_photo" />
+
+                                @isset($editModeData->family_photo)
+                                    <a target="_blank"
+                                        href="{{ asset('uploads/member/' . $editModeData->family_photo) }}">View
+                                        Family photo</a>
+                                @endisset
+
+                                @error('family_photo')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Active</label>
                                 <select name="status"
@@ -263,6 +314,38 @@
                                     </option>
                                 </select>
                                 @error('status')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Member Status</label>
+                                <select name="member_status"
+                                    class="form-select form-select-solid @error('member_status') is-invalid @enderror"
+                                    data-control="select2" data-hide-search="true" data-placeholder="Active">
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->member_status == 'Foundation Member' ? 'selected' : '' }}
+                                        value="Foundation Member">
+                                        Foundation Member</option>
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->member_status == 'Not Enlisted' ? 'selected' : '' }}
+                                        value="Not Enlisted">Not Enlisted
+                                    </option>
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->member_status == 'Departed Friends' ? 'selected' : '' }}
+                                        value="Departed Friends">Departed Friends
+                                    </option>
+                                </select>
+                                @error('member_status')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-12 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">About Yourself</label>
+                                <textarea class="form-control form-control-solid ckeditor" placeholder="Enter about yourself" name="about_your_self"
+                                    data-kt-autosize="true">{{ $editModeData->about_your_self ?? old('about_your_self') }}</textarea>
+                                @error('about_your_self')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -286,6 +369,15 @@
 @endsection
 
 @section('page_scripts')
+
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
+
     <script>
         var i;
 

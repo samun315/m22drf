@@ -23,6 +23,8 @@ Route::get('contact-us', [FrontendController::class, 'contactUs'])->name('fronte
 Route::get('project', [FrontendController::class, 'project'])->name('frontend.project');
 Route::get('project-details/{project_id}', [FrontendController::class, 'projectDetails'])->name('frontend.projectDetails');
 
+Route::get('project-follow-up-details/{project_id}', [FrontendController::class, 'projectFollowUpDetails'])->name('frontend.projectFollowUpDetails');
+
 //Event
 Route::get('event', [FrontendController::class, 'event'])->name('frontend.event');
 Route::get('event-details/{event_id}', [FrontendController::class, 'eventDetails'])->name('frontend.eventDetails');
