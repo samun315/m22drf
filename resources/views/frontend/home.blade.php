@@ -278,6 +278,61 @@
     </section>
     <!--End Cause Style2 Area-->
 
+    <!--Start Project Follow-up Area-->
+    <section class="cause-style2-area">
+        <div class="thm-shape1 float-bob"><img src="assets/frontend/images/shape/thm-shape-2.png" alt=""></div>
+        <div class="thm-shape2 zoom-fade"><img src="assets/frontend/images/shape/thm-shape-3.png" alt=""></div>
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <div class="sub-title">
+                    <div class="inner">
+                        <h3>We Change Your Life & World</h3>
+                    </div>
+                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
+                </div>
+                <h2>Projects Follow-Up</h2>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
+                        data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
+
+                        @foreach ($project_follow_ups as $project_follow_up)
+                            <div class="single-cause-style1">
+                                <div class="img-holder">
+                                    <img style="width: 380px; height:370px"
+                                        src="{{ asset('uploads/project_follow_up/' . $project_follow_up->image_url) }}"
+                                        alt="project">
+                                </div>
+                                <div class="text-holder">
+                                    <h3>
+                                        <a
+                                            href="{{ route('frontend.projectFollowUpDetails', $project_follow_up->id) }}">{{ $project_follow_up->title }}</a>
+                                    </h3>
+                                    <p> {!! \Illuminate\Support\Str::limit($project_follow_up->details, 200) !!} </p>
+
+                                    <div class="progress-levels progress-levels-style2">
+                                        <!--Skill Box-->
+                                        <div class="progress-box wow">
+                                            <div class="inner count-box">
+                                                <div class="bar">
+                                                    <div class="bar-innner">
+                                                        <div class="bar-fill" data-percent="50" title="Book"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Project Follow-up Area-->
+
 
     <!--Start Fact Counter Area-->
     <section class="fact-counter-area">

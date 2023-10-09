@@ -9,6 +9,7 @@ use App\Models\FooterSetting;
 use App\Models\MissionVissionSetting;
 use App\Models\Partner;
 use App\Models\Project;
+use App\Models\ProjectFollowUp;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,7 @@ class FrontendController extends Controller
     {
         $data['sliders'] = Slider::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['projects'] = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['project_follow_ups'] = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['blogs'] = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['partners'] = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
@@ -67,6 +69,13 @@ class FrontendController extends Controller
         $project = DB::table('projects')->where('id', $project_id)->first();
 
         return view('frontend.project.details', compact('project'));
+    }
+
+    public function projectFollowUpDetails($project_follow_up_id)
+    {
+        $project_follow_up = DB::table('project_followup')->where('id', $project_follow_up_id)->first();
+
+        return view('frontend.project_follow_up.details', compact('project_follow_up'));
     }
 
     public function blog()

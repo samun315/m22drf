@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DonationRequestController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\HomeSettingController;
 use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectFollowUpController;
@@ -86,6 +88,16 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::put('/update-status', [DonationRequestController::class, 'updateStatus'])->name('admin.donation_request.update.status');
     });
 
+    //Notice
+    Route::group(['prefix' => 'notice'], function () {
+        Route::get('/index', [NoticeController::class, 'index'])->name('admin.notice.index');
+        Route::get('/create', [NoticeController::class, 'create'])->name('admin.notice.create');
+        Route::post('/store', [NoticeController::class, 'store'])->name('admin.notice.store');
+        Route::get('/{notice_id}/edit', [NoticeController::class, 'edit'])->name('admin.notice.edit');
+        Route::put('/{notice_id}/update', [NoticeController::class, 'update'])->name('admin.notice.update');
+        Route::put('/update-status', [NoticeController::class, 'updateStatus'])->name('admin.notice.update.status');
+    });
+
     //Slider
     Route::group(['prefix' => 'slider'], function () {
         Route::get('/index', [SliderController::class, 'index'])->name('admin.slider.index');
@@ -117,4 +129,8 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/footer', [HomeSettingController::class, 'showFooterForm'])->name('admin.footerSetting.showFooterForm');
         Route::put('/footer/update', [HomeSettingController::class, 'updateFooter'])->name('admin.footerSetting.updateFooter');
     });
+
+    //About us Setting
+    Route::get('setting/about-us', [AboutUsController::class, 'showAboutUsForm'])->name('admin.aboutUsSetting.showAboutUsForm');
+    Route::put('setting/about-us/update', [AboutUsController::class, 'updateAboutUs'])->name('admin.aboutUsSetting.updateAboutUs');
 });
