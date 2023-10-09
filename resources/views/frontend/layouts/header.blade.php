@@ -9,7 +9,7 @@
                 <div class="header-left clearfix pull-left">
                     <div class="logo">
                         <a href="/">
-                            <img src="{{ asset('assets/frontend/images/resources/logo.png') }}" alt="Logo"
+                            <img src="{{ asset('assets/frontend/images/logo/m22drf-logo.png') }}" alt="Logo"
                                 title="">
                         </a>
                     </div>
