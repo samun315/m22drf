@@ -9,7 +9,8 @@
                 <div class="header-left clearfix pull-left">
                     <div class="logo">
                         <a href="/">
-                            <img src="{{ asset('assets/frontend/images/logo/m22drf-logo.png') }}" alt="Logo"
+                            <img style="width: 208px; height:54px"
+                                src="{{ asset('assets/frontend/logo/m22-header-logo.jpg') }}" alt="Logo"
                                 title="">
                         </a>
                     </div>
@@ -89,8 +90,10 @@
             <div class="clearfix">
                 <!--Logo-->
                 <div class="logo float-left">
-                    <a href="index.html" class="img-responsive"><img
-                            src="assets/frontend/images/resources/sticky-logo.png" alt="" title=""></a>
+                    <a href="/" class="img-responsive">
+                        <img style="width: 208px; height:54px"
+                            src="{{ asset('assets/frontend/logo/m22-header-logo.jpg') }}" alt=""
+                            title=""></a>
                 </div>
                 <!--Right Col-->
                 <div class="right-col float-right">
@@ -109,8 +112,8 @@
         <div class="menu-backdrop"></div>
         <div class="close-btn"><span class="icon fa fa-times-circle"></span></div>
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="assets/frontend/images/resources/mobilemenu-logo.png"
-                        alt="" title=""></a>
+            <div class="nav-logo"><a href="index.html"><img style="width: 208px; height:54px"
+                        src="{{ asset('assets/frontend/logo/m22-header-logo.jpg') }}" alt="" title=""></a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->

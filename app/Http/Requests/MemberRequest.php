@@ -29,6 +29,7 @@ class MemberRequest extends FormRequest
                 'email'                         => ['required', Rule::unique('users')->ignore($this->user_id)],
                 'phone_number'                  => ['required', Rule::unique('users')->ignore($this->user_id)],
                 'present_job'                   => 'required',
+                'about_your_self'               => 'required',
                 'date_of_birth'                 => 'required',
                 'spouse_name'                   => 'required',
                 'personal_charity'              => 'required',
@@ -41,6 +42,7 @@ class MemberRequest extends FormRequest
                 'lifetime_achievement'          => 'required',
                 'special_occasions'             => 'required',
                 // 'passport_photo'                => 'required',
+                'member_status'                 => 'required',
                 'status'                        => 'required'
             ];
         }
@@ -50,6 +52,7 @@ class MemberRequest extends FormRequest
             'email'                         => 'required|unique:users,email',
             'phone_number'                  => 'required|unique:users,phone_number',
             'present_job'                   => 'required',
+            'about_your_self'               => 'required',
             'date_of_birth'                 => 'required',
             'spouse_name'                   => 'required',
             'personal_charity'              => 'required',
@@ -62,6 +65,7 @@ class MemberRequest extends FormRequest
             'lifetime_achievement'          => 'required',
             'special_occasions'             => 'required',
             'passport_photo'                => 'required',
+            'member_status'                 => 'required',
             'status'                        => 'required'
         ];
     }

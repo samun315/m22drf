@@ -25,7 +25,8 @@
                     <div class="single-footer-widget">
                         <div class="our-company-info">
                             <div class="footer-logo">
-                                <a href="/"> <img src="{{ asset('assets/frontend/images/resources/logo.png') }}"
+                                <a href="/"> <img style="width: 208px; height: 54px"
+                                        src="{{ asset('assets/frontend/logo/m22-header-logo.jpg') }}"
                                         alt="logo" /></a>
                             </div>
                             <div class="text-box">
