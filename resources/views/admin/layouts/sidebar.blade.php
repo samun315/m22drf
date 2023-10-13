@@ -57,42 +57,12 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link {{ request()->is('project/*') ? 'active' : '' }}"
-                        href="{{ route('admin.project.index') }}">
-                        <span class="menu-icon">
-                            <i class="bi bi-printer fs-3 text-info"></i>
-                        </span>
-                        <span class="menu-title">Manage Project</span>
-                    </a>
-                </div>
-
-                <div class="menu-item">
                     <a class="menu-link {{ request()->is('member/*') ? 'active' : '' }}"
                         href="{{ route('admin.member.index') }}">
                         <span class="menu-icon">
                             <i class="bi bi-people fs-3 text-success"></i>
                         </span>
                         <span class="menu-title">Manage Member</span>
-                    </a>
-                </div>
-
-                <div class="menu-item">
-                    <a class="menu-link {{ request()->is('event/*') ? 'active' : '' }}"
-                        href="{{ route('admin.event.index') }}">
-                        <span class="menu-icon">
-                            <i class="bi bi-calendar3-event fs-3 text-warning"></i>
-                        </span>
-                        <span class="menu-title">Manage Event</span>
-                    </a>
-                </div>
-
-                <div class="menu-item">
-                    <a class="menu-link {{ request()->is('project-follow-up/*') ? 'active' : '' }}"
-                        href="{{ route('admin.project_follow_up.index') }}">
-                        <span class="menu-icon">
-                            <i class="bi bi-people fs-3 text-success"></i>
-                        </span>
-                        <span class="menu-title">Manage Project Follow-up</span>
                     </a>
                 </div>
 
@@ -128,7 +98,8 @@
 
                 <div class="menu-item">
                     <div class="menu-content pb-2">
-                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Blog Management</span>
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Project
+                            Management</span>
                     </div>
                 </div>
 
@@ -136,9 +107,55 @@
                     <a class="menu-link {{ request()->is('category/*') ? 'active' : '' }}"
                         href="{{ route('admin.category.index') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-clipboard-databi bi-clipboard-data fs-3 text-success"></i>
+                            <i class="bi bi-clipboard-data fs-3 text-success"></i>
                         </span>
                         <span class="menu-title">Manage Category</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('project/*') ? 'active' : '' }}"
+                        href="{{ route('admin.project.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-printer fs-3 text-info"></i>
+                        </span>
+                        <span class="menu-title">Manage Project</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('project-follow-up/*') ? 'active' : '' }}"
+                        href="{{ route('admin.project_follow_up.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-clipboard-data fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Manage Project Follow-up</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('event/*') ? 'active' : '' }}"
+                        href="{{ route('admin.event.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-calendar3-event fs-3 text-warning"></i>
+                        </span>
+                        <span class="menu-title">Manage Event</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-content pb-2">
+                        <span class="menu-section text-muted text-uppercase fs-8 ls-1">Blog Management</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('blog-category/*') ? 'active' : '' }}"
+                        href="{{ route('admin.blog.category.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-clipboard-data fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Manage Blog Category</span>
                     </a>
                 </div>
 

@@ -14,14 +14,13 @@
                         <span class="svg-icon svg-icon-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="5" y="5" width="5" height="5" rx="1"
-                                        fill="#000000"></rect>
-                                    <rect x="14" y="5" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="5" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="14" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
+                                    <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000"></rect>
+                                    <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1">Manage Event</span>
@@ -32,8 +31,8 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
-                                    <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
-                                        rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                    <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+                                        transform="rotate(-90 11.364 20.364)" fill="black" />
                                     <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
                                         fill="black" />
                                 </svg>
@@ -56,7 +55,8 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
-                                    <th>Banner Image</th>
+                                    <th>Banner</th>
+                                    <th>Category</th>
                                     <th>Title</th>
                                     <th>Date</th>
                                     {{-- <th>Details</th> --}}
@@ -75,6 +75,7 @@
                                             <img style="width: 80px; height: 80px; border-radius: 50%"
                                                 src="{{ asset('uploads/event/' . $value->banner_img) }}" alt="">
                                         </td>
+                                        <td> {{ $value->category_name }} </td>
                                         <td> {{ $value->title }} </td>
                                         <td> {{ $value->date }} </td>
                                         {{-- <td> {{ $value->details }} </td> --}}

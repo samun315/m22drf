@@ -19,14 +19,13 @@
                         <span class="svg-icon svg-icon-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="5" y="5" width="5" height="5" rx="1"
-                                        fill="#000000"></rect>
-                                    <rect x="14" y="5" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="5" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="14" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
+                                    <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000"></rect>
+                                    <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
@@ -39,14 +38,14 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="5" y="5" width="5" height="5" rx="1"
-                                            fill="#000000"></rect>
-                                        <rect x="14" y="5" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
-                                        <rect x="5" y="14" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
-                                        <rect x="14" y="14" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
+                                        <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000">
+                                        </rect>
+                                        <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
+                                        <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
+                                        <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
                                     </g>
                                 </svg>
                             </span>
@@ -73,6 +72,23 @@
                         @endisset
 
                         <div class="row mb-5">
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Category</label>
+                                <select name="category_name" data-control="select2" data-placeholder="Select Category"
+                                    class="form-select form-select-solid category_name">
+                                    <option value="">Select Category</option>
+                                    @foreach ($categories as $category)
+                                        <option
+                                            @isset($editModeData) {{ $editModeData->category_id == $category->id ? 'selected' : '' }} @endisset
+                                            value="{{ $category->id }}">{{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('category_name')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Title</label>
@@ -143,7 +159,7 @@
 
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid" placeholder="Enter details" name="details"
+                                <textarea class="form-control form-control-solid ckeditor" placeholder="Enter details" name="details"
                                     data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
                                 @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
@@ -169,6 +185,15 @@
 @endsection
 
 @section('page_scripts')
+
+    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ckeditor').ckeditor();
+        });
+    </script>
+
     <script>
         var i;
 

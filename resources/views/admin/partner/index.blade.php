@@ -74,7 +74,7 @@
                                             <img style="width: 80px; height: 80px; border-radius: 50%"
                                                 src="{{ asset('uploads/partner/' . $value->image) }}" alt="">
                                         </td>
-                                        <td> {{ $value->title }} </td>
+                                        <td> {{ $value->name }} </td>
                                         <td> {!! $value->details !!} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">

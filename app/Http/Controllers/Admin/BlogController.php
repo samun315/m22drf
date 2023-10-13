@@ -16,16 +16,17 @@ class BlogController extends Controller
     public function index()
     {
         $results = DB::table('blogs as a')
-            ->select('a.*', 'b.name as category_name')
-            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
-            ->orderBy('id', 'DESC')->paginate(10);
+            ->select('a.*', 'b.title as category_name')
+            ->leftJoin('blog_categories as b', 'a.category_id', '=', 'b.id')
+            ->orderBy('id', 'DESC')
+            ->paginate(10);
 
         return view('admin.blog.index', ['results' => $results]);
     }
 
     public function create()
     {
-        $categories = DB::table('categories')->orderBy('id', 'DESC')->get();
+        $categories = DB::table('blog_categories')->orderBy('id', 'DESC')->get();
 
         return view('admin.blog.form', compact('categories'));
     }
@@ -34,7 +35,7 @@ class BlogController extends Controller
     {
 
         $input                  = $request->all();
-        $input['category_id']    = $request->category_name;
+        $input['category_id']   = $request->category_name;
         $input['created_by']    = session('logged_session_data.id');
         $input['created_at']    = Carbon::now();
 
@@ -59,7 +60,7 @@ class BlogController extends Controller
 
     public function edit($id)
     {
-        $data['categories'] = DB::table('categories')->orderBy('id', 'DESC')->get();
+        $data['categories'] = DB::table('blog_categories')->orderBy('id', 'DESC')->get();
         $data['editModeData'] = Blog::findOrFail($id);
 
         return view('admin.blog.form', $data);
@@ -97,6 +98,25 @@ class BlogController extends Controller
     {
         $data = Blog::findOrFail($request->blog_id);
         $input['status'] = $request->status;
+
+        try {
+            $data->update($input);
+            $bug = 0;
+        } catch (\Exception $e) {
+            return response()->json(['error', $e->getMessage()]);
+        }
+
+        if ($bug == 0) {
+            return response()->json('success');
+        } else {
+            return response()->json('error');
+        }
+    }
+
+    public function updateBlogType(Request $request)
+    {
+        $data = Blog::findOrFail($request->blog_id);
+        $input['blog_type'] = $request->blog_type;
 
         try {
             $data->update($input);

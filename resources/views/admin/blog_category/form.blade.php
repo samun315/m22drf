@@ -1,11 +1,11 @@
 @extends('admin.master')
 
 @if (isset($editModeData))
-    @section('title', 'Edit Category')
-    @section('toolbarTitle', 'Edit Category')
+    @section('title', 'Edit Blog Category')
+    @section('toolbarTitle', 'Edit Blog Category')
 @else
-    @section('title', 'Create Category')
-    @section('toolbarTitle', 'Create Category')
+    @section('title', 'Create Blog Category')
+    @section('toolbarTitle', 'Create Blog Category')
 @endif
 
 @section('main-content')
@@ -30,11 +30,11 @@
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
-                                Category</span>
+                                Blog Category</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.category.index') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.blog.category.index') }}" class="btn btn-sm btn-light-success">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@
                                     </g>
                                 </svg>
                             </span>
-                            Category List
+                           Blog Category List
                         </a>
                     </div>
                 </div>
@@ -62,44 +62,28 @@
                     @include('message')
 
                     <!--begin::Form-->
-                    <form class="form" method="POST" enctype="multipart/form-data"
-                        action="{{ isset($editModeData) ? route('admin.category.update', $editModeData->id) : route('admin.category.store') }}">
+                    <form class="form" method="POST"
+                        action="{{ isset($editModeData) ? route('admin.blog.category.update', $editModeData->id) : route('admin.blog.category.store') }}">
                         @csrf
 
                         @isset($editModeData)
                             @method('PUT')
 
-                            <input type="text" hidden name="category_id" value="{{ $editModeData->id }}">
+                            <input type="text" hidden name="blog_category_id" value="{{ $editModeData->id }}">
                         @endisset
 
                         <div class="row mb-5">
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Name</label>
+                                <label class="required fs-5 fw-bold mb-2">Title</label>
                                 <input type="text"
-                                    class="form-control form-control-solid @error('name') is-invalid @enderror"
-                                    placeholder="Enter name" name="name"
-                                    value="{{ $editModeData->name ?? old('name') }}" />
-                                @error('name')
+                                    class="form-control form-control-solid @error('title') is-invalid @enderror"
+                                    placeholder="Enter title" name="title"
+                                    value="{{ $editModeData->title ?? old('title') }}" />
+                                @error('title')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
-
-                            {{-- <div class="col-md-6 fv-row mb-5">
-                                <label class="fs-5 fw-bold mb-2">Image (if any)</label>
-                                <input type="file"
-                                    class="form-control form-control-solid @error('image') is-invalid @enderror"
-                                    name="image" />
-
-                                @isset($editModeData->image)
-                                    <a target="_blank" href="{{ asset('uploads/category/' . $editModeData->image) }}">View
-                                        Image</a>
-                                @endisset
-
-                                @error('image')
-                                    <span class="text-danger mt-2">{{ $message }}</span>
-                                @enderror
-                            </div> --}}
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Active</label>

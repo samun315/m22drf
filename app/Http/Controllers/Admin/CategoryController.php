@@ -30,13 +30,13 @@ class CategoryController extends Controller
         $input['created_by']    = session('logged_session_data.id');
         $input['created_at']    = Carbon::now();
 
-        $categoryImage = $request->file('image');
+        // $categoryImage = $request->file('image');
 
-        if ($categoryImage) {
-            $imgName = md5(Str::random(30) . time() . '_' . $request->file('image')) . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('uploads/category/', $imgName);
-            $input['image'] = $imgName;
-        }
+        // if ($categoryImage) {
+        //     $imgName = md5(Str::random(30) . time() . '_' . $request->file('image')) . '.' . $request->file('image')->getClientOriginalExtension();
+        //     $request->file('image')->move('uploads/category/', $imgName);
+        //     $input['image'] = $imgName;
+        // }
 
         try {
 
@@ -62,18 +62,18 @@ class CategoryController extends Controller
         $input['updated_by']    = session('logged_session_data.id');
         $input['updated_at']    = Carbon::now();
 
-        $categoryImage = $request->file('image');
+        // $categoryImage = $request->file('image');
 
-        if ($categoryImage) {
-            $imgName = md5(Str::random(30) . time() . '_' . $request->file('image')) . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->move('uploads/category/', $imgName);
+        // if ($categoryImage) {
+        //     $imgName = md5(Str::random(30) . time() . '_' . $request->file('image')) . '.' . $request->file('image')->getClientOriginalExtension();
+        //     $request->file('image')->move('uploads/category/', $imgName);
 
-            if (file_exists('uploads/category/' . $category->image) && !empty($category->image)) {
-                unlink('uploads/category/' . $category->image);
-            }
+        //     if (file_exists('uploads/category/' . $category->image) && !empty($category->image)) {
+        //         unlink('uploads/category/' . $category->image);
+        //     }
 
-            $input['image'] = $imgName;
-        }
+        //     $input['image'] = $imgName;
+        // }
 
         try {
             $category->update($input);

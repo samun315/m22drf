@@ -8,6 +8,7 @@ use App\Models\Project;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProjectController extends Controller
 {
@@ -15,17 +16,26 @@ class ProjectController extends Controller
     {
         $results = Project::orderBy('id', 'DESC')->paginate(10);
 
+        $results = DB::table('projects as a')
+        ->select('a.*', 'b.name as category_name')
+        ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+        ->orderBy('id', 'DESC')
+        ->paginate(10);
+
         return view('admin.project.index', ['results' => $results]);
     }
 
     public function create()
     {
-        return view('admin.project.form');
+        $categories = DB::table('categories')->orderBy('id', 'DESC')->get();
+
+        return view('admin.project.form', compact('categories'));
     }
 
     public function store(ProjectRequest $request)
     {
         $input                  = $request->all();
+        $input['category_id']   = $request->category_name;
         $input['created_by']    = session('logged_session_data.id');
         $input['created_at']    = Carbon::now();
 
@@ -40,6 +50,7 @@ class ProjectController extends Controller
         try {
 
             unset($input['_token']);
+            unset($input['category_name']);
 
             Project::create($input);
             return redirect()->back()->with('success', 'Project created successfully.');
@@ -50,7 +61,9 @@ class ProjectController extends Controller
 
     public function edit($id)
     {
-        $data['editModeData'] = Project::findOrFail($id);
+        $data['editModeData']   = Project::findOrFail($id);
+        $data['categories']     = DB::table('categories')->orderBy('id', 'DESC')->get();
+
         return view('admin.project.form', $data);
     }
 
@@ -58,6 +71,7 @@ class ProjectController extends Controller
     {
         $project                = Project::findOrFail($id);
         $input                  = $request->all();
+        $input['category_id']   = $request->category_name;
         $input['updated_by']    = session('logged_session_data.id');
         $input['updated_at']    = Carbon::now();
 
@@ -75,6 +89,8 @@ class ProjectController extends Controller
         }
 
         try {
+            unset($input['category_name']);
+
             $project->update($input);
             return redirect(route('admin.project.index'))->with('success', 'Project updated successfully.');
         } catch (\Exception $e) {

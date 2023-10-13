@@ -14,14 +14,13 @@
                         <span class="svg-icon svg-icon-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="5" y="5" width="5" height="5" rx="1"
-                                        fill="#000000"></rect>
-                                    <rect x="14" y="5" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="5" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="14" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
+                                    <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000"></rect>
+                                    <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1">Manage Blog</span>
@@ -32,8 +31,8 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
-                                    <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
-                                        rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                    <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+                                        transform="rotate(-90 11.364 20.364)" fill="black" />
                                     <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
                                         fill="black" />
                                 </svg>
@@ -56,10 +55,10 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
-                                    <th>Banner Image</th>
-                                    <th>Category Name</th>
+                                    <th>Banner</th>
+                                    <th>Category</th>
                                     <th>Title</th>
-                                    {{-- <th>Description</th> --}}
+                                    <th>Blog Type</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -77,18 +76,35 @@
                                         </td>
                                         <td> {{ $value->category_name }} </td>
                                         <td> {{ $value->title }} </td>
-                                        {{-- <td> {!! $value->details !!} </td> --}}
+                                        <td>
+                                            <label class="form-check form-switch form-check-custom form-check-solid">
+
+                                                @if ($value->blog_type == 'PUBLIC')
+                                                    <input class="form-check-input"
+                                                        onchange="updateBlogType('PRIVATE', {{ $value->id }})"
+                                                        name="blog_type" type="checkbox" value="PUBLIC" checked="checked" />
+                                                @else
+                                                    <input class="form-check-input"
+                                                        onchange="updateBlogType('PUBLIC', {{ $value->id }})"
+                                                        name="blog_type" type="checkbox" value="PRIVATE" />
+                                                @endif
+
+                                                <span class="form-check-label fw-bold text-muted">
+                                                    {{ $value->blog_type }}
+                                                </span>
+                                            </label>
+                                        </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 
                                                 @if ($value->status == 'YES')
                                                     <input class="form-check-input"
-                                                        onchange="updateStatus('NO', {{ $value->id }})" name="status"
-                                                        type="checkbox" value="YES" checked="checked" />
+                                                        onchange="updateActiveStatus('NO', {{ $value->id }})"
+                                                        name="status" type="checkbox" value="YES" checked="checked" />
                                                 @else
                                                     <input class="form-check-input"
-                                                        onchange="updateStatus('YES', {{ $value->id }})" name="status"
-                                                        type="checkbox" value="NO" />
+                                                        onchange="updateActiveStatus('YES', {{ $value->id }})"
+                                                        name="status" type="checkbox" value="NO" />
                                                 @endif
 
                                                 <span class="form-check-label fw-bold text-muted">
@@ -135,7 +151,7 @@
 @section('page_scripts')
 
     <script>
-        function updateStatus(status, blog_id) {
+        function updateActiveStatus(status, blog_id) {
 
             var v_token = "{{ csrf_token() }}";
 
@@ -153,7 +169,35 @@
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Blog status successfully updated.',
+                        title: 'Blog active status updated.',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+
+                    $('#tbody').load(document.URL + ' #tbody tr');
+                }
+            });
+        }
+
+        function updateBlogType(blog_type, blog_id) {
+
+            var v_token = "{{ csrf_token() }}";
+
+            $.ajax({
+                type: "PUT",
+                url: "{{ route('admin.blog.type.update') }}",
+                data: {
+                    blog_id: blog_id,
+                    blog_type: blog_type,
+                    _token: v_token
+                },
+                dataType: 'json',
+                success: function(res) {
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Blog type updated.',
                         showConfirmButton: false,
                         timer: 1500
                     })

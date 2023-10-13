@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('title', 'Manage Project')
-@section('toolbarTitle', 'Manage Project')
+@section('title', 'Blog Categort List')
+@section('toolbarTitle', 'Blog Categort List')
 
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -24,11 +24,11 @@
                                         fill="#000000" opacity="0.3"></rect>
                                 </g>
                             </svg>
-                            <span class="card-label fw-bolder fs-3 mb-1">Manage Project</span>
+                            <span class="card-label fw-bolder fs-3 mb-1">Blog Categort List</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.project.create') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.blog.category.create') }}" class="btn btn-sm btn-light-success">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
@@ -56,13 +56,7 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
-                                    <th>Banner</th>
-                                    <th>Category</th>
                                     <th>Title</th>
-                                    <th>Budget</th>
-                                    <th>Deadline</th>
-                                    {{-- <th>Details</th> --}}
-                                    <th>Featured</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -74,44 +68,19 @@
                                 @foreach ($results as $value)
                                     <tr>
                                         <td> {{ $loop->iteration }} </td>
-                                        <td>
-                                            <img style="width: 80px; height: 80px; border-radius: 50%"
-                                                src="{{ asset('uploads/project/' . $value->banner_img) }}" alt="">
-                                        </td>
-                                        <td> {{ $value->category_name }} </td>
+
                                         <td> {{ $value->title }} </td>
-                                        <td> {{ $value->budget }} </td>
-                                        <td> {{ $value->deadline }} </td>
-                                        {{-- <td> {{ $value->details }} </td> --}}
-                                        <td>
-                                            <label class="form-check form-switch form-check-custom form-check-solid">
-
-                                                @if ($value->featured == 'YES')
-                                                    <input class="form-check-input"
-                                                        onchange="updateFeaturedFeatured('NO', {{ $value->id }})"
-                                                        name="featured" type="checkbox" value="YES" checked="checked" />
-                                                @else
-                                                    <input class="form-check-input"
-                                                        onchange="updateFeaturedFeatured('YES', {{ $value->id }})"
-                                                        name="featured" type="checkbox" value="NO" />
-                                                @endif
-
-                                                <span class="form-check-label fw-bold text-muted">
-                                                    {{ $value->featured }}
-                                                </span>
-                                            </label>
-                                        </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 
                                                 @if ($value->status == 'YES')
                                                     <input class="form-check-input"
-                                                        onchange="updateStatus('NO', {{ $value->id }})" name="status"
-                                                        type="checkbox" value="YES" checked="checked" />
+                                                        onchange="updateStatus('NO', {{ $value->id }})"
+                                                        name="status" type="checkbox" value="YES" checked="checked" />
                                                 @else
                                                     <input class="form-check-input"
-                                                        onchange="updateStatus('YES', {{ $value->id }})" name="status"
-                                                        type="checkbox" value="NO" />
+                                                        onchange="updateStatus('YES', {{ $value->id }})"
+                                                        name="status" type="checkbox" value="NO" />
                                                 @endif
 
                                                 <span class="form-check-label fw-bold text-muted">
@@ -120,7 +89,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.project.edit', $value->id) }}"
+                                            <a href="{{ route('admin.blog.category.edit', $value->id) }}"
                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -158,15 +127,15 @@
 @section('page_scripts')
 
     <script>
-        function updateStatus(status, project_id) {
+        function updateStatus(status, blog_category_id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.project.update.status') }}",
+                url: "{{ route('admin.blog.category.update.status') }}",
                 data: {
-                    project_id: project_id,
+                    blog_category_id: blog_category_id,
                     status: status,
                     _token: v_token
                 },
@@ -176,7 +145,7 @@
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Project status successfully updated.',
+                        title: 'Blog category status successfully updated.',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -185,5 +154,6 @@
                 }
             });
         }
+
     </script>
 @endsection
