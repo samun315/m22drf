@@ -26,7 +26,7 @@ class BlogRequest extends FormRequest
         if (isset($this->blog_id)) {
 
             return [
-                'title'         => ['required', Rule::unique('blogs')->ignore($this->blog_id)],
+                'title'         => 'required',
                 'details'       => 'required',
                 // 'banner_img'    => 'required',
                 'status'        => 'required',
@@ -34,7 +34,7 @@ class BlogRequest extends FormRequest
         }
 
         return [
-            'title'         => 'required|unique:blogs,title',
+            'title'         => 'required',
             'details'       => 'required',
             'banner_img'    => 'required',
             'status'        => 'required',

@@ -64,12 +64,7 @@
                                     {{ $project->title }}
                                 </h3>
                                 <div class="meta-box">
-                                    <div class="author-thumb">
-                                        <img src="{{ asset('assets/frontend/images/blog/author-thumb-1.jpg') }}"
-                                            alt="">
-                                    </div>
                                     <ul class="meta-info">
-                                        <li><a href="#">M22 Charity</a></li>
                                         <li><i class="fa fa-calendar" aria-hidden="true"></i>
                                             <a href="javascript:void(0)">
                                                 {{ date('F j, Y', strtotime($project->deadline)) }}

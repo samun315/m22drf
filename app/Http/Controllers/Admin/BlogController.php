@@ -131,4 +131,21 @@ class BlogController extends Controller
             return response()->json('error');
         }
     }
+
+    public function uploadCkeditorImage(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+            $originalName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originalName, PATHINFO_FILENAME);
+            $extention = $request->file('upload')->getClientOriginalExtension();
+
+            $fileName = $fileName . '-' . time() . '.' . $extention;
+
+            $request->file('upload')->move(public_path('uploads/blog/ckeditor'), $fileName);
+
+            $url = asset('uploads/blog/ckeditor/' . $fileName);
+
+            return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
+        }
+    }
 }

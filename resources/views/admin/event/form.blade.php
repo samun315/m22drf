@@ -174,16 +174,6 @@
 
 @section('page_scripts')
 
-    {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> --}}
-
-    {{-- <script type="text/javascript">
-        $(document).ready(function() {
-            $('.ckeditor').ckeditor();
-        });
-    </script> --}}
-
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
-
     <script>
         var i;
 
@@ -196,13 +186,13 @@
         //ckeditor
         ClassicEditor.create(document.querySelector('#ckeditor'), {
                 ckfinder: {
-                    uploadUrl: '{{ route('admin.event.ckeditor.uploadImage') . '?_token=' . csrf_token() }}'
+                    uploadUrl: "{{ route('admin.event.ckeditor.uploadImage') . '?_token=' . csrf_token() }}"
                 }
             })
             .then(editor => {
                 console.log(editor);
             }).catch(error => {
                 console.error(error);
-            })
+            });
     </script>
 @endsection

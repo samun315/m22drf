@@ -27,6 +27,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{project_id}/edit', [ProjectController::class, 'edit'])->name('admin.project.edit');
         Route::put('/{project_id}/update', [ProjectController::class, 'update'])->name('admin.project.update');
         Route::put('/update-status', [ProjectController::class, 'updateStatus'])->name('admin.project.update.status');
+        Route::post('/ckeditor-upload-image', [ProjectController::class, 'uploadCkeditorImage'])->name('admin.project.ckeditor.uploadImage');
     });
 
     //event
@@ -79,6 +80,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::put('/{blog_id}/update', [BlogController::class, 'update'])->name('admin.blog.update');
         Route::put('/update-status', [BlogController::class, 'updateStatus'])->name('admin.blog.update.status');
         Route::put('/update-blog-type', [BlogController::class, 'updateBlogType'])->name('admin.blog.type.update');
+        Route::post('/ckeditor-upload-image', [BlogController::class, 'uploadCkeditorImage'])->name('admin.blog.ckeditor.uploadImage');
     });
 
     //Project Follow-up

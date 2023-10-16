@@ -17,10 +17,10 @@ class ProjectController extends Controller
         $results = Project::orderBy('id', 'DESC')->paginate(10);
 
         $results = DB::table('projects as a')
-        ->select('a.*', 'b.name as category_name')
-        ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
-        ->orderBy('id', 'DESC')
-        ->paginate(10);
+            ->select('a.*', 'b.name as category_name')
+            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+            ->orderBy('id', 'DESC')
+            ->paginate(10);
 
         return view('admin.project.index', ['results' => $results]);
     }
@@ -114,6 +114,23 @@ class ProjectController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function uploadCkeditorImage(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+            $originalName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originalName, PATHINFO_FILENAME);
+            $extention = $request->file('upload')->getClientOriginalExtension();
+
+            $fileName = $fileName . '-' . time() . '.' . $extention;
+
+            $request->file('upload')->move(public_path('uploads/project/ckeditor'), $fileName);
+
+            $url = asset('uploads/project/ckeditor/' . $fileName);
+
+            return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
         }
     }
 }

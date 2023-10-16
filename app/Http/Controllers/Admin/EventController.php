@@ -125,7 +125,7 @@ class EventController extends Controller
 
             $fileName = $fileName . '-' . time() . '.' . $extention;
 
-            $request->file('upload')->move(public_path('event/ckeditor'), $fileName);
+            $request->file('upload')->move(public_path('uploads/event/ckeditor'), $fileName);
 
             $url = asset('uploads/event/ckeditor/' . $fileName);
 
