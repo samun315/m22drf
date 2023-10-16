@@ -147,7 +147,7 @@
 
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid ckeditor" placeholder="Enter details" name="details"
+                                <textarea class="form-control form-control-solid" id="ckeditor" placeholder="Enter details" name="details"
                                     data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
                                 @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
@@ -174,13 +174,15 @@
 
 @section('page_scripts')
 
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script> --}}
 
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $(document).ready(function() {
             $('.ckeditor').ckeditor();
         });
-    </script>
+    </script> --}}
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
     <script>
         var i;
@@ -190,5 +192,17 @@
         $(i.querySelector('[name="date"]')).flatpickr({
             dateFormat: "Y-m-d"
         });
+
+        //ckeditor
+        ClassicEditor.create(document.querySelector('#ckeditor'), {
+                ckfinder: {
+                    uploadUrl: '{{ route('admin.event.ckeditor.uploadImage') . '?_token=' . csrf_token() }}'
+                }
+            })
+            .then(editor => {
+                console.log(editor);
+            }).catch(error => {
+                console.error(error);
+            })
     </script>
 @endsection

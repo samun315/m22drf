@@ -37,6 +37,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{event_id}/edit', [EventController::class, 'edit'])->name('admin.event.edit');
         Route::put('/{event_id}/update', [EventController::class, 'update'])->name('admin.event.update');
         Route::put('/update-status', [EventController::class, 'updateStatus'])->name('admin.event.update.status');
+        Route::post('/ckeditor-upload-image', [EventController::class, 'uploadCkeditorImage'])->name('admin.event.ckeditor.uploadImage');
     });
 
     //member
