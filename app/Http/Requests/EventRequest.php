@@ -27,6 +27,7 @@ class EventRequest extends FormRequest
             return [
                 'title'         => ['required', Rule::unique('events')->ignore($this->event_id)],
                 'details'       => 'required',
+                'category_name' => 'required',
                 'date'          => 'required',
                 // 'banner_img'    => 'required',
                 'status'        => 'required',
@@ -35,6 +36,7 @@ class EventRequest extends FormRequest
 
         return [
             'title'         => 'required|unique:events,title',
+            'category_name' => 'required',
             'details'       => 'required',
             'date'          => 'required',
             'banner_img'    => 'required',

@@ -26,7 +26,7 @@ Route::get('project-details/{project_id}', [FrontendController::class, 'projectD
 Route::get('project-follow-up-details/{project_id}', [FrontendController::class, 'projectFollowUpDetails'])->name('frontend.projectFollowUpDetails');
 
 //Event
-Route::get('event', [FrontendController::class, 'event'])->name('frontend.event');
+Route::get('events', [FrontendController::class, 'events'])->name('frontend.events');
 Route::get('event-details/{event_id}', [FrontendController::class, 'eventDetails'])->name('frontend.eventDetails');
 
 //Blog

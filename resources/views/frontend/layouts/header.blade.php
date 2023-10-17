@@ -38,8 +38,8 @@
                                     <li class="{{ request()->is('project') ? 'current' : '' }}"><a
                                             href="/project">Project</a>
                                     </li>
-                                    <li class="{{ request()->is('event') ? 'current' : '' }}"><a
-                                            href="/event">Event</a>
+                                    <li class="{{ request()->is('events') ? 'current' : '' }}"><a
+                                            href="{{ route('frontend.events') }}">Event</a>
                                     </li>
                                     <li class="{{ request()->is('blog') ? 'current' : '' }}"><a href="/blog">Blog</a>
                                     </li>
@@ -113,7 +113,8 @@
         <div class="close-btn"><span class="icon fa fa-times-circle"></span></div>
         <nav class="menu-box">
             <div class="nav-logo"><a href="index.html"><img style="width: 208px; height:54px"
-                        src="{{ asset('assets/frontend/logo/m22-header-logo.jpg') }}" alt="" title=""></a>
+                        src="{{ asset('assets/frontend/logo/m22-header-logo.jpg') }}" alt=""
+                        title=""></a>
             </div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->

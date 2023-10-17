@@ -27,6 +27,7 @@ class ProjectRequest extends FormRequest
             return [
                 'title'         => ['required', Rule::unique('projects')->ignore($this->project_id)],
                 'details'       => 'required',
+                'category_name' => 'required',
                 'deadline'      => 'required',
                 'budget'        => 'required',
                 // 'banner_img'    => 'required',
@@ -38,6 +39,7 @@ class ProjectRequest extends FormRequest
             'title'         => 'required|unique:projects,title',
             'details'       => 'required',
             'deadline'      => 'required',
+            'category_name' => 'required',
             'budget'        => 'required',
             'banner_img'    => 'required',
             'status'        => 'required',

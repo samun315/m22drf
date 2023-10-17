@@ -38,7 +38,7 @@ class FrontendController extends Controller
         return view('frontend.about.index', $data);
     }
 
-    public function event()
+    public function events()
     {
         $results = DB::table('events')->orderBy('id', 'DESC')->paginate(10);
 
@@ -87,8 +87,17 @@ class FrontendController extends Controller
 
     public function blogDetails($blog_id)
     {
-        $blog = DB::table('blogs')->where('id', $blog_id)->first();
+        // $data['blog'] = DB::table('blogs')->where('id', $blog_id)->first();
 
-        return view('frontend.blog.details', compact('blog'));
+        $data['blog_details'] = DB::table('blogs as a')
+            ->select('a.*', 'b.title as category_name')
+            ->leftJoin('blog_categories as b', 'a.category_id', '=', 'b.id')
+            ->where('a.id', $blog_id)
+            ->first();
+
+        $data['blog_categories'] = DB::table('blog_categories')->orderBy('id', 'DESC')->take(5)->get();
+        $data['latest_blogs'] = DB::table('blogs')->orderBy('id', 'DESC')->take(3)->get();
+
+        return view('frontend.blog.details', $data);
     }
 }

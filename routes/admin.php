@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DonationRequestController;
@@ -26,6 +27,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{project_id}/edit', [ProjectController::class, 'edit'])->name('admin.project.edit');
         Route::put('/{project_id}/update', [ProjectController::class, 'update'])->name('admin.project.update');
         Route::put('/update-status', [ProjectController::class, 'updateStatus'])->name('admin.project.update.status');
+        Route::post('/ckeditor-upload-image', [ProjectController::class, 'uploadCkeditorImage'])->name('admin.project.ckeditor.uploadImage');
     });
 
     //event
@@ -36,6 +38,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{event_id}/edit', [EventController::class, 'edit'])->name('admin.event.edit');
         Route::put('/{event_id}/update', [EventController::class, 'update'])->name('admin.event.update');
         Route::put('/update-status', [EventController::class, 'updateStatus'])->name('admin.event.update.status');
+        Route::post('/ckeditor-upload-image', [EventController::class, 'uploadCkeditorImage'])->name('admin.event.ckeditor.uploadImage');
     });
 
     //member
@@ -58,6 +61,16 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::put('/update-status', [CategoryController::class, 'updateStatus'])->name('admin.category.update.status');
     });
 
+    //blog category
+    Route::group(['prefix' => 'blog-category'], function () {
+        Route::get('/index', [BlogCategoryController::class, 'index'])->name('admin.blog.category.index');
+        Route::get('/create', [BlogCategoryController::class, 'create'])->name('admin.blog.category.create');
+        Route::post('/store', [BlogCategoryController::class, 'store'])->name('admin.blog.category.store');
+        Route::get('/{blog_category_id}/edit', [BlogCategoryController::class, 'edit'])->name('admin.blog.category.edit');
+        Route::put('/{blog_category_id}/update', [BlogCategoryController::class, 'update'])->name('admin.blog.category.update');
+        Route::put('/update-status', [BlogCategoryController::class, 'updateStatus'])->name('admin.blog.category.update.status');
+    });
+
     //Blog
     Route::group(['prefix' => 'blog'], function () {
         Route::get('/index', [BlogController::class, 'index'])->name('admin.blog.index');
@@ -66,6 +79,8 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{blog_id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
         Route::put('/{blog_id}/update', [BlogController::class, 'update'])->name('admin.blog.update');
         Route::put('/update-status', [BlogController::class, 'updateStatus'])->name('admin.blog.update.status');
+        Route::put('/update-blog-type', [BlogController::class, 'updateBlogType'])->name('admin.blog.type.update');
+        Route::post('/ckeditor-upload-image', [BlogController::class, 'uploadCkeditorImage'])->name('admin.blog.ckeditor.uploadImage');
     });
 
     //Project Follow-up

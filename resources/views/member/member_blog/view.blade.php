@@ -71,7 +71,7 @@
                                 <div class="fs-5 fw-bold text-gray-600">
                                     <!--begin::Text-->
                                     <p class="mb-8">
-                                        {!! \Illuminate\Support\Str::limit($result->details, 150) !!}
+                                        {!!$result->details!!}
                                     </p>
                                     <!--end::Text-->
                                 </div>

@@ -62,8 +62,12 @@
 
                             </div>
                             <div class="text-holder">
-                                <h3><a href="{{ route('frontend.projectDetails', $row->id) }}">{{ $row->title }}</a></h3>
-                                <p>{!! $row->details !!}</p>
+                                <h3>
+                                    <a href="{{ route('frontend.projectDetails', $row->id) }}">
+                                        {{ \Illuminate\Support\Str::limit($row->title, 30) }}
+                                    </a>
+                                </h3>
+                                <p> {!! \Illuminate\Support\Str::limit($row->details, 30) !!} </p>
 
                                 <div class="progress-levels progress-levels-style2">
                                     <!--Skill Box-->
