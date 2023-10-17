@@ -56,7 +56,7 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
-                                    <th>Image</th>
+                                    {{-- <th>Image</th> --}}
                                     <th>Name</th>
                                     <th>Active</th>
                                     <th>Action</th>
@@ -69,10 +69,10 @@
                                 @foreach ($results as $value)
                                     <tr>
                                         <td> {{ $loop->iteration }} </td>
-                                        <td>
+                                        {{-- <td>
                                             <img style="width: 80px; height: 80px; border-radius: 50%"
                                                 src="{{ asset('uploads/category/' . $value->image) }}" alt="">
-                                        </td>
+                                        </td> --}}
                                         <td> {{ $value->name }} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">

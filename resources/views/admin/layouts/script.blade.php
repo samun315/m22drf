@@ -21,6 +21,9 @@
 
 <script src="{{ asset('assets/backend/js/custom/datetimepicker/datetimepicker.js') }}"></script>
 
+<!-- ckeditor -->
+<script src="{{ asset('assets/backend/plugins/ckeditor/ckeditor5_40.0.0_classic_ckeditor.js') }}"></script>
+
 <script>
     $(".alert-success").delay(2000).fadeOut("slow");
 </script>

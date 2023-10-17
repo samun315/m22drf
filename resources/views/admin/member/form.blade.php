@@ -19,14 +19,13 @@
                         <span class="svg-icon svg-icon-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="5" y="5" width="5" height="5" rx="1"
-                                        fill="#000000"></rect>
-                                    <rect x="14" y="5" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="5" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="14" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
+                                    <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000"></rect>
+                                    <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
@@ -39,14 +38,14 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="5" y="5" width="5" height="5" rx="1"
-                                            fill="#000000"></rect>
-                                        <rect x="14" y="5" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
-                                        <rect x="5" y="14" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
-                                        <rect x="14" y="14" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
+                                        <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000">
+                                        </rect>
+                                        <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
+                                        <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
+                                        <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
                                     </g>
                                 </svg>
                             </span>
@@ -251,7 +250,7 @@
                             </div>
 
                             <div class="col-md-4 fv-row mb-5">
-                                <label class="required fs-6 fw-bold mb-2">Student photo</label>
+                                <label class="fs-6 fw-bold mb-2">Student photo</label>
                                 <input type="file"
                                     class="form-control form-control-solid @error('student_photo') is-invalid @enderror"
                                     name="student_photo" />
@@ -268,7 +267,7 @@
                             </div>
 
                             <div class="col-md-4 fv-row mb-5">
-                                <label class="required fs-6 fw-bold mb-2">Doctor photo</label>
+                                <label class="fs-6 fw-bold mb-2">Doctor photo</label>
                                 <input type="file"
                                     class="form-control form-control-solid @error('doctor_photo') is-invalid @enderror"
                                     name="doctor_photo" />
@@ -285,7 +284,7 @@
                             </div>
 
                             <div class="col-md-4 fv-row mb-5">
-                                <label class="required fs-6 fw-bold mb-2">Family photo</label>
+                                <label class="fs-6 fw-bold mb-2">Family photo</label>
                                 <input type="file"
                                     class="form-control form-control-solid @error('family_photo') is-invalid @enderror"
                                     name="family_photo" />
@@ -297,6 +296,39 @@
                                 @endisset
 
                                 @error('family_photo')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-4 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Student photo caption</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('student_photo_caption') is-invalid @enderror"
+                                    placeholder="Enter student photo caption" name="student_photo_caption"
+                                    value="{{ $editModeData->student_photo_caption ?? old('student_photo_caption') }}" />
+                                @error('student_photo_caption')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-4 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Doctor photo caption</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('doctor_photo_caption') is-invalid @enderror"
+                                    placeholder="Enter doctor photo caption" name="doctor_photo_caption"
+                                    value="{{ $editModeData->doctor_photo_caption ?? old('doctor_photo_caption') }}" />
+                                @error('doctor_photo_caption')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-4 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Family photo caption</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('family_photo_caption') is-invalid @enderror"
+                                    placeholder="Enter family photo caption" name="family_photo_caption"
+                                    value="{{ $editModeData->family_photo_caption ?? old('family_photo_caption') }}" />
+                                @error('family_photo_caption')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>

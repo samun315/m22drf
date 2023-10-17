@@ -26,14 +26,14 @@
                             </div>
                         </div>
                         <div class="title">
-                            <h2>Latest Projects</h2>
+                            <h2>Latest Blogs</h2>
                         </div>
                         <div class="border-box"></div>
                         <div class="breadcrumb-menu">
                             <ul>
                                 <li><a href="/">Home</a></li>
                                 <li><span class="flaticon-right-arrow"></span></li>
-                                <li class="active">Latest Projects</li>
+                                <li class="active">Latest Blogs</li>
                             </ul>
                         </div>
                     </div>
@@ -47,15 +47,15 @@
     <!--Start Blog Page One-->
     <section class="blog-page-one">
         <div class="container">
-            <div class="row text-right-rtl">
+            <div class="row">
 
                 @foreach ($results as $row)
-                    <div class="col-xl-4 col-lg-4">
+                    <div class="col-lg-4">
                         <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
                                 <div class="inner">
                                     <img style="width: 360px; height:300px"
-                                        src="{{ asset('uploads/blog/' . $row->banner_img) }}" alt="">
+                                        src="{{ asset('uploads/blog/' . $row->banner_img) }}" alt="image">
                                     <div class="overlay-icon">
                                         <a href="{{ route('frontend.blogDetails', $row->id) }}"><span
                                                 class="flaticon-plus"></span></a>
@@ -69,21 +69,14 @@
                             <div class="text-holder">
                                 <h3 class="blog-title">
                                     <a href="{{ route('frontend.blogDetails', $row->id) }}">
-                                        {{ $row->title }}
+                                        {{ \Illuminate\Support\Str::limit($row->title, 30) }}
                                     </a>
                                 </h3>
                                 <div class="text">
                                     <p>
-                                        {!! $row->details !!}
+                                        {!! \Illuminate\Support\Str::limit($row->details, 30) !!}
                                     </p>
                                 </div>
-                                {{-- <ul class="meta-info">
-                                    <li><i class="fa fa-user" aria-hidden="true"></i> <a href="#">Malay D’soza</a>
-                                    </li>
-                                    <li><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">597
-                                            Comments</a>
-                                    </li>
-                                </ul> --}}
                             </div>
                         </div>
                     </div>

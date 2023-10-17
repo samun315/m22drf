@@ -85,7 +85,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-6 fv-row mb-5">
+                            {{-- <div class="col-md-6 fv-row mb-5">
                                 <label class="fs-5 fw-bold mb-2">Image (if any)</label>
                                 <input type="file"
                                     class="form-control form-control-solid @error('image') is-invalid @enderror"
@@ -99,7 +99,7 @@
                                 @error('image')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Active</label>
