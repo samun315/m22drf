@@ -52,7 +52,7 @@
 
                         <div class="single-blog-style1 single-blog-style2 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
-                                <img src="assets/frontend/images/blog/blog-details-1.jpg" alt="">
+                                <img src="{{ asset('uploads/blog/' . $blog_details->banner_img) }}" alt="">
                             </div>
                             <div class="text-holder">
                                 <div class="categories">
@@ -62,7 +62,7 @@
                                 </h3>
                                 <div class="meta-box">
                                     <div class="author-thumb">
-                                        <img src="assets/frontend/images/blog/author-thumb-1.jpg" alt="">
+                                        <img src="../assets/frontend/images/blog/author-thumb-1.jpg" alt="">
                                     </div>
                                     <ul class="meta-info">
                                         {{-- <li><a href="javascript:void(0)">Malay D’soza</a></li> --}}

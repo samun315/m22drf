@@ -941,6 +941,7 @@
             <div class="row text-right-rtl">
 
                 @foreach ($blogs as $blog)
+                    <?php $blog_detail = strip_tags($blog->details); $blog_details =  \Illuminate\Support\Str::limit($blog_detail, 200); ?>
                     <div class="col-xl-4 col-lg-4">
                         <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
@@ -965,7 +966,7 @@
                                 </h3>
                                 <div class="text">
                                     <p>
-                                        {!! \Illuminate\Support\Str::limit($blog->details, 200) !!}
+                                        {{ $blog_details }}
                                     </p>
                                 </div>
                             </div>
