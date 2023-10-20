@@ -124,87 +124,87 @@
 
 
     <!--Start Causes Style1 Area-->
-    <section class="causes-style1-area">
-        <div class="causes-style1-area_bg" style="background-image: url(assets/frontend/images/pattern/thm-pattern-1.png);">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="causes-style1_image-box">
-                        <div class="shape wow slideInLeft" data-wow-delay="0ms" data-wow-duration="3500ms">
-                            <img class="zoom-fade" src="assets/frontend/images/shape/thm-shape-7.png" alt="">
-                        </div>
-                        <div class="causes-style1_image2">
-                            <img src="assets/frontend/images/resources/causes-style1_image-2.jpg" alt="">
-                        </div>
-                        <div class="main">
-                            <img src="assets/frontend/images/resources/causes-style1_image-1.jpg" alt="">
-                        </div>
-                        <div class="causes-style1_image3">
-                            <img src="assets/frontend/images/resources/causes-style1_image-3.jpg" alt="">
-                        </div>
-                        <div class="causes-style1_image4">
-                            <img src="assets/frontend/images/resources/causes-style1_image-4.jpg" alt="">
-                        </div>
+    @if (isset($featured_project))
+        <section class="causes-style1-area">
+            <div class="causes-style1-area_bg"
+                style="background-image: url(assets/frontend/images/pattern/thm-pattern-1.png);">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="causes-style1_image-box">
+                            <div class="shape wow slideInLeft" data-wow-delay="0ms" data-wow-duration="3500ms">
+                                <img class="zoom-fade" src="assets/frontend/images/shape/thm-shape-7.png" alt="">
+                            </div>
+                            <div class="causes-style1_image2">
+                                <img src="assets/frontend/images/resources/causes-style1_image-2.jpg" alt="">
+                            </div>
+                            <div class="main">
+                                <img style="width: 430px; height:430px"
+                                    src="{{ asset('uploads/project/' . $featured_project->banner_img) }}" alt="">
+                            </div>
+                            <div class="causes-style1_image3">
+                                <img src="assets/frontend/images/resources/causes-style1_image-3.jpg" alt="">
+                            </div>
+                            <div class="causes-style1_image4">
+                                <img src="assets/frontend/images/resources/causes-style1_image-4.jpg" alt="">
+                            </div>
 
+                        </div>
                     </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="causes-style1_content-box">
-                        <div class="sec-title">
-                            <div class="sub-title martop0">
-                                <div class="inner">
-                                    <h3>Help With Featured Cause</h3>
+                    <div class="col-xl-6">
+                        <div class="causes-style1_content-box">
+                            <div class="sec-title">
+                                <div class="sub-title martop0">
+                                    <div class="inner">
+                                        <h3>Help With Featured Cause</h3>
+                                    </div>
                                 </div>
+                                <h2> {{ $featured_project->title }}</h2>
                             </div>
-                            <h2>Feed The Poor And<br> Hungry Children</h2>
-                        </div>
-                        <div class="inner-content">
-                            <div class="text-box">
-                                <p>Laboris nisi utm aliquip sed duis aute lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit sed do eiusmod tempor utm incididunts lorem ipsum sed labore et
-                                    dolore magna aliqua.</p>
-                            </div>
+                            <div class="inner-content">
+                                <div class="text-box">
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($featured_project->details), 200) }}
+                                    </p>
+                                </div>
 
-                            <div class="progress-levels">
-                                <!--Skill Box-->
-                                <div class="progress-box wow">
-                                    <div class="inner count-box">
-                                        <div class="bar">
-                                            <div class="bar-innner">
-                                                <div class="bar-fill" data-percent="65" title="Book"></div>
+                                <div class="progress-levels">
+                                    <!--Skill Box-->
+                                    <div class="progress-box wow">
+                                        <div class="inner count-box">
+                                            <div class="bar">
+                                                <div class="bar-innner">
+                                                    <div class="bar-fill" data-percent="65" title="Book"></div>
+                                                </div>
+                                                <div class="text">Achieved:
+                                                    {{ number_format($featured_project->achieved, 2) }}</div>
+                                                <div class="text">Target:
+                                                    {{ number_format($featured_project->budget, 2) }}</div>
                                             </div>
-                                            <div class="text">Target: $10,000</div>
-                                        </div>
 
-                                        <div class="skill-percent">
-                                            <span class="count-text" data-speed="3000" data-stop="65">0</span>
-                                            <span class="percent">%</span>
-                                            <span class="outer-text">Pledged So Far</span>
+                                            <div class="skill-percent">
+                                                <span class="count-text" data-speed="3000" data-stop="65">0</span>
+                                                <span class="percent">%</span>
+                                                <span class="outer-text">Pledged So Far</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="btns-box">
-                                <a class="btn-one" href="causes-details.html">
-                                    <span class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
-                                        Now</span>
-                                </a>
-                                {{-- <a class="video-popup cause-video-button" title="Loveicon Video Gallery"
-                                    href="https://www.youtube.com/watch?v=MLpWrANjFbI">
-                                    <span class="flaticon-play-button playicon"></span>
-                                    <span class="txt">cause video</span>
-                                </a> --}}
+                                <div class="btns-box">
+                                    <button class="btn-one" data-toggle="modal" data-target="#myModal">
+                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
+                                            Now</span>
+                                    </button>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
     <!--End Causes Style1 Area-->
 
     <!--Start Cause Style2 Area-->
@@ -237,7 +237,9 @@
                                         <a
                                             href="{{ route('frontend.projectDetails', $project->id) }}">{{ $project->title }}</a>
                                     </h3>
-                                    <p> {!! \Illuminate\Support\Str::limit($project->details, 200) !!} </p>
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($project->details), 200) }}
+                                    </p>
 
                                     <div class="progress-levels progress-levels-style2">
                                         <!--Skill Box-->
@@ -250,7 +252,7 @@
                                                 </div>
                                                 <div class="bottom-box">
                                                     <div class="rate-box">
-                                                        <p>Achieved<span>Tk {{ $project->budget }}</span></p>
+                                                        <p>Achieved<span>Tk {{ $project->achieved }}</span></p>
                                                         <p>Target<span>Tk {{ $project->budget }}</span></p>
                                                     </div>
                                                     <div class="skill-percent">
@@ -264,8 +266,9 @@
                                         </div>
                                     </div>
                                     <div class="btns-box">
-                                        <a class="btn-one" href="#"><span class="txt"><i
-                                                    class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
+                                        <button class="btn-one" data-toggle="modal" data-target="#myModal"><span
+                                                class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
+                                                Now</span></button>
                                     </div>
 
                                 </div>
@@ -309,7 +312,8 @@
                                         <a
                                             href="{{ route('frontend.projectFollowUpDetails', $project_follow_up->id) }}">{{ $project_follow_up->title }}</a>
                                     </h3>
-                                    <p> {!! \Illuminate\Support\Str::limit($project_follow_up->details, 200) !!} </p>
+                                    <p> {{ \Illuminate\Support\Str::limit(strip_tags($project_follow_up->details), 200) }}
+                                    </p>
 
                                     <div class="progress-levels progress-levels-style2">
                                         <!--Skill Box-->
@@ -574,7 +578,7 @@
                         </div>
                         <div class="donate-form">
 
-                            <form method="post" action="sendemail.php" class="donate-form-1">
+                            <form method="post" action="#" class="donate-form-1">
                                 <ul class="clearfix">
                                     <li class="select-box left">
                                         <select class="selectpicker" name="donation">
@@ -641,132 +645,41 @@
             </div>
 
             <div class="row">
-                <!--Start Single Team Style1-->
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="single-team-style1">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/team/team-v1-1.jpg" alt="" />
-                                <div class="icon">
-                                    <span class=""></span>
+
+                @foreach ($member_details as $member_detail)
+                    <div class="col-xl-3 col-lg-6 col-md-6">
+                        <div class="single-team-style1">
+                            <div class="img-holder">
+                                <div class="inner">
+                                    <img style="width: 263px; height:263px"
+                                        src="{{ asset('uploads/member/' . $member_detail->passport_photo) }}"
+                                        alt="Volunteer" />
+                                    <div class="icon">
+                                        <span class=""></span>
+                                    </div>
+                                </div>
+                                <div class="overly-box">
+                                    <ul class="social-links">
+                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png"
+                                        alt="">
                                 </div>
                             </div>
-                            <div class="overly-box">
-                                <ul class="social-links">
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
+                            <div class="title-holder text-center">
+                                <h3><a href="javascript:void(0)">{{ $member_detail->user_name }}</a></h3>
+                                <p>{{ $member_detail->present_job }}</p>
                             </div>
-                            <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
-                            </div>
-                        </div>
-                        <div class="title-holder text-center">
-                            <h3><a href="#">Scott William</a></h3>
-                            <p>Volunteer</p>
                         </div>
                     </div>
-                </div>
-                <!--End Single Team Style1-->
-
-                <!--Start Single Team Style1-->
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="single-team-style1">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/team/team-v1-2.jpg" alt="" />
-                                <div class="icon">
-                                    <span class=""></span>
-                                </div>
-                            </div>
-                            <div class="overly-box">
-                                <ul class="social-links">
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
-                            </div>
-                        </div>
-                        <div class="title-holder text-center">
-                            <h3><a href="#">Liam Irvines</a></h3>
-                            <p>Volunteer</p>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Team Style1-->
-
-                <!--Start Single Team Style1-->
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="single-team-style1">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/team/team-v1-3.jpg" alt="" />
-                                <div class="icon">
-                                    <span class=""></span>
-                                </div>
-                            </div>
-                            <div class="overly-box">
-                                <ul class="social-links">
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
-                            </div>
-                        </div>
-                        <div class="title-holder text-center">
-                            <h3><a href="#">Diana Leslie</a></h3>
-                            <p>Volunteer</p>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Team Style1-->
-
-                <!--Start Single Team Style1-->
-                <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="single-team-style1">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/team/team-v1-4.jpg" alt="" />
-                                <div class="icon">
-                                    <span class=""></span>
-                                </div>
-                            </div>
-                            <div class="overly-box">
-                                <ul class="social-links">
-                                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png" alt="">
-                            </div>
-                        </div>
-                        <div class="title-holder text-center">
-                            <h3><a href="#">Tania Vandy</a></h3>
-                            <p>Volunteer</p>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Team Style1-->
-
+                @endforeach
             </div>
-
         </div>
     </section>
     <!--End Team Style1 Area-->
@@ -941,6 +854,9 @@
             <div class="row text-right-rtl">
 
                 @foreach ($blogs as $blog)
+                    <?php $blog_detail = strip_tags($blog->details);
+                    $blog_details = \Illuminate\Support\Str::limit($blog_detail, 200); ?>
+
                     <div class="col-xl-4 col-lg-4">
                         <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
@@ -965,7 +881,7 @@
                                 </h3>
                                 <div class="text">
                                     <p>
-                                        {!! \Illuminate\Support\Str::limit($blog->details, 200) !!}
+                                        {{ $blog_details }}
                                     </p>
                                 </div>
                             </div>
@@ -1012,5 +928,54 @@
         </div>
     </section>
     <!--End Partner Area-->
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Donate Now</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <form action="{{ route('frontend.projectDonationRequestStore') }}" method="POST">
+
+                    @csrf
+
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" required class="form-control" name="name" placeholder="Enter name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter email">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone_number" class="form-label">Phone Number</label>
+                            <input type="text" required class="form-control" name="phone_number"
+                                placeholder="Enter phone number">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea class="form-control" name="address" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 @endsection

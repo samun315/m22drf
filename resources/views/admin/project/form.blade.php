@@ -113,6 +113,17 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Achieved</label>
+                                <input type="number"
+                                    class="form-control form-control-solid @error('achieved') is-invalid @enderror"
+                                    placeholder="Enter achieved" name="achieved"
+                                    value="{{ $editModeData->achieved ?? old('achieved') }}" />
+                                @error('achieved')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Deadline</label>
                                 <input type="text"
                                     class="form-control form-control-solid @error('deadline') is-invalid @enderror"

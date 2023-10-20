@@ -46,6 +46,9 @@
     <!--Start Blog Page One-->
     <section class="blog-page-one">
         <div class="container">
+
+            @include('message')
+
             <div class="row text-right-rtl">
 
                 @foreach ($results as $row)
@@ -67,7 +70,9 @@
                                         {{ \Illuminate\Support\Str::limit($row->title, 30) }}
                                     </a>
                                 </h3>
-                                <p> {!! \Illuminate\Support\Str::limit($row->details, 30) !!} </p>
+                                <p>
+                                    {{ \Illuminate\Support\Str::limit(strip_tags($row->details), 80) }}
+                                </p>
 
                                 <div class="progress-levels progress-levels-style2">
                                     <!--Skill Box-->
@@ -80,7 +85,7 @@
                                             </div>
                                             <div class="bottom-box">
                                                 <div class="rate-box">
-                                                    <p>Achieved<span>৳ {{ number_format($row->budget, 2) }}</span></p>
+                                                    <p>Achieved<span>৳ {{ number_format($row->achieved, 2) }}</span></p>
                                                     <p>Target<span>৳ {{ number_format($row->budget, 2) }}</span></p>
                                                 </div>
                                                 <div class="skill-percent">
@@ -93,8 +98,12 @@
                                     </div>
                                 </div>
                                 <div class="btns-box">
-                                    <a class="btn-one" href="#"><span class="txt"><i
-                                                class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
+                                    <button class="btn-one" data-toggle="modal" data-target="#myModal">
+                                        <span class="txt">
+                                            <i class="arrow1 fa fa-check-circle"></i>
+                                            Donate Now
+                                        </span>
+                                    </button>
                                 </div>
 
                             </div>
@@ -108,8 +117,57 @@
                     {{ $results->links('vendor.pagination.bootstrap-4') }}
                 </div>
             </div>
-
         </div>
+
     </section>
     <!--End Blog Page One-->
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Donate Now</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <form action="{{ route('frontend.projectDonationRequestStore') }}" method="POST">
+
+                    @csrf
+
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" required class="form-control" name="name" placeholder="Enter name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter email">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone_number" class="form-label">Phone Number</label>
+                            <input type="text" required class="form-control" name="phone_number"
+                                placeholder="Enter phone number">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea class="form-control" name="address" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection

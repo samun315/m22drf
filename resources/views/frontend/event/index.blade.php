@@ -74,7 +74,7 @@
                                 </h3>
                                 <div class="text">
                                     <p>
-                                        {!! \Illuminate\Support\Str::limit($row->details, 30) !!}
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($row->details), 80) }}
                                     </p>
                                 </div>
                             </div>
