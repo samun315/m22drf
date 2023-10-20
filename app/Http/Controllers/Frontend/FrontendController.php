@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Donation;
 use App\Models\Event;
 use App\Models\FooterSetting;
 use App\Models\MissionVissionSetting;
@@ -11,6 +12,7 @@ use App\Models\Partner;
 use App\Models\Project;
 use App\Models\ProjectFollowUp;
 use App\Models\Slider;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +26,15 @@ class FrontendController extends Controller
         $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['blogs'] = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['partners'] = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
+
+        $data['member_details'] = DB::table('member_details as a')
+            ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->where('a.status', 'YES')
+            ->orderBy('a.id', 'DESC')
+            ->get();
+
+        $data['featured_project'] = Project::where('featured', 'YES')->first();
 
         $data['mission_vision'] = MissionVissionSetting::first();
         $data['footer_setting'] = FooterSetting::first();
@@ -66,9 +77,29 @@ class FrontendController extends Controller
 
     public function projectDetails($project_id)
     {
-        $project = DB::table('projects')->where('id', $project_id)->first();
+        $project =  DB::table('projects as a')
+            ->select('a.*', 'b.name as category_name')
+            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+            ->where('a.id', $project_id)
+            ->first();
 
         return view('frontend.project.details', compact('project'));
+    }
+
+    public function projectDonationRequestStore(Request $request)
+    {
+        $input                  = $request->all();
+        $input['created_at']    = Carbon::now();
+
+        try {
+
+            unset($input['_token']);
+
+            Donation::create($input);
+            return redirect()->back()->with('success', 'Donation information added successfully.');
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
+        }
     }
 
     public function projectFollowUpDetails($project_follow_up_id)

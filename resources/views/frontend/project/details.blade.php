@@ -52,7 +52,7 @@
                         <div class="cause-details-image-box">
                             <img src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="">
                             <div class="category">
-                                <h6>health &amp; Education</h6>
+                                <h6>{{ $project->category_name }}</h6>
                             </div>
                         </div>
                         <div class="single-blog-style1 single-blog-style2 wow fadeInUp" data-wow-duration="1500ms">

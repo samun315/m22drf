@@ -23,6 +23,9 @@ Route::get('contact-us', [FrontendController::class, 'contactUs'])->name('fronte
 Route::get('project', [FrontendController::class, 'project'])->name('frontend.project');
 Route::get('project-details/{project_id}', [FrontendController::class, 'projectDetails'])->name('frontend.projectDetails');
 
+//Project donation request store route
+Route::post('project-donation-request', [FrontendController::class, 'projectDonationRequestStore'])->name('frontend.projectDonationRequestStore');
+
 Route::get('project-follow-up-details/{project_id}', [FrontendController::class, 'projectFollowUpDetails'])->name('frontend.projectFollowUpDetails');
 
 //Event

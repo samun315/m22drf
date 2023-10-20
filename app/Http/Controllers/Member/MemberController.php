@@ -50,6 +50,22 @@ class MemberController extends Controller
             ->where('a.id', $blog_id)
             ->first();
 
+        //Insert blog views table
+        $makeBlogViewData = [];
+
+        $makeBlogViewData['blog_id'] = $blog_id;
+        $makeBlogViewData['view_count'] = 1;
+
+        $get_blog_view_by_blog_id = DB::table('blog_views')->where('blog_id', $blog_id)->first();
+
+        if (!empty($get_blog_view_by_blog_id)) {
+
+            $makeBlogViewData['view_count'] = $get_blog_view_by_blog_id->view_count + 1;
+            DB::table('blog_views')->where('id', $get_blog_view_by_blog_id->id)->update($makeBlogViewData);
+        } else {
+            DB::table('blog_views')->insert($makeBlogViewData);
+        }
+
         $data['recent_posts'] = DB::table('blogs')->orderBy('id', 'DESC')->where('blog_type', 'PRIVATE')->take(5)->get();
 
         return view('member.member_blog.view', $data);

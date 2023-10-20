@@ -30,6 +30,7 @@ class ProjectRequest extends FormRequest
                 'category_name' => 'required',
                 'deadline'      => 'required',
                 'budget'        => 'required',
+                'achieved'      => 'required',
                 // 'banner_img'    => 'required',
                 'status'        => 'required',
             ];
@@ -41,6 +42,7 @@ class ProjectRequest extends FormRequest
             'deadline'      => 'required',
             'category_name' => 'required',
             'budget'        => 'required',
+            'achieved'      => 'required',
             'banner_img'    => 'required',
             'status'        => 'required',
         ];

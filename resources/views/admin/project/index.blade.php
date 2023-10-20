@@ -60,8 +60,8 @@
                                     <th>Category</th>
                                     <th>Title</th>
                                     <th>Budget</th>
+                                    <th>Achieved</th>
                                     <th>Deadline</th>
-                                    {{-- <th>Details</th> --}}
                                     <th>Featured</th>
                                     <th>Active</th>
                                     <th>Action</th>
@@ -81,8 +81,8 @@
                                         <td> {{ $value->category_name }} </td>
                                         <td> {{ $value->title }} </td>
                                         <td> {{ $value->budget }} </td>
+                                        <td> {{ $value->achieved }} </td>
                                         <td> {{ $value->deadline }} </td>
-                                        {{-- <td> {{ $value->details }} </td> --}}
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 

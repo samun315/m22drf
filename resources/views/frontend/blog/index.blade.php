@@ -50,7 +50,10 @@
             <div class="row">
 
                 @foreach ($results as $row)
-                <?php $blog_detail = strip_tags($row->details); $blog_details =  \Illuminate\Support\Str::limit($blog_detail, 200); ?>
+
+                    <?php $blog_detail = strip_tags($row->details);
+                    $blog_details = \Illuminate\Support\Str::limit($blog_detail, 200); ?>
+
                     <div class="col-lg-4">
                         <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
                             <div class="img-holder">
