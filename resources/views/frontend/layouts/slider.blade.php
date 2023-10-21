@@ -23,8 +23,8 @@
                                         <span class="txt"><i class="arrow1 fa fa-check-circle"></i>how we
                                             help</span>
                                     </a>
-                                    <a class="btn-one marlft15" href="/about-us">
-                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>support
+                                    <a class="btn-one marlft15" data-toggle="modal" data-target="#myModal">
+                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>donate
                                             us</span>
                                     </a>
                                 </div>
