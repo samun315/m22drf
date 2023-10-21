@@ -54,8 +54,8 @@
 
                     <div class="header-right_buttom">
                         <div class="btns-box">
-                            <a class="btn-one" href="causes-details.html"><span class="txt"><i
-                                        class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
+                            <button class="btn-one" data-toggle="modal" data-target="#myModal"><span class="txt"><i
+                                        class="arrow1 fa fa-check-circle"></i>Donate Now</span></button>
                         </div>
                         <div class="side-content-button">
                             <a class="navSidebar-button" href="#">
