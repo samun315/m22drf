@@ -1,6 +1,6 @@
 <header class="main-header header-style-one">
 
-    @include('frontend.layouts.top_header')
+    {{-- @include('frontend.layouts.top_header') --}}
 
     <!--Start Header-->
     <div class="header">
@@ -56,25 +56,6 @@
                         <div class="btns-box">
                             <a class="btn-one" href="causes-details.html"><span class="txt"><i
                                         class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
-                        </div>
-                        <div class="side-content-button">
-                            <a class="navSidebar-button" href="#">
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                            </a>
                         </div>
                     </div>
 
