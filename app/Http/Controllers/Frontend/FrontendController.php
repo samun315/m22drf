@@ -77,13 +77,15 @@ class FrontendController extends Controller
 
     public function projectDetails($project_id)
     {
-        $project =  DB::table('projects as a')
+        $data['project'] =  DB::table('projects as a')
             ->select('a.*', 'b.name as category_name')
             ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
             ->where('a.id', $project_id)
             ->first();
 
-        return view('frontend.project.details', compact('project'));
+        $data['upcoming_projects'] = DB::table('projects')->where('project_status', 'Upcoming')->orderBy('id', 'DESC')->get();
+
+        return view('frontend.project.details',$data);
     }
 
     public function projectDonationRequestStore(Request $request)

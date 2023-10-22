@@ -252,7 +252,7 @@
                                                 </ul>
                                             </li>
                                             <li><a href="about.html">About</a></li>
-                                            <li class="dropdown"><a href="#">Pages</a>
+                                            <li class="dropdown current"><a href="#">Pages</a>
                                                 <ul>
                                                     <li><a href="events.html">Upcoming Events</a></li>
                                                     <li><a href="events-details.html">Events Details</a></li>
@@ -270,7 +270,7 @@
                                                     <li><a href="causes-details.html">causes Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="dropdown current"><a href="#">News</a>
+                                            <li class="dropdown"><a href="#">News</a>
                                                 <ul>
                                                     <li><a href="blog.html">News Grid View</a></li>
                                                     <li><a href="blog-2.html">News List View</a></li>
@@ -286,7 +286,7 @@
 
                             <div class="header-right_buttom">
                                 <div class="btns-box">
-                                    <a class="btn-one" href="causes-details.html"><span class="txt"><i
+                                    <a class="btn-one" href="about.html"><span class="txt"><i
                                                 class="arrow1 fa fa-check-circle"></i>Donate Now</span></a>
                                 </div>
                                 <div class="side-content-button">
@@ -364,7 +364,7 @@
 
 
         <!--Start breadcrumb area-->
-        <section class="breadcrumb-area" style="background-image: url(assets/images/breadcrumb/breadcrumb-1.jpg);">
+        <section class="breadcrumb-area" style="background-image: url(assets/images/breadcrumb/breadcrumb-6.jpg);">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
@@ -386,14 +386,16 @@
                                 </div>
                             </div>
                             <div class="title">
-                                <h2>Blog Details</h2>
+                                <h2>Event Single</h2>
                             </div>
                             <div class="border-box"></div>
                             <div class="breadcrumb-menu">
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><span class="flaticon-right-arrow"></span></li>
-                                    <li class="active">Blog Details</li>
+                                    <li><a href="events.html">Events list</a></li>
+                                    <li><span class="flaticon-right-arrow"></span></li>
+                                    <li class="active">Event single</li>
                                 </ul>
                             </div>
                         </div>
@@ -403,323 +405,226 @@
         </section>
         <!--End breadcrumb area-->
 
-        <!--Start Cause Details Area-->
-        <section class="blog-details-area">
+
+        <!--Start Event Details Area-->
+        <section class="event-details-area">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-8">
-                        <div class="blog-details-content">
+                        <div class="event-details_content">
 
-                            <div class="single-blog-style1 single-blog-style2 wow fadeInUp" data-wow-duration="1500ms">
-                                <div class="img-holder">
-                                    <img src="assets/images/blog/blog-details-1.jpg" alt="">
+                            <div class="event-details-image-box">
+                                <img src="assets/images/events/event-details-1.jpg" alt="">
+                                <div class="category">
+                                    <h6>health & Education</h6>
                                 </div>
-                                <div class="text-holder">
-                                    <div class="categories">
-                                        <h6>Education</h6>
-                                    </div>
-                                    <h3 class="blog-title">Rise of Global Charity in Modern<br> World and Many Benefits
-                                    </h3>
-                                    <div class="meta-box">
-                                        <div class="author-thumb">
-                                            <img src="assets/images/blog/author-thumb-1.jpg" alt="">
+                            </div>
+
+                            <div class="event-details-text-box">
+                                <h2>Contribute for the Educational &<br> Health Programs Globally</h2>
+                                <ul class="event-info">
+                                    <li>
+                                        <div class="icon">
+                                            <img src="assets/images/icon/date-1.png" alt="">
+                                            <div class="overlay-icon">
+                                                <img src="assets/images/icon/date-1-bg.png" alt="">
+                                            </div>
                                         </div>
-                                        <ul class="meta-info">
-                                            <li><a href="#">Malay D’soza</a></li>
-                                            <li><i class="fa fa-calendar" aria-hidden="true"></i> <a href="#">March 25,
-                                                    2021</a></li>
-                                            <li><i class="fa fa-comment-o" aria-hidden="true"></i> <a href="#">597
-                                                    Comments</a></li>
+                                        <div class="text">
+                                            <p>Event Date</p>
+                                            <h3>April 17, 2021<br> 5:00 PM</h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <img src="assets/images/icon/map-marker-1.png" alt="">
+                                            <div class="overlay-icon">
+                                                <img src="assets/images/icon/map-marker-1-bg.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="text">
+                                            <p>Event Location</p>
+                                            <h3>83 Andy Street,<br> Madison NJ - 78002</h3>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="icon">
+                                            <img src="assets/images/icon/cost-1.png" alt="">
+                                            <div class="overlay-icon">
+                                                <img src="assets/images/icon/cost-1-bg.png" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="text">
+                                            <p>Event Cost</p>
+                                            <h3>$25 - $134<br> Age: 18 & Above</h3>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="bottom-box">
+                                    <div class="btns">
+                                        <a class="btn-one" href="https://www.paypal.me/" target="_blank" rel="nofollow">
+                                            <span class="txt"><i class="arrow1 fa fa-check-circle"></i>join this
+                                                event</span>
+                                        </a>
+                                    </div>
+                                    <div class="social-share">
+                                        <div class="title">
+                                            <h5>Share Cause</h5>
+                                        </div>
+                                        <ul class="social-links">
+                                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
-                                    <div class="text">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed don eiusmod
-                                            tempor laboret dolore magn aliqua. Ut eniml minim veniam qus nostrud
-                                            exercitation ullam nisiut aliquip consequat. Duis aute rure dolor
-                                            reprehenderits. Lorem ipsum dolor sit amet, consectetur adipisicing elit sed
-                                            do eiusmod tempor.
-                                        </p>
-                                        <p class="martop25">Nostrud exercitation ullamco laboris nisi ut aliquip exea
-                                            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                                            esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                            cupidatats.
-                                        </p>
-                                    </div>
-
-                                    <!--Start Blog Details Text 1-->
-                                    <div class="blog-details-text-1">
-                                        <div class="blog-details-title">
-                                            <h3>Why Donate with LoveIcon</h3>
-                                            <div class="blog-details-title-shape wow zoomIn animated"
-                                                data-wow-duration="2000ms">
-                                                <img class="zoom-fade"
-                                                    src="assets/images/shape/cause-details-title-shape.png" alt="">
-                                            </div>
-                                        </div>
-                                        <p>Nostrud tem exrcitation duis laboris nisiut aliquip sedy duis aut cupidata
-                                            proident sunt culpa adipisicing elit sed eiusmod tempor incididunt.</p>
-
-                                        <div class="cause-details-featured-box">
-                                            <div class="row">
-
-                                                <div class="col-xl-6">
-                                                    <div class="single-box">
-                                                        <div class="icon">
-                                                            <img src="assets/images/icon/cause/cause-1.png" alt="">
-                                                            <div class="icon-bg">
-                                                                <img src="assets/images/icon/cause/cause-1-bg.png"
-                                                                    alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="text">
-                                                            <h3>A Real Change</h3>
-                                                            <p>Nostrud fact aliquip exrcation nisiut temp sed dui auty.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-box">
-                                                        <div class="icon">
-                                                            <img src="assets/images/icon/cause/cause-3.png" alt="">
-                                                            <div class="icon-bg">
-                                                                <img src="assets/images/icon/cause/cause-3-bg.png"
-                                                                    alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="text">
-                                                            <h3>Donate and Help</h3>
-                                                            <p>Nostrud fact aliquip exrcation nisiut temp sed dui auty.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-box">
-                                                        <div class="icon">
-                                                            <img src="assets/images/icon/cause/cause-4.png" alt="">
-                                                            <div class="icon-bg">
-                                                                <img src="assets/images/icon/cause/cause-4-bg.png"
-                                                                    alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="text">
-                                                            <h3>Fully Inspiration</h3>
-                                                            <p>Nostrud fact aliquip exrcation nisiut temp sed dui auty.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-xl-6">
-                                                    <div class="img-box">
-                                                        <img src="assets/images/blog/blog-details-2.jpg" alt="">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Blog Details Text 1-->
-
-                                    <!--Start Blog Details Text 2-->
-                                    <div class="blog-details-text-2">
-                                        <div class="blog-details-title">
-                                            <h3>The Challenge</h3>
-                                            <div class="blog-details-title-shape wow zoomIn animated"
-                                                data-wow-duration="2000ms">
-                                                <img class="zoom-fade"
-                                                    src="assets/images/shape/cause-details-title-shape.png" alt="">
-                                            </div>
-                                        </div>
-                                        <p>Nostrud tem exrcitation duis laboris nisi ut aliquip sedy duis aut cupidata
-                                            proident sunt culpa. Consectetur adipisicing elit sed eiusm sod tempor
-                                            incididunt aute irure dolor in reprehenderit in voluptate velit esse cillum.
-                                        </p>
-                                    </div>
-                                    <!--End Blog Details Text 2-->
-
-                                    <!--Start Blog Details Text 3-->
-                                    <div class="blog-details-text-3">
-                                        <div class="blog-style3-text-holder">
-                                            <div class="quote-icon"><span class="flaticon-right-quotes-symbol"></span>
-                                            </div>
-                                            <h2 class="blog-title">
-                                                <a href="blog-single.html">No One Has Ever Become Poor<br> By Giving,
-                                                    Feed the Poor &amp; Hungry</a>
-                                            </h2>
-                                            <div class="name">
-                                                <h5>John T. Smith</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Blog Details Text 3-->
-
-                                    <!--Start Blog Details Text 4-->
-                                    <div class="blog-details-text-4">
-                                        <p>Laboret dolore magn aliqua. Ut eniml minim veniam qus nostrud exercitation
-                                            ullam nisiut aliquip consequat. Duis aute rure dolor reprehenderits. Nostrud
-                                            exercitation ullamco laboris nisi ut aliquip exea consequat. Duis aute irure
-                                            dolor in reprehenderit in voluptate velit esse ipsum cillum doloreys.</p>
-                                    </div>
-                                    <!--End Blog Details Text 3-->
-
-                                    <!--Start Post Tag Share Box-->
-                                    <div class="post-tag-share-box">
-                                        <div class="tag-box">
-                                            <ul>
-                                                <li><a href="#">food</a></li>
-                                                <li><a href="#">donation</a></li>
-                                                <li><a href="#">water</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="share-box">
-                                            <div class="title">
-                                                <h6>share</h6>
-                                            </div>
-                                            <div class="share-button">
-                                                <a href="#"><i class="fa fa-share" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--End Post Tag Share Box-->
                                 </div>
+
                             </div>
 
-                            <div class="author-box-holder">
-                                <div class="inner-box">
-                                    <div class="img-box">
-                                        <img src="assets/images/blog/author.jpg" alt="Awesome Image">
-                                    </div>
-                                    <div class="text-box">
-                                        <h3>Smith Hayden <span>(Author)</span></h3>
-                                        <p>Nostrud aliquip exrcitation laboris nisiut temp duis autey
-                                            Lorem unt ipsum sit amet elit dolor tempor incididunt but
-                                            labore set dolore magna aliqua veniam.
-                                        </p>
-                                        <div class="author-social-links">
-                                            <ul class="clearfix">
-                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                                </li>
-                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                                </li>
-                                                <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-                                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="cause-details-text-box-1">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                    incididunt
+                                    laboret dolore magna aliqua. Ut enim minim veniam quis nostrud exercitation ullamco
+                                    laboris
+                                    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderitn
+                                    voluptate velit
+                                    esse cillum dolore lu fugiat nulla pariatur. Excepteur sint ocaecat cupidatat non
+                                    proident sun
+                                    culpa qui officia deserunt mollit anim id est laborum.
+                                </p>
                             </div>
-
-
-                            <div class="comments-box-one">
-                                <div class="title">
-                                    <h2>Comments</h2>
+                            <div class="cause-details-text-box-2">
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                                    lauds
+                                    tium totam rem aperiam, eaque ipsa quae ab illo inventore veritatist quasi
+                                    architecto beatae
+                                    vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas.
+                                </p>
+                            </div>
+                            <div class="cause-details-text-box-3">
+                                <div class="cause-details-title">
+                                    <h3>Why Join This Event</h3>
+                                    <div class="cause-details-title-shape wow zoomIn" data-wow-duration="2000ms">
+                                        <img class="zoom-fade" src="assets/images/shape/cause-details-title-shape.png"
+                                            alt="">
+                                    </div>
                                 </div>
-                                <div class="inner">
-                                    <!--Start Single Review Box-->
-                                    <div class="single-comments-box">
-                                        <div class="img_box">
-                                            <div class="inner">
-                                                <img src="assets/images/resources/review-1.png" alt="Image">
-                                            </div>
-                                        </div>
-                                        <div class="text_box">
-                                            <div class="inner">
-                                                <div class="top">
-                                                    <div class="left">
-                                                        <h4>Johnson Stainter</h4>
-                                                        <span>March 31, 2021 at 12:58 am</span>
-                                                    </div>
-                                                    <div class="right">
-                                                        <div class="btns-box">
-                                                            <a class="btn-one" href="about.html">
-                                                                <span class="txt"><i
-                                                                        class="arrow1 fa fa-check-circle"></i>reply</span>
-                                                            </a>
-                                                        </div>
+                                <p>Nostrud tem exrcitation duis laboris nisi ut aliquip sedy duis aut cupidata proident
+                                    sunt culpa.
+                                    Consectetur adipisicing elit sed do eiusmod tempor incididunt.</p>
+                                <div class="cause-details-featured-box">
+                                    <div class="row">
+
+                                        <div class="col-xl-6">
+                                            <div class="single-box">
+                                                <div class="icon">
+                                                    <img src="assets/images/icon/cause/cause-1.png" alt="">
+                                                    <div class="icon-bg">
+                                                        <img src="assets/images/icon/cause/cause-1-bg.png" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="text">
-                                                    <p>Laboret dolore magn aliqua. Ut eniml minim veniam qus nostrud
-                                                        exercitation nisiut aliquip consequat. Duis aute rure dolor
-                                                        reprehenderits.</p>
+                                                    <h3>A Real Change</h3>
+                                                    <p>Nostrud fact aliquip exrcation nisiut temp sed dui auty.</p>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!--End Single Review Box-->
-                                    <!--Start Single Review Box-->
-                                    <div class="single-comments-box">
-                                        <div class="img_box">
-                                            <div class="inner">
-                                                <img src="assets/images/resources/review-2.png" alt="Image">
-                                            </div>
-                                        </div>
-                                        <div class="text_box">
-                                            <div class="inner">
-                                                <div class="top">
-                                                    <div class="left">
-                                                        <h4>Tina Shane</h4>
-                                                        <span>March 31, 2021 at 12:58 am</span>
-                                                    </div>
-                                                    <div class="right">
-                                                        <div class="btns-box">
-                                                            <a class="btn-one" href="about.html">
-                                                                <span class="txt"><i
-                                                                        class="arrow1 fa fa-check-circle"></i>reply</span>
-                                                            </a>
-                                                        </div>
+
+                                        <div class="col-xl-6">
+                                            <div class="single-box">
+                                                <div class="icon">
+                                                    <img src="assets/images/icon/cause/cause-2.png" alt="">
+                                                    <div class="icon-bg">
+                                                        <img src="assets/images/icon/cause/cause-2-bg.png" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="text">
-                                                    <p>Laboret dolore magn aliqua. Ut eniml minim veniam qus nostrud
-                                                        exercitation nisiut aliquip consequat. Duis aute rure dolor
-                                                        reprehenderits.</p>
+                                                    <h3>With Big Strength</h3>
+                                                    <p>Nostrud fact aliquip exrcation nisiut temp sed dui auty.</p>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="col-xl-6">
+                                            <div class="single-box">
+                                                <div class="icon">
+                                                    <img src="assets/images/icon/cause/cause-3.png" alt="">
+                                                    <div class="icon-bg">
+                                                        <img src="assets/images/icon/cause/cause-3-bg.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="text">
+                                                    <h3>Donate and Help</h3>
+                                                    <p>Nostrud fact aliquip exrcation nisiut temp sed dui auty.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6">
+                                            <div class="single-box">
+                                                <div class="icon">
+                                                    <img src="assets/images/icon/cause/cause-4.png" alt="">
+                                                    <div class="icon-bg">
+                                                        <img src="assets/images/icon/cause/cause-4-bg.png" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="text">
+                                                    <h3>Fully Inspiration</h3>
+                                                    <p>Nostrud fact aliquip exrcation nisiut temp sed dui auty.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <!--End Single Review Box-->
+                                </div>
+
+                            </div>
+
+                            <div class="cause-details-text-box-4">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="text-box">
+                                            <div class="cause-details-title">
+                                                <h3>The Challenge</h3>
+                                                <div class="cause-details-title-shape wow zoomIn"
+                                                    data-wow-duration="2000ms">
+                                                    <img class="zoom-fade"
+                                                        src="assets/images/shape/cause-details-title-shape.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="text1">
+                                                <p>Nostrud tem exrcitation duis laboris nisi ut aliquip sedy duis aute
+                                                    cupidata proident sunt
+                                                    culpa. Consectetur adipisicing elit sed eiusm
+                                                    sod tempor incididunt.
+                                                </p>
+                                            </div>
+                                            <div class="text2">
+                                                <p>Nostrud tem exrcitation duis laboris nisi ut aliquip sedy duis aute
+                                                    cupidata proident sunt
+                                                    culpa. Consectetur adipisicing elit sed eiusm
+                                                    sod tempor incididunt.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="img-box">
+                                            <img src="assets/images/causes/cause-details-image-2.jpg" alt="">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!--Start Reply Form Box-->
-                            <div class="reply-form-box">
-                                <div class="title">
-                                    <h2>Leave a Reply</h2>
-                                </div>
-                                <form id="review-form" action="#">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="input-box">
-                                                <input type="text" name="fname" placeholder="Full Name" required="">
-                                                <div class="icon"><span class="flaticon-user"></span></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-box">
-                                                <input type="email" name="email" placeholder="Email" required="">
-                                                <div class="icon"><span class="flaticon-opened"></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="input-box">
-                                                <textarea name="review" placeholder="Message" required=""></textarea>
-                                                <div class="icon"><span class="fa fa-pencil"></span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button class="btn-one" type="submit">
-                                                <span class="txt"><i class="arrow1 fa fa-check-circle"></i>post
-                                                    comment</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
+                            <div class="cause-details-text-box-5">
+                                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem acusantium doloremque
+                                    lauds tium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi
+                                    architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+                                    voluptas.
+                                </p>
                             </div>
-                            <!--End Reply Form Box-->
 
                         </div>
                     </div>
@@ -788,11 +693,30 @@
 
                             <!--Start Single Sidebar Box-->
                             <div class="single-sidebar-box">
+                                <div class="sidebar-slogan-box"
+                                    style="background-image: url(assets/images/sidebar/sidebar-slogan-img.jpg);">
+                                    <div class="icon">
+                                        <img src="assets/images/icon/thm-logo1.png" alt="" />
+                                    </div>
+                                    <p>Small Donations Bigger Impact</p>
+                                    <h2>Education Health<br>for Every Child</h2>
+                                    <div class="btn-box">
+                                        <div class="hand"><img src="assets/images/shape/hand.png" alt=""></div>
+                                        <a class="btn-one" href="about.html">
+                                            <span class="txt"><i class="arrow1 fa fa-check-circle"></i>donate now</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Single Sidebar Box-->
+
+                            <!--Start Single Sidebar Box-->
+                            <div class="single-sidebar-box">
                                 <div class="sidebar-campaigns">
                                     <div class="title">
-                                        <h3>Recent News</h3>
+                                        <h3>Upcoming Events</h3>
                                     </div>
-                                    <ul class="recent-campaigns recent-news">
+                                    <ul class="recent-campaigns">
                                         <li>
                                             <div class="inner">
                                                 <div class="img-box">
@@ -804,7 +728,9 @@
                                                 </div>
                                                 <div class="title-box">
                                                     <h4><a href="#">Help with Global<br> Charity</a></h4>
-                                                    <p>March 9, 2021</p>
+                                                    <div class="btns">
+                                                        <a href="#">View Details</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -819,7 +745,9 @@
                                                 </div>
                                                 <div class="title-box">
                                                     <h4><a href="#">School Education<br> in Africa</a></h4>
-                                                    <p>March 9, 2021</p>
+                                                    <div class="btns">
+                                                        <a href="#">View Details</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -834,140 +762,18 @@
                                                 </div>
                                                 <div class="title-box">
                                                     <h4><a href="#">Make Homes for<br> Peoples</a></h4>
-                                                    <p>March 9, 2021</p>
+                                                    <div class="btns">
+                                                        <a href="#">View Details</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
+
 
                                     </ul>
                                 </div>
                             </div>
                             <!--End Single Sidebar Box-->
-
-                            <!--Start Single Sidebar Box-->
-                            <div class="single-sidebar-box">
-                                <div class="projects-gallery-box">
-                                    <div class="title">
-                                        <h3>Projects Gallery</h3>
-                                    </div>
-                                    <ul class="gallery">
-                                        <li>
-                                            <div class="inner">
-                                                <div class="img-box">
-                                                    <img src="assets/images/sidebar/gallery-1.jpg" alt="Awesome Image">
-                                                    <div class="overlay-content">
-                                                        <a href="causes-details.html">
-                                                            <span class="fa fa-link"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="inner">
-                                                <div class="img-box">
-                                                    <img src="assets/images/sidebar/gallery-2.jpg" alt="Awesome Image">
-                                                    <div class="overlay-content">
-                                                        <a href="causes-details.html">
-                                                            <span class="fa fa-link"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="inner">
-                                                <div class="img-box">
-                                                    <img src="assets/images/sidebar/gallery-3.jpg" alt="Awesome Image">
-                                                    <div class="overlay-content">
-                                                        <a href="causes-details.html">
-                                                            <span class="fa fa-link"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="inner">
-                                                <div class="img-box">
-                                                    <img src="assets/images/sidebar/gallery-4.jpg" alt="Awesome Image">
-                                                    <div class="overlay-content">
-                                                        <a href="causes-details.html">
-                                                            <span class="fa fa-link"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="inner">
-                                                <div class="img-box">
-                                                    <img src="assets/images/sidebar/gallery-5.jpg" alt="Awesome Image">
-                                                    <div class="overlay-content">
-                                                        <a href="causes-details.html">
-                                                            <span class="fa fa-link"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="inner">
-                                                <div class="img-box">
-                                                    <img src="assets/images/sidebar/gallery-6.jpg" alt="Awesome Image">
-                                                    <div class="overlay-content">
-                                                        <a href="causes-details.html">
-                                                            <span class="fa fa-link"></span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--End Single Sidebar Box-->
-
-                            <!--Start Single Sidebar Box-->
-                            <div class="single-sidebar-box">
-                                <div class="sidebar-slogan-box"
-                                    style="background-image: url(assets/images/sidebar/sidebar-slogan-img.jpg);">
-                                    <div class="icon">
-                                        <img src="assets/images/icon/thm-logo1.png" alt="" />
-                                    </div>
-                                    <p>Small Donations Bigger Impact</p>
-                                    <h2>Education Health<br>for Every Child</h2>
-                                    <div class="btn-box">
-                                        <div class="hand"><img src="assets/images/shape/hand.png" alt=""></div>
-                                        <a class="btn-one" href="causes-details.html">
-                                            <span class="txt"><i class="arrow1 fa fa-check-circle"></i>donate now</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--End Single Sidebar Box-->
-
-                            <!--Start Single Sidebar Box-->
-                            <div class="single-sidebar-box">
-                                <div class="sidebar-tag-box">
-                                    <div class="title">
-                                        <h3>Tags Cloud</h3>
-                                    </div>
-                                    <ul>
-                                        <li><a href="#">healthy</a></li>
-                                        <li><a href="#">food</a></li>
-                                        <li><a href="#">donation</a></li>
-                                        <li><a href="#">Charity</a></li>
-                                        <li><a href="#">water</a></li>
-                                        <li><a href="#">Shelters</a></li>
-                                        <li><a href="#">medical facility</a></li>
-                                        <li><a href="#">help</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--End Single Sidebar Box-->
-
 
                         </div>
                     </div>
@@ -976,7 +782,7 @@
                 </div>
             </div>
         </section>
-        <!--End Cause Details Area-->
+        <!--End Event Details Area-->
 
 
 

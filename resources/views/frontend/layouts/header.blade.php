@@ -1,3 +1,11 @@
+@php
+
+    $categories = \DB::table('categories')
+        ->orderBy('id', 'DESC')
+        ->get();
+
+@endphp
+
 <header class="main-header header-style-one">
 
     {{-- @include('frontend.layouts.top_header') --}}
@@ -32,15 +40,50 @@
                                 <ul class="navigation clearfix">
                                     <li class="{{ request()->is('/') ? 'current' : '' }}"><a href="/">Home</a>
                                     </li>
-                                    <li class="{{ request()->is('about-us') ? 'current' : '' }}"><a
+                                    {{-- <li class="{{ request()->is('about-us') ? 'current' : '' }}"><a
                                             href="/about-us">About Us</a>
+                                    </li> --}}
+
+                                    <li class="dropdown"><a href="javascrip:void(0)">About Us</a>
+                                        <ul>
+                                            <li><a href="/about-us">About Us</a></li>
+                                            <li><a href="team.html">Our Executives Member</a></li>
+                                            <li><a href="/faq">Faq</a></li>
+                                        </ul>
                                     </li>
-                                    <li class="{{ request()->is('project') ? 'current' : '' }}"><a
+
+                                    {{-- <li class="{{ request()->is('project') ? 'current' : '' }}"><a
                                             href="/project">Project</a>
+                                    </li> --}}
+
+                                    <li class="dropdown"><a href="javascrip:void(0)">Project</a>
+                                        <ul>
+                                            <li><a href="/project">All Project</a></li>
+
+                                            @foreach ($categories as $project_category)
+                                                <li>
+                                                    <a
+                                                        href="/project?category={{ $project_category->id }}">{{ $project_category->name }}</a>
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
                                     </li>
-                                    <li class="{{ request()->is('events') ? 'current' : '' }}"><a
-                                            href="{{ route('frontend.events') }}">Event</a>
+
+                                    <li class="dropdown"><a href="javascrip:void(0)">Event</a>
+                                        <ul>
+                                            <li><a href="/event">All Event</a></li>
+
+                                            @foreach ($categories as $event_category)
+                                                <li>
+                                                    <a
+                                                        href="/event?category={{ $event_category->id }}">{{ $event_category->name }}</a>
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
                                     </li>
+
                                     <li class="{{ request()->is('blog') ? 'current' : '' }}"><a href="/blog">Blog</a>
                                     </li>
                                     <li class="{{ request()->is('contact-us') ? 'current' : '' }}"><a

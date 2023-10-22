@@ -102,6 +102,17 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Location</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('location') is-invalid @enderror"
+                                    placeholder="Enter location" name="location"
+                                    value="{{ $editModeData->location ?? old('location') }}" />
+                                @error('location')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Date</label>
                                 <input type="text"
                                     class="form-control form-control-solid @error('date') is-invalid @enderror"
@@ -124,6 +135,25 @@
                                 @endisset
 
                                 @error('banner_img')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Event Status</label>
+                                <select name="event_status"
+                                    class="form-select form-select-solid @error('event_status') is-invalid @enderror"
+                                    data-control="select2" data-hide-search="true" data-placeholder="Event Status">
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->event_status == 'Upcoming' ? 'selected' : '' }}
+                                        value="Upcoming">
+                                        Upcoming</option>
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->event_status == 'Executed' ? 'selected' : '' }}
+                                        value="Executed">Executed
+                                    </option>
+                                </select>
+                                @error('event_status')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
