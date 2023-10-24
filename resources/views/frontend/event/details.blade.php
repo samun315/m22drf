@@ -44,7 +44,7 @@
     <!--End breadcrumb area-->
 
     <!--Start Cause Details Area-->
-    <section class="blog-details-area">
+    {{-- <section class="blog-details-area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
@@ -78,6 +78,107 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--End Cause Details Area-->
+
+    <section class="event-details-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-8">
+                    <div class="event-details_content">
+
+                        <div class="event-details-image-box">
+                            <img src="{{ asset('uploads/event/' . $event->banner_img) }}" alt="">
+                            <div class="category">
+                                <h6>{{ $event->category_name }}</h6>
+                            </div>
+                        </div>
+
+                        <div class="event-details-text-box">
+                            <h2>{{ $event->title }}</h2>
+                            <ul class="event-info">
+
+                                <li>
+                                    <div class="icon">
+                                        <img src="assets/frontend/images/icon/date-1.png" alt="">
+                                        <div class="overlay-icon">
+                                            <img src="assets/images/icon/date-1-bg.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <p>Event Date</p>
+                                        <h3> {{ date('F d, Y', strtotime($event->date)) }}</h3>
+                                    </div>
+                                </li>
+                                <li></li>
+                                <li>
+                                    <div class="icon">
+                                        <img src="assets/frontend/images/icon/map-marker-1.png" alt="">
+                                        <div class="overlay-icon">
+                                            <img src="assets/images/icon/map-marker-1-bg.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <p>Event Location</p>
+                                        <h3> {{ $event->location }}</h3>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="cause-details-text-box-1">
+                            <p>
+                                {!! $event->details !!}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="sidebar-content-box">
+                        <!--Start Single Sidebar Box-->
+                        <div class="single-sidebar-box">
+                            <div class="sidebar-campaigns">
+                                <div class="title">
+                                    <h3>Upcoming Events</h3>
+                                </div>
+                                <ul class="recent-campaigns">
+
+                                    @foreach ($upcoming_events as $upcoming_event)
+                                        <li>
+                                            <div class="inner">
+                                                <div class="img-box">
+                                                    <img style="width: 85px; height:72px"
+                                                        src="{{ asset('uploads/event/' . $upcoming_event->banner_img) }}"
+                                                        alt="upcoming event">
+                                                    <div class="overlay-content">
+                                                        <a href="/event-details?upcoming-event={{ $upcoming_event->id }}"><i
+                                                                class="fa fa-link" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="title-box">
+                                                    <h4><a href="/event-details?upcoming-event={{ $upcoming_event->id }}">
+                                                            {{ $upcoming_event->title }}
+                                                        </a></h4>
+                                                    <div class="btns">
+                                                        <a href="/event-details?upcoming-event={{ $upcoming_event->id }}">View
+                                                            Details</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        <!--End Single Sidebar Box-->
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
 @endsection

@@ -32,6 +32,7 @@ class ProjectRequest extends FormRequest
                 'budget'        => 'required',
                 'achieved'      => 'required',
                 // 'banner_img'    => 'required',
+                'project_status'  => 'required',
                 'status'        => 'required',
             ];
         }
@@ -45,6 +46,7 @@ class ProjectRequest extends FormRequest
             'achieved'      => 'required',
             'banner_img'    => 'required',
             'status'        => 'required',
+            'project_status'  => 'required',
         ];
     }
 }

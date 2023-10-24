@@ -12,6 +12,6 @@ class Project extends Model
     protected $table = 'projects';
 
     protected $fillable = [
-        'category_id', 'title', 'details', 'deadline', 'budget', 'achieved', 'banner_img', 'status', 'delete', 'created_by', 'updated_by', 'created_at', 'updated_at'
+        'category_id', 'title', 'details', 'deadline', 'budget', 'achieved', 'banner_img', 'status', 'project_status', 'delete', 'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 }

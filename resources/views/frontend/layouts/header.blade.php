@@ -1,6 +1,14 @@
+@php
+
+    $categories = \DB::table('categories')
+        ->orderBy('id', 'DESC')
+        ->get();
+
+@endphp
+
 <header class="main-header header-style-one">
 
-    @include('frontend.layouts.top_header')
+    {{-- @include('frontend.layouts.top_header') --}}
 
     <!--Start Header-->
     <div class="header">
@@ -32,15 +40,50 @@
                                 <ul class="navigation clearfix">
                                     <li class="{{ request()->is('/') ? 'current' : '' }}"><a href="/">Home</a>
                                     </li>
-                                    <li class="{{ request()->is('about-us') ? 'current' : '' }}"><a
+                                    {{-- <li class="{{ request()->is('about-us') ? 'current' : '' }}"><a
                                             href="/about-us">About Us</a>
+                                    </li> --}}
+
+                                    <li class="dropdown"><a href="javascrip:void(0)">About Us</a>
+                                        <ul>
+                                            <li><a href="/about-us">About Us</a></li>
+                                            <li><a href="team.html">Our Executives Member</a></li>
+                                            <li><a href="/faq">Faq</a></li>
+                                        </ul>
                                     </li>
-                                    <li class="{{ request()->is('project') ? 'current' : '' }}"><a
+
+                                    {{-- <li class="{{ request()->is('project') ? 'current' : '' }}"><a
                                             href="/project">Project</a>
+                                    </li> --}}
+
+                                    <li class="dropdown"><a href="javascrip:void(0)">Project</a>
+                                        <ul>
+                                            <li><a href="/project">All Project</a></li>
+
+                                            @foreach ($categories as $project_category)
+                                                <li>
+                                                    <a
+                                                        href="/project?category={{ $project_category->id }}">{{ $project_category->name }}</a>
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
                                     </li>
-                                    <li class="{{ request()->is('events') ? 'current' : '' }}"><a
-                                            href="{{ route('frontend.events') }}">Event</a>
+
+                                    <li class="dropdown"><a href="javascrip:void(0)">Event</a>
+                                        <ul>
+                                            <li><a href="/events">All Event</a></li>
+
+                                            @foreach ($categories as $event_category)
+                                                <li>
+                                                    <a
+                                                        href="/events?category={{ $event_category->id }}">{{ $event_category->name }}</a>
+                                                </li>
+                                            @endforeach
+
+                                        </ul>
                                     </li>
+
                                     <li class="{{ request()->is('blog') ? 'current' : '' }}"><a href="/blog">Blog</a>
                                     </li>
                                     <li class="{{ request()->is('contact-us') ? 'current' : '' }}"><a
@@ -56,25 +99,6 @@
                         <div class="btns-box">
                             <button class="btn-one" data-toggle="modal" data-target="#myModal"><span class="txt"><i
                                         class="arrow1 fa fa-check-circle"></i>Donate Now</span></button>
-                        </div>
-                        <div class="side-content-button">
-                            <a class="navSidebar-button" href="#">
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                                <ul>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>
-                            </a>
                         </div>
                     </div>
 

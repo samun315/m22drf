@@ -30,6 +30,8 @@ class EventRequest extends FormRequest
                 'category_name' => 'required',
                 'date'          => 'required',
                 // 'banner_img'    => 'required',
+                'location'      => 'required',
+                'event_status'  => 'required',
                 'status'        => 'required',
             ];
         }
@@ -40,6 +42,8 @@ class EventRequest extends FormRequest
             'details'       => 'required',
             'date'          => 'required',
             'banner_img'    => 'required',
+            'location'      => 'required',
+            'event_status'  => 'required',
             'status'        => 'required',
         ];
     }
