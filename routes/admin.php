@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectFollowUpController;
+use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 
@@ -131,6 +132,16 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{partner_id}/edit', [PartnerController::class, 'edit'])->name('admin.partner.edit');
         Route::put('/{partner_id}/update', [PartnerController::class, 'update'])->name('admin.partner.update');
         Route::put('/update-status', [PartnerController::class, 'updateStatus'])->name('admin.partner.update.status');
+    });
+
+    //Quote
+    Route::group(['prefix' => 'quotes'], function () {
+        Route::get('/index', [QuoteController::class, 'index'])->name('admin.quotes.index');
+        Route::get('/create', [QuoteController::class, 'create'])->name('admin.quotes.create');
+        Route::post('/store', [QuoteController::class, 'store'])->name('admin.quotes.store');
+        Route::get('/{quotes_id}/edit', [QuoteController::class, 'edit'])->name('admin.quotes.edit');
+        Route::put('/{quotes_id}/update', [QuoteController::class, 'update'])->name('admin.quotes.update');
+        Route::put('/update-status', [QuoteController::class, 'updateStatus'])->name('admin.quotes.update.status');
     });
 
     //Setting

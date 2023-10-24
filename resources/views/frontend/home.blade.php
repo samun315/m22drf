@@ -677,7 +677,7 @@
                                                 <span class="flaticon-clock"></span>
                                             </div>
                                             <div class="text">
-                                                <p>16:00 EST - Melbourne, AUS</p>
+                                                <p>{{ $event->location }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -699,78 +699,36 @@
         <div class="container">
             <div class="testimonial-style1-content">
                 <div class="testimonial-style1_carousel owl-carousel owl-theme">
-                    <!--Start Single Testimonial Style1-->
-                    <div class="single-testimonial-style1">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/testimonial/testimonial-v1-1.png" alt="">
+
+                    @foreach ($quotes as $quote)
+                        <div class="single-testimonial-style1">
+                            <div class="img-holder">
+                                <div class="inner">
+                                    @if (isset($quote->author_image))
+                                        <img style="width: 140px; height:140px; border-radius:50%"
+                                            src="{{ asset('uploads/quote/' . $quote->author_image) }}" alt="quote">
+                                    @else
+                                        <img src="assets/frontend/images/testimonial/testimonial-v1-1.png" alt="quote">
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="text-holder">
+                                <div class="quote">
+                                    <span class="flaticon-right-quotes-symbol"></span>
+                                </div>
+                                <div class="text">
+                                    <h3>{{ $quote->title }}</h3>
+                                    <p>
+                                        {{ strip_tags($quote->details) }}
+                                    </p>
+                                </div>
+                                <div class="client-info">
+                                    <h4>{{ $quote->author_name }}</h4>
+                                    <span>{{ $quote->author_address }}</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="text-holder">
-                            <div class="quote">
-                                <span class="flaticon-right-quotes-symbol"></span>
-                            </div>
-                            <div class="text">
-                                <h3>Power to create opportunities</h3>
-                                <p>Nori grape silver beet broccoli kombu beet greens parsley bean potato quandong
-                                    celery. Bunya nuts black-eyed pea prairie jícama turnip leek lentil turnip
-                                    greens parsnip salsify sea.</p>
-                            </div>
-                            <div class="client-info">
-                                <h4>Johnny Thomas</h4>
-                                <span>California, USA</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Testimonial Style1-->
-                    <!--Start Single Testimonial Style1-->
-                    <div class="single-testimonial-style1">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/testimonial/testimonial-v1-1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="text-holder">
-                            <div class="quote">
-                                <span class="flaticon-right-quotes-symbol"></span>
-                            </div>
-                            <div class="text">
-                                <h3>Power to create opportunities</h3>
-                                <p>Nori grape silver beet broccoli kombu beet greens parsley bean potato quandong
-                                    celery. Bunya nuts black-eyed pea prairie jícama turnip leek lentil turnip
-                                    greens parsnip salsify sea.</p>
-                            </div>
-                            <div class="client-info">
-                                <h4>Johnny Thomas</h4>
-                                <span>California, USA</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Testimonial Style1-->
-                    <!--Start Single Testimonial Style1-->
-                    <div class="single-testimonial-style1">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/testimonial/testimonial-v1-1.png" alt="">
-                            </div>
-                        </div>
-                        <div class="text-holder">
-                            <div class="quote">
-                                <span class="flaticon-right-quotes-symbol"></span>
-                            </div>
-                            <div class="text">
-                                <h3>Power to create opportunities</h3>
-                                <p>Nori grape silver beet broccoli kombu beet greens parsley bean potato quandong
-                                    celery. Bunya nuts black-eyed pea prairie jícama turnip leek lentil turnip
-                                    greens parsnip salsify sea.</p>
-                            </div>
-                            <div class="client-info">
-                                <h4>Johnny Thomas</h4>
-                                <span>California, USA</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End Single Testimonial Style1-->
+                    @endforeach
 
 
                 </div>
@@ -852,7 +810,7 @@
                             <h4>Provide financing support to help individuals build livelihoods</h4>
                         </div>
                         <div class="btn-box">
-                            <a class="btn-one" href="contact.html"><span class="txt"><i
+                            <a class="btn-one" href="/contact-us"><span class="txt"><i
                                         class="arrow1 fa fa-check-circle"></i>get in touch</span></a>
                         </div>
                     </div>

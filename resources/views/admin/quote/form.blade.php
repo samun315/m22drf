@@ -1,11 +1,11 @@
 @extends('admin.master')
 
 @if (isset($editModeData))
-    @section('title', 'Edit Slider')
-    @section('toolbarTitle', 'Edit Slider')
+    @section('title', 'Edit Quote')
+    @section('toolbarTitle', 'Edit Quote')
 @else
-    @section('title', 'Create Slider')
-    @section('toolbarTitle', 'Create Slider')
+    @section('title', 'Create Quote')
+    @section('toolbarTitle', 'Create Quote')
 @endif
 
 @section('main-content')
@@ -19,38 +19,37 @@
                         <span class="svg-icon svg-icon-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="5" y="5" width="5" height="5" rx="1"
-                                        fill="#000000"></rect>
-                                    <rect x="14" y="5" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="5" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="14" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
+                                    <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000"></rect>
+                                    <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
-                                Slider</span>
+                                Quote</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.slider.index') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.quotes.index') }}" class="btn btn-sm btn-light-success">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="5" y="5" width="5" height="5" rx="1"
-                                            fill="#000000"></rect>
-                                        <rect x="14" y="5" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
-                                        <rect x="5" y="14" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
-                                        <rect x="14" y="14" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
+                                        <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000">
+                                        </rect>
+                                        <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
+                                        <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
+                                        <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
                                     </g>
                                 </svg>
                             </span>
-                            Manage Slider
+                            Manage Quote
                         </a>
                     </div>
                 </div>
@@ -63,27 +62,16 @@
 
                     <!--begin::Form-->
                     <form class="form" method="POST" id="kt_slider_form" enctype="multipart/form-data"
-                        action="{{ isset($editModeData) ? route('admin.slider.update', $editModeData->id) : route('admin.slider.store') }}">
+                        action="{{ isset($editModeData) ? route('admin.quotes.update', $editModeData->id) : route('admin.quotes.store') }}">
                         @csrf
 
                         @isset($editModeData)
                             @method('PUT')
 
-                            <input type="text" hidden name="slider_id" value="{{ $editModeData->id }}">
+                            <input type="text" hidden name="quote_id" value="{{ $editModeData->id }}">
                         @endisset
 
                         <div class="row mb-5">
-
-                            <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Tagline</label>
-                                <input type="text"
-                                    class="form-control form-control-solid @error('tagline') is-invalid @enderror"
-                                    placeholder="Enter tagline" name="tagline"
-                                    value="{{ $editModeData->tagline ?? old('tagline') }}" />
-                                @error('tagline')
-                                    <span class="text-danger mt-2">{{ $message }}</span>
-                                @enderror
-                            </div>
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Title</label>
@@ -97,17 +85,40 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Banner Image</label>
-                                <input type="file"
-                                    class="form-control form-control-solid @error('banner_img') is-invalid @enderror"
-                                    name="banner_img" />
+                                <label class="required fs-5 fw-bold mb-2">Author Name</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('author_name') is-invalid @enderror"
+                                    placeholder="Enter author name" name="author_name"
+                                    value="{{ $editModeData->author_name ?? old('author_name') }}" />
+                                @error('author_name')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
 
-                                @isset($editModeData->banner_img)
-                                    <a target="_blank" href="{{ asset('uploads/slider/' . $editModeData->banner_img) }}">View
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Author Address</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('author_address') is-invalid @enderror"
+                                    placeholder="Enter author address" name="author_address"
+                                    value="{{ $editModeData->author_address ?? old('author_address') }}" />
+                                @error('author_address')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Author Image</label>
+                                <input type="file"
+                                    class="form-control form-control-solid @error('author_image') is-invalid @enderror"
+                                    name="author_image" />
+
+                                @isset($editModeData->author_image)
+                                    <a target="_blank"
+                                        href="{{ asset('uploads/quote/' . $editModeData->author_image) }}">View
                                         Image</a>
                                 @endisset
 
-                                @error('banner_img')
+                                @error('author_image')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -130,10 +141,10 @@
                             </div>
 
                             <div class="col-md-12 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Description</label>
-                                <textarea class="form-control form-control-solid ckeditor" placeholder="Enter description" name="description"
-                                    data-kt-autosize="true">{{ $editModeData->description ?? old('description') }}</textarea>
-                                @error('description')
+                                <label class="required fs-5 fw-bold mb-2">Details</label>
+                                <textarea class="form-control form-control-solid ckeditor" placeholder="Enter details" name="details"
+                                    data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
+                                @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>

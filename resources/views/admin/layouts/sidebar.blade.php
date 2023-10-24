@@ -97,6 +97,16 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('quotes/*') ? 'active' : '' }}"
+                        href="{{ route('admin.quotes.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-people fs-3 text-info"></i>
+                        </span>
+                        <span class="menu-title">Manage Quotes</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <div class="menu-content pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Project
                             Management</span>
