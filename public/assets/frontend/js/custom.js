@@ -9,7 +9,7 @@
 05. PrettyPhoto
 06. BrandCarousel
 07. Testimonial carousel
-08. ScrollToTop 
+08. ScrollToTop
 09. Cart Touch Spin
 10. PriceFilter
 11. Cart touch spin
@@ -41,22 +41,22 @@ if($('.mobile-menu').length){
     var mobileMenuContent = $('.main-header .nav-outer .main-menu').html();
     $('.mobile-menu .menu-box .menu-outer').append(mobileMenuContent);
     $('.sticky-header .main-menu').append(mobileMenuContent);
-    
+
     //Dropdown Button
     $('.mobile-menu li.dropdown .dropdown-btn').on('click', function() {
         $(this).toggleClass('open');
         $(this).prev('ul').slideToggle(500);
     });
-    
-    
-    
+
+
+
     //Dropdown Button
     $('.mobile-menu li.dropdown .dropdown-btn').on('click', function() {
         $(this).prev('.megamenu').slideToggle(900);
     });
 
-    
-    
+
+
     //Menu Toggle Btn
     $('.mobile-nav-toggler').on('click', function() {
         $('body').addClass('mobile-menu-visible');
@@ -198,9 +198,9 @@ function accordion() {
             }else{
                 $(this).addClass('active');
                 $('.accordion .accord-content').slideUp(500);
-                $(this).next('.accord-content').slideDown(500);	
+                $(this).next('.accord-content').slideDown(500);
             }
-        });	
+        });
     }
 }
 
@@ -378,7 +378,7 @@ function onHoverthreeDmovement() {
     if(tiltBlock.length) {
         $('.js-tilt').tilt({
             maxTilt: 20,
-            perspective:700, 
+            perspective:700,
             glare: true,
             maxGlare: 0
         })
@@ -448,10 +448,10 @@ if ($('.theme_carousel').length) {
     $extraAttr = $(this).data("options");
     $.extend($owlAttr, $extraAttr);
 
-    
+
     $(this).owlCarousel($owlAttr);
 
-    
+
 });
 
 }
@@ -473,7 +473,7 @@ if ($('.banner-carousel').length) {
         singleItem:true,
         smartSpeed: 500,
         autoplay: true,
-        autoplayTimeout:6000,
+        autoplayTimeout:9000,
         navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
         responsive:{
             0:{
@@ -486,7 +486,7 @@ if ($('.banner-carousel').length) {
                 items:1
             }
         }
-    });    		
+    });
 }
 
 
@@ -517,7 +517,7 @@ if ($('.banner-carousel-rtl').length) {
                 items:1
             }
         }
-    });    		
+    });
 }
 
 
@@ -552,7 +552,7 @@ if ($('.one-item-carousel').length) {
                 items:1
             }
         }
-    });    		
+    });
 }
 
 
@@ -587,7 +587,7 @@ if ($('.two-item-carousel').length) {
                 items:2
             }
         }
-    });    		
+    });
 }
 
 
@@ -623,7 +623,7 @@ if ($('.testimonial-style1_carousel').length) {
                 items:1
             }
         }
-    });    		
+    });
 }
 
 
@@ -652,7 +652,7 @@ if ($('.partner-carousel').length) {
                 items:4
             }
         }
-    });    		
+    });
 }
 
 
@@ -681,7 +681,7 @@ if ($('.partner-carousel-2').length) {
                 items:5
             }
         }
-    });    		
+    });
 }
 
 
@@ -709,7 +709,7 @@ if ($('.partner-carousel-3').length) {
                 items:5
             }
         }
-    });    		
+    });
 }
 
 
@@ -746,7 +746,7 @@ if ($('.event-style1-carousel').length) {
                 items:2
             }
         }
-    });    		
+    });
 }
 
 
@@ -822,7 +822,7 @@ if ($('.service-style3_carousel').length) {
                 items:3
             }
         }
-    });    		
+    });
 }
 
 
@@ -851,7 +851,7 @@ if ($('.testimonial-style2-carousel').length) {
                 items:3
             }
         }
-    });    		
+    });
 }
 
 
@@ -890,7 +890,7 @@ if ($('.testimonial-style3_Carousel').length) {
                 items:2
             }
         }
-    });    		
+    });
 }
 
 
@@ -931,7 +931,7 @@ if ($('.locations-Carousel').length) {
                 items:1
             }
         }
-    });    		
+    });
 }
 
 
@@ -1010,7 +1010,7 @@ if ($('.single-product-image-holder .bxslider2').length) {
         pagerCustom: '.single-product-image-holder .slider-pager .thumb-box'
     });
 };
-	
+
 
 
 
@@ -1048,7 +1048,7 @@ if ($('.shop-review-carousel').length) {
                 items:2
             }
         }
-    });    		
+    });
 }
 
 
@@ -1087,7 +1087,7 @@ if ($('.dial').length) {
         accY: 20
     });
 }
-    
+
 
 
 
@@ -1122,7 +1122,7 @@ if ($('.dial2').length) {
         accY: 20
     });
 }
-    
+
 
 
 
@@ -1146,7 +1146,7 @@ if ($('.hidden-bar').length) {
         hiddenBar.toggleClass('visible-sidebar');
         navToggler.toggleClass('open');
     });
-} 
+}
 
 
 
@@ -1215,9 +1215,9 @@ if($('.accordion-box').length){
             $(outerBox).children('.accordion').removeClass('active-block');
             $(outerBox).find('.accordion').children('.acc-content').slideUp(300);
             target.addClass('active-block');
-            $(this).next('.acc-content').slideDown(300);	
+            $(this).next('.acc-content').slideDown(300);
         }
-    });	
+    });
 }
 
 
@@ -1238,12 +1238,12 @@ if($('.lightbox-image').length) {
     $('.lightbox-image').fancybox({
         openEffect  : 'fade',
         closeEffect : 'fade',
-        
+
         youtube : {
         controls : 0,
         showinfo : 0
     },
-        
+
         helpers : {
             media : {}
         }
@@ -1254,10 +1254,10 @@ if($('.lightbox-image').length) {
 
 if($('.paroller').length){
     $('.paroller').paroller({
-          factor: -0.1,            // multiplier for scrolling speed and offset, +- values for direction control  
-          factorLg: -0.1,          // multiplier for scrolling speed and offset if window width is less than 1200px, +- values for direction control  
-          type: 'foreground',     // background, foreground  
-          direction: 'vertical' // vertical, horizontal  
+          factor: -0.1,            // multiplier for scrolling speed and offset, +- values for direction control
+          factorLg: -0.1,          // multiplier for scrolling speed and offset if window width is less than 1200px, +- values for direction control
+          type: 'foreground',     // background, foreground
+          direction: 'vertical' // vertical, horizontal
     });
 }
 
@@ -1265,10 +1265,10 @@ if($('.paroller').length){
 
 if($('.paroller-2').length){
     $('.paroller-2').paroller({
-            factor: 0.05,            // multiplier for scrolling speed and offset, +- values for direction control  
-            factorLg: 0.05,          // multiplier for scrolling speed and offset if window width is less than 1200px, +- values for direction control  
-            type: 'foreground',     // background, foreground  
-            direction: 'horizontal' // vertical, horizontal  
+            factor: 0.05,            // multiplier for scrolling speed and offset, +- values for direction control
+            factorLg: 0.05,          // multiplier for scrolling speed and offset if window width is less than 1200px, +- values for direction control
+            type: 'foreground',     // background, foreground
+            direction: 'horizontal' // vertical, horizontal
     });
 }
 
@@ -1292,7 +1292,7 @@ if($('.wow').length){
 
 
 // AOS Animation
-if ($("[data-aos]").length) { 
+if ($("[data-aos]").length) {
     AOS.init({
     duration: 1000,
     mirror: true
@@ -1359,7 +1359,7 @@ jQuery(document).on('ready', function () {
         tabBox ();
         cartTouchSpin ();
         directionswitch ();
-        
+
         CounterNumberChanger ();
         priceFilter ();
         accordion ();
@@ -1367,10 +1367,10 @@ jQuery(document).on('ready', function () {
         swithcerMenu ();
         onHoverthreeDmovement ();
         countDownTimer ();
-      
-     
-   
- 
+
+
+
+
 	})(jQuery);
 });
 
@@ -1382,8 +1382,8 @@ jQuery(document).on('ready', function () {
 jQuery(window).on('scroll', function(){
 	(function ($) {
 
-    headerStyle ();  
-    
+    headerStyle ();
+
 	})(jQuery);
 });
 
@@ -1396,9 +1396,9 @@ jQuery(window).on('load', function() {
     (function($) {
         handlePreloader ();
         projectMasonaryLayout ();
-   
 
-        
+
+
     })(jQuery);
 });
 
