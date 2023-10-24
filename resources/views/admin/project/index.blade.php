@@ -62,6 +62,7 @@
                                     <th>Budget</th>
                                     <th>Achieved</th>
                                     <th>Deadline</th>
+                                    <th>Project Status</th>
                                     <th>Featured</th>
                                     <th>Active</th>
                                     <th>Action</th>
@@ -83,6 +84,7 @@
                                         <td> {{ $value->budget }} </td>
                                         <td> {{ $value->achieved }} </td>
                                         <td> {{ $value->deadline }} </td>
+                                        <td> {{ $value->project_status }} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 

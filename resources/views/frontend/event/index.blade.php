@@ -55,9 +55,9 @@
                             <div class="img-holder">
                                 <div class="inner">
                                     <img style="width: 360px; height:300px"
-                                        src="{{ asset('uploads/event/' . $row->banner_img) }}" alt="">
+                                        src="{{ asset('uploads/event/' . $row->banner_img) }}" alt="event image">
                                     <div class="overlay-icon">
-                                        <a href="{{ route('frontend.eventDetails', $row->id) }}"><span
+                                        <a href="/event-details?event={{ $row->id }}"><span
                                                 class="flaticon-plus"></span></a>
                                     </div>
                                 </div>
@@ -68,7 +68,7 @@
                             </div>
                             <div class="text-holder">
                                 <h3 class="blog-title">
-                                    <a href="{{ route('frontend.eventDetails', $row->id) }}">
+                                    <a href="/event-details?event={{ $row->id }}">
                                         {{ \Illuminate\Support\Str::limit($row->title, 30) }}
                                     </a>
                                 </h3>
@@ -76,6 +76,21 @@
                                     <p>
                                         {{ \Illuminate\Support\Str::limit(strip_tags($row->details), 80) }}
                                     </p>
+                                </div>
+
+                                <hr>
+                                <div class="text-center">
+                                    <div class="event-time">
+                                        <div class="text">
+                                            <p>{{ $row->location }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="btns-box">
+                                        <a class="btn-one" href="/event-details?event={{ $row->id }}">
+                                            <span class="txt"><i class="arrow1 fa fa-check-circle"></i>read more</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

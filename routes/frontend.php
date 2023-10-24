@@ -21,7 +21,7 @@ Route::get('contact-us', [FrontendController::class, 'contactUs'])->name('fronte
 
 //Project
 Route::get('project', [FrontendController::class, 'project'])->name('frontend.project');
-Route::get('project-details/{project_id}', [FrontendController::class, 'projectDetails'])->name('frontend.projectDetails');
+Route::get('project-details', [FrontendController::class, 'projectDetails'])->name('frontend.projectDetails');
 
 //Project donation request store route
 Route::post('project-donation-request', [FrontendController::class, 'projectDonationRequestStore'])->name('frontend.projectDonationRequestStore');
@@ -30,7 +30,7 @@ Route::get('project-follow-up-details/{project_id}', [FrontendController::class,
 
 //Event
 Route::get('events', [FrontendController::class, 'events'])->name('frontend.events');
-Route::get('event-details/{event_id}', [FrontendController::class, 'eventDetails'])->name('frontend.eventDetails');
+Route::get('event-details', [FrontendController::class, 'eventDetails'])->name('frontend.eventDetails');
 
 //Blog
 Route::get('blog', [FrontendController::class, 'blog'])->name('frontend.blog');

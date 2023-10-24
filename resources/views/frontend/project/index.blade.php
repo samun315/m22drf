@@ -66,7 +66,7 @@
                             </div>
                             <div class="text-holder">
                                 <h3>
-                                    <a href="{{ route('frontend.projectDetails', $row->id) }}">
+                                    <a href="/project-details?project={{ $row->id }}">
                                         {{ \Illuminate\Support\Str::limit($row->title, 30) }}
                                     </a>
                                 </h3>
@@ -158,7 +158,7 @@
 
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
-                            <textarea class="form-control" name="address" rows="3"></textarea>
+                            <textarea class="form-control" placeholder="Enter address" name="address" rows="3"></textarea>
                         </div>
                     </div>
 

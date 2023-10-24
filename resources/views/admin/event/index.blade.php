@@ -59,7 +59,8 @@
                                     <th>Category</th>
                                     <th>Title</th>
                                     <th>Date</th>
-                                    {{-- <th>Details</th> --}}
+                                    <th>Location</th>
+                                    <th>Event Status</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -78,7 +79,8 @@
                                         <td> {{ $value->category_name }} </td>
                                         <td> {{ $value->title }} </td>
                                         <td> {{ $value->date }} </td>
-                                        {{-- <td> {{ $value->details }} </td> --}}
+                                        <td> {{ $value->location }} </td>
+                                        <td> {{ $value->event_status }} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 

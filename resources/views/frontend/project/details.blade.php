@@ -44,45 +44,164 @@
     <!--End breadcrumb area-->
 
     <!--Start Cause Details Area-->
-    <section class="blog-details-area">
+    <section class="cause-details-area">
         <div class="container">
             <div class="row">
-                <div class="col-xl-12">
-                    <div class="blog-details-content">
+                <div class="col-xl-8">
+                    <div class="cause-details_content">
                         <div class="cause-details-image-box">
-                            <img src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="">
+                            <img src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="project">
                             <div class="category">
                                 <h6>{{ $project->category_name }}</h6>
                             </div>
                         </div>
-                        <div class="single-blog-style1 single-blog-style2 wow fadeInUp" data-wow-duration="1500ms">
-                            <div class="img-holder">
-                                <img src="assets/frontend/images/blog/blog-details-1.jpg" alt="">
+
+                        <div class="donate-form-box donate-form-box--style2">
+                            <div class="top-title">
+                                <h2>{{ $project->title }}</h2>
                             </div>
-                            <div class="text-holder">
-                                <h3 class="blog-title">
-                                    {{ $project->title }}
-                                </h3>
-                                <div class="meta-box">
-                                    <ul class="meta-info">
-                                        <li><i class="fa fa-calendar" aria-hidden="true"></i>
-                                            <a href="javascript:void(0)">
-                                                {{ date('F j, Y', strtotime($project->deadline)) }}
-                                            </a>
+
+                            <div class="progress-levels progress-levels-style2">
+                                <!--Skill Box-->
+                                <div class="progress-box wow animated" style="visibility: visible;">
+                                    <div class="inner count-box">
+                                        <div class="bar">
+                                            <div class="bar-innner">
+                                                <div class="bar-fill" data-percent="52" title="Book"></div>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-box">
+                                            <div class="rate-box">
+                                                <p>Achieved<span>৳ {{ number_format($project->achieved, 2) }}</span></p>
+                                                <p>Target<span>৳ {{ number_format($project->budget, 2) }}</span></p>
+                                            </div>
+                                            <div class="skill-percent">
+                                                <span class="count-text" data-speed="3000" data-stop="52"></span>
+                                                <span class="percent">%</span>
+                                                <p class="outer-text">Pledged So Far</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="donation_wrapper">
+                                <div class="bottom-box">
+                                    <div class="btns">
+                                        <button class="btn-one" data-toggle="modal" data-target="#myModal">
+                                            <span class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
+                                                Now</span>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="cause-details-text-box-1">
+                            <p>
+                                {!! $project->details !!}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-4">
+                    <div class="sidebar-content-box">
+
+                        <!--Start Single Sidebar Box-->
+                        <div class="single-sidebar-box">
+                            <div class="sidebar-campaigns">
+                                <div class="title">
+                                    <h3>Upcoming Project</h3>
+                                </div>
+                                <ul class="recent-campaigns">
+
+                                    @foreach ($upcoming_projects as $upcoming_project)
+                                        <li>
+                                            <div class="inner">
+                                                <div class="img-box">
+                                                    <img style="width: 85px; height:72px"
+                                                        src="{{ asset('uploads/project/' . $upcoming_project->banner_img) }}"
+                                                        alt="upcoming project">
+                                                    <div class="overlay-content">
+                                                        <a href="/project-details?upcoming-project={{ $upcoming_project->id }}"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="title-box">
+                                                    <h4>
+                                                        <a
+                                                            href="/project-details?upcoming-project={{ $upcoming_project->id }}">{{ $upcoming_project->title }}</a>
+                                                    </h4>
+                                                    <div class="btns">
+                                                        <a
+                                                            href="/project-details?upcoming-project={{ $upcoming_project->id }}">View
+                                                            Details</a>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </li>
-                                    </ul>
-                                </div>
-                                <div class="text">
-                                    <p>
-                                        {!! $project->details !!}
-                                    </p>
-                                </div>
+                                    @endforeach
+
+                                </ul>
                             </div>
                         </div>
+                        <!--End Single Sidebar Box-->
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!--End Cause Details Area-->
+
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Donate Now</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <form action="{{ route('frontend.projectDonationRequestStore') }}" method="POST">
+
+                    @csrf
+
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" required class="form-control" name="name" placeholder="Enter name">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter email">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone_number" class="form-label">Phone Number</label>
+                            <input type="text" required class="form-control" name="phone_number"
+                                placeholder="Enter phone number">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea class="form-control" placeholder="Enter address" name="address" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
