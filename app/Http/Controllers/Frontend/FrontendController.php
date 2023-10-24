@@ -49,18 +49,44 @@ class FrontendController extends Controller
         return view('frontend.about.index', $data);
     }
 
-    public function events()
+    public function events(Request $request)
     {
-        $results = DB::table('events')->orderBy('id', 'DESC')->paginate(10);
+        $event_category_query = $request->query('category');
 
-        return view('frontend.event.index', compact('results'));
+        $results = DB::table('events');
+
+        if (!empty($event_category_query)) {
+            $results = $results->where('category_id', $event_category_query);
+        }
+
+        $data['results'] = $results->orderBy('id', 'DESC')->paginate(10);
+
+        $data['upcoming_events'] = DB::table('events')->where('event_status', 'Upcoming')->orderBy('id', 'DESC')->get();
+
+        return view('frontend.event.index', $data);
     }
 
-    public function eventDetails($event_id)
+    public function eventDetails(Request $request)
     {
-        $event = DB::table('events')->where('id', $event_id)->first();
+        // $event = DB::table('events')->where('id', $event_id)->first();
+        $event_id = null;
 
-        return view('frontend.event.details', compact('event'));
+        $event_query = $request->query('event');
+
+        if (!empty($event_query)) {
+            $event_id =  $event_query;
+        }
+
+        $data['event'] =  DB::table('events as a')
+            ->select('a.*', 'b.name as category_name')
+            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+            ->where('a.id', $event_id)
+            ->first();
+
+        $data['upcoming_events'] = DB::table('events')->where('event_status', 'Upcoming')->orderBy('id', 'DESC')->get();
+        $data['categories'] = DB::table('events')->orderBy('id', 'DESC')->get();
+
+        return view('frontend.event.details', $data);
     }
 
     public function contactUs()
@@ -68,15 +94,34 @@ class FrontendController extends Controller
         return view('frontend.contact.index');
     }
 
-    public function project()
+    public function project(Request $request)
     {
-        $results = DB::table('projects')->orderBy('id', 'DESC')->paginate(10);
+        $project_category_query = $request->query('category');
+
+        $results = DB::table('projects');
+
+        if (!empty($project_category_query)) {
+            $results = $results->where('category_id', $project_category_query);
+        }
+
+        $results = $results->orderBy('id', 'DESC')->paginate(10);
 
         return view('frontend.project.index', compact('results'));
     }
 
-    public function projectDetails($project_id)
+    public function projectDetails(Request $request)
     {
+        $project_id = null;
+
+        $upcoming_project_query = $request->query('upcoming-project');
+        $project_query = $request->query('project');
+
+        if (!empty($upcoming_project_query)) {
+            $project_id =  $upcoming_project_query;
+        } else if (!empty($project_query)) {
+            $project_id =  $project_query;
+        }
+
         $data['project'] =  DB::table('projects as a')
             ->select('a.*', 'b.name as category_name')
             ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
@@ -84,8 +129,9 @@ class FrontendController extends Controller
             ->first();
 
         $data['upcoming_projects'] = DB::table('projects')->where('project_status', 'Upcoming')->orderBy('id', 'DESC')->get();
+        $data['categories'] = DB::table('categories')->orderBy('id', 'DESC')->get();
 
-        return view('frontend.project.details',$data);
+        return view('frontend.project.details', $data);
     }
 
     public function projectDonationRequestStore(Request $request)

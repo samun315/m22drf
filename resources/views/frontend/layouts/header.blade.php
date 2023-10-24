@@ -72,12 +72,12 @@
 
                                     <li class="dropdown"><a href="javascrip:void(0)">Event</a>
                                         <ul>
-                                            <li><a href="/event">All Event</a></li>
+                                            <li><a href="/events">All Event</a></li>
 
                                             @foreach ($categories as $event_category)
                                                 <li>
                                                     <a
-                                                        href="/event?category={{ $event_category->id }}">{{ $event_category->name }}</a>
+                                                        href="/events?category={{ $event_category->id }}">{{ $event_category->name }}</a>
                                                 </li>
                                             @endforeach
 

@@ -77,8 +77,7 @@
 
                             @foreach ($projects as $project)
                                 <li>
-                                    <a
-                                        href="{{ route('frontend.projectDetails', $project->id) }}">{{ $project->title }}</a>
+                                    <a href="/project-details?project={{ $project->id }}">{{ $project->title }}</a>
                                 </li>
                             @endforeach
 
@@ -112,7 +111,7 @@
                         <ul class="footer-widget-links1">
 
                             @foreach ($events as $event)
-                                <li><a href="{{ route('frontend.eventDetails', $event->id) }}">{{ $event->title }}</a>
+                                <li><a href="/event-details?event={{ $event->id }}">{{ $event->title }}</a>
                                 </li>
                             @endforeach
                         </ul>

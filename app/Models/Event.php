@@ -12,6 +12,6 @@ class Event extends Model
     protected $table = 'events';
 
     protected $fillable = [
-        'category_id', 'title', 'event_status', 'details', 'date', 'banner_img', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
+        'category_id', 'title', 'event_status', 'location', 'details', 'date', 'banner_img', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 }
