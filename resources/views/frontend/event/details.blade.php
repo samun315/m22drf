@@ -97,21 +97,23 @@
                         <div class="event-details-text-box">
                             <h2>{{ $event->title }}</h2>
                             <ul class="event-info">
+
                                 <li>
                                     <div class="icon">
-                                        <img src="assets/images/icon/date-1.png" alt="">
+                                        <img src="assets/frontend/images/icon/date-1.png" alt="">
                                         <div class="overlay-icon">
                                             <img src="assets/images/icon/date-1-bg.png" alt="">
                                         </div>
                                     </div>
                                     <div class="text">
                                         <p>Event Date</p>
-                                        <h3>April 17, 2021<br> 5:00 PM</h3>
+                                        <h3> {{ date('F d, Y', strtotime($event->date)) }}</h3>
                                     </div>
                                 </li>
+                                <li></li>
                                 <li>
                                     <div class="icon">
-                                        <img src="assets/images/icon/map-marker-1.png" alt="">
+                                        <img src="assets/frontend/images/icon/map-marker-1.png" alt="">
                                         <div class="overlay-icon">
                                             <img src="assets/images/icon/map-marker-1-bg.png" alt="">
                                         </div>
@@ -121,36 +123,8 @@
                                         <h3> {{ $event->location }}</h3>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="icon">
-                                        <img src="assets/images/icon/cost-1.png" alt="">
-                                        <div class="overlay-icon">
-                                            <img src="assets/images/icon/cost-1-bg.png" alt="">
-                                        </div>
-                                    </div>
-                                </li>
+
                             </ul>
-
-                            <div class="bottom-box">
-                                <div class="btns">
-                                    <a class="btn-one" href="#" target="_blank" rel="nofollow">
-                                        <span class="txt"><i class="arrow1 fa fa-check-circle"></i>join this
-                                            event</span>
-                                    </a>
-                                </div>
-                                <div class="social-share">
-                                    <div class="title">
-                                        <h5>Share Cause</h5>
-                                    </div>
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-
                         </div>
 
                         <div class="cause-details-text-box-1">
@@ -163,28 +137,6 @@
 
                 <div class="col-xl-4">
                     <div class="sidebar-content-box">
-
-                        <!--Start Single Sidebar Box-->
-                        <div class="single-sidebar-box">
-                            <div class="sidebar-categories">
-                                <div class="title">
-                                    <h3>Categories</h3>
-                                </div>
-                                <ul class="sidebar-categories-box">
-
-                                    @foreach ($categories as $category)
-                                        <li>
-                                            <a href="/event-details?category={{ $category->id }}"><i
-                                                    class="fa fa-check-circle" aria-hidden="true"></i>
-                                                {{ $category->title }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                        <!--End Single Sidebar Box-->
-
                         <!--Start Single Sidebar Box-->
                         <div class="single-sidebar-box">
                             <div class="sidebar-campaigns">

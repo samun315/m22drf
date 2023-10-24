@@ -68,12 +68,14 @@ class FrontendController extends Controller
 
     public function eventDetails(Request $request)
     {
-        // $event = DB::table('events')->where('id', $event_id)->first();
         $event_id = null;
 
+        $upcoming_event_query = $request->query('upcoming-event');
         $event_query = $request->query('event');
 
-        if (!empty($event_query)) {
+        if (!empty($upcoming_event_query)) {
+            $event_id =  $upcoming_event_query;
+        } else if (!empty($event_query)) {
             $event_id =  $event_query;
         }
 
@@ -84,7 +86,6 @@ class FrontendController extends Controller
             ->first();
 
         $data['upcoming_events'] = DB::table('events')->where('event_status', 'Upcoming')->orderBy('id', 'DESC')->get();
-        $data['categories'] = DB::table('events')->orderBy('id', 'DESC')->get();
 
         return view('frontend.event.details', $data);
     }
@@ -129,7 +130,6 @@ class FrontendController extends Controller
             ->first();
 
         $data['upcoming_projects'] = DB::table('projects')->where('project_status', 'Upcoming')->orderBy('id', 'DESC')->get();
-        $data['categories'] = DB::table('categories')->orderBy('id', 'DESC')->get();
 
         return view('frontend.project.details', $data);
     }
