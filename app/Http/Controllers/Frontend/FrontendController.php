@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\ContactUsSetting;
 use App\Models\Donation;
 use App\Models\Event;
 use App\Models\FooterSetting;
@@ -94,7 +95,9 @@ class FrontendController extends Controller
 
     public function contactUs()
     {
-        return view('frontend.contact.index');
+        $contact_us_setting = ContactUsSetting::first();
+
+        return view('frontend.contact.index', compact('contact_us_setting'));
     }
 
     public function project(Request $request)

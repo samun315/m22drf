@@ -107,6 +107,16 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('contact-us/get-in-touch') ? 'active' : '' }}"
+                        href="{{ route('admin.contactUs.indexGetInTouch') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-clipboard-data fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Get In Touch</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <div class="menu-content pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Project
                             Management</span>
@@ -271,6 +281,16 @@
                             <i class="bi bi-shield-check fs-3 text-info"></i>
                         </span>
                         <span class="menu-title">About Us Setting</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('setting/contact-us') ? 'active' : '' }}"
+                        href="{{ route('admin.contactUsSetting.showContactUsForm') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-shield-check fs-3 text-info"></i>
+                        </span>
+                        <span class="menu-title">Contact Us Setting</span>
                     </a>
                 </div>
 
