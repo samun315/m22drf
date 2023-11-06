@@ -19,6 +19,13 @@ class MemberController extends Controller
         return view('member.member.index', compact('members'));
     }
 
+    public function memberGallery()
+    {
+        $galleries = DB::table('member_details')->get();
+
+        return view('member.gallery.index', compact('galleries'));
+    }
+
     public function viewMemberData($id)
     {
         $member = DB::table('member_details as a')

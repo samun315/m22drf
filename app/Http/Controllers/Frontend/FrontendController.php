@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\ContactUsSetting;
 use App\Models\Donation;
 use App\Models\Event;
 use App\Models\FooterSetting;
@@ -11,6 +12,7 @@ use App\Models\MissionVissionSetting;
 use App\Models\Partner;
 use App\Models\Project;
 use App\Models\ProjectFollowUp;
+use App\Models\Quote;
 use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -26,6 +28,7 @@ class FrontendController extends Controller
         $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['blogs'] = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['partners'] = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['quotes'] = Quote::orderBy('id', 'DESC')->where('status', 'YES')->get();
 
         $data['member_details'] = DB::table('member_details as a')
             ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
@@ -92,7 +95,9 @@ class FrontendController extends Controller
 
     public function contactUs()
     {
-        return view('frontend.contact.index');
+        $contact_us_setting = ContactUsSetting::first();
+
+        return view('frontend.contact.index', compact('contact_us_setting'));
     }
 
     public function project(Request $request)

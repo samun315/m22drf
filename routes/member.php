@@ -21,7 +21,9 @@ Route::middleware(['preventBackHistory', 'member'])->group(function () {
     Route::get('member/member-list', [MemberController::class, 'index'])->name('member.list.index');
     Route::get('member/view-member/{user_id}', [MemberController::class, 'viewMemberData'])->name('member.viewMemberData');
 
-
     Route::get('member/member-blog-list', [MemberController::class, 'memberBlogList'])->name('member.memberBlogList');
     Route::get('member/view-member-blog/{blog_id}', [MemberController::class, 'viewMemberBlog'])->name('member.viewMemberBlog');
+
+    //Gallery
+    Route::get('member/gallery-list', [MemberController::class, 'memberGallery'])->name('member.gallery.index');
 });

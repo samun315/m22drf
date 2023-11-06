@@ -56,27 +56,27 @@
                                     <h3>Support LoveIcon With Heart!</h3>
                                 </div>
                             </div>
+
+                            @include('message')
+
                             <h2>Get In Touch With Us</h2>
-                            <p>Laboris nisi aliquip sed duis aute lorem ipsum dolor amet consectetur adipisicing
-                                sed eiusmod tempor tm incididunts lorem ipsum sed labore dolore magnad aliqua.
-                                Lorem ipsum dolor sit amet consectetur adipisicing.
-                            </p>
                         </div>
                         <div class="contact-form">
-                            <form id="contact-form" name="contact_form" class="default-form2"
-                                action="assets/frontend/inc/sendmail.php" method="post">
+
+                            <form class="default-form2" action="{{ route('admin.contactUs.storeGetInTouch') }}"
+                                method="post">
+
+                                @csrf
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="input-box">
-                                            <input type="text" name="form_name" value="" placeholder="Your Name"
-                                                required="">
+                                            <input type="text" name="name" placeholder="Your Name" required="">
                                             <div class="icon"><span class="flaticon-user"></span></div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="input-box">
-                                            <input type="email" name="form_email" value="" placeholder="Email"
-                                                required="">
+                                            <input type="email" name="email" placeholder="Email" required="">
                                             <div class="icon"><span class="flaticon-opened"></span></div>
                                         </div>
                                     </div>
@@ -85,13 +85,13 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="input-box">
-                                            <input type="text" name="form_phone" value="" placeholder="Phone">
+                                            <input type="text" name="phone_number" placeholder="Phone">
                                             <div class="icon"><span class="fa fa-phone"></span></div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="input-box">
-                                            <input type="text" name="form_subject" value="" placeholder="Subject">
+                                            <input type="text" name="subject" placeholder="Subject">
                                             <div class="icon"><span class="fa fa-comment-o"></span></div>
                                         </div>
                                     </div>
@@ -100,14 +100,16 @@
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="input-box">
-                                            <textarea name="form_message" placeholder="message" required=""></textarea>
+                                            <textarea name="message" placeholder="message" required=""></textarea>
                                             <div class="icon"><span class="fa fa-pencil"></span></div>
                                         </div>
                                         <div class="button-box">
                                             <input id="form_botcheck" name="form_botcheck" class="form-control"
-                                                type="hidden" value="">
-                                            <button class="btn-one" type="submit" data-loading-text="Please wait...">
-                                                <span class="txt"><i class="arrow1 fa fa-check-circle"></i> Send
+                                                type="hidden">
+
+                                            <button class="btn-one" type="submit">
+                                                <span class="txt">
+                                                    <i class="arrow1 fa fa-check-circle"></i> Send
                                                     Message</span>
                                             </button>
                                         </div>
@@ -132,7 +134,7 @@
                                             <h3>Visit Office</h3>
                                         </div>
                                     </div>
-                                    <p>83 Andy Street, Madison<br>New Jersey - 78002</p>
+                                    <p>{{ $contact_us_setting->office_address }}</p>
                                 </li>
 
                                 <li>
@@ -144,8 +146,14 @@
                                             <h3>Phone</h3>
                                         </div>
                                     </div>
-                                    <p>Support <a href="tel:+11987654321">+1 700 888 1234</a></p>
-                                    <p>Events <a href="tel:+11987654321">+1 700 888 1200</a></p>
+                                    <p>
+                                        Support
+                                        <a
+                                            href="tel:{{ $contact_us_setting->support_phone }}">{{ $contact_us_setting->support_phone }}</a>
+                                    </p>
+                                    <p>Events <a
+                                            href="tel:{{ $contact_us_setting->event_phone }}">{{ $contact_us_setting->event_phone }}</a>
+                                    </p>
                                 </li>
 
                                 <li>
@@ -154,11 +162,15 @@
                                             <span class="flaticon-opened"></span>
                                         </div>
                                         <div class="title">
-                                            <h3>Phone</h3>
+                                            <h3>Email</h3>
                                         </div>
                                     </div>
-                                    <p><a href="mailto:info@templatepath.com">info@loveicon.org</a></p>
-                                    <p><a href="mailto:info@templatepath.com">support@domain.org</a></p>
+                                    <p><a
+                                            href="mailto:{{ $contact_us_setting->support_email }}">{{ $contact_us_setting->support_email }}</a>
+                                    </p>
+                                    <p><a
+                                            href="mailto:{{ $contact_us_setting->event_phone }}">{{ $contact_us_setting->event_phone }}</a>
+                                    </p>
                                 </li>
 
                             </ul>

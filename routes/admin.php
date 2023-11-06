@@ -4,14 +4,17 @@ use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DonationRequestController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\GetInTouchController;
 use App\Http\Controllers\Admin\HomeSettingController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectFollowUpController;
+use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 
@@ -133,6 +136,16 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::put('/update-status', [PartnerController::class, 'updateStatus'])->name('admin.partner.update.status');
     });
 
+    //Quote
+    Route::group(['prefix' => 'quotes'], function () {
+        Route::get('/index', [QuoteController::class, 'index'])->name('admin.quotes.index');
+        Route::get('/create', [QuoteController::class, 'create'])->name('admin.quotes.create');
+        Route::post('/store', [QuoteController::class, 'store'])->name('admin.quotes.store');
+        Route::get('/{quotes_id}/edit', [QuoteController::class, 'edit'])->name('admin.quotes.edit');
+        Route::put('/{quotes_id}/update', [QuoteController::class, 'update'])->name('admin.quotes.update');
+        Route::put('/update-status', [QuoteController::class, 'updateStatus'])->name('admin.quotes.update.status');
+    });
+
     //Setting
     Route::group(['prefix' => 'home-setting'], function () {
 
@@ -148,4 +161,12 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
     //About us Setting
     Route::get('setting/about-us', [AboutUsController::class, 'showAboutUsForm'])->name('admin.aboutUsSetting.showAboutUsForm');
     Route::put('setting/about-us/update', [AboutUsController::class, 'updateAboutUs'])->name('admin.aboutUsSetting.updateAboutUs');
+
+    //Contact us Setting
+    Route::get('setting/contact-us', [ContactUsController::class, 'showContactUsForm'])->name('admin.contactUsSetting.showContactUsForm');
+    Route::put('setting/contact-us/update', [ContactUsController::class, 'updateContactUs'])->name('admin.contactUsSetting.updateContactUs');
+
+    //Get in touch
+    Route::post('contact-us/store/get-in-touch', [GetInTouchController::class, 'store'])->name('admin.contactUs.storeGetInTouch');
+    Route::get('contact-us/get-in-touch', [GetInTouchController::class, 'index'])->name('admin.contactUs.indexGetInTouch');
 });

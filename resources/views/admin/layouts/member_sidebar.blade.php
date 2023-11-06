@@ -57,6 +57,16 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('member/gallery-list') ? 'active' : '' }}"
+                        href="{{ route('member.gallery.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-clipboard-data fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Gallery</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <a class="menu-link {{ request()->is('member/member-list') ? 'active' : '' }}"
                         href="{{ route('member.list.index') }}">
                         <span class="menu-icon">
