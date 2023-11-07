@@ -184,4 +184,34 @@ class FrontendController extends Controller
 
         return view('frontend.blog.details', $data);
     }
+
+    public function chairmanMessage(){
+
+        return view('frontend.about.chairmanMessage');
+    }
+
+    public function executiveCommittee(){
+
+        return view('frontend.about.executiveCommittee');
+    }
+
+    public function ourMembers(){
+
+        return view('frontend.about.ourMembers');
+    }
+
+    public function privacyPolicy(){
+
+        return view('frontend.about.privacyPolicy');
+    }
+
+    public function resolution(){
+
+        return view('frontend.about.resolution');
+    }
+
+    public function faq(){
+
+        return view('frontend.about.faq');
+    }
 }
