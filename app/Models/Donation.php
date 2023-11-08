@@ -12,6 +12,6 @@ class Donation extends Model
     protected $table = 'donation_requests';
 
     protected $fillable = [
-        'name', 'phone_number', 'email', 'address', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
+        'name', 'phone_number', 'project_id', 'email', 'address', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 }

@@ -134,7 +134,7 @@ class FrontendController extends Controller
             ->where('a.id', $project_id)
             ->first();
 
-        $data['upcoming_projects'] = DB::table('projects')->where('project_status', 'Upcoming')->orderBy('id', 'DESC')->get();
+        $data['projects'] = DB::table('projects')->where('project_status', 'Upcoming')->orderBy('id', 'DESC')->get();
 
         return view('frontend.project.details', $data);
     }
@@ -142,11 +142,13 @@ class FrontendController extends Controller
     public function projectDonationRequestStore(Request $request)
     {
         $input                  = $request->all();
+        $input['project_id']    = $request->project_name;
         $input['created_at']    = Carbon::now();
 
         try {
 
             unset($input['_token']);
+            unset($input['project_name']);
 
             Donation::create($input);
             return redirect()->back()->with('success', 'Donation information added successfully.');
@@ -185,32 +187,38 @@ class FrontendController extends Controller
         return view('frontend.blog.details', $data);
     }
 
-    public function chairmanMessage(){
+    public function chairmanMessage()
+    {
 
         return view('frontend.about.chairmanMessage');
     }
 
-    public function executiveCommittee(){
+    public function executiveCommittee()
+    {
 
         return view('frontend.about.executiveCommittee');
     }
 
-    public function ourMembers(){
+    public function ourMembers()
+    {
 
         return view('frontend.about.ourMembers');
     }
 
-    public function privacyPolicy(){
+    public function privacyPolicy()
+    {
 
         return view('frontend.about.privacyPolicy');
     }
 
-    public function resolution(){
+    public function resolution()
+    {
 
         return view('frontend.about.resolution');
     }
 
-    public function faq(){
+    public function faq()
+    {
 
         return view('frontend.about.faq');
     }
