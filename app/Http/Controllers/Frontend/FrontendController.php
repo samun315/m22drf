@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\ContactUsSetting;
 use App\Models\Donation;
 use App\Models\Event;
@@ -23,6 +24,7 @@ class FrontendController extends Controller
     public function index()
     {
         $data['sliders'] = Slider::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['categories'] = Category::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['projects'] = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['project_follow_ups'] = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();

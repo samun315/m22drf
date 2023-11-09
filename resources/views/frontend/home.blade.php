@@ -207,7 +207,7 @@
     @endif
     <!--End Causes Style1 Area-->
 
-    <!--Start Cause Style2 Area-->
+    <!--START UPCOMING PROJECTS-->
     <section class="cause-style2-area">
         <div class="thm-shape1 float-bob"><img src="assets/frontend/images/shape/thm-shape-2.png" alt=""></div>
         <div class="thm-shape2 zoom-fade"><img src="assets/frontend/images/shape/thm-shape-3.png" alt=""></div>
@@ -219,197 +219,566 @@
                     </div>
                     <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
-                <h2>Projects & Donations</h2>
+                <h2>UPCOMING PROJECTS</h2>
             </div>
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
-                        data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
 
-                        @foreach ($projects as $project)
-                            <div class="single-cause-style1">
-                                <div class="img-holder">
-                                    <img style="width: 380px; height:370px"
-                                        src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="project">
-                                </div>
-                                <div class="text-holder">
-                                    <h3>
-                                        <a href="/project-details?project={{ $project->id }}">{{ $project->title }}</a>
-                                    </h3>
-                                    <p>
-                                        {{ \Illuminate\Support\Str::limit(strip_tags($project->details), 50) }}
-                                    </p>
+            @foreach ($categories as $project_category)
+                <div>
 
-                                    <div class="progress-levels progress-levels-style2">
-                                        <!--Skill Box-->
-                                        <div class="progress-box wow">
-                                            <div class="inner count-box">
-                                                <div class="bar">
-                                                    <div class="bar-innner">
-                                                        <div class="bar-fill" data-percent="50" title="Book"></div>
+                    <div class="sec-title text-center">
+                        <h4> <a href="/project?category={{ $project_category->id }}">{{ $project_category->name }}</a></h4>
+                    </div>
+
+                    @php
+                        $category_wise_projects = \DB::table('projects')
+                            ->orderBy('id', 'DESC')
+                            ->where('category_id', $project_category->id)
+                            ->where('status', 'YES')
+                            ->get();
+                    @endphp
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
+                                data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
+
+                                @foreach ($category_wise_projects as $project)
+                                    <div class="single-cause-style1">
+                                        <div class="img-holder">
+                                            <img style="width: 380px; height:370px"
+                                                src="{{ asset('uploads/project/' . $project->banner_img) }}"
+                                                alt="project">
+                                        </div>
+                                        <div class="text-holder">
+                                            <h3>
+                                                <a
+                                                    href="/project-details?project={{ $project->id }}">{{ $project->title }}</a>
+                                            </h3>
+                                            <p>
+                                                {{ \Illuminate\Support\Str::limit(strip_tags($project->details), 50) }}
+                                            </p>
+
+                                            <div class="progress-levels progress-levels-style2">
+                                                <!--Skill Box-->
+                                                <div class="progress-box wow">
+                                                    <div class="inner count-box">
+                                                        <div class="bar">
+                                                            <div class="bar-innner">
+                                                                <div class="bar-fill" data-percent="50" title="Book">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="bottom-box">
+                                                            <div class="rate-box">
+                                                                <p>Achieved<span>Tk {{ $project->achieved }}</span></p>
+                                                                <p>Target<span>Tk {{ $project->budget }}</span></p>
+                                                            </div>
+                                                            <div class="skill-percent">
+                                                                <span class="count-text" data-speed="3000"
+                                                                    data-stop="50">0</span>
+                                                                <span class="percent">%</span>
+                                                                <p class="outer-text">Pledged So Far</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="bottom-box">
-                                                    <div class="rate-box">
-                                                        <p>Achieved<span>Tk {{ $project->achieved }}</span></p>
-                                                        <p>Target<span>Tk {{ $project->budget }}</span></p>
-                                                    </div>
-                                                    <div class="skill-percent">
-                                                        <span class="count-text" data-speed="3000"
-                                                            data-stop="50">0</span>
-                                                        <span class="percent">%</span>
-                                                        <p class="outer-text">Pledged So Far</p>
-                                                    </div>
-                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="btns-box">
-                                        <button class="btn-one" data-toggle="modal" data-target="#myModal"><span
-                                                class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
-                                                Now</span></button>
-                                    </div>
-
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--End Cause Style2 Area-->
-
-
-    <!--Start Fact Counter Area-->
-    <section class="fact-counter-area">
-        <div class="fact-counter-area_bg"
-            style="background-image: url(assets/frontend/images/parallax-background/fact-counter-area_bg.jpg);"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-7">
-                    <div class="fact-counter_box">
-                        <ul class="clearfix">
-                            <li class="single-fact-counter wow slideInLeft" data-wow-delay="200ms"
-                                data-wow-duration="1500ms">
-                                <div class="outer-box">
-                                    <div class="shape1"><img src="assets/frontend/images/shape/thm-shape-5.png"
-                                            alt=""></div>
-                                    <div class="shape2 zoominout"><img src="assets/frontend/images/shape/thm-shape-6.png"
-                                            alt=""></div>
-                                    <div class="top">
-                                        <div class="icon-box">
-                                            <div class="icon"><img
-                                                    src="assets/frontend/images/icon/fact-counter/fact-counter-1.png"
-                                                    alt="">
+                                            <div class="btns-box">
+                                                <button class="btn-one" data-toggle="modal" data-target="#myModal"><span
+                                                        class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
+                                                        Now</span></button>
                                             </div>
-                                        </div>
-                                        <div class="count-outer count-box">
-                                            <span class="dolor-sign">$</span><span class="count-text" data-speed="3000"
-                                                data-stop="98.5">0</span><span>K</span>
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <p>Received Donations From<br> Our Loving People</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="single-fact-counter wow slideInLeft" data-wow-delay="0ms"
-                                data-wow-duration="1500ms">
-                                <div class="outer-box">
-                                    <div class="shape1"><img src="assets/frontend/images/shape/thm-shape-5.png"
-                                            alt=""></div>
-                                    <div class="shape2 zoominout"><img src="assets/frontend/images/shape/thm-shape-6.png"
-                                            alt=""></div>
-                                    <div class="top">
-                                        <div class="icon-box">
-                                            <div class="icon"><img
-                                                    src="assets/frontend/images/icon/fact-counter/fact-counter-2.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="count-outer count-box style2">
-                                            <span class="count-text" data-speed="3000"
-                                                data-stop="2.64">0</span><span>K</span>
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <p>Different Projects Done With<br> The Help Of Donators</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="single-fact-counter wow slideInLeft" data-wow-delay="300ms"
-                                data-wow-duration="1500ms">
-                                <div class="outer-box">
-                                    <div class="shape1"><img src="assets/frontend/images/shape/thm-shape-5.png"
-                                            alt=""></div>
-                                    <div class="shape2 zoominout"><img src="assets/frontend/images/shape/thm-shape-6.png"
-                                            alt=""></div>
-                                    <div class="top">
-                                        <div class="icon-box">
-                                            <div class="icon"><img
-                                                    src="assets/frontend/images/icon/fact-counter/fact-counter-3.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="count-outer count-box style3">
-                                            <span class="count-text" data-speed="3000"
-                                                data-stop="13.7">0</span><span>K</span>
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <p>With Our Volunteers We’ve<br> Solved Many Causes </p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="single-fact-counter wow slideInLeft" data-wow-delay="100ms"
-                                data-wow-duration="1500ms">
-                                <div class="outer-box">
-                                    <div class="shape1"><img src="assets/frontend/images/shape/thm-shape-5.png"
-                                            alt=""></div>
-                                    <div class="shape2 zoominout"><img src="assets/frontend/images/shape/thm-shape-6.png"
-                                            alt=""></div>
-                                    <div class="top">
-                                        <div class="icon-box">
-                                            <div class="icon"><img
-                                                    src="assets/frontend/images/icon/fact-counter/fact-counter-4.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
-                                        <div class="count-outer count-box style4">
-                                            <span class="count-text" data-speed="3000"
-                                                data-stop="1.5">0</span><span>K</span>
-                                        </div>
-                                    </div>
-                                    <div class="text">
-                                        <p>A Team consisting Of The<br> Best Volunteers </p>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
 
-                    </div>
-                </div>
-
-                <div class="col-xl-5">
-                    <div class="video-holder-box">
-                        <div class="icon wow zoomIn" data-wow-delay="300ms" data-wow-duration="1500ms">
-                            <a class="video-popup" title="Loveicon Video Gallery"
-                                href="https://www.youtube.com/watch?v=MLpWrANjFbI">
-                                <span class="flaticon-play-button-1"></span>
-                            </a>
-                            <div class="title">
-                                <h5>Watch The Intro Video</h5>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
+            @endforeach
 
+        </div>
+    </section>
+    <!--END UPCOMING PROJECTS-->
+
+    <!--START UPCOMING EVENTS-->
+    <section class="cause-style2-area">
+        <div class="thm-shape1 float-bob"><img src="assets/frontend/images/shape/thm-shape-2.png" alt=""></div>
+        <div class="thm-shape2 zoom-fade"><img src="assets/frontend/images/shape/thm-shape-3.png" alt=""></div>
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <div class="sub-title">
+                    <div class="inner">
+                        <h3>We Change Your Life & World</h3>
+                    </div>
+                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
+                </div>
+                <h2>UPCOMING EVENTS</h2>
+            </div>
+
+            @foreach ($categories as $event_category)
+                @php
+                    $category_wise_events = \DB::table('events')
+                        ->orderBy('id', 'DESC')
+                        ->where('category_id', $event_category->id)
+                        ->where('status', 'YES')
+                        ->get();
+                @endphp
+
+                @if (count($category_wise_events) > 0)
+                    <div>
+                        <div class="sec-title text-center">
+                            <h4> <a href="/project?category={{ $event_category->id }}">{{ $event_category->name }}</a>
+                            </h4>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
+                                    data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
+
+                                    @foreach ($category_wise_events as $event)
+                                        <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
+                                            <div class="img-holder">
+                                                <div class="inner">
+                                                    <img style="width: 360px; height:300px"
+                                                        src="{{ asset('uploads/event/' . $event->banner_img) }}"
+                                                        alt="event image">
+                                                    <div class="overlay-icon">
+                                                        <a href="/event-details?event={{ $event->id }}"><span
+                                                                class="flaticon-plus"></span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="date-box">
+                                                    <h2>{{ date('d', strtotime($event->date)) }}</h2>
+                                                    <p>{{ date('M', strtotime($event->date)) }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="text-holder">
+                                                <h3 class="blog-title">
+                                                    <a href="/event-details?event={{ $event->id }}">
+                                                        {{ \Illuminate\Support\Str::limit($event->title, 30) }}
+                                                    </a>
+                                                </h3>
+                                                <div class="text">
+                                                    <p>
+                                                        {{ \Illuminate\Support\Str::limit(strip_tags($event->details), 80) }}
+                                                    </p>
+                                                </div>
+
+                                                <hr>
+                                                <div class="text-center">
+                                                    <div class="event-time">
+                                                        <div class="text">
+                                                            <p>{{ $event->location }}</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="btns-box">
+                                                        <a class="btn-one"
+                                                            href="/event-details?event={{ $event->id }}">
+                                                            <span class="txt"><i
+                                                                    class="arrow1 fa fa-check-circle"></i>read more</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+
+        </div>
+    </section>
+    <!--END UPCOMING EVENTS-->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center my-2">
+                    <h1>Photo Gallery</h1>
+                </div>
+            </div>
+            <div class="portfolio-menu mt-2 mb-4">
+                <ul>
+                    <li class="btn btn-outline-dark active" data-filter="*">All</li>
+                    <li class="btn btn-outline-dark" data-filter=".gts">Student Photo</li>
+                    <li class="btn btn-outline-dark" data-filter=".lap">Doctor Photo</li>
+                    <li class="btn btn-outline-dark text" data-filter=".selfie">Family Photo</li>
+                </ul>
+            </div>
+            <div class="portfolio-item row">
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/stylish-young-woman-with-bags-taking-selfie_23-2147962203.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/stylish-young-woman-with-bags-taking-selfie_23-2147962203.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/pretty-girl-near-car_1157-16962.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/pretty-girl-near-car_1157-16962.jpg" alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/blonde-tourist-taking-selfie_23-2147978899.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/blonde-tourist-taking-selfie_23-2147978899.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/cute-girls-oin-studio_1157-18211.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/cute-girls-oin-studio_1157-18211.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/stylish-pin-up-girls_1157-18451.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/stylish-pin-up-girls_1157-18451.jpg" alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/stylish-pin-up-girl_1157-18940.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/stylish-pin-up-girl_1157-18940.jpg" alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/digital-laptop-working-global-business-concept_53876-23438.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/digital-laptop-working-global-business-concept_53876-23438.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-psd/set-digital-devices-screen-mockup_53876-76507.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-psd/set-digital-devices-screen-mockup_53876-76507.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/young-brunette-woman-with-sunglasses-urban-background_1139-893.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/young-brunette-woman-with-sunglasses-urban-background_1139-893.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-psd/laptop-digital-device-screen-mockup_53876-76509.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-psd/laptop-digital-device-screen-mockup_53876-76509.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/young-woman-holding-pen-hand-thinking-while-writing-notebook_23-2148029424.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/young-woman-holding-pen-hand-thinking-while-writing-notebook_23-2148029424.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-psd/female-fashion-concept_23-2147643598.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-psd/female-fashion-concept_23-2147643598.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/girl-city_1157-16454.jpg" class="fancylight popup-btn"
+                        data-fancybox-group="light">
+                        <img class="img-fluid" src="https://image.freepik.com/free-photo/girl-city_1157-16454.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/elegant-lady-with-laptop_1157-16643.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/elegant-lady-with-laptop_1157-16643.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-psd/laptop-mock-up-lateral-view_1310-199.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-psd/laptop-mock-up-lateral-view_1310-199.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/portrait-young-woman_1303-10071.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/portrait-young-woman_1303-10071.jpg" alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/beautiful-girl-near-wall_1157-16401.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/beautiful-girl-near-wall_1157-16401.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/woman-taking-photograph-her-boyfriend-enjoying-piggyback-ride-his-back_23-2147841613.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/woman-taking-photograph-her-boyfriend-enjoying-piggyback-ride-his-back_23-2147841613.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/girl-smiling-making-auto-photo-with-her-friends-around_1139-593.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/girl-smiling-making-auto-photo-with-her-friends-around_1139-593.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/multiracial-group-young-people-taking-selfie_1139-1032.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/multiracial-group-young-people-taking-selfie_1139-1032.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/laptop-wooden-table_53876-20635.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/laptop-wooden-table_53876-20635.jpg" alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/business-woman-working-laptop_1388-67.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/business-woman-working-laptop_1388-67.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-psd/group-people-holding-laptop-mockup-charity_23-2148069565.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-psd/group-people-holding-laptop-mockup-charity_23-2148069565.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/portrait-young-cheerful-woman-headphones-sitting-stairs_1262-17488.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/portrait-young-cheerful-woman-headphones-sitting-stairs_1262-17488.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/celebration-concept-close-up-portrait-happy-young-beautiful-african-woman-black-t-shirt-smiling-with-colorful-party-balloon-yellow-pastel-studio-background_1258-934.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/celebration-concept-close-up-portrait-happy-young-beautiful-african-woman-black-t-shirt-smiling-with-colorful-party-balloon-yellow-pastel-studio-background_1258-934.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/pretty-woman-showing-arm-muscles_23-2148056021.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/pretty-woman-showing-arm-muscles_23-2148056021.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/blank-colorful-adhesive-notes-against-wooden-wall-with-office-stationeries-laptop_23-2148052717.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/blank-colorful-adhesive-notes-against-wooden-wall-with-office-stationeries-laptop_23-2148052717.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/happy-woman-having-video-call-using-laptop-office_23-2148056211.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/happy-woman-having-video-call-using-laptop-office_23-2148056211.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-psd/laptop-mockup-table-with-plants_23-2147955548.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-psd/laptop-mockup-table-with-plants_23-2147955548.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/blank-colorful-adhesive-notes-against-wooden-wall-with-office-stationeries-laptop_23-2148052717.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/blank-colorful-adhesive-notes-against-wooden-wall-with-office-stationeries-laptop_23-2148052717.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-psd/woman-using-laptop-smartphone_53876-76350.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-psd/woman-using-laptop-smartphone_53876-76350.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/attractive-young-woman-with-curly-hair-takes-selfie-posing-looking-camera_8353-6636.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/attractive-young-woman-with-curly-hair-takes-selfie-posing-looking-camera_8353-6636.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/young-couple-taking-selfie-mobile-phone-against-blue-background_23-2148056292.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/young-couple-taking-selfie-mobile-phone-against-blue-background_23-2148056292.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/close-up-blonde-woman-sitting-sofa-using-laptop-with-blank-white-screen_23-2148028738.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/close-up-blonde-woman-sitting-sofa-using-laptop-with-blank-white-screen_23-2148028738.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/group-happy-friends-taking-selfie-cellphone_23-2147859575.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/group-happy-friends-taking-selfie-cellphone_23-2147859575.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/joyful-pretty-girl-with-curly-hair-takes-selfie-mobile-phone_8353-6635.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/joyful-pretty-girl-with-curly-hair-takes-selfie-mobile-phone_8353-6635.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/attractive-young-woman-with-curly-hair-takes-selfie-posing-looking-camera_8353-6636.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/attractive-young-woman-with-curly-hair-takes-selfie-posing-looking-camera_8353-6636.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/multiracial-group-young-people-taking-selfie_1139-1032.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/multiracial-group-young-people-taking-selfie_1139-1032.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/two-smiling-girls-take-selfie-their-phones-posing-with-lollipops_8353-5600.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/two-smiling-girls-take-selfie-their-phones-posing-with-lollipops_8353-5600.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/female-friends-sitting-car-hood-taking-self-portrait_23-2147855623.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/female-friends-sitting-car-hood-taking-self-portrait_23-2147855623.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
+                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
+                    <a href="https://image.freepik.com/free-photo/two-smiling-girls-take-selfie-their-phones-posing-with-lollipops_8353-5600.jpg"
+                        class="fancylight popup-btn" data-fancybox-group="light">
+                        <img class="img-fluid"
+                            src="https://image.freepik.com/free-photo/two-smiling-girls-take-selfie-their-phones-posing-with-lollipops_8353-5600.jpg"
+                            alt="">
+                    </a>
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
+                </div>
             </div>
         </div>
     </section>
-    <!--End Fact Counter Area-->
-
     <!--Start mission and goals Area-->
     <section class="mission-and-goals-area">
         <div class="container">
@@ -719,7 +1088,7 @@
                                 <div class="text">
                                     <h3>{{ $quote->title }}</h3>
                                     <p>
-                                        {{ strip_tags($quote->details) }}
+                                        {!! $quote->details !!}
                                     </p>
                                 </div>
                                 <div class="client-info">
