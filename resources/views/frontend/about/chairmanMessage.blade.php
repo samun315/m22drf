@@ -58,7 +58,7 @@
                     <div class="single-team-style2">
                         <div class="img-holder">
                             <div class="inner">
-                                <img src="assets/frontend/images/team/team-v2-2.jpg" alt="">
+                                <img src="assets/frontend/images/team/team-v2-1.jpg" alt="">
                             </div>
                         </div>
                         <div class="title-holder">
