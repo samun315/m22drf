@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\ContactUsSetting;
 use App\Models\Donation;
 use App\Models\Event;
@@ -23,6 +24,7 @@ class FrontendController extends Controller
     public function index()
     {
         $data['sliders'] = Slider::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['categories'] = Category::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['projects'] = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['project_follow_ups'] = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
@@ -134,7 +136,7 @@ class FrontendController extends Controller
             ->where('a.id', $project_id)
             ->first();
 
-        $data['upcoming_projects'] = DB::table('projects')->where('project_status', 'Upcoming')->orderBy('id', 'DESC')->get();
+        $data['projects'] = DB::table('projects')->where('project_status', 'Upcoming')->orderBy('id', 'DESC')->get();
 
         return view('frontend.project.details', $data);
     }
@@ -142,11 +144,13 @@ class FrontendController extends Controller
     public function projectDonationRequestStore(Request $request)
     {
         $input                  = $request->all();
+        $input['project_id']    = $request->project_name;
         $input['created_at']    = Carbon::now();
 
         try {
 
             unset($input['_token']);
+            unset($input['project_name']);
 
             Donation::create($input);
             return redirect()->back()->with('success', 'Donation information added successfully.');
@@ -183,5 +187,41 @@ class FrontendController extends Controller
         $data['latest_blogs'] = DB::table('blogs')->orderBy('id', 'DESC')->take(3)->get();
 
         return view('frontend.blog.details', $data);
+    }
+
+    public function chairmanMessage()
+    {
+
+        return view('frontend.about.chairmanMessage');
+    }
+
+    public function executiveCommittee()
+    {
+
+        return view('frontend.about.executiveCommittee');
+    }
+
+    public function ourMembers()
+    {
+
+        return view('frontend.about.ourMembers');
+    }
+
+    public function privacyPolicy()
+    {
+
+        return view('frontend.about.privacyPolicy');
+    }
+
+    public function resolution()
+    {
+
+        return view('frontend.about.resolution');
+    }
+
+    public function faq()
+    {
+
+        return view('frontend.about.faq');
     }
 }

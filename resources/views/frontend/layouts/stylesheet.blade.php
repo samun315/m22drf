@@ -44,4 +44,35 @@
 
 <link rel="stylesheet" href="{{ asset('assets/frontend/css/home-standard.css') }}">
 
+<!-- For Gallery -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+
+<style>
+    .portfolio-menu {
+        text-align: center;
+    }
+
+    .portfolio-menu ul li {
+        display: inline-block;
+        margin: 0;
+        list-style: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        -webkit-transition: all 05s ease;
+        -moz-transition: all 05s ease;
+        -ms-transition: all 05s ease;
+        -o-transition: all 05s ease;
+        transition: all .5s ease;
+    }
+
+    .portfolio-item {
+        /*width:100%;*/
+    }
+
+    .portfolio-item .item {
+        /*width:303px;*/
+        float: left;
+        margin-bottom: 10px;
+    }
+</style>
 @yield('frontend_page_style')

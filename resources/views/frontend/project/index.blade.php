@@ -141,7 +141,19 @@
                     <div class="modal-body">
 
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="project_name" class="form-label">Select Project<span class="text-danger">*</span>
+                            </label>
+                            <select name="project_name" required id="" class="form-control">
+                                <option value="">--select project--</option>
+
+                                @foreach ($results as $project_value)
+                                    <option value="{{ $project_value->id }}">{{ $project_value->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
                             <input type="text" required class="form-control" name="name" placeholder="Enter name">
                         </div>
 
@@ -151,7 +163,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="phone_number" class="form-label">Phone Number</label>
+                            <label for="phone_number" class="form-label">Phone Number<span class="text-danger">*</span></label>
                             <input type="text" required class="form-control" name="phone_number"
                                 placeholder="Enter phone number">
                         </div>

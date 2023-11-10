@@ -48,6 +48,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-8">
+
+                    @include('message')
+
                     <div class="cause-details_content">
                         <div class="cause-details-image-box">
                             <img src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="project">
@@ -118,30 +121,34 @@
                                 </div>
                                 <ul class="recent-campaigns">
 
-                                    @foreach ($upcoming_projects as $upcoming_project)
-                                        <li>
-                                            <div class="inner">
-                                                <div class="img-box">
-                                                    <img style="width: 85px; height:72px"
-                                                        src="{{ asset('uploads/project/' . $upcoming_project->banner_img) }}"
-                                                        alt="upcoming project">
-                                                    <div class="overlay-content">
-                                                        <a href="/project-details?upcoming-project={{ $upcoming_project->id }}"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                    @foreach ($projects as $upcoming_project)
+                                        @if ($upcoming_project->project_status == 'Upcoming')
+                                            <li>
+                                                <div class="inner">
+                                                    <div class="img-box">
+                                                        <img style="width: 85px; height:72px"
+                                                            src="{{ asset('uploads/project/' . $upcoming_project->banner_img) }}"
+                                                            alt="upcoming project">
+                                                        <div class="overlay-content">
+                                                            <a
+                                                                href="/project-details?upcoming-project={{ $upcoming_project->id }}"><i
+                                                                    class="fa fa-link" aria-hidden="true"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="title-box">
+                                                        <h4>
+                                                            <a
+                                                                href="/project-details?upcoming-project={{ $upcoming_project->id }}">{{ $upcoming_project->title }}</a>
+                                                        </h4>
+                                                        <div class="btns">
+                                                            <a
+                                                                href="/project-details?upcoming-project={{ $upcoming_project->id }}">View
+                                                                Details</a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="title-box">
-                                                    <h4>
-                                                        <a
-                                                            href="/project-details?upcoming-project={{ $upcoming_project->id }}">{{ $upcoming_project->title }}</a>
-                                                    </h4>
-                                                    <div class="btns">
-                                                        <a
-                                                            href="/project-details?upcoming-project={{ $upcoming_project->id }}">View
-                                                            Details</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+                                            </li>
+                                        @endif
                                     @endforeach
 
                                 </ul>
@@ -175,7 +182,19 @@
                     <div class="modal-body">
 
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
+                            <label for="project_name" class="form-label">Select Project<span class="text-danger">*</span>
+                            </label>
+                            <select name="project_name" required id="" class="form-control">
+                                <option value="">--select project--</option>
+
+                                @foreach ($projects as $project_value)
+                                    <option value="{{ $project_value->id }}">{{ $project_value->title }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
                             <input type="text" required class="form-control" name="name" placeholder="Enter name">
                         </div>
 
@@ -185,7 +204,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="phone_number" class="form-label">Phone Number</label>
+                            <label for="phone_number" class="form-label">Phone Number<span
+                                    class="text-danger">*</span></label>
                             <input type="text" required class="form-control" name="phone_number"
                                 placeholder="Enter phone number">
                         </div>

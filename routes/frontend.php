@@ -35,3 +35,12 @@ Route::get('event-details', [FrontendController::class, 'eventDetails'])->name('
 //Blog
 Route::get('blog', [FrontendController::class, 'blog'])->name('frontend.blog');
 Route::get('blog-details/{blog_id}', [FrontendController::class, 'blogDetails'])->name('frontend.blogDetails');
+
+//about us routes
+
+Route::get('chairman-message', [FrontendController::class, 'chairmanMessage'])->name('frontend.chairmanMessage');
+Route::get('executive-committee', [FrontendController::class, 'executiveCommittee'])->name('frontend.executiveCommittee');
+Route::get('our-members', [FrontendController::class, 'ourMembers'])->name('frontend.ourMembers');
+Route::get('privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('frontend.privacyPolicy');
+Route::get('resolution', [FrontendController::class, 'resolution'])->name('frontend.resolution');
+Route::get('faq', [FrontendController::class, 'faq'])->name('frontend.faq');
