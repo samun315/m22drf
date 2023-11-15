@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('title', 'Categort List')
-@section('toolbarTitle', 'Categort List')
+@section('title', 'Document List')
+@section('toolbarTitle', 'Document List')
 
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -23,11 +23,11 @@
                                         opacity="0.3"></rect>
                                 </g>
                             </svg>
-                            <span class="card-label fw-bolder fs-3 mb-1">Categort List</span>
+                            <span class="card-label fw-bolder fs-3 mb-1">Document List</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.document.create') }}" class="btn btn-sm btn-light-success">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
@@ -55,8 +55,9 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
-                                    <th>Image</th>
-                                    <th>Name</th>
+                                    <th>Document File</th>
+                                    <th>Folder Name</th>
+                                    <th>Document Name</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -70,8 +71,10 @@
                                         <td> {{ $loop->iteration }} </td>
                                         <td>
                                             <img style="width: 80px; height: 80px; border-radius: 50%"
-                                                src="{{ asset('uploads/category/' . $value->image) }}" alt="">
+                                                src="{{ asset('uploads/document/' . $value->document_file) }}"
+                                                alt="">
                                         </td>
+                                        <td> {{ $value->folder_name }} </td>
                                         <td> {{ $value->name }} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
@@ -92,7 +95,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.category.edit', $value->id) }}"
+                                            <a href="{{ route('admin.document.edit', $value->id) }}"
                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -130,15 +133,15 @@
 @section('page_scripts')
 
     <script>
-        function updateStatus(status, category_id) {
+        function updateStatus(status, document_id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.category.update.status') }}",
+                url: "{{ route('admin.document.update.status') }}",
                 data: {
-                    category_id: category_id,
+                    document_id: document_id,
                     status: status,
                     _token: v_token
                 },
@@ -148,7 +151,7 @@
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Category status successfully updated.',
+                        title: 'Status successfully updated.',
                         showConfirmButton: false,
                         timer: 1500
                     })
