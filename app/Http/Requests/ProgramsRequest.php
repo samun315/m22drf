@@ -25,14 +25,16 @@ class ProgramsRequest extends FormRequest
         if (isset($this->programs_id)) {
 
             return [
-                'name'    => ['required', Rule::unique('programs')->ignore($this->programs_id)],
-                'status'  => 'required',
+                'name'              => ['required', Rule::unique('programs')->ignore($this->programs_id)],
+                'program_status'    => 'required',
+                'status'            => 'required',
             ];
         }
 
         return [
-            'name'      => 'required|unique:programs,name',
-            'status'    => 'required',
+            'name'              => 'required|unique:programs,name',
+            'program_status'    => 'required',
+            'status'            => 'required',
         ];
     }
 }

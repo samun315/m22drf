@@ -12,6 +12,6 @@ class Programs extends Model
     protected $table = 'programs';
 
     protected $fillable = [
-        'name', 'image', 'details', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
+        'name', 'image', 'details', 'status', 'program_status', 'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 }

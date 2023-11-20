@@ -57,6 +57,7 @@
                                     <th>SL</th>
                                     <th>Image</th>
                                     <th>Name</th>
+                                    <th>Program Status</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -70,9 +71,11 @@
                                         <td> {{ $loop->iteration }} </td>
                                         <td>
                                             <img style="width: 80px; height: 80px; border-radius: 50%"
-                                                src="{{ asset('uploads/programs/' . $value->image) }}" alt="">
+                                                src="{{ asset('uploads/programs/' . $value->image) }}"
+                                                alt="{{ $value->name }}">
                                         </td>
                                         <td> {{ $value->name }} </td>
+                                        <td> {{ $value->program_status }} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 
