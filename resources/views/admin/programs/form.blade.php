@@ -85,7 +85,7 @@
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="fs-5 fw-bold mb-2 required">Image</label>
-                                <input type="file" required
+                                <input type="file"
                                     class="form-control form-control-solid @error('image') is-invalid @enderror"
                                     name="image" />
 

@@ -33,6 +33,7 @@ class ProgramsRequest extends FormRequest
 
         return [
             'name'              => 'required|unique:programs,name',
+            'image'             => 'required',
             'program_status'    => 'required',
             'status'            => 'required',
         ];
