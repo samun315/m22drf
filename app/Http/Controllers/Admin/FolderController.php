@@ -24,7 +24,6 @@ class FolderController extends Controller
 
     public function store(FolderRequest $request)
     {
-
         $input                  = $request->all();
         $input['created_by']    = session('logged_session_data.id');
         $input['created_at']    = Carbon::now();

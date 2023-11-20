@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class FolderRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class FolderRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,8 @@ class FolderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name'    => 'required',
+            'status'  => 'required',
         ];
     }
 }

@@ -11,7 +11,7 @@ class DocumentRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,20 @@ class DocumentRequest extends FormRequest
      */
     public function rules(): array
     {
+        if (isset($this->folder_id)) {
+
+            return [
+                'name'              => 'required',
+                'folder_name'       => 'required',
+                'status'            => 'required',
+            ];
+        }
+
         return [
-            //
+            'name'              => 'required',
+            'folder_name'       => 'required',
+            'document_file'     => 'required',
+            'status'            => 'required',
         ];
     }
 }

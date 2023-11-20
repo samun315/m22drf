@@ -97,10 +97,30 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('admin/folder/*') ? 'active' : '' }}"
+                        href="{{ route('admin.folder.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-printer fs-3 text-danger"></i>
+                        </span>
+                        <span class="menu-title">Manage Folder</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('admin/document/*') ? 'active' : '' }}"
+                        href="{{ route('admin.document.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-calendar3-event fs-3 text-warning"></i>
+                        </span>
+                        <span class="menu-title">Manage Document</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <a class="menu-link {{ request()->is('quotes/*') ? 'active' : '' }}"
                         href="{{ route('admin.quotes.index') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-people fs-3 text-info"></i>
+                            <i class="bi bi-shield-check fs-3 text-info"></i>
                         </span>
                         <span class="menu-title">Manage Quotes</span>
                     </a>

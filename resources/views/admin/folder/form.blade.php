@@ -19,14 +19,13 @@
                         <span class="svg-icon svg-icon-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="5" y="5" width="5" height="5" rx="1"
-                                        fill="#000000"></rect>
-                                    <rect x="14" y="5" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="5" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="14" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
+                                    <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000"></rect>
+                                    <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
@@ -39,14 +38,14 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="5" y="5" width="5" height="5" rx="1"
-                                            fill="#000000"></rect>
-                                        <rect x="14" y="5" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
-                                        <rect x="5" y="14" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
-                                        <rect x="14" y="14" width="5" height="5" rx="1"
-                                            fill="#000000" opacity="0.3"></rect>
+                                        <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000">
+                                        </rect>
+                                        <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
+                                        <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
+                                        <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                            opacity="0.3"></rect>
                                     </g>
                                 </svg>
                             </span>
@@ -68,8 +67,6 @@
 
                         @isset($editModeData)
                             @method('PUT')
-
-                            <input type="text" hidden name="folder_id" value="{{ $editModeData->id }}">
                         @endisset
 
                         <div class="row mb-5">
