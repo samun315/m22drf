@@ -1,11 +1,11 @@
 @extends('admin.master')
 
 @if (isset($editModeData))
-    @section('title', 'Edit Category')
-    @section('toolbarTitle', 'Edit Category')
+    @section('title', 'Edit Folder')
+    @section('toolbarTitle', 'Edit Folder')
 @else
-    @section('title', 'Create Category')
-    @section('toolbarTitle', 'Create Category')
+    @section('title', 'Create Folder')
+    @section('toolbarTitle', 'Create Folder')
 @endif
 
 @section('main-content')
@@ -29,11 +29,11 @@
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
-                                Category</span>
+                                Folder</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.category.index') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.folder.index') }}" class="btn btn-sm btn-light-success">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@
                                     </g>
                                 </svg>
                             </span>
-                            Category List
+                            Folder List
                         </a>
                     </div>
                 </div>
@@ -61,14 +61,12 @@
                     @include('message')
 
                     <!--begin::Form-->
-                    <form class="form" method="POST" enctype="multipart/form-data"
-                        action="{{ isset($editModeData) ? route('admin.category.update', $editModeData->id) : route('admin.category.store') }}">
+                    <form class="form" method="POST"
+                        action="{{ isset($editModeData) ? route('admin.folder.update', $editModeData->id) : route('admin.folder.store') }}">
                         @csrf
 
                         @isset($editModeData)
                             @method('PUT')
-
-                            <input type="text" hidden name="category_id" value="{{ $editModeData->id }}">
                         @endisset
 
                         <div class="row mb-5">
@@ -80,22 +78,6 @@
                                     placeholder="Enter name" name="name"
                                     value="{{ $editModeData->name ?? old('name') }}" />
                                 @error('name')
-                                    <span class="text-danger mt-2">{{ $message }}</span>
-                                @enderror
-                            </div>
-
-                            <div class="col-md-6 fv-row mb-5">
-                                <label class="fs-5 fw-bold mb-2 required">Image</label>
-                                <input type="file" required
-                                    class="form-control form-control-solid @error('image') is-invalid @enderror"
-                                    name="image" />
-
-                                @isset($editModeData->image)
-                                    <a target="_blank" href="{{ asset('uploads/category/' . $editModeData->image) }}">View
-                                        Image</a>
-                                @endisset
-
-                                @error('image')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -117,15 +99,6 @@
                                 @enderror
                             </div>
 
-                            <div class="col-md-12 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid" id="ckeditor" placeholder="Enter details" name="details"
-                                    data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
-                                @error('details')
-                                    <span class="text-danger mt-2">{{ $message }}</span>
-                                @enderror
-                            </div>
-
                         </div>
                         <div class="modal-footer flex-center">
                             <button type="submit" class="btn custom_button_bg_color">
@@ -142,23 +115,4 @@
         </div>
         <!--end::Container-->
     </div>
-@endsection
-
-
-@section('page_scripts')
-
-    <script>
-        //ckeditor
-        ClassicEditor.create(document.querySelector('#ckeditor'), {
-                ckfinder: {
-                    uploadUrl: "{{ route('admin.blog.ckeditor.uploadImage') . '?_token=' . csrf_token() }}"
-                }
-            })
-            .then(editor => {
-                console.log(editor);
-            }).catch(error => {
-                console.error(error);
-            });
-    </script>
-
 @endsection

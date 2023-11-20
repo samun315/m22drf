@@ -5,8 +5,10 @@ use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DonationRequestController;
 use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\FolderController;
 use App\Http\Controllers\Admin\GetInTouchController;
 use App\Http\Controllers\Admin\HomeSettingController;
 use App\Http\Controllers\Admin\MemberController;
@@ -144,6 +146,26 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{quotes_id}/edit', [QuoteController::class, 'edit'])->name('admin.quotes.edit');
         Route::put('/{quotes_id}/update', [QuoteController::class, 'update'])->name('admin.quotes.update');
         Route::put('/update-status', [QuoteController::class, 'updateStatus'])->name('admin.quotes.update.status');
+    });
+
+    //Folder
+    Route::group(['prefix' => 'admin/folder'], function () {
+        Route::get('/index', [FolderController::class, 'index'])->name('admin.folder.index');
+        Route::get('/create', [FolderController::class, 'create'])->name('admin.folder.create');
+        Route::post('/store', [FolderController::class, 'store'])->name('admin.folder.store');
+        Route::get('/{folder_id}/edit', [FolderController::class, 'edit'])->name('admin.folder.edit');
+        Route::put('/{folder_id}/update', [FolderController::class, 'update'])->name('admin.folder.update');
+        Route::put('/update-status', [FolderController::class, 'updateStatus'])->name('admin.folder.update.status');
+    });
+
+    //Document
+    Route::group(['prefix' => 'admin/document'], function () {
+        Route::get('/index', [DocumentController::class, 'index'])->name('admin.document.index');
+        Route::get('/create', [DocumentController::class, 'create'])->name('admin.document.create');
+        Route::post('/store', [DocumentController::class, 'store'])->name('admin.document.store');
+        Route::get('/{document_id}/edit', [DocumentController::class, 'edit'])->name('admin.document.edit');
+        Route::put('/{document_id}/update', [DocumentController::class, 'update'])->name('admin.document.update');
+        Route::put('/update-status', [DocumentController::class, 'updateStatus'])->name('admin.document.update.status');
     });
 
     //Setting
