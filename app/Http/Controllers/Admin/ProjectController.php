@@ -18,7 +18,7 @@ class ProjectController extends Controller
 
         $results = DB::table('projects as a')
             ->select('a.*', 'b.name as program_name')
-            ->leftJoin('programs as b', 'a.category_id', '=', 'b.id')
+            ->leftJoin('programs as b', 'a.program_id', '=', 'b.id')
             ->orderBy('id', 'DESC')
             ->paginate(10);
 
