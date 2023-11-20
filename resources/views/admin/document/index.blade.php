@@ -55,9 +55,9 @@
                             <thead>
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
-                                    <th>Document File</th>
                                     <th>Folder Name</th>
                                     <th>Document Name</th>
+                                    <th>Document File</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -69,13 +69,12 @@
                                 @foreach ($results as $value)
                                     <tr>
                                         <td> {{ $loop->iteration }} </td>
-                                        <td>
-                                            <img style="width: 80px; height: 80px; border-radius: 50%"
-                                                src="{{ asset('uploads/document/' . $value->document_file) }}"
-                                                alt="">
-                                        </td>
                                         <td> {{ $value->folder_name }} </td>
                                         <td> {{ $value->name }} </td>
+                                        <td>
+                                            <a href="{{ asset('uploads/document/' . $value->document_file) }}"
+                                                target="_blank">View Document</a>
+                                        </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 

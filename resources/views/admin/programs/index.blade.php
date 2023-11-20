@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('title', 'Categort List')
-@section('toolbarTitle', 'Categort List')
+@section('title', 'Programs List')
+@section('toolbarTitle', 'Programs List')
 
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -23,11 +23,11 @@
                                         opacity="0.3"></rect>
                                 </g>
                             </svg>
-                            <span class="card-label fw-bolder fs-3 mb-1">Categort List</span>
+                            <span class="card-label fw-bolder fs-3 mb-1">Programs List</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.programs.create') }}" class="btn btn-sm btn-light-success">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
@@ -70,7 +70,7 @@
                                         <td> {{ $loop->iteration }} </td>
                                         <td>
                                             <img style="width: 80px; height: 80px; border-radius: 50%"
-                                                src="{{ asset('uploads/category/' . $value->image) }}" alt="">
+                                                src="{{ asset('uploads/programs/' . $value->image) }}" alt="">
                                         </td>
                                         <td> {{ $value->name }} </td>
                                         <td>
@@ -92,7 +92,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.category.edit', $value->id) }}"
+                                            <a href="{{ route('admin.programs.edit', $value->id) }}"
                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -130,15 +130,15 @@
 @section('page_scripts')
 
     <script>
-        function updateStatus(status, category_id) {
+        function updateStatus(status, programs_id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.category.update.status') }}",
+                url: "{{ route('admin.programs.update.status') }}",
                 data: {
-                    category_id: category_id,
+                    programs_id: programs_id,
                     status: status,
                     _token: v_token
                 },
@@ -148,7 +148,7 @@
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Category status successfully updated.',
+                        title: 'Status successfully updated.',
                         showConfirmButton: false,
                         timer: 1500
                     })

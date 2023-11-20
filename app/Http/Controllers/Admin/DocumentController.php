@@ -15,8 +15,6 @@ class DocumentController extends Controller
 {
     public function index()
     {
-        // $results = Document::orderBy('id', 'DESC')->paginate(10);
-
         $results = DB::table('documents as a')
             ->select('a.*', 'b.name as folder_name')
             ->leftJoin('folders as b', 'a.folder_id', '=', 'b.id')

@@ -17,8 +17,8 @@ class ProjectController extends Controller
         $results = Project::orderBy('id', 'DESC')->paginate(10);
 
         $results = DB::table('projects as a')
-            ->select('a.*', 'b.name as category_name')
-            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+            ->select('a.*', 'b.name as program_name')
+            ->leftJoin('programs as b', 'a.category_id', '=', 'b.id')
             ->orderBy('id', 'DESC')
             ->paginate(10);
 
@@ -27,15 +27,15 @@ class ProjectController extends Controller
 
     public function create()
     {
-        $categories = DB::table('categories')->orderBy('id', 'DESC')->get();
+        $programs = DB::table('programs')->orderBy('id', 'DESC')->get();
 
-        return view('admin.project.form', compact('categories'));
+        return view('admin.project.form', compact('programs'));
     }
 
     public function store(ProjectRequest $request)
     {
         $input                  = $request->all();
-        $input['category_id']   = $request->category_name;
+        $input['program_id']   = $request->program_name;
         $input['created_by']    = session('logged_session_data.id');
         $input['created_at']    = Carbon::now();
 
@@ -62,7 +62,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $data['editModeData']   = Project::findOrFail($id);
-        $data['categories']     = DB::table('categories')->orderBy('id', 'DESC')->get();
+        $data['programs']       = DB::table('programs')->orderBy('id', 'DESC')->get();
 
         return view('admin.project.form', $data);
     }
@@ -71,7 +71,7 @@ class ProjectController extends Controller
     {
         $project                = Project::findOrFail($id);
         $input                  = $request->all();
-        $input['category_id']   = $request->category_name;
+        $input['program_id']    = $request->program_name;
         $input['updated_by']    = session('logged_session_data.id');
         $input['updated_at']    = Carbon::now();
 
@@ -89,7 +89,7 @@ class ProjectController extends Controller
         }
 
         try {
-            unset($input['category_name']);
+            unset($input['program_name']);
 
             $project->update($input);
             return redirect(route('admin.project.index'))->with('success', 'Project updated successfully.');

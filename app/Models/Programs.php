@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Programs extends Model
 {
     use HasFactory;
 
-    protected $table = 'categories';
+    protected $table = 'programs';
 
     protected $fillable = [
-        'name', 'banner_img', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
+        'name', 'image', 'details', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 }

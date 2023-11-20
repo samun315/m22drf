@@ -1,11 +1,11 @@
 @extends('admin.master')
 
 @if (isset($editModeData))
-    @section('title', 'Edit Category')
-    @section('toolbarTitle', 'Edit Category')
+    @section('title', 'Edit Programs')
+    @section('toolbarTitle', 'Edit Programs')
 @else
-    @section('title', 'Create Category')
-    @section('toolbarTitle', 'Create Category')
+    @section('title', 'Create Programs')
+    @section('toolbarTitle', 'Create Programs')
 @endif
 
 @section('main-content')
@@ -29,11 +29,11 @@
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
-                                Category</span>
+                                Programs</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.category.index') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.programs.index') }}" class="btn btn-sm btn-light-success">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@
                                     </g>
                                 </svg>
                             </span>
-                            Category List
+                            Programs List
                         </a>
                     </div>
                 </div>
@@ -62,13 +62,12 @@
 
                     <!--begin::Form-->
                     <form class="form" method="POST" enctype="multipart/form-data"
-                        action="{{ isset($editModeData) ? route('admin.category.update', $editModeData->id) : route('admin.category.store') }}">
+                        action="{{ isset($editModeData) ? route('admin.programs.update', $editModeData->id) : route('admin.programs.store') }}">
                         @csrf
 
                         @isset($editModeData)
                             @method('PUT')
-
-                            <input type="text" hidden name="category_id" value="{{ $editModeData->id }}">
+                            <input type="text" hidden name="programs_id" value="{{ $editModeData->id }}">
                         @endisset
 
                         <div class="row mb-5">
@@ -91,7 +90,7 @@
                                     name="image" />
 
                                 @isset($editModeData->image)
-                                    <a target="_blank" href="{{ asset('uploads/category/' . $editModeData->image) }}">View
+                                    <a target="_blank" href="{{ asset('uploads/programs/' . $editModeData->image) }}">View
                                         Image</a>
                                 @endisset
 

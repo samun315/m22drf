@@ -3,7 +3,6 @@
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DonationRequestController;
@@ -14,6 +13,7 @@ use App\Http\Controllers\Admin\HomeSettingController;
 use App\Http\Controllers\Admin\MemberController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\ProgramsController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectFollowUpController;
 use App\Http\Controllers\Admin\QuoteController;
@@ -56,14 +56,14 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::put('/update-status', [MemberController::class, 'updateStatus'])->name('admin.member.update.status');
     });
 
-    //category
-    Route::group(['prefix' => 'category'], function () {
-        Route::get('/index', [CategoryController::class, 'index'])->name('admin.category.index');
-        Route::get('/create', [CategoryController::class, 'create'])->name('admin.category.create');
-        Route::post('/store', [CategoryController::class, 'store'])->name('admin.category.store');
-        Route::get('/{category_id}/edit', [CategoryController::class, 'edit'])->name('admin.category.edit');
-        Route::put('/{category_id}/update', [CategoryController::class, 'update'])->name('admin.category.update');
-        Route::put('/update-status', [CategoryController::class, 'updateStatus'])->name('admin.category.update.status');
+    //Programms
+    Route::group(['prefix' => 'programs'], function () {
+        Route::get('/index', [ProgramsController::class, 'index'])->name('admin.programs.index');
+        Route::get('/create', [ProgramsController::class, 'create'])->name('admin.programs.create');
+        Route::post('/store', [ProgramsController::class, 'store'])->name('admin.programs.store');
+        Route::get('/{programs_id}/edit', [ProgramsController::class, 'edit'])->name('admin.programs.edit');
+        Route::put('/{programs_id}/update', [ProgramsController::class, 'update'])->name('admin.programs.update');
+        Route::put('/update-status', [ProgramsController::class, 'updateStatus'])->name('admin.programs.update.status');
     });
 
     //blog category
