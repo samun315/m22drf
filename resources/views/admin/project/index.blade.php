@@ -57,7 +57,7 @@
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
                                     <th>Banner</th>
-                                    <th>Category</th>
+                                    <th>Program</th>
                                     <th>Title</th>
                                     <th>Budget</th>
                                     <th>Achieved</th>
@@ -79,7 +79,7 @@
                                             <img style="width: 80px; height: 80px; border-radius: 50%"
                                                 src="{{ asset('uploads/project/' . $value->banner_img) }}" alt="">
                                         </td>
-                                        <td> {{ $value->category_name }} </td>
+                                        <td> {{ $value->program_name }} </td>
                                         <td> {{ $value->title }} </td>
                                         <td> {{ $value->budget }} </td>
                                         <td> {{ $value->achieved }} </td>

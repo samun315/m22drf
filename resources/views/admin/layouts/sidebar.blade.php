@@ -144,12 +144,12 @@
                 </div>
 
                 <div class="menu-item">
-                    <a class="menu-link {{ request()->is('category/*') ? 'active' : '' }}"
-                        href="{{ route('admin.category.index') }}">
+                    <a class="menu-link {{ request()->is('programs/*') ? 'active' : '' }}"
+                        href="{{ route('admin.programs.index') }}">
                         <span class="menu-icon">
                             <i class="bi bi-clipboard-data fs-3 text-success"></i>
                         </span>
-                        <span class="menu-title">Manage Category</span>
+                        <span class="menu-title">Manage Programs</span>
                     </a>
                 </div>
 

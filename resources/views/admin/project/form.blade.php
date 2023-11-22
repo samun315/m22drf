@@ -74,18 +74,18 @@
                         <div class="row mb-5">
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Category</label>
-                                <select name="category_name" data-control="select2" data-placeholder="Select Category"
-                                    class="form-select form-select-solid category_name">
-                                    <option value="">Select Category</option>
-                                    @foreach ($categories as $category)
+                                <label class="required fs-5 fw-bold mb-2">Program</label>
+                                <select name="program_name" data-control="select2" data-placeholder="Select Program"
+                                    class="form-select form-select-solid program_name">
+                                    <option value="">Select Program</option>
+                                    @foreach ($programs as $program)
                                         <option
-                                            @isset($editModeData) {{ $editModeData->category_id == $category->id ? 'selected' : '' }} @endisset
-                                            value="{{ $category->id }}">{{ $category->name }}
+                                            @isset($editModeData) {{ $editModeData->category_id == $program->id ? 'selected' : '' }} @endisset
+                                            value="{{ $program->id }}">{{ $program->name }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('category_name')
+                                @error('program_name')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
