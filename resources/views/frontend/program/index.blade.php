@@ -66,7 +66,7 @@
                             </div>
                             <div class="text-holder">
                                 <h3>
-                                    <a href="/project-details?project={{ $row->id }}">
+                                    <a href="/program-details?program={{ $row->id }}">
                                         {{ \Illuminate\Support\Str::limit($row->name, 30) }}
                                     </a>
                                 </h3>
