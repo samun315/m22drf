@@ -222,7 +222,7 @@
                 <h2>UPCOMING PROJECTS</h2>
             </div>
 
-            @foreach ($categories as $project_category)
+            @foreach ($programs as $project_category)
                 <div>
 
                     <div class="sec-title text-center">
@@ -232,7 +232,7 @@
                     @php
                         $category_wise_projects = \DB::table('projects')
                             ->orderBy('id', 'DESC')
-                            ->where('category_id', $project_category->id)
+                            ->where('program_id', $project_category->id)
                             ->where('status', 'YES')
                             ->get();
                     @endphp
@@ -317,7 +317,7 @@
                 <h2>UPCOMING EVENTS</h2>
             </div>
 
-            @foreach ($categories as $event_category)
+            @foreach ($programs as $event_category)
                 @php
                     $category_wise_events = \DB::table('events')
                         ->orderBy('id', 'DESC')

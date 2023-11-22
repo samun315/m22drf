@@ -1,6 +1,6 @@
 @php
 
-    $categories = \DB::table('categories')
+    $programs = \DB::table('programs')
         ->orderBy('id', 'DESC')
         ->get();
 
@@ -62,9 +62,10 @@
 
                                     <li class="dropdown"><a href="javascrip:void(0)">Project</a>
                                         <ul>
-                                            <li><a href="/project">All Project</a></li>
+                                            <li><a href="/all-programs">All Programs</a></li>
+                                            <li><a href="/project">All Projects</a></li>
 
-                                            @foreach ($categories as $project_category)
+                                            @foreach ($programs as $project_category)
                                                 <li>
                                                     <a
                                                         href="/project?category={{ $project_category->id }}">{{ $project_category->name }}</a>
@@ -78,7 +79,7 @@
                                         <ul>
                                             <li><a href="/events">All Event</a></li>
 
-                                            @foreach ($categories as $event_category)
+                                            @foreach ($programs as $event_category)
                                                 <li>
                                                     <a
                                                         href="/events?category={{ $event_category->id }}">{{ $event_category->name }}</a>

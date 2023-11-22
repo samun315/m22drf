@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
-use App\Models\Category;
+use App\Models\Programs;
 use App\Models\ContactUsSetting;
 use App\Models\Donation;
 use App\Models\Event;
@@ -24,7 +24,7 @@ class FrontendController extends Controller
     public function index()
     {
         $data['sliders'] = Slider::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['categories'] = Category::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['programs'] = Programs::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['projects'] = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['project_follow_ups'] = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
@@ -86,7 +86,7 @@ class FrontendController extends Controller
 
         $data['event'] =  DB::table('events as a')
             ->select('a.*', 'b.name as category_name')
-            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+            ->leftJoin('programs as b', 'a.category_id', '=', 'b.id')
             ->where('a.id', $event_id)
             ->first();
 
@@ -109,7 +109,7 @@ class FrontendController extends Controller
         $results = DB::table('projects');
 
         if (!empty($project_category_query)) {
-            $results = $results->where('category_id', $project_category_query);
+            $results = $results->where('program_id', $project_category_query);
         }
 
         $results = $results->orderBy('id', 'DESC')->paginate(10);
@@ -132,7 +132,7 @@ class FrontendController extends Controller
 
         $data['project'] =  DB::table('projects as a')
             ->select('a.*', 'b.name as category_name')
-            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+            ->leftJoin('programs as b', 'a.program_id', '=', 'b.id')
             ->where('a.id', $project_id)
             ->first();
 
@@ -223,5 +223,34 @@ class FrontendController extends Controller
     {
 
         return view('frontend.about.faq');
+    }
+
+    public function program(Request $request)
+    {
+
+        $results = DB::table('programs');
+
+        $results = $results->orderBy('id', 'DESC')->paginate(10);
+
+        return view('frontend.program.index', compact('results'));
+    }
+
+    public function programDetails(Request $request)
+    {
+        $program_id = null;
+
+        $program_query = $request->query('program');
+
+        if (!empty($program_query)) {
+            $program_id =  $program_query;
+        }
+
+        $data['program'] =  DB::table('programs')
+            ->where('id', $program_id)
+            ->first();
+
+        $data['programs'] = DB::table('programs')->where('program_status', 'Upcoming')->orderBy('id', 'DESC')->get();
+        //dd($project_query);
+        return view('frontend.program.details', $data);
     }
 }
