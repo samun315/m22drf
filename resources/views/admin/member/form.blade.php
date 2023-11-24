@@ -354,7 +354,7 @@
                                 <label class="required fs-5 fw-bold mb-2">Member Status</label>
                                 <select name="member_status"
                                     class="form-select form-select-solid @error('member_status') is-invalid @enderror"
-                                    data-control="select2" data-hide-search="true" data-placeholder="Active">
+                                    data-control="select2" data-hide-search="true" data-placeholder="Member Status">
                                     <option
                                         {{ isset($editModeData) && $editModeData->member_status == 'Foundation Member' ? 'selected' : '' }}
                                         value="Foundation Member">
@@ -369,6 +369,29 @@
                                     </option>
                                 </select>
                                 @error('member_status')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Executive status</label>
+                                <select name="executive_status"
+                                    class="form-select form-select-solid @error('executive_status') is-invalid @enderror"
+                                    data-control="select2" data-hide-search="true" data-placeholder="Executive status">
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->executive_status == 'Chairmen' ? 'selected' : '' }}
+                                        value="Chairmen">
+                                        Chairmen</option>
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->executive_status == 'Committee' ? 'selected' : '' }}
+                                        value="Committee">Committee
+                                    </option>
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->executive_status == 'Members' ? 'selected' : '' }}
+                                        value="Members">Members
+                                    </option>
+                                </select>
+                                @error('executive_status')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>

@@ -13,6 +13,6 @@ class Partner extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'name', 'image', 'details', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
+        'name', 'image', 'details', 'partner_type', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 }

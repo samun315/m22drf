@@ -91,6 +91,9 @@
 
                                     <li class="{{ request()->is('blog') ? 'current' : '' }}"><a href="/blog">Blog</a>
                                     </li>
+                                    <li class="{{ request()->is('gallery') ? 'current' : '' }}"><a
+                                            href="/gallery">Gallery</a>
+                                    </li>
                                     <li class="{{ request()->is('contact-us') ? 'current' : '' }}"><a
                                             href="{{ route('frontend.contactUs') }}">Contact Us</a>
                                     </li>
@@ -100,12 +103,12 @@
                         <!-- Main Menu End-->
                     </div>
 
-                    <div class="header-right_buttom">
+                    {{-- <div class="header-right_buttom">
                         <div class="btns-box">
                             <button class="btn-one" data-toggle="modal" data-target="#myModal"><span class="txt"><i
                                         class="arrow1 fa fa-check-circle"></i>Donate Now</span></button>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>

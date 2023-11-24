@@ -36,6 +36,9 @@ Route::get('event-details', [FrontendController::class, 'eventDetails'])->name('
 Route::get('blog', [FrontendController::class, 'blog'])->name('frontend.blog');
 Route::get('blog-details/{blog_id}', [FrontendController::class, 'blogDetails'])->name('frontend.blogDetails');
 
+//Gallery
+Route::get('gallery', [FrontendController::class, 'gallery'])->name('frontend.gallery');
+
 //about us routes
 
 Route::get('chairman-message', [FrontendController::class, 'chairmanMessage'])->name('frontend.chairmanMessage');
