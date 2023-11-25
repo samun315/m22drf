@@ -56,12 +56,12 @@ class FrontendController extends Controller
 
     public function events(Request $request)
     {
-        $event_category_query = $request->query('category');
+        $event_project_query = $request->query('project');
 
         $results = DB::table('events');
 
-        if (!empty($event_category_query)) {
-            $results = $results->where('category_id', $event_category_query);
+        if (!empty($event_project_query)) {
+            $results = $results->where('project_id', $event_project_query);
         }
 
         $data['results'] = $results->orderBy('id', 'DESC')->paginate(10);
@@ -104,12 +104,12 @@ class FrontendController extends Controller
 
     public function project(Request $request)
     {
-        $project_category_query = $request->query('category');
+        $project_program_query = $request->query('program');
 
         $results = DB::table('projects');
 
-        if (!empty($project_category_query)) {
-            $results = $results->where('program_id', $project_category_query);
+        if (!empty($project_program_query)) {
+            $results = $results->where('program_id', $project_program_query);
         }
 
         $results = $results->orderBy('id', 'DESC')->paginate(10);
@@ -166,6 +166,15 @@ class FrontendController extends Controller
         return view('frontend.project_follow_up.details', compact('project_follow_up'));
     }
 
+    public function gallery()
+    {
+        $data['programs'] = Programs::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['projects'] = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
+
+        return view('frontend.gallery.index', $data);
+    }
+
     public function blog()
     {
         $results = DB::table('blogs')->orderBy('id', 'DESC')->paginate(10);
@@ -191,20 +200,35 @@ class FrontendController extends Controller
 
     public function chairmanMessage()
     {
+        $chairman_message = DB::table('member_details as a')
+            ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->where('executive_status', 'Chairmen')
+            ->first();
 
-        return view('frontend.about.chairmanMessage');
+        return view('frontend.about.chairmanMessage', compact('chairman_message'));
     }
 
     public function executiveCommittee()
     {
+        $committee = DB::table('member_details as a')
+            ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->where('executive_status', 'Committee')
+            ->first();
 
-        return view('frontend.about.executiveCommittee');
+        return view('frontend.about.executiveCommittee', compact('committee'));
     }
 
     public function ourMembers()
     {
+        $members = DB::table('member_details as a')
+            ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->where('executive_status', 'Members')
+            ->get();
 
-        return view('frontend.about.ourMembers');
+        return view('frontend.about.ourMembers', compact('members'));
     }
 
     public function privacyPolicy()

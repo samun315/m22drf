@@ -14,14 +14,13 @@
                         <span class="svg-icon svg-icon-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="5" y="5" width="5" height="5" rx="1"
-                                        fill="#000000"></rect>
-                                    <rect x="14" y="5" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="5" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
-                                    <rect x="14" y="14" width="5" height="5" rx="1"
-                                        fill="#000000" opacity="0.3"></rect>
+                                    <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000"></rect>
+                                    <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
+                                    <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
+                                        opacity="0.3"></rect>
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1">Manage Notice</span>
@@ -32,8 +31,8 @@
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
-                                    <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
-                                        rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+                                    <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1"
+                                        transform="rotate(-90 11.364 20.364)" fill="black" />
                                     <rect x="4.36396" y="11.364" width="16" height="2" rx="1"
                                         fill="black" />
                                 </svg>
@@ -57,6 +56,7 @@
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
                                     <th>Title</th>
+                                    <th>Deadline</th>
                                     <th>Details</th>
                                     <th>Active</th>
                                     <th>Action</th>
@@ -70,6 +70,7 @@
                                     <tr>
                                         <td> {{ $loop->iteration }} </td>
                                         <td> {{ $value->title }} </td>
+                                        <td> {{ $value->deadline }} </td>
                                         <td> {!! $value->details !!} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
@@ -128,6 +129,7 @@
 @section('page_scripts')
 
     <script>
+
         function updateStatus(status, notice_id) {
 
             var v_token = "{{ csrf_token() }}";

@@ -25,6 +25,7 @@ class NoticeRequest extends FormRequest
 
             return [
                 'title'             => 'required',
+                'deadline'          => 'required',
                 'details'           => 'required',
                 'status'            => 'required',
             ];
@@ -32,6 +33,7 @@ class NoticeRequest extends FormRequest
 
         return [
             'title'             => 'required',
+            'deadline'          => 'required',
             'details'           => 'required',
             'status'            => 'required',
         ];

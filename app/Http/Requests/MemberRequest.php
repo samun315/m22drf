@@ -43,6 +43,7 @@ class MemberRequest extends FormRequest
                 'special_occasions'             => 'required',
                 // 'passport_photo'                => 'required',
                 'member_status'                 => 'required',
+                'executive_status'              => 'required',
                 'status'                        => 'required'
             ];
         }
@@ -66,6 +67,7 @@ class MemberRequest extends FormRequest
             'special_occasions'             => 'required',
             'passport_photo'                => 'required',
             'member_status'                 => 'required',
+            'executive_status'              => 'required',
             'status'                        => 'required'
         ];
     }

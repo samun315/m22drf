@@ -53,7 +53,7 @@
 
                     <div class="cause-details_content">
                         <div class="cause-details-image-box">
-                            <img src="{{ asset('uploads/programs/' . $program->image) }}" alt="project">
+                            <img src="{{ asset('uploads/programs/' . $program->image) }}" alt="Program">
                             <div class="category">
                                 <h6>{{ $program->name }}</h6>
                             </div>

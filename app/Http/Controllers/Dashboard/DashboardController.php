@@ -12,7 +12,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $data['category'] = DB::table('categories')->where('status', 'YES')->count();
+        $data['program'] = DB::table('programs')->where('status', 'YES')->count();
         $data['project'] = DB::table('projects')->where('status', 'YES')->count();
         $data['event'] = DB::table('events')->where('status', 'YES')->count();
         $data['user'] = DB::table('users')->where('status', 'YES')->count();
