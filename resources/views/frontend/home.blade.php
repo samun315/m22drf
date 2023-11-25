@@ -226,7 +226,7 @@
                 <div>
 
                     <div class="sec-title text-center">
-                        <h4> <a href="/project?category={{ $project_category->id }}">{{ $project_category->name }}</a></h4>
+                        <h4> <a href="/project?program={{ $project_category->id }}">{{ $project_category->name }}</a></h4>
                     </div>
 
                     @php
@@ -317,11 +317,11 @@
                 <h2>UPCOMING EVENTS</h2>
             </div>
 
-            @foreach ($programs as $event_category)
+            @foreach ($programs as $event_project)
                 @php
                     $category_wise_events = \DB::table('events')
                         ->orderBy('id', 'DESC')
-                        ->where('category_id', $event_category->id)
+                        ->where('project_id', $event_project->id)
                         ->where('status', 'YES')
                         ->get();
                 @endphp
@@ -329,7 +329,7 @@
                 @if (count($category_wise_events) > 0)
                     <div>
                         <div class="sec-title text-center">
-                            <h4> <a href="/project?category={{ $event_category->id }}">{{ $event_category->name }}</a>
+                            <h4> <a href="/event?project={{ $event_project->id }}">{{ $event_project->title }}</a>
                             </h4>
                         </div>
 
@@ -397,388 +397,6 @@
     </section>
     <!--END UPCOMING EVENTS-->
 
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center my-2">
-                    <h1>Photo Gallery</h1>
-                </div>
-            </div>
-            <div class="portfolio-menu mt-2 mb-4">
-                <ul>
-                    <li class="btn btn-outline-dark active" data-filter="*">All</li>
-                    <li class="btn btn-outline-dark" data-filter=".gts">Student Photo</li>
-                    <li class="btn btn-outline-dark" data-filter=".lap">Doctor Photo</li>
-                    <li class="btn btn-outline-dark text" data-filter=".selfie">Family Photo</li>
-                </ul>
-            </div>
-            <div class="portfolio-item row">
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/stylish-young-woman-with-bags-taking-selfie_23-2147962203.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/stylish-young-woman-with-bags-taking-selfie_23-2147962203.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/pretty-girl-near-car_1157-16962.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/pretty-girl-near-car_1157-16962.jpg" alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/blonde-tourist-taking-selfie_23-2147978899.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/blonde-tourist-taking-selfie_23-2147978899.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/cute-girls-oin-studio_1157-18211.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/cute-girls-oin-studio_1157-18211.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/stylish-pin-up-girls_1157-18451.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/stylish-pin-up-girls_1157-18451.jpg" alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/stylish-pin-up-girl_1157-18940.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/stylish-pin-up-girl_1157-18940.jpg" alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/digital-laptop-working-global-business-concept_53876-23438.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/digital-laptop-working-global-business-concept_53876-23438.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-psd/set-digital-devices-screen-mockup_53876-76507.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-psd/set-digital-devices-screen-mockup_53876-76507.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/young-brunette-woman-with-sunglasses-urban-background_1139-893.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/young-brunette-woman-with-sunglasses-urban-background_1139-893.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-psd/laptop-digital-device-screen-mockup_53876-76509.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-psd/laptop-digital-device-screen-mockup_53876-76509.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/young-woman-holding-pen-hand-thinking-while-writing-notebook_23-2148029424.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/young-woman-holding-pen-hand-thinking-while-writing-notebook_23-2148029424.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-psd/female-fashion-concept_23-2147643598.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-psd/female-fashion-concept_23-2147643598.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/girl-city_1157-16454.jpg" class="fancylight popup-btn"
-                        data-fancybox-group="light">
-                        <img class="img-fluid" src="https://image.freepik.com/free-photo/girl-city_1157-16454.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/elegant-lady-with-laptop_1157-16643.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/elegant-lady-with-laptop_1157-16643.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-psd/laptop-mock-up-lateral-view_1310-199.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-psd/laptop-mock-up-lateral-view_1310-199.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/portrait-young-woman_1303-10071.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/portrait-young-woman_1303-10071.jpg" alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/beautiful-girl-near-wall_1157-16401.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/beautiful-girl-near-wall_1157-16401.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/woman-taking-photograph-her-boyfriend-enjoying-piggyback-ride-his-back_23-2147841613.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/woman-taking-photograph-her-boyfriend-enjoying-piggyback-ride-his-back_23-2147841613.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/girl-smiling-making-auto-photo-with-her-friends-around_1139-593.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/girl-smiling-making-auto-photo-with-her-friends-around_1139-593.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/multiracial-group-young-people-taking-selfie_1139-1032.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/multiracial-group-young-people-taking-selfie_1139-1032.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/laptop-wooden-table_53876-20635.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/laptop-wooden-table_53876-20635.jpg" alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/business-woman-working-laptop_1388-67.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/business-woman-working-laptop_1388-67.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-psd/group-people-holding-laptop-mockup-charity_23-2148069565.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-psd/group-people-holding-laptop-mockup-charity_23-2148069565.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/portrait-young-cheerful-woman-headphones-sitting-stairs_1262-17488.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/portrait-young-cheerful-woman-headphones-sitting-stairs_1262-17488.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/celebration-concept-close-up-portrait-happy-young-beautiful-african-woman-black-t-shirt-smiling-with-colorful-party-balloon-yellow-pastel-studio-background_1258-934.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/celebration-concept-close-up-portrait-happy-young-beautiful-african-woman-black-t-shirt-smiling-with-colorful-party-balloon-yellow-pastel-studio-background_1258-934.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item gts col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/pretty-woman-showing-arm-muscles_23-2148056021.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/pretty-woman-showing-arm-muscles_23-2148056021.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/blank-colorful-adhesive-notes-against-wooden-wall-with-office-stationeries-laptop_23-2148052717.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/blank-colorful-adhesive-notes-against-wooden-wall-with-office-stationeries-laptop_23-2148052717.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/happy-woman-having-video-call-using-laptop-office_23-2148056211.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/happy-woman-having-video-call-using-laptop-office_23-2148056211.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-psd/laptop-mockup-table-with-plants_23-2147955548.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-psd/laptop-mockup-table-with-plants_23-2147955548.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/blank-colorful-adhesive-notes-against-wooden-wall-with-office-stationeries-laptop_23-2148052717.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/blank-colorful-adhesive-notes-against-wooden-wall-with-office-stationeries-laptop_23-2148052717.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-psd/woman-using-laptop-smartphone_53876-76350.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-psd/woman-using-laptop-smartphone_53876-76350.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/attractive-young-woman-with-curly-hair-takes-selfie-posing-looking-camera_8353-6636.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/attractive-young-woman-with-curly-hair-takes-selfie-posing-looking-camera_8353-6636.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/young-couple-taking-selfie-mobile-phone-against-blue-background_23-2148056292.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/young-couple-taking-selfie-mobile-phone-against-blue-background_23-2148056292.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item lap col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/close-up-blonde-woman-sitting-sofa-using-laptop-with-blank-white-screen_23-2148028738.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/close-up-blonde-woman-sitting-sofa-using-laptop-with-blank-white-screen_23-2148028738.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/group-happy-friends-taking-selfie-cellphone_23-2147859575.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/group-happy-friends-taking-selfie-cellphone_23-2147859575.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/joyful-pretty-girl-with-curly-hair-takes-selfie-mobile-phone_8353-6635.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/joyful-pretty-girl-with-curly-hair-takes-selfie-mobile-phone_8353-6635.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/attractive-young-woman-with-curly-hair-takes-selfie-posing-looking-camera_8353-6636.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/attractive-young-woman-with-curly-hair-takes-selfie-posing-looking-camera_8353-6636.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/multiracial-group-young-people-taking-selfie_1139-1032.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/multiracial-group-young-people-taking-selfie_1139-1032.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/two-smiling-girls-take-selfie-their-phones-posing-with-lollipops_8353-5600.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/two-smiling-girls-take-selfie-their-phones-posing-with-lollipops_8353-5600.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/female-friends-sitting-car-hood-taking-self-portrait_23-2147855623.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/female-friends-sitting-car-hood-taking-self-portrait_23-2147855623.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-                <div class="item selfie col-lg-3 col-md-4 col-6 col-sm">
-                    <a href="https://image.freepik.com/free-photo/two-smiling-girls-take-selfie-their-phones-posing-with-lollipops_8353-5600.jpg"
-                        class="fancylight popup-btn" data-fancybox-group="light">
-                        <img class="img-fluid"
-                            src="https://image.freepik.com/free-photo/two-smiling-girls-take-selfie-their-phones-posing-with-lollipops_8353-5600.jpg"
-                            alt="">
-                    </a>
-                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,</p>
-                </div>
-            </div>
-        </div>
-    </section>
     <!--Start mission and goals Area-->
     <section class="mission-and-goals-area">
         <div class="container">
@@ -1164,6 +782,107 @@
     </section>
     <!--End Blog Style1 Area-->
 
+    <!--Start Our Partner Organization-->
+    <section class="blog-style1-area">
+        <div class="thm-shape1 float-bob"><img src="assets/frontend/images/shape/thm-shape-2.png" alt=""></div>
+        <div class="container">
+            <div class="sec-title text-center">
+                <div class="sub-title">
+                    <div class="inner">
+                        <h3>We Change Your Life &amp; World</h3>
+                    </div>
+                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
+                </div>
+                <h2>Our Partner Organization</h2>
+            </div>
+            <div class="row text-right-rtl">
+
+                @foreach ($partners as $partner_organization)
+                    @if ($partner_organization->partner_type == 'Partner Organization')
+                        <div class="col-xl-4 col-lg-4">
+                            <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
+                                <div class="img-holder">
+                                    <div class="inner">
+                                        <img style="width: 360px; height:300px"
+                                            src="{{ asset('uploads/partner/' . $partner_organization->image) }}"
+                                            alt="">
+                                        <div class="overlay-icon">
+                                            <a href="#"><span class="flaticon-plus"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-holder">
+                                    <h3 class="blog-title">
+                                        <a href="#">
+                                            {{ $partner_organization->name }}
+                                        </a>
+                                    </h3>
+                                    <div class="text">
+                                        <p>
+                                            {{ \Illuminate\Support\Str::limit(strip_tags($partner_organization->details), 200) }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+
+            </div>
+        </div>
+    </section>
+    <!--End Our Partner Organization-->
+
+
+    <!--Start Our Sponsor-->
+    <section class="blog-style1-area">
+        <div class="thm-shape1 float-bob"><img src="assets/frontend/images/shape/thm-shape-2.png" alt=""></div>
+        <div class="container">
+            <div class="sec-title text-center">
+                <div class="sub-title">
+                    <div class="inner">
+                        <h3>We Change Your Life &amp; World</h3>
+                    </div>
+                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
+                </div>
+                <h2>Our Valued Sponsor</h2>
+            </div>
+            <div class="row text-right-rtl">
+
+                @foreach ($partners as $valued_sponsor)
+                    @if ($valued_sponsor->partner_type == 'Valued Sponsor')
+                        <div class="col-xl-4 col-lg-4">
+                            <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
+                                <div class="img-holder">
+                                    <div class="inner">
+                                        <img style="width: 360px; height:300px"
+                                            src="{{ asset('uploads/partner/' . $valued_sponsor->image) }}"
+                                            alt="">
+                                        <div class="overlay-icon">
+                                            <a href="#"><span class="flaticon-plus"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-holder">
+                                    <h3 class="blog-title">
+                                        <a href="#">
+                                            {{ $valued_sponsor->name }}
+                                        </a>
+                                    </h3>
+                                    <div class="text">
+                                        <p>
+                                            {{ \Illuminate\Support\Str::limit(strip_tags($valued_sponsor->details), 200) }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        </div>
+    </section>
+    <!--End Our Sponsor-->
 
     <!--Start Partner Area-->
     <section class="partner-area">

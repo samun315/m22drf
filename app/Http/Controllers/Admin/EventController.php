@@ -15,8 +15,8 @@ class EventController extends Controller
     public function index()
     {
         $results = DB::table('events as a')
-            ->select('a.*', 'b.name as category_name')
-            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+            ->select('a.*', 'b.title as project_title')
+            ->leftJoin('projects as b', 'a.project_id', '=', 'b.id')
             ->orderBy('id', 'DESC')
             ->paginate(10);
 
@@ -25,15 +25,15 @@ class EventController extends Controller
 
     public function create()
     {
-        $categories = DB::table('categories')->orderBy('id', 'DESC')->get();
+        $projects = DB::table('projects')->orderBy('id', 'DESC')->get();
 
-        return view('admin.event.form', compact('categories'));
+        return view('admin.event.form', compact('projects'));
     }
 
     public function store(EventRequest $request)
     {
         $input                  = $request->all();
-        $input['category_id']   = $request->category_name;
+        $input['project_id']    = $request->project_name;
         $input['created_by']    = session('logged_session_data.id');
         $input['created_at']    = Carbon::now();
 
@@ -48,7 +48,7 @@ class EventController extends Controller
         try {
 
             unset($input['_token']);
-            unset($input['category_name']);
+            unset($input['project_name']);
 
             Event::create($input);
             return redirect()->back()->with('success', 'Event created successfully.');
@@ -60,7 +60,7 @@ class EventController extends Controller
     public function edit($id)
     {
         $data['editModeData']   = Event::findOrFail($id);
-        $data['categories']     = DB::table('categories')->orderBy('id', 'DESC')->get();
+        $data['projects']       = DB::table('projects')->orderBy('id', 'DESC')->get();
 
         return view('admin.event.form', $data);
     }
@@ -69,7 +69,7 @@ class EventController extends Controller
     {
         $event                  = Event::findOrFail($id);
         $input                  = $request->all();
-        $input['category_id']   = $request->category_name;
+        $input['project_id']    = $request->project_name;
         $input['updated_by']    = session('logged_session_data.id');
         $input['updated_at']    = Carbon::now();
 
@@ -88,7 +88,7 @@ class EventController extends Controller
 
         try {
 
-            unset($input['category_name']);
+            unset($input['project_name']);
 
             $event->update($input);
             return redirect(route('admin.event.index'))->with('success', 'Event updated successfully.');

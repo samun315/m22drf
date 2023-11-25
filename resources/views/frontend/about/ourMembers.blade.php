@@ -48,53 +48,22 @@
     <section class="team-style2-area">
         <div class="container">
             <div class="row">
-                <!--Start Single Team Style2-->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="single-team-style2">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/images/team/team-v2-1.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="title-holder">
-                            <h4>Scott William</h4>
-                            <p>CEO &amp; Founder</p>
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Team Style2-->
-                <!--Start Single Team Style2-->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="single-team-style2">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/frontend/images/team/team-v2-2.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="title-holder">
-                            <h4>Diana Leslie</h4>
-                            <p>Senior Manager</p>
 
-                        </div>
-                    </div>
-                </div>
-                <!--End Single Team Style2-->
-                <!--Start Single Team Style2-->
-                <div class="col-xl-4 col-lg-4">
-                    <div class="single-team-style2">
-                        <div class="img-holder">
-                            <div class="inner">
-                                <img src="assets/images/team/team-v2-3.jpg" alt="">
+                @foreach ($members as $member)
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="single-team-style2">
+                            <div class="img-holder">
+                                <div class="inner">
+                                    <img src="{{ asset('uploads/member/' . $member->passport_photo) }}" alt="Member Photo">
+                                </div>
+                            </div>
+                            <div class="title-holder">
+                                <h4>{{ $member->user_name }}</h4>
+                                <p>{{ $member->present_job }}</p>
                             </div>
                         </div>
-                        <div class="title-holder">
-                            <h4>Liam Irvines</h4>
-                            <p>Volunteer Head</p>
-
-                        </div>
                     </div>
-                </div>
-                <!--End Single Team Style2-->
+                @endforeach
             </div>
         </div>
     </section>

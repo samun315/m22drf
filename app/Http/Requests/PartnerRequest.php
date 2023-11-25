@@ -23,17 +23,19 @@ class PartnerRequest extends FormRequest
     {
         if (isset($this->partner_id)) {
             return [
-                'name'      => 'required',
-                'details'   => 'required',
-                'status'    => 'required'
+                'name'              => 'required',
+                'details'           => 'required',
+                'partner_type'      => 'required',
+                'status'            => 'required'
             ];
         }
 
         return [
-            'name'      => 'required',
-            'details'   => 'required',
-            'image'     => 'required',
-            'status'    => 'required'
+            'name'              => 'required',
+            'details'           => 'required',
+            'image'             => 'required',
+            'partner_type'      => 'required',
+            'status'            => 'required'
         ];
     }
 }
