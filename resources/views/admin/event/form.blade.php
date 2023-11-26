@@ -78,6 +78,7 @@
                                 <select name="project_name" data-control="select2" data-placeholder="Select Project"
                                     class="form-select form-select-solid project_name">
                                     <option value="">Select Project</option>
+                                    <option value="0">General</option>
                                     @foreach ($projects as $project)
                                         <option
                                             @isset($editModeData) {{ $editModeData->project_id == $project->id ? 'selected' : '' }} @endisset
