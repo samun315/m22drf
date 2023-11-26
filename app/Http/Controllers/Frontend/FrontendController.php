@@ -211,13 +211,13 @@ class FrontendController extends Controller
 
     public function executiveCommittee()
     {
-        $committee = DB::table('member_details as a')
+        $committees = DB::table('member_details as a')
             ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
             ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
             ->where('executive_status', 'Committee')
-            ->first();
-
-        return view('frontend.about.executiveCommittee', compact('committee'));
+            ->get();
+        //dd($committees);
+        return view('frontend.about.executiveCommittee', compact('committees'));
     }
 
     public function ourMembers()
@@ -247,6 +247,12 @@ class FrontendController extends Controller
     {
 
         return view('frontend.about.faq');
+    }
+
+    public function whatMakesUsApart()
+    {
+
+        return view('frontend.about.whatMakesUsApart');
     }
 
     public function program(Request $request)

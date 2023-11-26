@@ -47,6 +47,7 @@ Route::get('our-members', [FrontendController::class, 'ourMembers'])->name('fron
 Route::get('privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('frontend.privacyPolicy');
 Route::get('resolution', [FrontendController::class, 'resolution'])->name('frontend.resolution');
 Route::get('faq', [FrontendController::class, 'faq'])->name('frontend.faq');
+Route::get('what-makes-us-apart', [FrontendController::class, 'whatMakesUsApart'])->name('frontend.whatMakesUsApart');
 
 //programs
 Route::get('all-programs', [FrontendController::class, 'program'])->name('frontend.program');
