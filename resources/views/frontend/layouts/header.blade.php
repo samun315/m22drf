@@ -47,12 +47,11 @@
                                     <li class="dropdown"><a href="javascrip:void(0)">About Us</a>
                                         <ul>
                                             <li><a href="/about-us">About Us</a></li>
+                                            <li><a href="/what-makes-us-apart">What Makes us Apart</a></li>
                                             <li><a href="/chairman-message">Message from our Chairman</a></li>
                                             <li><a href="/executive-committee">Executive Committee</a></li>
                                             <li><a href="/our-members">Our Valued Members</a></li>
-                                            <li><a href="/privacy-policy">Privacy Policy</a></li>
-                                            <li><a href="/resolution">Resolution</a></li>
-                                            <li><a href="/faq">Faq</a></li>
+
                                         </ul>
                                     </li>
 
