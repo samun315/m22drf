@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DonationRequestController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\FolderController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\GetInTouchController;
 use App\Http\Controllers\Admin\HomeSettingController;
 use App\Http\Controllers\Admin\MemberController;
@@ -191,4 +192,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
     //Get in touch
     Route::post('contact-us/store/get-in-touch', [GetInTouchController::class, 'store'])->name('admin.contactUs.storeGetInTouch');
     Route::get('contact-us/get-in-touch', [GetInTouchController::class, 'index'])->name('admin.contactUs.indexGetInTouch');
+
+    //Admin Gallery
+    Route::get('admin/photo-gallery', [GalleryController::class, 'index'])->name('admin.photoGallery.index');
 });

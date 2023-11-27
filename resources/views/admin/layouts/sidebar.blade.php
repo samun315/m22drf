@@ -137,6 +137,16 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('admin/photo-gallery') ? 'active' : '' }}"
+                        href="{{ route('admin.photoGallery.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-printer fs-3 text-warning"></i>
+                        </span>
+                        <span class="menu-title">Photo Gallery</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <div class="menu-content pb-2">
                         <span class="menu-section text-muted text-uppercase fs-8 ls-1">Project
                             Management</span>
