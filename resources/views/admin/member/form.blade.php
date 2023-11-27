@@ -97,7 +97,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Phone Number</label>
+                                <label class="fs-5 fw-bold mb-2">Phone Number</label>
                                 <input type="text"
                                     class="form-control form-control-solid @error('phone_number') is-invalid @enderror"
                                     placeholder="Enter phone number" name="phone_number"
@@ -108,7 +108,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Present Job</label>
+                                <label class="fs-5 fw-bold mb-2">Present Job</label>
                                 <input type="text"
                                     class="form-control form-control-solid @error('present_job') is-invalid @enderror"
                                     placeholder="Enter present job" name="present_job"
@@ -119,7 +119,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Date Of Bith</label>
+                                <label class="fs-5 fw-bold mb-2">Date Of Bith</label>
                                 <input type="text"
                                     class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror"
                                     placeholder="Enter date of bith" name="date_of_birth"
@@ -130,7 +130,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Spouse Name</label>
+                                <label class="fs-5 fw-bold mb-2">Spouse Name</label>
                                 <input type="text"
                                     class="form-control form-control-solid @error('spouse_name') is-invalid @enderror"
                                     placeholder="Enter spouse name" name="spouse_name"
@@ -141,7 +141,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Personal Charity</label>
+                                <label class="fs-5 fw-bold mb-2">Personal Charity</label>
                                 <input type="text"
                                     class="form-control form-control-solid @error('personal_charity') is-invalid @enderror"
                                     placeholder="Enter personal charity" name="personal_charity"
@@ -152,7 +152,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Philosopy Life</label>
+                                <label class="fs-5 fw-bold mb-2">Philosopy Life</label>
                                 <input type="text"
                                     class="form-control form-control-solid @error('philosopy_life') is-invalid @enderror"
                                     placeholder="Enter philosopy life" name="philosopy_life"
@@ -163,7 +163,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Present Address</label>
+                                <label class="fs-5 fw-bold mb-2">Present Address</label>
                                 <textarea class="form-control form-control-solid" placeholder="Enter present address" name="present_address"
                                     data-kt-autosize="true">{{ $editModeData->present_address ?? old('present_address') }}</textarea>
                                 @error('present_address')
@@ -172,7 +172,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Permanent Address</label>
+                                <label class="fs-5 fw-bold mb-2">Permanent Address</label>
                                 <textarea class="form-control form-control-solid" placeholder="Enter permanent address" name="permanent_address"
                                     data-kt-autosize="true">{{ $editModeData->permanent_address ?? old('permanent_address') }}</textarea>
                                 @error('permanent_address')
@@ -181,7 +181,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Village Address</label>
+                                <label class="fs-5 fw-bold mb-2">Village Address</label>
                                 <textarea class="form-control form-control-solid" placeholder="Enter village address" name="village_address"
                                     data-kt-autosize="true">{{ $editModeData->village_address ?? old('village_address') }}</textarea>
 
@@ -191,7 +191,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Children (Name, Education etc.)</label>
+                                <label class="fs-5 fw-bold mb-2">Children (Name, Education etc.)</label>
                                 <textarea class="form-control form-control-solid" placeholder="Enter children (Name, Education etc.)"
                                     name="children_details" data-kt-autosize="true">{{ $editModeData->children_details ?? old('children_details') }}</textarea>
                                 @error('children_details')
@@ -200,7 +200,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">
+                                <label class="fs-5 fw-bold mb-2">
                                     Special Occasions
                                 </label>
                                 <p>(Marriage Anniversary, any memorable days, etc.)</p>
@@ -212,7 +212,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Extra Curicular Activities </label>
+                                <label class="fs-5 fw-bold mb-2">Extra Curicular Activities </label>
                                 <p>(Hobbies, Writting, Travelling, Singing, Gardening, etc.)</p>
                                 <textarea class="form-control form-control-solid" placeholder="Enter extra curicular activities"
                                     name="extra_curicular_activities" data-kt-autosize="true">{{ $editModeData->extra_curicular_activities ?? old('extra_curicular_activities') }}</textarea>
@@ -222,7 +222,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Lifetime Achievement</label>
+                                <label class="fs-5 fw-bold mb-2">Lifetime Achievement</label>
                                 <p>(Member of parliament, Academic Awards, etc.)</p>
                                 <textarea class="form-control form-control-solid" placeholder="Enter lifetime achievement"
                                     name="lifetime_achievement" data-kt-autosize="true">{{ $editModeData->lifetime_achievement ?? old('lifetime_achievement') }}</textarea>
@@ -351,7 +351,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Member Status</label>
+                                <label class="fs-5 fw-bold mb-2">Member Status</label>
                                 <select name="member_status"
                                     class="form-select form-select-solid @error('member_status') is-invalid @enderror"
                                     data-control="select2" data-hide-search="true" data-placeholder="Member Status">
@@ -374,7 +374,7 @@
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Executive status</label>
+                                <label class="fs-5 fw-bold mb-2">Executive status</label>
                                 <select name="executive_status"
                                     class="form-select form-select-solid @error('executive_status') is-invalid @enderror"
                                     data-control="select2" data-hide-search="true" data-placeholder="Executive status">
