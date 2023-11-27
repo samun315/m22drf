@@ -93,11 +93,9 @@
                             <h3>Quick Access</h3>
                         </div>
                         <ul class="footer-widget-links1">
-                            <li><a href="/about">About Us</a></li>
-                            <li><a href="/project">Project</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                            <li><a href="/event">Event</a></li>
-                            <li><a href="/contact-us">Contact Us</a></li>
+                            <li><a href="/privacy-policy">Privacy Policy</a></li>
+                            <li><a href="/resolution">Resolution</a></li>
+                            <li><a href="/faq">Faq</a></li>
                         </ul>
                     </div>
                 </div>
