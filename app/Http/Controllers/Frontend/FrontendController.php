@@ -216,7 +216,7 @@ class FrontendController extends Controller
             ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
             ->where('executive_status', 'Committee')
             ->get();
-        //dd($committees);
+        // dd($committees);
         return view('frontend.about.executiveCommittee', compact('committees'));
     }
 
