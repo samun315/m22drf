@@ -225,10 +225,6 @@
             @foreach ($programs as $project_category)
                 <div>
 
-                    <div class="sec-title text-center">
-                        <h4> <a href="/project?program={{ $project_category->id }}">{{ $project_category->name }}</a></h4>
-                    </div>
-
                     @php
                         $category_wise_projects = \DB::table('projects')
                             ->orderBy('id', 'DESC')
@@ -237,64 +233,73 @@
                             ->get();
                     @endphp
 
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
-                                data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
+                    @if (count($category_wise_projects) > 0)
+                        <div class="sec-title text-center">
+                            <h4> <a href="/project?program={{ $project_category->id }}">{{ $project_category->name }}</a>
+                            </h4>
+                        </div>
 
-                                @foreach ($category_wise_projects as $project)
-                                    <div class="single-cause-style1">
-                                        <div class="img-holder">
-                                            <img style="width: 380px; height:370px"
-                                                src="{{ asset('uploads/project/' . $project->banner_img) }}"
-                                                alt="project">
-                                        </div>
-                                        <div class="text-holder">
-                                            <h3>
-                                                <a
-                                                    href="/project-details?project={{ $project->id }}">{{ $project->title }}</a>
-                                            </h3>
-                                            <p>
-                                                {{ \Illuminate\Support\Str::limit(strip_tags($project->details), 50) }}
-                                            </p>
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
+                                    data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
 
-                                            <div class="progress-levels progress-levels-style2">
-                                                <!--Skill Box-->
-                                                <div class="progress-box wow">
-                                                    <div class="inner count-box">
-                                                        <div class="bar">
-                                                            <div class="bar-innner">
-                                                                <div class="bar-fill" data-percent="50" title="Book">
+                                    @foreach ($category_wise_projects as $project)
+                                        <div class="single-cause-style1">
+                                            <div class="img-holder">
+                                                <img style="width: 380px; height:370px"
+                                                    src="{{ asset('uploads/project/' . $project->banner_img) }}"
+                                                    alt="project">
+                                            </div>
+                                            <div class="text-holder">
+                                                <h3>
+                                                    <a
+                                                        href="/project-details?project={{ $project->id }}">{{ $project->title }}</a>
+                                                </h3>
+                                                <p>
+                                                    {{ \Illuminate\Support\Str::limit(strip_tags($project->details), 50) }}
+                                                </p>
+
+                                                <div class="progress-levels progress-levels-style2">
+                                                    <!--Skill Box-->
+                                                    <div class="progress-box wow">
+                                                        <div class="inner count-box">
+                                                            <div class="bar">
+                                                                <div class="bar-innner">
+                                                                    <div class="bar-fill" data-percent="50"
+                                                                        title="Book">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="bottom-box">
-                                                            <div class="rate-box">
-                                                                <p>Achieved<span>Tk {{ $project->achieved }}</span></p>
-                                                                <p>Target<span>Tk {{ $project->budget }}</span></p>
-                                                            </div>
-                                                            <div class="skill-percent">
-                                                                <span class="count-text" data-speed="3000"
-                                                                    data-stop="50">0</span>
-                                                                <span class="percent">%</span>
-                                                                <p class="outer-text">Pledged So Far</p>
+                                                            <div class="bottom-box">
+                                                                <div class="rate-box">
+                                                                    <p>Achieved<span>Tk {{ $project->achieved }}</span></p>
+                                                                    <p>Target<span>Tk {{ $project->budget }}</span></p>
+                                                                </div>
+                                                                <div class="skill-percent">
+                                                                    <span class="count-text" data-speed="3000"
+                                                                        data-stop="50">0</span>
+                                                                    <span class="percent">%</span>
+                                                                    <p class="outer-text">Pledged So Far</p>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="btns-box">
-                                                <button class="btn-one" data-toggle="modal" data-target="#myModal"><span
-                                                        class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
-                                                        Now</span></button>
-                                            </div>
+                                                <div class="btns-box">
+                                                    <button class="btn-one" data-toggle="modal"
+                                                        data-target="#myModal"><span class="txt"><i
+                                                                class="arrow1 fa fa-check-circle"></i>Donate
+                                                            Now</span></button>
+                                                </div>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             @endforeach
 
