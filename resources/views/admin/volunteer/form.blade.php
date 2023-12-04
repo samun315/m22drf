@@ -1,11 +1,11 @@
 @extends('admin.master')
 
 @if (isset($editModeData))
-    @section('title', 'Edit Notice')
-    @section('toolbarTitle', 'Edit Notice')
+    @section('title', 'Edit Volunteer')
+    @section('toolbarTitle', 'Edit Volunteer')
 @else
-    @section('title', 'Create Notice')
-    @section('toolbarTitle', 'Create Notice')
+    @section('title', 'Create Volunteer')
+    @section('toolbarTitle', 'Create Volunteer')
 @endif
 
 @section('main-content')
@@ -29,11 +29,11 @@
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
-                                Notice</span>
+                                Volunteer</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.notice.index') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.volunteer.index') }}" class="btn btn-sm btn-light-success">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -49,7 +49,7 @@
                                     </g>
                                 </svg>
                             </span>
-                            Manage Notice
+                            Manage Volunteer
                         </a>
                     </div>
                 </div>
@@ -61,36 +61,69 @@
                     @include('message')
 
                     <!--begin::Form-->
-                    <form class="form" method="POST" id="kt_notice_form" enctype="multipart/form-data"
-                        action="{{ isset($editModeData) ? route('admin.notice.update', $editModeData->id) : route('admin.notice.store') }}">
+                    <form class="form" method="POST" id="kt_volunteer_form" enctype="multipart/form-data"
+                        action="{{ isset($editModeData) ? route('admin.volunteer.update', $editModeData->id) : route('admin.volunteer.store') }}">
                         @csrf
 
                         @isset($editModeData)
                             @method('PUT')
 
-                            <input type="text" hidden name="notice_id" value="{{ $editModeData->id }}">
+                            <input type="text" hidden name="volunteer_id" value="{{ $editModeData->id }}">
                         @endisset
 
                         <div class="row mb-5">
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Title</label>
+                                <label class="required fs-5 fw-bold mb-2">Name</label>
                                 <input type="text"
-                                    class="form-control form-control-solid @error('title') is-invalid @enderror"
-                                    placeholder="Enter title" name="title"
-                                    value="{{ $editModeData->title ?? old('title') }}" />
-                                @error('title')
+                                    class="form-control form-control-solid @error('name') is-invalid @enderror"
+                                    placeholder="Enter name" name="name"
+                                    value="{{ $editModeData->name ?? old('name') }}" />
+                                @error('name')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
-                                <label class="required fs-5 fw-bold mb-2">Deadline</label>
+                                <label class="fs-5 fw-bold mb-2">Email</label>
                                 <input type="text"
-                                    class="form-control form-control-solid @error('deadline') is-invalid @enderror"
-                                    placeholder="Enter deadline" name="deadline"
-                                    value="{{ $editModeData->deadline ?? old('deadline') }}" />
-                                @error('deadline')
+                                    class="form-control form-control-solid @error('email') is-invalid @enderror"
+                                    placeholder="Enter email" name="email"
+                                    value="{{ $editModeData->email ?? old('email') }}" />
+                                @error('email')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Phone Number</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('phone_number') is-invalid @enderror"
+                                    placeholder="Enter phone number" name="phone_number"
+                                    value="{{ $editModeData->phone_number ?? old('phone_number') }}" />
+                                @error('phone_number')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Designation</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('designation') is-invalid @enderror"
+                                    placeholder="Enter designation" name="designation"
+                                    value="{{ $editModeData->designation ?? old('designation') }}" />
+                                @error('designation')
+                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="fs-5 fw-bold mb-2">Organization Name</label>
+                                <input type="text"
+                                    class="form-control form-control-solid @error('organization_name') is-invalid @enderror"
+                                    placeholder="Enter organization name" name="organization_name"
+                                    value="{{ $editModeData->organization_name ?? old('organization_name') }}" />
+                                @error('organization_name')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -102,7 +135,7 @@
                                     name="image" />
 
                                 @isset($editModeData->image)
-                                    <a target="_blank" href="{{ asset('uploads/notice/' . $editModeData->image) }}">View
+                                    <a target="_blank" href="{{ asset('uploads/volunteer/' . $editModeData->image) }}">View
                                         Image</a>
                                 @endisset
 
@@ -129,10 +162,10 @@
                             </div>
 
                             <div class="col-md-12 fv-row mb-5">
-                                <label class="fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid ckeditor" placeholder="Enter details" name="details"
-                                    data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
-                                @error('details')
+                                <label class="fs-5 fw-bold mb-2">About Your Self</label>
+                                <textarea class="form-control form-control-solid ckeditor" placeholder="Enter about your self" name="about_your_self"
+                                    data-kt-autosize="true">{{ $editModeData->about_your_self ?? old('about_your_self') }}</textarea>
+                                @error('about_your_self')
                                     <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -162,7 +195,7 @@
     <script type="text/javascript">
         var i;
 
-        i = document.querySelector("#kt_notice_form");
+        i = document.querySelector("#kt_volunteer_form");
 
         $(i.querySelector('[name="deadline"]')).flatpickr({
             dateFormat: "Y-m-d"

@@ -15,6 +15,7 @@ use App\Models\Project;
 use App\Models\ProjectFollowUp;
 use App\Models\Quote;
 use App\Models\Slider;
+use App\Models\Volunteer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,26 +24,20 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $data['sliders'] = Slider::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['programs'] = Programs::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['projects'] = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['project_follow_ups'] = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['blogs'] = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['partners'] = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['quotes'] = Quote::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['sliders']                = Slider::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['programs']               = Programs::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['projects']               = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['project_follow_ups']     = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['events']                 = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['blogs']                  = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['partners']               = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['volunteers']             = Volunteer::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['quotes']                 = Quote::orderBy('id', 'DESC')->where('status', 'YES')->get();
 
-        $data['member_details'] = DB::table('member_details as a')
-            ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
-            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
-            ->where('a.status', 'YES')
-            ->orderBy('a.id', 'DESC')
-            ->get();
-
-        $data['featured_project'] = Project::where('featured', 'YES')->first();
-
-        $data['mission_vision'] = MissionVissionSetting::first();
-        $data['footer_setting'] = FooterSetting::first();
+        //Setting Data
+        $data['featured_project']       = Project::where('featured', 'YES')->first();
+        $data['mission_vision']         = MissionVissionSetting::first();
+        $data['footer_setting']         = FooterSetting::first();
 
         return view('frontend.home', $data);
     }

@@ -12,6 +12,6 @@ class Notice extends Model
     protected $table = 'notices';
 
     protected $fillable = [
-        'title', 'deadline', 'details', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
+        'title', 'deadline', 'details', 'image', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at'
     ];
 }

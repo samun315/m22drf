@@ -70,45 +70,48 @@
                         <div class="portfolio-menu mt-2 mb-4">
                             <ul>
                                 <li class="btn btn-outline-dark active" data-filter="*">All</li>
-                                <li class="btn btn-outline-dark" data-filter=".events">Event Photo</li>
-                                <li class="btn btn-outline-dark" data-filter=".projects">Project Photo</li>
-                                <li class="btn btn-outline-dark text" data-filter=".programs">Program Photo</li>
+                                <li class="btn btn-outline-dark" data-filter=".student_photo">Student Photo</li>
+                                <li class="btn btn-outline-dark" data-filter=".doctor_photo">Doctor Photo</li>
+                                <li class="btn btn-outline-dark text" data-filter=".family_photo">Family Photo</li>
                             </ul>
                         </div> <br><br>
                         <div class="portfolio-item row">
 
-                            @foreach ($programs as $program)
-                                <div class="item programs col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('uploads/programs/' . $program->image) }}"
+                            @foreach ($members as $student_photo)
+                                <div class="item student_photo col-lg-3 col-md-4 col-6 col-sm">
+                                    <a href="{{ asset('uploads/member/' . $student_photo->student_photo) }}"
                                         class="fancylight popup-btn" data-fancybox-group="light">
 
                                         <img style="width:263px; height:175px" class="img-fluid"
-                                            src="{{ asset('uploads/programs/' . $program->image) }}" alt="program">
+                                            src="{{ asset('uploads/member/' . $student_photo->student_photo) }}"
+                                            alt="Student Photo">
                                     </a>
-                                    <p class="text-center"> {{ $program->name }} </p>
+                                    <p class="text-center"> {{ $student_photo->student_photo_caption }} </p>
                                 </div>
                             @endforeach
 
-                            @foreach ($projects as $project)
-                                <div class="item projects col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('uploads/project/' . $project->banner_img) }}"
+                            @foreach ($members as $doctor_photo)
+                                <div class="item doctor_photo col-lg-3 col-md-4 col-6 col-sm">
+                                    <a href="{{ asset('uploads/member/' . $doctor_photo->doctor_photo) }}"
                                         class="fancylight popup-btn" data-fancybox-group="light">
 
                                         <img style="width:263px; height:175px" class="img-fluid"
-                                            src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="project">
+                                            src="{{ asset('uploads/member/' . $doctor_photo->doctor_photo) }}"
+                                            alt="Doctor Photo">
                                     </a>
-                                    <p class="text-center">{{ $project->title }}</p>
+                                    <p class="text-center">{{ $doctor_photo->doctor_photo_caption }}</p>
                                 </div>
                             @endforeach
 
-                            @foreach ($events as $event)
-                                <div class="item events col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('uploads/event/' . $event->banner_img) }}"
+                            @foreach ($members as $family_photo)
+                                <div class="item family_photo col-lg-3 col-md-4 col-6 col-sm">
+                                    <a href="{{ asset('uploads/member/' . $family_photo->family_photo) }}"
                                         class="fancylight popup-btn" data-fancybox-group="light">
                                         <img style="width:263px; height:175px" class="img-fluid"
-                                            src="{{ asset('uploads/event/' . $event->banner_img) }}" alt="event">
+                                            src="{{ asset('uploads/member/' . $family_photo->family_photo) }}"
+                                            alt="Family Photo">
                                     </a>
-                                    <p class="text-center">{{ $event->title }}</p>
+                                    <p class="text-center">{{ $family_photo->family_photo_caption }}</p>
                                 </div>
                             @endforeach
 

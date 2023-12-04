@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectFollowUpController;
 use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\VolunteerController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -167,6 +168,16 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{document_id}/edit', [DocumentController::class, 'edit'])->name('admin.document.edit');
         Route::put('/{document_id}/update', [DocumentController::class, 'update'])->name('admin.document.update');
         Route::put('/update-status', [DocumentController::class, 'updateStatus'])->name('admin.document.update.status');
+    });
+
+    //Volunteer
+    Route::group(['prefix' => 'admin/volunteer'], function () {
+        Route::get('/index', [VolunteerController::class, 'index'])->name('admin.volunteer.index');
+        Route::get('/create', [VolunteerController::class, 'create'])->name('admin.volunteer.create');
+        Route::post('/store', [VolunteerController::class, 'store'])->name('admin.volunteer.store');
+        Route::get('/{volunteer_id}/edit', [VolunteerController::class, 'edit'])->name('admin.volunteer.edit');
+        Route::put('/{volunteer_id}/update', [VolunteerController::class, 'update'])->name('admin.volunteer.update');
+        Route::put('/update-status', [VolunteerController::class, 'updateStatus'])->name('admin.volunteer.update.status');
     });
 
     //Setting

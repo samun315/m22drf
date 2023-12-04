@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('title', 'Manage Notice')
-@section('toolbarTitle', 'Manage Notice')
+@section('title', 'Manage Volunteer')
+@section('toolbarTitle', 'Manage Volunteer')
 
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -23,11 +23,11 @@
                                         opacity="0.3"></rect>
                                 </g>
                             </svg>
-                            <span class="card-label fw-bolder fs-3 mb-1">Manage Notice</span>
+                            <span class="card-label fw-bolder fs-3 mb-1">Manage Volunteer</span>
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.notice.create') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.volunteer.create') }}" class="btn btn-sm btn-light-success">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none">
@@ -56,9 +56,12 @@
                                 <tr class="fw-bolder text-muted bg-light">
                                     <th>SL</th>
                                     <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Deadline</th>
-                                    <th>Details</th>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                    <th>Email</th>
+                                    <th>Phone Number</th>
+                                    <th>Organization Name</th>
+                                    <th>About Your Self</th>
                                     <th>Active</th>
                                     <th>Action</th>
                                 </tr>
@@ -75,9 +78,12 @@
                                                 src="{{ asset('uploads/notice/' . $value->image) }}"
                                                 alt="{{ $value->title }}">
                                         </td>
-                                        <td> {{ $value->title }} </td>
-                                        <td> {{ $value->deadline }} </td>
-                                        <td> {!! $value->details !!} </td>
+                                        <td> {{ $value->name }} </td>
+                                        <td> {{ $value->designation }} </td>
+                                        <td> {{ $value->email }} </td>
+                                        <td> {{ $value->phone_number }} </td>
+                                        <td> {{ $value->organization_name }} </td>
+                                        <td> {!! $value->about_your_self !!} </td>
                                         <td>
                                             <label class="form-check form-switch form-check-custom form-check-solid">
 
@@ -97,7 +103,7 @@
                                             </label>
                                         </td>
                                         <td>
-                                            <a href="{{ route('admin.notice.edit', $value->id) }}"
+                                            <a href="{{ route('admin.volunteer.edit', $value->id) }}"
                                                 class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                                 <span class="svg-icon svg-icon-3">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -135,15 +141,15 @@
 @section('page_scripts')
 
     <script>
-        function updateStatus(status, notice_id) {
+        function updateStatus(status, volunteer_id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.notice.update.status') }}",
+                url: "{{ route('admin.volunteer.update.status') }}",
                 data: {
-                    notice_id: notice_id,
+                    volunteer_id: volunteer_id,
                     status: status,
                     _token: v_token
                 },
@@ -156,7 +162,7 @@
                         title: 'Status successfully updated.',
                         showConfirmButton: false,
                         timer: 1500
-                    });
+                    })
 
                     $('#tbody').load(document.URL + ' #tbody tr');
                 }

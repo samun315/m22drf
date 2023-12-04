@@ -581,35 +581,26 @@
 
             <div class="row">
 
-                @foreach ($member_details as $member_detail)
+                @foreach ($volunteers as $volunteer)
                     <div class="col-xl-3 col-lg-6 col-md-6">
                         <div class="single-team-style1">
                             <div class="img-holder">
                                 <div class="inner">
                                     <img style="width: 263px; height:263px"
-                                        src="{{ asset('uploads/member/' . $member_detail->passport_photo) }}"
-                                        alt="Volunteer" />
+                                        src="{{ asset('uploads/volunteer/' . $volunteer->image) }}"
+                                        alt="{{ $volunteer->name }}" />
                                     <div class="icon">
                                         <span class=""></span>
                                     </div>
                                 </div>
-                                <div class="overly-box">
-                                    <ul class="social-links">
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
+
                                 <div class="shape"><img src="assets/frontend/images/shape/thm-shape-4.png"
                                         alt="">
                                 </div>
                             </div>
                             <div class="title-holder text-center">
-                                <h3><a href="javascript:void(0)">{{ $member_detail->user_name }}</a></h3>
-                                <p>{{ $member_detail->present_job }}</p>
+                                <h3><a href="javascript:void(0)">{{ $volunteer->name }}</a></h3>
+                                <p>{{ $volunteer->designation }}</p>
                             </div>
                         </div>
                     </div>
