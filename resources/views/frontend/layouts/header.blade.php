@@ -17,7 +17,7 @@
                 <div class="header-left clearfix pull-left">
                     <div class="logo">
                         <a href="/">
-                            <img style="width: 208px; height:54px"
+                            <img style="width: 298px; height:74px"
                                 src="{{ asset('assets/frontend/logo/m22-header-logo.jpg') }}" alt="Logo"
                                 title="">
                         </a>
@@ -122,7 +122,7 @@
                 <!--Logo-->
                 <div class="logo float-left">
                     <a href="/" class="img-responsive">
-                        <img style="width: 208px; height:54px"
+                        <img style="width: 298px; height:74px"
                             src="{{ asset('assets/frontend/logo/m22-header-logo.jpg') }}" alt=""
                             title=""></a>
                 </div>

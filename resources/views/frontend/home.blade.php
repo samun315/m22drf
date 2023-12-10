@@ -230,6 +230,7 @@
                             ->orderBy('id', 'DESC')
                             ->where('program_id', $project_category->id)
                             ->where('status', 'YES')
+                            ->where('project_status', 'Upcoming')
                             ->get();
                     @endphp
 
@@ -516,34 +517,34 @@
                             <div method="post" action="#" class="donate-form-1">
                                 <ul class="clearfix">
                                     <li class="select-box left">
-                                        <select class="selectpicker" name="donation">
+                                        {{-- <select class="selectpicker" name="donation">
                                             <option value="*">On Time Donation</option>
                                             <option value=".category-1">On Time Donation 01</option>
                                             <option value=".category-2">On Time Donation 02</option>
                                             <option value=".category-3">On Time Donation 03</option>
                                             <option value=".category-4">On Time Donation 04</option>
                                             <option value=".category-5">On Time Donation 05</option>
-                                        </select>
+                                        </select> --}}
                                     </li>
                                     <li class="select-box">
-                                        <select class="selectpicker" name="amount">
+                                        {{-- <select class="selectpicker" name="amount">
                                             <option value="*">Amount $</option>
                                             <option value=".category-1">100$</option>
                                             <option value=".category-2">200$</option>
                                             <option value=".category-3">500$</option>
                                             <option value=".category-4">1000$</option>
                                             <option value=".category-5">5000$</option>
-                                        </select>
+                                        </select> --}}
                                     </li>
                                     <li class="select-box right">
-                                        <select class="selectpicker" name="subject">
+                                        {{-- <select class="selectpicker" name="subject">
                                             <option value="*">Funds Type</option>
                                             <option value=".category-1">Funds Type 01</option>
                                             <option value=".category-2">Funds Type 02</option>
                                             <option value=".category-3">Funds Type 03</option>
                                             <option value=".category-4">Funds Type 04</option>
                                             <option value=".category-5">Funds Type 05</option>
-                                        </select>
+                                        </select> --}}
                                     </li>
                                 </ul>
 
@@ -791,40 +792,20 @@
                 </div>
                 <h2>Our Partner Organization</h2>
             </div>
-            <div class="row text-right-rtl">
+
+            <ul class="partner-box partner-carousel owl-carousel owl-theme owl-dot-style1">
 
                 @foreach ($partners as $partner_organization)
                     @if ($partner_organization->partner_type == 'Partner Organization')
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
-                                <div class="img-holder">
-                                    <div class="inner">
-                                        <img style="width: 360px; height:300px"
-                                            src="{{ asset('uploads/partner/' . $partner_organization->image) }}"
-                                            alt="">
-                                        <div class="overlay-icon">
-                                            <a href="#"><span class="flaticon-plus"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-holder">
-                                    <h3 class="blog-title">
-                                        <a href="#">
-                                            {{ $partner_organization->name }}
-                                        </a>
-                                    </h3>
-                                    <div class="text">
-                                        <p>
-                                            {{ \Illuminate\Support\Str::limit(strip_tags($partner_organization->details), 200) }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <li class="single-partner-logo-box">
+                            <a href="javascript:void(0)"><img style="width: 250px; height:130px"
+                                    src="{{ asset('uploads/partner/' . $partner_organization->image) }}" alt="Partner Logo"></a>
+                        </li>
                     @endif
                 @endforeach
 
-            </div>
+            </ul>
+
         </div>
     </section>
     <!--End Our Partner Organization-->
@@ -842,39 +823,6 @@
                     <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
                 <h2>Our Valued Sponsor</h2>
-            </div>
-            <div class="row text-right-rtl">
-
-                @foreach ($partners as $valued_sponsor)
-                    @if ($valued_sponsor->partner_type == 'Valued Sponsor')
-                        <div class="col-xl-4 col-lg-4">
-                            <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
-                                <div class="img-holder">
-                                    <div class="inner">
-                                        <img style="width: 360px; height:300px"
-                                            src="{{ asset('uploads/partner/' . $valued_sponsor->image) }}"
-                                            alt="">
-                                        <div class="overlay-icon">
-                                            <a href="#"><span class="flaticon-plus"></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-holder">
-                                    <h3 class="blog-title">
-                                        <a href="#">
-                                            {{ $valued_sponsor->name }}
-                                        </a>
-                                    </h3>
-                                    <div class="text">
-                                        <p>
-                                            {{ \Illuminate\Support\Str::limit(strip_tags($valued_sponsor->details), 200) }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
             </div>
         </div>
     </section>
@@ -903,10 +851,13 @@
             <ul class="partner-box partner-carousel owl-carousel owl-theme owl-dot-style1">
 
                 @foreach ($partners as $partner)
+                    @if ($partner->partner_type == 'Valued Sponsor')
                     <li class="single-partner-logo-box">
                         <a href="javascript:void(0)"><img style="width: 250px; height:130px"
                                 src="{{ asset('uploads/partner/' . $partner->image) }}" alt="Partner Logo"></a>
                     </li>
+                    @endif
+
                 @endforeach
 
             </ul>
