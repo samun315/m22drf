@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('frontend_title', 'Executive Committee')
+@section('frontend_title', 'Member Details')
 
 @section('frontend_main_content')
 
@@ -28,14 +28,14 @@
                             </div>
                         </div>
                         <div class="title">
-                            <h2>Executive Committee</h2>
+                            <h2>Member Details</h2>
                         </div>
                         <div class="border-box"></div>
                         <div class="breadcrumb-menu">
                             <ul>
                                 <li><a href="/">Home</a></li>
                                 <li><span class="flaticon-right-arrow"></span></li>
-                                <li class="active">Executive Committee</li>
+                                <li class="active">Member Details</li>
                             </ul>
                         </div>
                     </div>
@@ -47,22 +47,52 @@
     <section class="team-style2-area bg-white">
         <div class="container">
             <div class="row">
-                @foreach ($committees as $committee)
+                <!--Start Single Team Style2-->
+                <div class="col-xl-4 col-lg-4">
+
+                </div>
+                <!--End Single Team Style2-->
+                <!--Start Single Team Style2-->
                 <div class="col-xl-4 col-lg-4">
                     <div class="single-team-style2">
                         <div class="img-holder">
                             <div class="inner">
-                                <img src="{{ asset('uploads/member/' . $committee->passport_photo) }}" alt="Member Photo">
+                                <img src="{{ asset('uploads/member/' . $member->passport_photo) }}" alt="Photo">
                             </div>
                         </div>
                         <div class="title-holder">
-                            <a href="/member-details/{{ $committee->id }}"><h4>{{ $committee->user_name }}</h4></a>
-                            <p>{{ $committee->present_job }}</p>
+                            <a href="#">
+                                <h4>{{ $member->user_name }}</h4>
+                            </a>
+                            <p>{{ $member->present_job }}</p>
                         </div>
                     </div>
                 </div>
-                @endforeach
+                <!--End Single Team Style2-->
+                <!--Start Single Team Style2-->
+                <div class="col-xl-4 col-lg-4">
+
+                </div>
+                <!--End Single Team Style2-->
+                <div class="row">
+                    <div class="col-xl-12 text-justify bg-white">
+                        <p style="font-family:Georgia,serif; font-size:18px">
+                            {!! $member->about_your_self !!}
+                        </p>
+                    </div>
+                </div>
             </div>
+            <!--Start About Style2 Area-->
+            <section class="about-style2-area pd120-0-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--End About Style2 Area-->
         </div>
     </section>
 

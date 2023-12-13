@@ -58,7 +58,7 @@
                                 </div>
                             </div>
                             <div class="title-holder">
-                                <h4>{{ $member->user_name }}</h4>
+                                <a href="/member-details/{{ $member->id }}"><h4>{{ $member->user_name }}</h4></a>
                                 <p>{{ $member->present_job }}</p>
                             </div>
                         </div>

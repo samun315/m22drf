@@ -226,6 +226,18 @@ class FrontendController extends Controller
         return view('frontend.about.ourMembers', compact('members'));
     }
 
+    public function memberDetails($member_id)
+    {
+        $member = DB::table('member_details as a')
+            ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->where('a.id', $member_id)
+            ->first();
+        //dd($member);
+        return view('frontend.about.memberDetails', compact('member'));
+    }
+
+
     public function privacyPolicy()
     {
 
@@ -255,7 +267,7 @@ class FrontendController extends Controller
 
         $results = DB::table('programs');
 
-        $results = $results->orderBy('id', 'DESC')->paginate(10);
+        $results = $results->orderBy('id', 'ASC')->paginate(10);
 
         return view('frontend.program.index', compact('results'));
     }
