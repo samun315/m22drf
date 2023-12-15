@@ -46,69 +46,173 @@
     <!--Start Blog Page One-->
     <section class="blog-page-one">
         <div class="container">
-
+            <div class="sec-title text-center">
+                <h2>UPCOMING PROJECTS</h2>
+            </div>
             @include('message')
 
             <div class="row text-right-rtl">
 
                 @foreach ($results as $row)
-                    <div class="col-xl-4 col-lg-4">
-                        <div class="single-cause-style1">
-                            <div class="img-holder">
-                                @if (isset($row->banner_img))
-                                    <img style="width: 360px; height:351px"
-                                        src="{{ asset('uploads/project/' . $row->banner_img) }}" alt="Banner Image">
-                                @else
-                                    <img style="width: 360px; height:351px"
-                                        src="assets/frontend/images/causes/causes-v1-1.jpg" alt="Banner Image">
-                                @endif
+                    @if ($row->project_status == 'Upcoming')
+                        <div class="col-xl-4 col-lg-4">
+                            <div class="single-cause-style1">
+                                <div class="img-holder">
+                                    @if (isset($row->banner_img))
+                                        <img style="width: 360px; height:351px"
+                                            src="{{ asset('uploads/project/' . $row->banner_img) }}" alt="Banner Image">
+                                    @else
+                                        <img style="width: 360px; height:351px"
+                                            src="assets/frontend/images/causes/causes-v1-1.jpg" alt="Banner Image">
+                                    @endif
 
-                            </div>
-                            <div class="text-holder">
-                                <h3>
-                                    <a href="/project-details?project={{ $row->id }}">
-                                        {{ \Illuminate\Support\Str::limit($row->title, 30) }}
-                                    </a>
-                                </h3>
-                                <p>
-                                    {{ \Illuminate\Support\Str::limit(strip_tags($row->details), 80) }}
-                                </p>
+                                </div>
+                                <div class="text-holder">
+                                    <h3>
+                                        <a href="/project-details?project={{ $row->id }}">
+                                            {{ \Illuminate\Support\Str::limit($row->title, 30) }}
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($row->details), 80) }} <a
+                                            href="/project-details?project={{ $row->id }}"> >>Read more</a>
+                                    </p>
 
-                                <div class="progress-levels progress-levels-style2">
-                                    <!--Skill Box-->
-                                    <div class="progress-box wow">
-                                        <div class="inner count-box">
-                                            <div class="bar">
-                                                <div class="bar-innner">
-                                                    <div class="bar-fill" data-percent="50" title="Book"></div>
+                                    <div class="progress-levels progress-levels-style2">
+                                        <!--Skill Box-->
+                                        <div class="progress-box wow">
+                                            <div class="inner count-box">
+                                                <div class="bar">
+                                                    <div class="bar-innner">
+                                                        <div class="bar-fill"
+                                                            data-percent="{{ number_format(($row->achieved * 100) / $row->budget, 2) }}"
+                                                            title="Book"></div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="bottom-box">
-                                                <div class="rate-box">
-                                                    <p>Achieved<span>৳ {{ number_format($row->achieved, 2) }}</span></p>
-                                                    <p>Target<span>৳ {{ number_format($row->budget, 2) }}</span></p>
-                                                </div>
-                                                <div class="skill-percent">
-                                                    <span class="count-text" data-speed="3000" data-stop="50">0</span>
-                                                    <span class="percent">%</span>
-                                                    <p class="outer-text">Pledged So Far</p>
+                                                <div class="bottom-box">
+                                                    <div class="rate-box">
+                                                        <p>Achieved<span>৳ {{ number_format($row->achieved, 2) }}</span></p>
+                                                        <p>Target<span>৳ {{ number_format($row->budget, 2) }}</span></p>
+                                                    </div>
+                                                    <div class="skill-percent">
+                                                        <span class="count-text" data-speed="3000"
+                                                            data-stop="{{ number_format(($row->achieved * 100) / $row->budget, 2) }}">0</span>
+                                                        <span class="percent">%</span>
+                                                        <p class="outer-text">Pledged So Far</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="btns-box">
-                                    <button class="btn-one" data-toggle="modal" data-target="#myModal">
-                                        <span class="txt">
-                                            <i class="arrow1 fa fa-check-circle"></i>
-                                            Donate Now
-                                        </span>
-                                    </button>
-                                </div>
+                                    <div class="btns-box">
+                                        @if ($row->achieved < $row->budget)
+                                            <button class="btn-one" data-toggle="modal" data-target="#myModal">
+                                                <span class="txt">
+                                                    <i class="arrow1 fa fa-check-circle"></i>
+                                                    Donate Now
+                                                </span>
+                                            </button>
+                                        @else
+                                            <a class="btn-one" href="/project-details?project={{ $row->id }}">
+                                                <span class="txt">
+                                                    <i class="arrow1 fa fa-check-circle"></i>
+                                                    Read More
+                                                </span>
+                                            </a>
+                                        @endif
+                                    </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
+                @endforeach
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <!-- Display pagination links -->
+                    {{ $results->links('vendor.pagination.bootstrap-4') }}
+                </div>
+            </div>
+            <br>
+            <div class="sec-title text-center">
+                <h2>IMPLIMENTED PROJECTS</h2>
+            </div>
+            <div class="row text-right-rtl">
+
+                @foreach ($results as $row)
+                    @if ($row->project_status == 'Executed')
+                        <div class="col-xl-4 col-lg-4">
+                            <div class="single-cause-style1">
+                                <div class="img-holder">
+                                    @if (isset($row->banner_img))
+                                        <img style="width: 360px; height:351px"
+                                            src="{{ asset('uploads/project/' . $row->banner_img) }}" alt="Banner Image">
+                                    @else
+                                        <img style="width: 360px; height:351px"
+                                            src="assets/frontend/images/causes/causes-v1-1.jpg" alt="Banner Image">
+                                    @endif
+
+                                </div>
+                                <div class="text-holder">
+                                    <h3>
+                                        <a href="/project-details?project={{ $row->id }}">
+                                            {{ \Illuminate\Support\Str::limit($row->title, 30) }}
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($row->details), 80) }} <a
+                                            href="/project-details?project={{ $row->id }}"> >>Read more</a>
+                                    </p>
+
+                                    <div class="progress-levels progress-levels-style2">
+                                        <!--Skill Box-->
+                                        <div class="progress-box wow">
+                                            <div class="inner count-box">
+                                                <div class="bar">
+                                                    <div class="bar-innner">
+                                                        <div class="bar-fill"
+                                                            data-percent="{{ number_format(($row->achieved * 100) / $row->budget, 2) }}"
+                                                            title="Book"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="bottom-box">
+                                                    <div class="rate-box">
+                                                        <p>Achieved<span>৳ {{ number_format($row->achieved, 2) }}</span></p>
+                                                        <p>Target<span>৳ {{ number_format($row->budget, 2) }}</span></p>
+                                                    </div>
+                                                    <div class="skill-percent">
+                                                        <span class="count-text" data-speed="3000"
+                                                            data-stop="{{ number_format(($row->achieved * 100) / $row->budget, 2) }}">0</span>
+                                                        <span class="percent">%</span>
+                                                        <p class="outer-text">Pledged So Far</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="btns-box">
+                                        @if ($row->project_status == 'Executed' || $row->achieved < $row->budget)
+                                            <a class="btn-one" href="/project-details?project={{ $row->id }}">
+                                                <span class="txt">
+                                                    <i class="arrow1 fa fa-check-circle"></i>
+                                                    Read More
+                                                </span>
+                                            </a>
+                                        @else
+                                            <button class="btn-one" data-toggle="modal" data-target="#myModal">
+                                                <span class="txt">
+                                                    <i class="arrow1 fa fa-check-circle"></i>
+                                                    Donate Now
+                                                </span>
+                                            </button>
+                                        @endif
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 @endforeach
             </div>
             <div class="row">
@@ -163,7 +267,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="phone_number" class="form-label">Phone Number<span class="text-danger">*</span></label>
+                            <label for="phone_number" class="form-label">Phone Number<span
+                                    class="text-danger">*</span></label>
                             <input type="text" required class="form-control" name="phone_number"
                                 placeholder="Enter phone number">
                         </div>

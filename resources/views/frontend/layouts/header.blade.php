@@ -1,7 +1,7 @@
 @php
 
     $programs = \DB::table('programs')
-        ->orderBy('id', 'DESC')
+        ->orderBy('id', 'ASC')
         ->get();
 
 @endphp
@@ -74,8 +74,8 @@
                                         </ul>
                                     </li>
 
-                                    <li class="dropdown"><a href="javascrip:void(0)">Event</a>
-                                        <ul>
+                                    <li class="{{ request()->is('events') ? 'current' : '' }}"><a href="/events">Event</a>
+                                        {{-- <ul>
                                             <li><a href="/events">All Event</a></li>
 
                                             @foreach ($programs as $event_category)
@@ -85,7 +85,7 @@
                                                 </li>
                                             @endforeach
 
-                                        </ul>
+                                        </ul> --}}
                                     </li>
 
                                     <li class="{{ request()->is('blog') ? 'current' : '' }}"><a href="/blog">Blog</a>

@@ -99,7 +99,7 @@ class FrontendController extends Controller
 
     public function project(Request $request)
     {
-        $project_program_query = $request->query('program');
+        $project_program_query = $request->query('category');
 
         $results = DB::table('projects');
 
