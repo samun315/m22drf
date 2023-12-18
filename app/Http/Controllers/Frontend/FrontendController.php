@@ -24,7 +24,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $data['sliders']                = Slider::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['sliders']                = Slider::orderBy('id', 'ASC')->where('status', 'YES')->get();
         $data['programs']               = Programs::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['projects']               = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['project_follow_ups']     = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
