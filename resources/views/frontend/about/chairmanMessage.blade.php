@@ -58,7 +58,7 @@
                     <div class="single-team-style2">
                         <div class="img-holder">
                             <div class="inner">
-                                <img src="{{ asset('uploads/member/chairman.png') }}"
+                                <img decoding="async" style="height:320px;" src="{{ asset('uploads/member/chairman.png') }}"
                                     alt="Photo">
                             </div>
                         </div>

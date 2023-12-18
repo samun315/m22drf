@@ -52,7 +52,7 @@
                     <div class="single-team-style2">
                         <div class="img-holder">
                             <div class="inner">
-                                <img src="{{ asset('uploads/member/' . $committee->passport_photo) }}" alt="Member Photo">
+                                <img style="height:320px;" src="{{ asset('uploads/member/' . $committee->passport_photo) }}" alt="Member Photo">
                             </div>
                         </div>
                         <div class="title-holder">
