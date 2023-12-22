@@ -44,6 +44,8 @@ Route::get('gallery', [FrontendController::class, 'gallery'])->name('frontend.ga
 Route::get('chairman-message', [FrontendController::class, 'chairmanMessage'])->name('frontend.chairmanMessage');
 Route::get('executive-committee', [FrontendController::class, 'executiveCommittee'])->name('frontend.executiveCommittee');
 Route::get('our-members', [FrontendController::class, 'ourMembers'])->name('frontend.ourMembers');
+Route::get('member-details/{member}', [FrontendController::class, 'memberDetails'])->name('frontend.memberDetails');
+
 Route::get('privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('frontend.privacyPolicy');
 Route::get('resolution', [FrontendController::class, 'resolution'])->name('frontend.resolution');
 Route::get('faq', [FrontendController::class, 'faq'])->name('frontend.faq');

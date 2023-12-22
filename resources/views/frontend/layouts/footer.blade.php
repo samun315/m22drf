@@ -71,17 +71,9 @@
                 <div class="col-xl-2 col-lg-4 col-md-3 col-sm-12 wow animated fadeInUp" data-wow-delay="0.3s">
                     <div class="single-footer-widget martop pd40-0">
                         <div class="title">
-                            <h3>Recent Projects</h3>
+                            <h3>Address</h3>
                         </div>
-                        <ul class="footer-widget-links1">
 
-                            @foreach ($projects as $project)
-                                <li>
-                                    <a href="/project-details?project={{ $project->id }}">{{ $project->title }}</a>
-                                </li>
-                            @endforeach
-
-                        </ul>
                     </div>
                 </div>
                 <!--End single footer widget-->
@@ -104,15 +96,9 @@
                 <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 wow animated fadeInUp" data-wow-delay="0.5s">
                     <div class="single-footer-widget martop pdtop40">
                         <div class="title">
-                            <h3>Events</h3>
+                            <h3>Contach Us</h3>
                         </div>
-                        <ul class="footer-widget-links1">
 
-                            @foreach ($events as $event)
-                                <li><a href="/event-details?event={{ $event->id }}">{{ $event->title }}</a>
-                                </li>
-                            @endforeach
-                        </ul>
                     </div>
                 </div>
                 <!--End single footer widget-->

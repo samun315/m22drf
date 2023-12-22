@@ -473,7 +473,7 @@ if ($('.banner-carousel').length) {
         singleItem:true,
         smartSpeed: 500,
         autoplay: true,
-        autoplayTimeout:9000,
+        autoplayTimeout:30000,
         navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
         responsive:{
             0:{
@@ -604,7 +604,7 @@ if ($('.testimonial-style1_carousel').length) {
         singleItem:true,
         smartSpeed: 500,
         autoplay: true,
-        autoplayTimeout:6000,
+        autoplayTimeout:30000,
         navText: [ '<span class="fa fa-angle-left left"></span>', '<span class="fa fa-angle-right right"></span>' ],
         responsive:{
             0:{

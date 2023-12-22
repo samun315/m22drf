@@ -24,7 +24,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $data['sliders']                = Slider::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['sliders']                = Slider::orderBy('id', 'ASC')->where('status', 'YES')->get();
         $data['programs']               = Programs::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['projects']               = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['project_follow_ups']     = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
@@ -32,7 +32,7 @@ class FrontendController extends Controller
         $data['blogs']                  = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['partners']               = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['volunteers']             = Volunteer::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['quotes']                 = Quote::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['quotes']                 = Quote::orderBy('id', 'ASC')->where('status', 'YES')->get();
 
         //Setting Data
         $data['featured_project']       = Project::where('featured', 'YES')->first();
@@ -99,7 +99,7 @@ class FrontendController extends Controller
 
     public function project(Request $request)
     {
-        $project_program_query = $request->query('program');
+        $project_program_query = $request->query('category');
 
         $results = DB::table('projects');
 
@@ -226,6 +226,18 @@ class FrontendController extends Controller
         return view('frontend.about.ourMembers', compact('members'));
     }
 
+    public function memberDetails($member_id)
+    {
+        $member = DB::table('member_details as a')
+            ->select('a.*', 'b.name as user_name', 'b.email as user_email', 'b.phone_number as user_phone_number',)
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->where('a.id', $member_id)
+            ->first();
+        //dd($member);
+        return view('frontend.about.memberDetails', compact('member'));
+    }
+
+
     public function privacyPolicy()
     {
 
@@ -255,7 +267,7 @@ class FrontendController extends Controller
 
         $results = DB::table('programs');
 
-        $results = $results->orderBy('id', 'DESC')->paginate(10);
+        $results = $results->orderBy('id', 'ASC')->paginate(10);
 
         return view('frontend.program.index', compact('results'));
     }

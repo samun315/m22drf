@@ -70,7 +70,9 @@
                                     <div class="inner count-box">
                                         <div class="bar">
                                             <div class="bar-innner">
-                                                <div class="bar-fill" data-percent="52" title="Book"></div>
+                                                <div class="bar-fill"
+                                                    data-percent="{{ number_format(($project->achieved * 100) / $project->budget, 2) }}"
+                                                    title="Book"></div>
                                             </div>
                                         </div>
                                         <div class="bottom-box">
@@ -79,7 +81,8 @@
                                                 <p>Target<span>৳ {{ number_format($project->budget, 2) }}</span></p>
                                             </div>
                                             <div class="skill-percent">
-                                                <span class="count-text" data-speed="3000" data-stop="52"></span>
+                                                <span class="count-text" data-speed="3000"
+                                                    data-stop="{{ number_format(($project->achieved * 100) / $project->budget, 2) }}"></span>
                                                 <span class="percent">%</span>
                                                 <p class="outer-text">Pledged So Far</p>
                                             </div>
@@ -90,12 +93,27 @@
 
                             <div class="donation_wrapper">
                                 <div class="bottom-box">
-                                    <div class="btns">
+                                    @if ($project->project_status == 'Executed' || $project->achieved < $project->budget)
+                                        {{-- <a class="btn-one" href="/project-details?project={{ $project->id }}">
+                                            <span class="txt">
+                                                <i class="arrow1 fa fa-check-circle"></i>
+                                                Read More
+                                            </span>
+                                        </a> --}}
+                                    @else
+                                        <button class="btn-one" data-toggle="modal" data-target="#myModal">
+                                            <span class="txt">
+                                                <i class="arrow1 fa fa-check-circle"></i>
+                                                Donate Now
+                                            </span>
+                                        </button>
+                                    @endif
+                                    {{-- <div class="btns">
                                         <button class="btn-one" data-toggle="modal" data-target="#myModal">
                                             <span class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
                                                 Now</span>
                                         </button>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
                             </div>

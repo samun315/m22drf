@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('frontend_title', 'Our Valued Members')
+@section('frontend_title', 'Chairman Message')
 
 @section('frontend_main_content')
 
@@ -28,14 +28,14 @@
                             </div>
                         </div>
                         <div class="title">
-                            <h2>Our Valued Members</h2>
+                            <h2>Chairman Message</h2>
                         </div>
                         <div class="border-box"></div>
                         <div class="breadcrumb-menu">
                             <ul>
                                 <li><a href="/">Home</a></li>
                                 <li><span class="flaticon-right-arrow"></span></li>
-                                <li class="active">Our Valued Members</li>
+                                <li class="active">Chairman Message</li>
                             </ul>
                         </div>
                     </div>
@@ -45,31 +45,49 @@
     </section>
     <!--End breadcrumb area-->
 
-    <section class="team-style2-area">
+    <section class="team-style2-area bg-white">
         <div class="container">
             <div class="row">
+                <!--Start Single Team Style2-->
+                <div class="col-xl-4 col-lg-4">
 
-                @foreach ($members as $member)
-                    <div class="col-xl-4 col-lg-4">
-                        <div class="single-team-style2">
-                            <div class="img-holder">
-                                <div class="inner">
-                                    <img style="height:320px;" src="{{ asset('uploads/member/' . $member->passport_photo) }}" alt="Member Photo">
-                                </div>
-                            </div>
-                            <div class="title-holder">
-                                <a href="/member-details/{{ $member->id }}"><h4>{{ $member->user_name }}</h4></a>
-                                <p>{{ $member->present_job }}</p>
+                </div>
+                <!--End Single Team Style2-->
+                <!--Start Single Team Style2-->
+                <div class="col-xl-4 col-lg-4">
+                    <div class="single-team-style2">
+                        <div class="img-holder">
+                            <div class="inner">
+                                <img width="360px" height="320px" src="{{ asset('uploads/member/' . $chairman_message->passport_photo) }}"
+                                    alt="Photo">
                             </div>
                         </div>
+                        <div class="title-holder">
+                            <h4>{{ $chairman_message->user_name }}</h4>
+                            <p>{{ $chairman_message->present_job }}</p>
+                        </div>
                     </div>
-                @endforeach
+                </div>
+                <!--End Single Team Style2-->
+                <!--Start Single Team Style2-->
+                <div class="col-xl-4 col-lg-4">
+
+                </div>
+                <!--End Single Team Style2-->
+                <div class="row">
+                    <div class="col-xl-12 text-justify bg-white">
+                        <p style="font-family:Georgia,serif; font-size:18px">
+                            {!! $chairman_message->about_your_self !!}
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+
     <!--Start About Style2 Area-->
-    <section class="about-style2-area pd120-0-0">
+    <section class="about-style2-area">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
