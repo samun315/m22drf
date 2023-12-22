@@ -54,3 +54,5 @@ Route::get('what-makes-us-apart', [FrontendController::class, 'whatMakesUsApart'
 //programs
 Route::get('all-programs', [FrontendController::class, 'program'])->name('frontend.program');
 Route::get('program-details', [FrontendController::class, 'programDetails'])->name('frontend.programDetails');
+Route::get('how-we-help', [FrontendController::class, 'howWeHelp'])->name('frontend.howWeHelp');
+

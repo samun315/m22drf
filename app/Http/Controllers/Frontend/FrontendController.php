@@ -290,4 +290,10 @@ class FrontendController extends Controller
         //dd($project_query);
         return view('frontend.program.details', $data);
     }
+
+    public function howWeHelp()
+    {
+
+        return view('frontend.about.howWeHelp');
+    }
 }
