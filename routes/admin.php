@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectFollowUpController;
 use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\SummernoteController;
 use App\Http\Controllers\Admin\VolunteerController;
 use Illuminate\Support\Facades\Route;
 
@@ -206,4 +207,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
 
     //Admin Gallery
     Route::get('admin/photo-gallery', [GalleryController::class, 'index'])->name('admin.photoGallery.index');
+
+    //All Common Summernote Image Upload
+    Route::post('/summernote-upload-image', [SummernoteController::class, 'uploadImage'])->name('admin.summernote.uploadImage');
 });
