@@ -61,7 +61,7 @@
                     @include('message')
 
                     <!--begin::Form-->
-                    <form class="form" method="POST" id="kt_slider_form" enctype="multipart/form-data"
+                    <form class="form" method="POST" enctype="multipart/form-data"
                         action="{{ isset($editModeData) ? route('admin.quotes.update', $editModeData->id) : route('admin.quotes.store') }}">
                         @csrf
 
@@ -70,7 +70,7 @@
 
                             <input type="text" hidden name="quote_id" value="{{ $editModeData->id }}">
                         @endisset
-
+                        <input type="hidden" id="token" name="token" value="{{ csrf_token() }}" />
                         <div class="row mb-5">
 
                             <div class="col-md-6 fv-row mb-5">
@@ -142,7 +142,7 @@
 
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid ckeditor" placeholder="Enter details" name="details"
+                                <textarea class="form-control form-control-solid ckeditor"  id="ckeditor" data-editor="ClassicEditor" placeholder="Enter details" name="details"
                                     data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
                                 @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
@@ -168,11 +168,38 @@
 @endsection
 
 @section('page_scripts')
-    <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/12.3.0/classic/ckeditor.js"></script> --}}
+    <script src="{{asset('assets/js/ckeditor.js')}}"></script>
 
     <script type="text/javascript">
+        // ClassicEditor
+        //     .create( document.querySelector( '#ckeditor' ) )
+        //     .catch( error => {
+        //         console.error( error );
+        //     } );
+        var token = $("#token").val();
+
+        ClassicEditor
+            .create(document.querySelector("#ckeditor"), {
+                ckfinder: {
+                    uploadUrl: "ckeditor-upload-image?_token=" + token,
+                }
+            })
+            .then(editor => {
+                console.log(editor);
+                //CKEDITOR[optioncId] = editor;
+                //$(optioncId).prop('required', false);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+
+
         $(document).ready(function() {
-            $('.ckeditor').ckeditor();
+            //alert("hello")
+            //$('.ckeditor').ckeditor();
+
         });
     </script>
 @endsection

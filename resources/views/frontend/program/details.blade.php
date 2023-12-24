@@ -74,9 +74,10 @@
                         </div>
 
                         <div class="cause-details-text-box-1">
-                            <p>
-                                {!! $program->details !!}
-                            </p>
+                            <?php echo $program->details ?>
+                            {{-- <p> --}}
+                                {{-- {!! $program->details !!} --}}
+                            {{-- </p> --}}
                         </div>
                     </div>
                 </div>

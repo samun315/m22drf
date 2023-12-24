@@ -9,6 +9,7 @@
 @endif
 
 @section('main-content')
+
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
         <div id="kt_content_container" class="container-fluid">
@@ -164,19 +165,59 @@
 
 
 @section('page_scripts')
+    {{-- <script src="{{asset('assets/js/ckeditor.js')}}"></script> --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/super-build/ckeditor.js"></script>
 
     <script>
-        //ckeditor
-        ClassicEditor.create(document.querySelector('#ckeditor'), {
-                ckfinder: {
-                    uploadUrl: "{{ route('admin.blog.ckeditor.uploadImage') . '?_token=' . csrf_token() }}"
-                }
-            })
-            .then(editor => {
-                console.log(editor);
-            }).catch(error => {
-                console.error(error);
-            });
+        var token = $("#token").val();
+
+        CKEDITOR.ClassicEditor.create(document.querySelector("#ckeditor"), {
+            ckfinder: {
+                uploadUrl: "{{ route('admin.blog.ckeditor.uploadImage') . '?_token=' . csrf_token() }}",
+            },
+            removePlugins: [
+                    // These two are commercial, but you can try them out without registering to a trial.
+                    // 'ExportPdf',
+                    // 'ExportWord',
+                    'AIAssistant',
+                    'CKBox',
+                    'CKFinder',
+                    //'EasyImage',
+                    // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
+                    // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
+                    // Storing images as Base64 is usually a very bad idea.
+                    // Replace it on production website with other solutions:
+                    // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
+                    // 'Base64UploadAdapter',
+                    'RealTimeCollaborativeComments',
+                    'RealTimeCollaborativeTrackChanges',
+                    'RealTimeCollaborativeRevisionHistory',
+                    'PresenceList',
+                    'Comments',
+                    'TrackChanges',
+                    'TrackChangesData',
+                    'RevisionHistory',
+                    'Pagination',
+                    'WProofreader',
+                    // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
+                    // from a local file system (file://) - load this site via HTTP server if you enable MathType.
+                    'MathType',
+                    // The following features are part of the Productivity Pack and require additional license.
+                    'SlashCommand',
+                    'Template',
+                    'DocumentOutline',
+                    'FormatPainter',
+                    'TableOfContents',
+                    'PasteFromOfficeEnhanced'
+                ]
+        })
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+
     </script>
 
 @endsection

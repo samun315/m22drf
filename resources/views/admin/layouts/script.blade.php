@@ -20,9 +20,9 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="{{ asset('assets/backend/js/custom/datetimepicker/datetimepicker.js') }}"></script>
-
+{{-- <script src="{{asset('assets/js/ckeditor.js')}}"></script> --}}
 <!-- ckeditor -->
-<script src="{{ asset('assets/backend/plugins/ckeditor/ckeditor5_40.0.0_classic_ckeditor.js') }}"></script>
+{{-- <script src="{{ asset('assets/backend/plugins/ckeditor/ckeditor5_40.0.0_classic_ckeditor.js') }}"></script> --}}
 
 <script>
     $(".alert-success").delay(2000).fadeOut("slow");

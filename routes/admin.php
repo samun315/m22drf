@@ -210,4 +210,5 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
 
     //All Common Summernote Image Upload
     Route::post('/summernote-upload-image', [SummernoteController::class, 'uploadImage'])->name('admin.summernote.uploadImage');
+    Route::post('/ckeditor-upload-image', [SummernoteController::class, 'editor_image_upload'])->name('admin.ckeditor.uploadImage');
 });

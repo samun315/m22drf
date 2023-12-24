@@ -87,4 +87,22 @@ class SummernoteController extends Controller
             'width' => $width
         ];
     }
+
+    public function editor_image_upload(Request $request)
+    {
+        if ($request->hasFile('upload')) {
+
+            $originalName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originalName, PATHINFO_FILENAME);
+            $extention = $request->file('upload')->getClientOriginalExtension();
+
+            $fileName = $fileName . '-' . time() . '.' . $extention;
+
+            $request->file('upload')->move(public_path('uploads/ckeditorImages/'), $fileName);
+
+            $url = asset('uploads/ckeditorImages/' . $fileName);
+
+            return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
+        }
+    }
 }
