@@ -60,9 +60,18 @@
                     <a class="menu-link {{ request()->is('member/*') ? 'active' : '' }}"
                         href="{{ route('admin.member.index') }}">
                         <span class="menu-icon">
-                            <i class="bi bi-people fs-3 text-success"></i>
+                            <i class="bi bi-people fs-3 text-warning"></i>
                         </span>
                         <span class="menu-title">Manage Member</span>
+                    </a>
+                </div>
+                <div class="menu-item">
+                    <a class="menu-link {{ request()->is('admin/volunteer/*') ? 'active' : '' }}"
+                        href="{{ route('admin.volunteer.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-people fs-3 text-success"></i>
+                        </span>
+                        <span class="menu-title">Manage Volunteer</span>
                     </a>
                 </div>
 
