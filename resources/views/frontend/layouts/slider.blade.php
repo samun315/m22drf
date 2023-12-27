@@ -19,7 +19,7 @@
                                     <p>{!! $slider->description !!}</p>
                                 </div>
                                 <div class="btns-box">
-                                    <a class="btn-one btn-one-style2" href="/about-us">
+                                    <a class="btn-one btn-one-style2" href="/how-we-help">
                                         <span class="txt"><i class="arrow1 fa fa-check-circle"></i>how we
                                             help</span>
                                     </a>

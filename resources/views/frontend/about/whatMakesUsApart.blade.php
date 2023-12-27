@@ -87,7 +87,7 @@
                                                                     <div class="mission-vision-image-box1">
                                                                         <img loading="lazy" decoding="async" width="400"
                                                                             height="435"
-                                                                            src="assets/frontend/images/mission-vission/mission.jpg"
+                                                                            src="assets/frontend/images/mission-vission/vission.jpeg"
                                                                             class="attachment-full size-full"
                                                                             alt="">
                                                                     </div>
@@ -112,7 +112,7 @@
                                                                     <div class="mission-vision-image-box1">
                                                                         <img loading="lazy" decoding="async" width="400"
                                                                             height="435"
-                                                                            src="assets/frontend/images/mission-vission/vission.jpeg"
+                                                                            src="assets/frontend/images/mission-vission/mission.jpg"
                                                                             class="attachment-full size-full"
                                                                             alt="">
                                                                     </div>
@@ -175,7 +175,7 @@
                                                                     <div class="mission-vision-image-box1">
                                                                         <img loading="lazy" decoding="async"
                                                                             width="400" height="435"
-                                                                            src="assets/frontend/images/mission-vission/objectives.jpeg"
+                                                                            src="assets/frontend/images/mission-vission/objectives.png"
                                                                             class="attachment-full size-full"
                                                                             alt="">
                                                                     </div>
