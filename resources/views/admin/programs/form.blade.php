@@ -8,6 +8,10 @@
     @section('toolbarTitle', 'Create Programs')
 @endif
 
+@section('page_style')
+    <link rel="stylesheet" href="{{ asset('assets/backend/plugins/summernote/summernote-bs4.css') }}">
+@endsection
+
 @section('main-content')
 
     <div class="post d-flex flex-column-fluid" id="kt_post">
@@ -138,7 +142,7 @@
 
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid" id="ckeditor" placeholder="Enter details" name="details"
+                                <textarea class="form-control form-control-solid summernote2" placeholder="Enter details" name="details"
                                     data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
                                 @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
@@ -165,59 +169,51 @@
 
 
 @section('page_scripts')
-    {{-- <script src="{{asset('assets/js/ckeditor.js')}}"></script> --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/super-build/ckeditor.js"></script>
+    <script src="{{ asset('assets/backend/plugins/summernote/summernote-bs4.js') }}"></script>
 
     <script>
-        var token = $("#token").val();
+        let IRLS = [];
+        $(document).ready(function() {
 
-        CKEDITOR.ClassicEditor.create(document.querySelector("#ckeditor"), {
-            ckfinder: {
-                uploadUrl: "{{ route('admin.blog.ckeditor.uploadImage') . '?_token=' . csrf_token() }}",
-            },
-            removePlugins: [
-                    // These two are commercial, but you can try them out without registering to a trial.
-                    // 'ExportPdf',
-                    // 'ExportWord',
-                    'AIAssistant',
-                    'CKBox',
-                    'CKFinder',
-                    //'EasyImage',
-                    // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
-                    // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
-                    // Storing images as Base64 is usually a very bad idea.
-                    // Replace it on production website with other solutions:
-                    // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
-                    // 'Base64UploadAdapter',
-                    'RealTimeCollaborativeComments',
-                    'RealTimeCollaborativeTrackChanges',
-                    'RealTimeCollaborativeRevisionHistory',
-                    'PresenceList',
-                    'Comments',
-                    'TrackChanges',
-                    'TrackChangesData',
-                    'RevisionHistory',
-                    'Pagination',
-                    'WProofreader',
-                    // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
-                    // from a local file system (file://) - load this site via HTTP server if you enable MathType.
-                    'MathType',
-                    // The following features are part of the Productivity Pack and require additional license.
-                    'SlashCommand',
-                    'Template',
-                    'DocumentOutline',
-                    'FormatPainter',
-                    'TableOfContents',
-                    'PasteFromOfficeEnhanced'
-                ]
-        })
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
+            $('.summernote2').summernote({
+                placeholder: 'Write here...',
+                tabsize: 2,
+                height: 400,
+                callbacks: {
+                    onImageUpload: function(image) {
+                        sendFile(image[0]);
+                    },
+                    onMediaDelete: function(target) {
+                        removeFile(target[0].src)
+                    },
+                }
+            });
+
+            function sendFile(file, editor, welEditable) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                data = new FormData();
+                data.append("file", file); //You can append as many data as you want. Check mozilla docs for this
+                $.ajax({
+                    data: data,
+                    type: "POST",
+                    url: "{{ route('admin.summernote.uploadImage') . '?_token=' . csrf_token() }}",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(url) {
+                        $('.summernote2').summernote('editor.insertImage', url);
+                    }
+                });
+            }
+
+            function removeFile(file, editor, welEditable) {
+                IRLS.push(file)
+            }
         });
-
     </script>
 
 @endsection

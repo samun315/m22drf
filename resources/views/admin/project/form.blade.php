@@ -8,6 +8,10 @@
     @section('toolbarTitle', 'Create Project')
 @endif
 
+@section('page_style')
+    <link rel="stylesheet" href="{{ asset('assets/backend/plugins/summernote/summernote-bs4.css') }}">
+@endsection
+
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
@@ -156,10 +160,12 @@
                                 <select name="project_status"
                                     class="form-select form-select-solid @error('project_status') is-invalid @enderror"
                                     data-control="select2" data-hide-search="true" data-placeholder="Project Status">
-                                    <option {{ isset($editModeData) && $editModeData->project_status == 'Upcoming' ? 'selected' : '' }}
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->project_status == 'Upcoming' ? 'selected' : '' }}
                                         value="Upcoming">
                                         Upcoming</option>
-                                    <option {{ isset($editModeData) && $editModeData->project_status == 'Executed' ? 'selected' : '' }}
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->project_status == 'Executed' ? 'selected' : '' }}
                                         value="Executed">Executed
                                     </option>
                                 </select>
@@ -187,7 +193,7 @@
 
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid" id="ckeditor" placeholder="Enter details" name="details"
+                                <textarea class="form-control form-control-solid summernote2" placeholder="Enter details" name="details"
                                     data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
                                 @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
@@ -214,6 +220,8 @@
 
 @section('page_scripts')
 
+    <script src="{{ asset('assets/backend/plugins/summernote/summernote-bs4.js') }}"></script>
+
     <script>
         var i;
 
@@ -223,16 +231,47 @@
             dateFormat: "Y-m-d"
         });
 
-        //ckeditor
-        ClassicEditor.create(document.querySelector('#ckeditor'), {
-                ckfinder: {
-                    uploadUrl: "{{ route('admin.project.ckeditor.uploadImage') . '?_token=' . csrf_token() }}"
+        let IRLS = [];
+        $(document).ready(function() {
+
+            $('.summernote2').summernote({
+                placeholder: 'Write here...',
+                tabsize: 2,
+                height: 400,
+                callbacks: {
+                    onImageUpload: function(image) {
+                        sendFile(image[0]);
+                    },
+                    onMediaDelete: function(target) {
+                        removeFile(target[0].src)
+                    },
                 }
-            })
-            .then(editor => {
-                console.log(editor);
-            }).catch(error => {
-                console.error(error);
             });
+
+            function sendFile(file, editor, welEditable) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                data = new FormData();
+                data.append("file", file); //You can append as many data as you want. Check mozilla docs for this
+                $.ajax({
+                    data: data,
+                    type: "POST",
+                    url: "{{ route('admin.summernote.uploadImage') . '?_token=' . csrf_token() }}",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(url) {
+                        $('.summernote2').summernote('editor.insertImage', url);
+                    }
+                });
+            }
+
+            function removeFile(file, editor, welEditable) {
+                IRLS.push(file)
+            }
+        });
     </script>
 @endsection
