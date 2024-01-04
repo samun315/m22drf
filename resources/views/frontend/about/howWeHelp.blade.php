@@ -45,41 +45,30 @@
     </section>
     <!--End breadcrumb area-->
 
-    <section class="team-style2-area bg-white">
-        <div class="container">
-            <!--End Single Team Style2-->
-            <div class="row">
-                <div class="col-xl-12 text-justify bg-white">
-                    <h1>HOW WE HELP?</h1>
-                    {{-- <p style="font-family:Georgia,serif; font-size:18px">
-                        {!! $chairman_message->about_your_self !!}
-                    </p> --}}
-                    <ul style="list-style-type:circle">
-                        <li>M22 Doctors’ Foundation Sponsor, implement & Monitor all of its charity programs through a
-                            “Social -Entrepreneur” or “Community Volunteer Group” & They will operate the assigned projects.
-                        </li>
-                    </ul>
-
-                    <p style="font-family:Georgia,serif; font-size:18px">SELECTION CRITERIA OF THE “Social Entrepreneur or
-                        Community Volunteer Group”:</p>
-
-                    <ul>
-                        <li>Motivated by the vision of our foundation.</li>
-                        <li>Must be a trustworthy person or group bearing a good track record among the Neighbors and
-                            locality.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <!--Start About Style2 Area-->
-    <section class="about-style2-area">
+    <section class="about-style2-area bg-white">
         <div class="container">
             <div class="row">
-                <div class="col-xl-12">
+                <div class="col-xl-12" style="margin-top: 30px;">
 
+                    <h1>HOW WE HELP? <br><br></h1>
+
+                    <ul style="list-style-type:disc !important;">
+                        <li style="list-style-type:disc !important;" >M22 Doctors’ Foundation Sponsor, implement & Monitor all of its charity programs through a
+                            “Social -Entrepreneur” or “Community Volunteer Group” & They will operate the assigned projects. <br> <br>
+                        </li>
+                    </ul>
+
+                    <h6>SELECTION CRITERIA OF THE “Social Entrepreneur or
+                        Community Volunteer Group”: <br> <br></h6>
+
+                    <ul style="list-style-type:disc !important;">
+                        <li style="list-style-type:disc !important;">Motivated by the vision of our foundation.</li>
+                        <li style="list-style-type:disc !important;">Must be a trustworthy person or group bearing a good track record among the Neighbors and
+                            locality.</li>
+                    </ul>
                 </div>
             </div>
         </div>

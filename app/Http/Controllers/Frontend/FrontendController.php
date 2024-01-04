@@ -31,7 +31,7 @@ class FrontendController extends Controller
         $data['events']                 = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['blogs']                  = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['partners']               = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['volunteers']             = Volunteer::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['volunteers']             = Volunteer::orderBy('id', 'ASC')->where('status', 'YES')->get();
         $data['quotes']                 = Quote::orderBy('id', 'ASC')->where('status', 'YES')->get();
 
         //Setting Data
