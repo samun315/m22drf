@@ -1,8 +1,6 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Job\JobScheduleController;
-use App\Http\Controllers\Setting\SettingController;
 use App\Http\Controllers\User\LoginController;
 use App\Http\Controllers\User\PasswordChangeController;
 use App\Http\Controllers\User\RoleController;
@@ -20,9 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Login
+//Admin Login
 Route::get('admin-login', [LoginController::class, 'index'])->name('admin.show.login');
 Route::post('login-check', [LoginController::class, 'loginCheck'])->name('admin.login');
+
+//Member Login
+Route::get('member-login', [LoginController::class, 'showMemberLoginForm'])->name('member.show.login');
+Route::post('member-login-check', [LoginController::class, 'memberLoginCheck'])->name('member.login');
 
 //Private Routes
 Route::middleware(['preventBackHistory', 'admin'])->group(function () {
@@ -33,10 +35,6 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
     //password change
     Route::get('/user-password-change', [PasswordChangeController::class, 'showPasswordChangeForm'])->name('user.showPasswordChangeForm');
     Route::put('/user-password/update',  [PasswordChangeController::class, 'updateUserPassword'])->name('user.updateUserPassword');
-
-    //Setting Route
-    Route::get('setting', [SettingController::class, 'index'])->name('admin.setting');
-    Route::post('update-setting/{setting_id}', [SettingController::class, 'updateSetting'])->name('admin.updateSetting');
 
     //Access Control Routes
     Route::group(['prefix' => 'access-control'], function () {

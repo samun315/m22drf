@@ -3,7 +3,7 @@
 <!--begin::Head-->
 
 <head>
-    <title>Admin - Login </title>
+    <title>Member - Login </title>
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="{{ asset('assets/backend/media/logos/m22_logo.png') }}" />
     <!--begin::Fonts-->
@@ -32,9 +32,8 @@
                     <!--begin::Content-->
                     <div class="d-flex flex-row-fluid flex-column text-center p-10 pt-lg-20">
                         <!--begin::Logo-->
-                        <a href="/admin-login" class="py-9 mb-5">
+                        <a href="/member-login" class="py-9 mb-5">
                             <img alt="Logo" src="{{ asset('assets/backend/media/logos/m22_logo.png') }}" class="h-150px" />
-
                         </a>
                         <!--end::Logo-->
                         <!--begin::Title-->
@@ -67,7 +66,7 @@
                         @include('message')
 
                         <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form"
-                            action="{{ route('admin.login') }}" method="POST">
+                            action="{{ route('member.login') }}" method="POST">
                             @csrf
                             <!--begin::Heading-->
                             <div class="text-center mb-10">

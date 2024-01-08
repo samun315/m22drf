@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MemberRequest;
+use App\Models\Admin;
 use App\Models\Member;
 use App\Models\User;
 use Carbon\Carbon;
@@ -80,6 +81,11 @@ class MemberController extends Controller
             unset($input['_token']);
 
             $user =  User::create($userInputData);
+
+            unset($userInputData['role_type']);
+
+            $userInputData['role_id'] = 2; //For member role id
+            Admin::create($userInputData);
 
             $input['user_id'] = $user->id;
 
@@ -174,6 +180,7 @@ class MemberController extends Controller
             $member->update($input);
 
             User::where('id', $member->user_id)->update($userUpdateData);
+            Admin::where('email', $member->email)->update($userUpdateData);
 
             return redirect(route('admin.member.index'))->with('success', 'Member updated successfully.');
         } catch (\Exception $e) {

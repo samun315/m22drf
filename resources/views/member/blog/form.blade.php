@@ -86,7 +86,7 @@
                                     @foreach ($categories as $category)
                                         <option
                                             @isset($editModeData) {{ $editModeData->category_id == $category->id ? 'selected' : '' }} @endisset
-                                            value="{{ $category->id }}">{{ $category->name }}
+                                            value="{{ $category->id }}">{{ $category->title }}
                                         </option>
                                     @endforeach
                                 </select>

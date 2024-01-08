@@ -15,9 +15,9 @@ class MemberMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $role_id = session('logged_session_data.role_id');
+        $email = session('logged_session_data.email');
 
-        if (isset($role_id) == 2) {
+        if (isset($email) == 2) {
             return $next($request);
         } else {
             return redirect('/');

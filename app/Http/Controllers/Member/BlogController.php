@@ -18,7 +18,7 @@ class BlogController extends Controller
 
         $results = DB::table('blogs as a')
             ->select('a.*', 'b.name as category_name')
-            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+            ->leftJoin('blog_categories as b', 'a.category_id', '=', 'b.id')
             ->orderBy('id', 'DESC')
             ->where('a.created_by', $created_by)
             ->paginate(10);
@@ -28,7 +28,7 @@ class BlogController extends Controller
 
     public function create()
     {
-        $categories = DB::table('categories')->orderBy('id', 'DESC')->get();
+        $categories = DB::table('blog_categories')->orderBy('id', 'DESC')->get();
 
         return view('member.blog.form', compact('categories'));
     }
@@ -63,7 +63,7 @@ class BlogController extends Controller
 
     public function edit($id)
     {
-        $data['categories'] = DB::table('categories')->orderBy('id', 'DESC')->get();
+        $data['categories'] = DB::table('blog_categories')->orderBy('id', 'DESC')->get();
         $data['editModeData'] = Blog::findOrFail($id);
 
         return view('member.blog.form', $data);
