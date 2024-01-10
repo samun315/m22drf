@@ -40,8 +40,8 @@ class MemberController extends Controller
     public function memberBlogList()
     {
         $results = DB::table('blogs as a')
-            ->select('a.*', 'a.id as blog_id', 'b.name as category_name')
-            ->leftJoin('categories as b', 'a.category_id', '=', 'b.id')
+            ->select('a.*', 'a.id as blog_id', 'b.title as category_name')
+            ->leftJoin('blog_categories as b', 'a.category_id', '=', 'b.id')
             ->orderBy('id', 'DESC')
             ->where('a.blog_type', 'PRIVATE')
             ->paginate(10);
