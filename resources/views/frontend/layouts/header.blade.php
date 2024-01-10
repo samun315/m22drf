@@ -62,7 +62,7 @@
                                     <li class="dropdown"><a href="javascrip:void(0)">Project</a>
                                         <ul>
                                             <li><a href="/all-programs">All Programs</a></li>
-                                            <li><a href="/project">All Projects</a></li>
+                                            {{-- <li><a href="/project">All Projects</a></li> --}}
 
                                             @foreach ($programs as $project_category)
                                                 <li>
