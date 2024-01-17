@@ -473,7 +473,7 @@ if ($('.banner-carousel').length) {
         singleItem:true,
         smartSpeed: 500,
         autoplay: true,
-        autoplayTimeout:30000,
+        autoplayTimeout:15000,
         navText: [ '<span class="flaticon-left-arrow"></span>', '<span class="flaticon-right-arrow"></span>' ],
         responsive:{
             0:{

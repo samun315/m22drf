@@ -484,7 +484,7 @@
                                         </div>
                                     </div>
                                     <div class="title">
-                                        <h3>Love The World</h3>
+                                        <h3>Health And Education</h3>
                                     </div>
                                 </li>
                             </ul>
@@ -617,7 +617,7 @@
             <div class="row">
                 <div class="col-xl-6">
                     <div class="event-style1_image-box"
-                        style="background-image: url(assets/frontend/images/resources/event-style1-image.jpg);">
+                        style="background-image: url(assets/frontend/images/events/event-banner-image.jpeg);">
 
                     </div>
                 </div>
@@ -629,7 +629,7 @@
                                     <h3>Help With Featured Cause</h3>
                                 </div>
                             </div>
-                            <h2>Join Upcoming Events<br>Replays & Webinars</h2>
+                            <h2>Join Upcoming Events</h2>
                         </div>
 
                         <div class="inner-content">
