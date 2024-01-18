@@ -8,6 +8,10 @@
     @section('toolbarTitle', 'Create Quote')
 @endif
 
+@section('page_style')
+    <link rel="stylesheet" href="{{ asset('assets/backend/plugins/summernote/summernote-bs4.css') }}">
+@endsection
+
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
@@ -142,7 +146,7 @@
 
                             <div class="col-md-12 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Details</label>
-                                <textarea class="form-control form-control-solid ckeditor"  id="ckeditor" data-editor="ClassicEditor" placeholder="Enter details" name="details"
+                                <textarea class="form-control form-control-solid summernote2" placeholder="Enter details" name="details"
                                     data-kt-autosize="true">{{ $editModeData->details ?? old('details') }}</textarea>
                                 @error('details')
                                     <span class="text-danger mt-2">{{ $message }}</span>
@@ -168,38 +172,50 @@
 @endsection
 
 @section('page_scripts')
-    {{-- <script src="https://cdn.ckeditor.com/ckeditor5/12.3.0/classic/ckeditor.js"></script> --}}
-    <script src="{{asset('assets/js/ckeditor.js')}}"></script>
+    <script src="{{ asset('assets/backend/plugins/summernote/summernote-bs4.js') }}"></script>
 
-    <script type="text/javascript">
-        // ClassicEditor
-        //     .create( document.querySelector( '#ckeditor' ) )
-        //     .catch( error => {
-        //         console.error( error );
-        //     } );
-        var token = $("#token").val();
+    <script>
+        let IRLS = [];
+        $(document).ready(function() {
 
-        ClassicEditor
-            .create(document.querySelector("#ckeditor"), {
-                ckfinder: {
-                    uploadUrl: "ckeditor-upload-image?_token=" + token,
+            $('.summernote2').summernote({
+                placeholder: 'Write here...',
+                tabsize: 2,
+                height: 400,
+                callbacks: {
+                    onImageUpload: function(image) {
+                        sendFile(image[0]);
+                    },
+                    onMediaDelete: function(target) {
+                        removeFile(target[0].src)
+                    },
                 }
-            })
-            .then(editor => {
-                console.log(editor);
-                //CKEDITOR[optioncId] = editor;
-                //$(optioncId).prop('required', false);
-            })
-            .catch(error => {
-                console.error(error);
             });
 
+            function sendFile(file, editor, welEditable) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                data = new FormData();
+                data.append("file", file); //You can append as many data as you want. Check mozilla docs for this
+                $.ajax({
+                    data: data,
+                    type: "POST",
+                    url: "{{ route('admin.summernote.uploadImage') . '?_token=' . csrf_token() }}",
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(url) {
+                        $('.summernote2').summernote('editor.insertImage', url);
+                    }
+                });
+            }
 
-
-        $(document).ready(function() {
-            //alert("hello")
-            //$('.ckeditor').ckeditor();
-
+            function removeFile(file, editor, welEditable) {
+                IRLS.push(file)
+            }
         });
     </script>
 @endsection

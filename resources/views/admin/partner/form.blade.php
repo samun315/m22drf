@@ -8,6 +8,10 @@
     @section('toolbarTitle', 'Create Partner')
 @endif
 
+@section('page_style')
+    <link rel="stylesheet" href="{{ asset('assets/backend/plugins/summernote/summernote-bs4.css') }}">
+@endsection
+
 @section('main-content')
     <div class="post d-flex flex-column-fluid" id="kt_post">
         <!--begin::Container-->
