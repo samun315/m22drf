@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\QuoteController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SummernoteController;
 use App\Http\Controllers\Admin\VolunteerController;
+use App\Http\Controllers\Admin\FileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -211,4 +212,9 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
     //All Common Summernote Image Upload
     Route::post('/summernote-upload-image', [SummernoteController::class, 'uploadImage'])->name('admin.summernote.uploadImage');
     Route::post('/ckeditor-upload-image', [SummernoteController::class, 'editor_image_upload'])->name('admin.ckeditor.uploadImage');
+
+    //files
+    Route::group(['prefix' => 'admin/files'], function () {
+        Route::get('/index', [FileController::class, 'index'])->name('admin.files.index');
+    });
 });

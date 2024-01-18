@@ -16,6 +16,7 @@ class DashboardController extends Controller
         $data['project'] = DB::table('projects')->where('status', 'YES')->count();
         $data['event'] = DB::table('events')->where('status', 'YES')->count();
         $data['user'] = DB::table('users')->where('status', 'YES')->count();
+        $data['folders'] = DB::table('folders')->get();
 
         return view('admin.dashboard', $data);
     }

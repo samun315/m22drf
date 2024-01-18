@@ -66,6 +66,14 @@
                     </a>
                 </div>
             </div>
+            <div class="row gy-5 g-xl-8">
+                @foreach ($folders as $folder)
+                <div class="col-xl-3">
+                    <a href="{{route('admin.files.index', $folder->id)}}"><img src="{{asset('assets/images/folder-icon.png')}}" height="100px" width="120px"></a>
+                    <p>{{$folder->name}}</p>
+                </div>
+                @endforeach
+            </div>
         </div>
         <!--end::Container-->
     </div>
