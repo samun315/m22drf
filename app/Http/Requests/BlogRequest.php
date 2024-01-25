@@ -26,6 +26,7 @@ class BlogRequest extends FormRequest
         if (isset($this->blog_id)) {
 
             return [
+                'category_name'         => 'required',
                 'title'         => 'required',
                 'details'       => 'required',
                 // 'banner_img'    => 'required',
@@ -34,6 +35,7 @@ class BlogRequest extends FormRequest
         }
 
         return [
+            'category_name'         => 'required',
             'title'         => 'required',
             'details'       => 'required',
             'banner_img'    => 'required',

@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SummernoteController;
 use App\Http\Controllers\Admin\VolunteerController;
 use App\Http\Controllers\Admin\FileController;
+use App\Http\Controllers\Admin\ProjectGalleryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -180,6 +181,16 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/{volunteer_id}/edit', [VolunteerController::class, 'edit'])->name('admin.volunteer.edit');
         Route::put('/{volunteer_id}/update', [VolunteerController::class, 'update'])->name('admin.volunteer.update');
         Route::put('/update-status', [VolunteerController::class, 'updateStatus'])->name('admin.volunteer.update.status');
+    });
+
+    //project gallery
+    Route::group(['prefix' => 'admin/project-gallery'], function () {
+        Route::get('/index', [ProjectGalleryController::class, 'index'])->name('admin.project_gallery.index');
+        Route::get('/create', [ProjectGalleryController::class, 'create'])->name('admin.project_gallery.create');
+        Route::post('/store', [ProjectGalleryController::class, 'store'])->name('admin.project_gallery.store');
+        Route::get('/{project_gallery_id}/edit', [ProjectGalleryController::class, 'edit'])->name('admin.project_gallery.edit');
+        Route::put('/{project_gallery_id}/update', [ProjectGalleryController::class, 'update'])->name('admin.project_gallery.update');
+        Route::put('/update-status', [ProjectGalleryController::class, 'updateStatus'])->name('admin.project_gallery.update.status');
     });
 
     //Setting

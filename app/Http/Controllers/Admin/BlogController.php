@@ -68,8 +68,9 @@ class BlogController extends Controller
 
     public function update(BlogRequest $request, $id)
     {
-        $blog                  = Blog::findOrFail($id);
+        $blog                   = Blog::findOrFail($id);
         $input                  = $request->all();
+        $input['category_id']   = $request->category_name;
         $input['updated_by']    = session('logged_session_data.id');
         $input['updated_at']    = Carbon::now();
 
