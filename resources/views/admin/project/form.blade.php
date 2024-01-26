@@ -84,7 +84,7 @@
                                     <option value="">Select Program</option>
                                     @foreach ($programs as $program)
                                         <option
-                                            @isset($editModeData) {{ $editModeData->category_id == $program->id ? 'selected' : '' }} @endisset
+                                            @isset($editModeData) {{ $editModeData->program_id == $program->id ? 'selected' : '' }} @endisset
                                             value="{{ $program->id }}">{{ $program->name }}
                                         </option>
                                     @endforeach

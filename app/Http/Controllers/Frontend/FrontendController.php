@@ -13,6 +13,7 @@ use App\Models\MissionVissionSetting;
 use App\Models\Partner;
 use App\Models\Project;
 use App\Models\ProjectFollowUp;
+use App\Models\ProjectGallery;
 use App\Models\Quote;
 use App\Models\Slider;
 use App\Models\Volunteer;
@@ -164,7 +165,7 @@ class FrontendController extends Controller
     public function gallery()
     {
         $data['programs'] = Programs::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['projects'] = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['projects'] = ProjectGallery::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['events'] = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
 
         return view('frontend.gallery.index', $data);

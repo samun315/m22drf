@@ -77,13 +77,13 @@
 
                 @foreach ($projects as $project)
                     <div class="item projects col-lg-3 col-md-4 col-6 col-sm">
-                        <a href="{{ asset('uploads/project/' . $project->banner_img) }}" class="fancylight popup-btn"
+                        <a href="{{ asset('uploads/project_gallery/' . $project->image) }}" class="fancylight popup-btn"
                             data-fancybox-group="light">
 
                             <img style="width:263px; height:175px" class="img-fluid"
-                                src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="project">
+                                src="{{ asset('uploads/project_gallery/' . $project->image) }}" alt="project">
                         </a>
-                        <p class="text-center">{{ $project->title }}</p>
+                        <p class="text-center">{{ $project->caption }}</p>
                     </div>
                 @endforeach
 
