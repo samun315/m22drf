@@ -327,7 +327,7 @@
                 @if ($event->project_id == 0)
                     <div>
                         <div class="sec-title text-center">
-                            <h4> <a href="/event?project={{ $event_project->id }}">{{ $event_project->title }}</a>
+                            <h4> <a href="/event?project={{ $event->id }}">{{ $event->title }}</a>
                             </h4>
                         </div>
 
