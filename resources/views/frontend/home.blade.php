@@ -324,12 +324,9 @@
             </div>
 
             @foreach ($events as $event)
-                @if ($event->project_id == 0)
+                {{-- @if ($event->project_id == 0) --}}
                     <div>
-                        <div class="sec-title text-center">
-                            <h4> <a href="/event?project={{ $event->id }}">{{ $event->title }}</a>
-                            </h4>
-                        </div>
+
 
                         <div class="row">
                             <div class="col-xl-12">
@@ -386,10 +383,10 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                {{-- @endif --}}
             @endforeach
 
-            @foreach ($programs as $event_project)
+            {{-- @foreach ($programs as $event_project)
                 @php
                     $category_wise_events = \DB::table('events')
                         ->orderBy('id', 'DESC')
@@ -463,7 +460,7 @@
                         </div>
                     </div>
                 @endif
-            @endforeach
+            @endforeach --}}
 
         </div>
     </section>
