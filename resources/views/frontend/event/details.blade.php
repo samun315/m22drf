@@ -90,7 +90,7 @@
                         <div class="event-details-image-box">
                             <img src="{{ asset('uploads/event/' . $event->banner_img) }}" alt="">
                             <div class="category">
-                                <h6>{{ $event->category_name }}</h6>
+                                <h6>{{ $event->project_title }}</h6>
                             </div>
                         </div>
 

@@ -81,8 +81,8 @@ class FrontendController extends Controller
         }
 
         $data['event'] =  DB::table('events as a')
-            ->select('a.*', 'b.name as category_name')
-            ->leftJoin('programs as b', 'a.category_id', '=', 'b.id')
+            ->select('a.*', 'b.title as project_title')
+            ->leftJoin('projects as b', 'a.project_id', '=', 'b.id')
             ->where('a.id', $event_id)
             ->first();
 
