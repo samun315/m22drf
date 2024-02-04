@@ -323,6 +323,72 @@
                 <h2>UPCOMING EVENTS</h2>
             </div>
 
+            @foreach ($events as $event)
+                @if ($event->project_id == 0)
+                    <div>
+                        <div class="sec-title text-center">
+                            <h4> <a href="/event?project={{ $event_project->id }}">{{ $event_project->title }}</a>
+                            </h4>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
+                                    data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
+
+                                        <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
+                                            <div class="img-holder">
+                                                <div class="inner">
+                                                    <img style="width: 360px; height:300px"
+                                                        src="{{ asset('uploads/event/' . $event->banner_img) }}"
+                                                        alt="event image">
+                                                    <div class="overlay-icon">
+                                                        <a href="/event-details?event={{ $event->id }}"><span
+                                                                class="flaticon-plus"></span></a>
+                                                    </div>
+                                                </div>
+                                                <div class="date-box">
+                                                    <h2>{{ date('d', strtotime($event->date)) }}</h2>
+                                                    <p>{{ date('M', strtotime($event->date)) }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="text-holder">
+                                                <h3 class="blog-title">
+                                                    <a href="/event-details?event={{ $event->id }}">
+                                                        {{ \Illuminate\Support\Str::limit($event->title, 30) }}
+                                                    </a>
+                                                </h3>
+                                                <div class="text">
+                                                    <p>
+                                                        {{ \Illuminate\Support\Str::limit(strip_tags($event->details), 80) }}
+                                                    </p>
+                                                </div>
+
+                                                <hr>
+                                                <div class="text-center">
+                                                    <div class="event-time">
+                                                        <div class="text">
+                                                            <p>{{ $event->location }}</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="btns-box">
+                                                        <a class="btn-one"
+                                                            href="/event-details?event={{ $event->id }}">
+                                                            <span class="txt"><i
+                                                                    class="arrow1 fa fa-check-circle"></i>read more</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+
             @foreach ($programs as $event_project)
                 @php
                     $category_wise_events = \DB::table('events')
