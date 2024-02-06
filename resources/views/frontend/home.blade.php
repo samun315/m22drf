@@ -44,10 +44,10 @@
                                     </div>
                                     <div class="text-holder">
                                         <h3>Get Inspire And Help</h3>
-                                        <p>Nostrud temp exercitation duis laboris nisi utm aliquip sed duis aute.
+                                        <p>To donate money is not only the charity, ................
                                         </p>
                                         <div class="btns-box">
-                                            <a class="btn-one" href="/about-us"><span class="txt"><i
+                                            <a class="btn-one" href="/inspire-and-help"><span class="txt"><i
                                                         class="arrow1 fa fa-check-circle"></i>read more</span></a>
                                         </div>
                                     </div>
@@ -73,10 +73,10 @@
                                     </div>
                                     <div class="text-holder">
                                         <h3>Send Us Donations</h3>
-                                        <p>Nostrud temp exercitation duis laboris nisi utm aliquip sed duis aute.
+                                        <p>Donate for a good cause, make a small contribution, be a part of change………
                                         </p>
                                         <div class="btns-box">
-                                            <a class="btn-one" href="/about-us"><span class="txt"><i
+                                            <a class="btn-one" href="/send-us-donation"><span class="txt"><i
                                                         class="arrow1 fa fa-check-circle"></i>read more</span></a>
                                         </div>
                                     </div>
@@ -102,10 +102,10 @@
                                     </div>
                                     <div class="text-holder">
                                         <h3>Become A Volunteer</h3>
-                                        <p>Nostrud temp exercitation duis laboris nisi utm aliquip sed duis aute.
+                                        <p>Volunteer works give us a sense of achievement and purpose, thereby improve mental health and sense…
                                         </p>
                                         <div class="btns-box">
-                                            <a class="btn-one" href="/about-us"><span class="txt"><i
+                                            <a class="btn-one" href="/become-volunteer"><span class="txt"><i
                                                         class="arrow1 fa fa-check-circle"></i>read more</span></a>
                                         </div>
                                     </div>

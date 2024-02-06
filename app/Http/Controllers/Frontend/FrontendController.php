@@ -298,4 +298,26 @@ class FrontendController extends Controller
 
         return view('frontend.about.howWeHelp');
     }
+
+
+    public function inspireAndHelp()
+    {
+
+        return view('frontend.about.becomeVolunteer');
+    }
+
+    public function sendUsDonation()
+    {
+
+        return view('frontend.about.becomeVolunteer');
+    }
+
+    public function becomeVolunteer()
+    {
+
+        return view('frontend.about.becomeVolunteer');
+    }
+
+
+
 }

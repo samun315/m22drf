@@ -55,4 +55,7 @@ Route::get('what-makes-us-apart', [FrontendController::class, 'whatMakesUsApart'
 Route::get('all-programs', [FrontendController::class, 'program'])->name('frontend.program');
 Route::get('program-details', [FrontendController::class, 'programDetails'])->name('frontend.programDetails');
 Route::get('how-we-help', [FrontendController::class, 'howWeHelp'])->name('frontend.howWeHelp');
+Route::get('become-volunteer', [FrontendController::class, 'becomeVolunteer'])->name('frontend.becomeVolunteer');
+Route::get('send-us-donation', [FrontendController::class, 'sendUsDonation'])->name('frontend.sendUsDonation');
+Route::get('inspire-and-help', [FrontendController::class, 'inspireAndHelp'])->name('frontend.inspireAndHelp');
 
