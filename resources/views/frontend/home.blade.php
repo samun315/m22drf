@@ -16,7 +16,6 @@
                     <div class="inner">
                         <h3>We Change Your Life & World</h3>
                     </div>
-                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
                 <h2>Charity With Difference</h2>
             </div>
@@ -217,92 +216,66 @@
                     <div class="inner">
                         <h3>We Change Your Life & World</h3>
                     </div>
-                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
                 <h2>UPCOMING PROJECTS</h2>
             </div>
 
-            @foreach ($programs as $project_category)
-                <div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
+                        data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
 
-                    @php
-                        $category_wise_projects = \DB::table('projects')
-                            ->orderBy('id', 'DESC')
-                            ->where('program_id', $project_category->id)
-                            ->where('status', 'YES')
-                            ->where('project_status', 'Upcoming')
-                            ->get();
-                    @endphp
+                        @foreach ($upcoming_projects as $project)
+                            <div class="single-cause-style1">
+                                <div class="img-holder">
+                                    <img style="width: 380px; height:370px"
+                                        src="{{ asset('uploads/project/' . $project->banner_img) }}" alt="project">
+                                </div>
+                                <div class="text-holder">
+                                    <h3>
+                                        <a href="/project-details?project={{ $project->id }}">{{ $project->title }}</a>
+                                    </h3>
+                                    <p>
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($project->details), 50) }}
+                                    </p>
 
-                    @if (count($category_wise_projects) > 0)
-                        <div class="sec-title text-center">
-                            <h4> <a href="/project?program={{ $project_category->id }}">{{ $project_category->name }}</a>
-                            </h4>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
-                                    data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
-
-                                    @foreach ($category_wise_projects as $project)
-                                        <div class="single-cause-style1">
-                                            <div class="img-holder">
-                                                <img style="width: 380px; height:370px"
-                                                    src="{{ asset('uploads/project/' . $project->banner_img) }}"
-                                                    alt="project">
-                                            </div>
-                                            <div class="text-holder">
-                                                <h3>
-                                                    <a
-                                                        href="/project-details?project={{ $project->id }}">{{ $project->title }}</a>
-                                                </h3>
-                                                <p>
-                                                    {{ \Illuminate\Support\Str::limit(strip_tags($project->details), 50) }}
-                                                </p>
-
-                                                <div class="progress-levels progress-levels-style2">
-                                                    <!--Skill Box-->
-                                                    <div class="progress-box wow">
-                                                        <div class="inner count-box">
-                                                            <div class="bar">
-                                                                <div class="bar-innner">
-                                                                    <div class="bar-fill" data-percent="50"
-                                                                        title="Book">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="bottom-box">
-                                                                <div class="rate-box">
-                                                                    <p>Achieved<span>Tk {{ $project->achieved }}</span></p>
-                                                                    <p>Target<span>Tk {{ $project->budget }}</span></p>
-                                                                </div>
-                                                                <div class="skill-percent">
-                                                                    <span class="count-text" data-speed="3000"
-                                                                        data-stop="50">0</span>
-                                                                    <span class="percent">%</span>
-                                                                    <p class="outer-text">Pledged So Far</p>
-                                                                </div>
-                                                            </div>
+                                    <div class="progress-levels progress-levels-style2">
+                                        <!--Skill Box-->
+                                        <div class="progress-box wow">
+                                            <div class="inner count-box">
+                                                <div class="bar">
+                                                    <div class="bar-innner">
+                                                        <div class="bar-fill" data-percent="50" title="Book">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="btns-box">
-                                                    <button class="btn-one" data-toggle="modal"
-                                                        data-target="#myModal"><span class="txt"><i
-                                                                class="arrow1 fa fa-check-circle"></i>Donate
-                                                            Now</span></button>
+                                                <div class="bottom-box">
+                                                    <div class="rate-box">
+                                                        <p>Achieved<span>Tk {{ $project->achieved }}</span></p>
+                                                        <p>Target<span>Tk {{ $project->budget }}</span></p>
+                                                    </div>
+                                                    <div class="skill-percent">
+                                                        <span class="count-text" data-speed="3000"
+                                                            data-stop="50">0</span>
+                                                        <span class="percent">%</span>
+                                                        <p class="outer-text">Pledged So Far</p>
+                                                    </div>
                                                 </div>
-
                                             </div>
                                         </div>
-                                    @endforeach
+                                    </div>
+                                    <div class="btns-box">
+                                        <button class="btn-one" data-toggle="modal" data-target="#myModal"><span
+                                                class="txt"><i class="arrow1 fa fa-check-circle"></i>Donate
+                                                Now</span></button>
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
-                    @endif
+                        @endforeach
+                    </div>
                 </div>
-            @endforeach
+            </div>
 
         </div>
     </section>
@@ -318,149 +291,64 @@
                     <div class="inner">
                         <h3>We Change Your Life & World</h3>
                     </div>
-                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
+
                 </div>
                 <h2>UPCOMING EVENTS</h2>
             </div>
 
-            @foreach ($events as $event)
-                {{-- @if ($event->project_id == 0) --}}
-                    <div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
+                        data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
+                        @foreach ($events as $event)
+                            <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
+                                <div class="img-holder">
+                                    <div class="inner">
+                                        <img style="width: 360px; height:300px"
+                                            src="{{ asset('uploads/event/' . $event->banner_img) }}" alt="event image">
+                                        <div class="overlay-icon">
+                                            <a href="/event-details?event={{ $event->id }}"><span
+                                                    class="flaticon-plus"></span></a>
+                                        </div>
+                                    </div>
+                                    <div class="date-box">
+                                        <h2>{{ date('d', strtotime($event->date)) }}</h2>
+                                        <p>{{ date('M', strtotime($event->date)) }}</p>
+                                    </div>
+                                </div>
+                                <div class="text-holder">
+                                    <h3 class="blog-title">
+                                        <a href="/event-details?event={{ $event->id }}">
+                                            {{ \Illuminate\Support\Str::limit($event->title, 30) }}
+                                        </a>
+                                    </h3>
+                                    <div class="text">
+                                        <p>
+                                            {{ \Illuminate\Support\Str::limit(strip_tags($event->details), 80) }}
+                                        </p>
+                                    </div>
 
-
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
-                                    data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
-
-                                        <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
-                                            <div class="img-holder">
-                                                <div class="inner">
-                                                    <img style="width: 360px; height:300px"
-                                                        src="{{ asset('uploads/event/' . $event->banner_img) }}"
-                                                        alt="event image">
-                                                    <div class="overlay-icon">
-                                                        <a href="/event-details?event={{ $event->id }}"><span
-                                                                class="flaticon-plus"></span></a>
-                                                    </div>
-                                                </div>
-                                                <div class="date-box">
-                                                    <h2>{{ date('d', strtotime($event->date)) }}</h2>
-                                                    <p>{{ date('M', strtotime($event->date)) }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="text-holder">
-                                                <h3 class="blog-title">
-                                                    <a href="/event-details?event={{ $event->id }}">
-                                                        {{ \Illuminate\Support\Str::limit($event->title, 30) }}
-                                                    </a>
-                                                </h3>
-                                                <div class="text">
-                                                    <p>
-                                                        {{ \Illuminate\Support\Str::limit(strip_tags($event->details), 80) }}
-                                                    </p>
-                                                </div>
-
-                                                <hr>
-                                                <div class="text-center">
-                                                    <div class="event-time">
-                                                        <div class="text">
-                                                            <p>{{ $event->location }}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="btns-box">
-                                                        <a class="btn-one"
-                                                            href="/event-details?event={{ $event->id }}">
-                                                            <span class="txt"><i
-                                                                    class="arrow1 fa fa-check-circle"></i>read more</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <div class="event-time">
+                                            <div class="text">
+                                                <p>{{ $event->location }}</p>
                                             </div>
                                         </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {{-- @endif --}}
-            @endforeach
 
-            {{-- @foreach ($programs as $event_project)
-                @php
-                    $category_wise_events = \DB::table('events')
-                        ->orderBy('id', 'DESC')
-                        ->where('project_id', $event_project->id)
-                        ->where('status', 'YES')
-                        ->get();
-                @endphp
-
-                @if (count($category_wise_events) > 0)
-                    <div>
-                        <div class="sec-title text-center">
-                            <h4> <a href="/event?project={{ $event_project->id }}">{{ $event_project->title }}</a>
-                            </h4>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-xl-12">
-                                <div class="theme_carousel cause2-carousel owl-dot-style1 owl-theme owl-carousel"
-                                    data-options='{"loop": true, "margin": 40, "autoheight":true, "lazyload":true, "nav": false, "dots": true, "autoplay": true, "autoplayTimeout": 6000, "smartSpeed": 300, "responsive":{ "0" :{ "items": "1" }, "600" :{ "items" : "1" }, "768" :{ "items" : "1" } , "992":{ "items" : "2" }, "1200":{ "items" : "3" }}}'>
-
-                                    @foreach ($category_wise_events as $event)
-                                        <div class="single-blog-style1 wow fadeInUp" data-wow-duration="1500ms">
-                                            <div class="img-holder">
-                                                <div class="inner">
-                                                    <img style="width: 360px; height:300px"
-                                                        src="{{ asset('uploads/event/' . $event->banner_img) }}"
-                                                        alt="event image">
-                                                    <div class="overlay-icon">
-                                                        <a href="/event-details?event={{ $event->id }}"><span
-                                                                class="flaticon-plus"></span></a>
-                                                    </div>
-                                                </div>
-                                                <div class="date-box">
-                                                    <h2>{{ date('d', strtotime($event->date)) }}</h2>
-                                                    <p>{{ date('M', strtotime($event->date)) }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="text-holder">
-                                                <h3 class="blog-title">
-                                                    <a href="/event-details?event={{ $event->id }}">
-                                                        {{ \Illuminate\Support\Str::limit($event->title, 30) }}
-                                                    </a>
-                                                </h3>
-                                                <div class="text">
-                                                    <p>
-                                                        {{ \Illuminate\Support\Str::limit(strip_tags($event->details), 80) }}
-                                                    </p>
-                                                </div>
-
-                                                <hr>
-                                                <div class="text-center">
-                                                    <div class="event-time">
-                                                        <div class="text">
-                                                            <p>{{ $event->location }}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="btns-box">
-                                                        <a class="btn-one"
-                                                            href="/event-details?event={{ $event->id }}">
-                                                            <span class="txt"><i
-                                                                    class="arrow1 fa fa-check-circle"></i>read more</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        <div class="btns-box">
+                                            <a class="btn-one" href="/event-details?event={{ $event->id }}">
+                                                <span class="txt"><i class="arrow1 fa fa-check-circle"></i>read
+                                                    more</span>
+                                            </a>
                                         </div>
-                                    @endforeach
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endif
-            @endforeach --}}
+                </div>
+            </div>
 
         </div>
     </section>
@@ -474,7 +362,6 @@
                     <div class="inner">
                         <h3>We Change Your Life & World</h3>
                     </div>
-                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
                 <h2>Our Mission & Goals</h2>
             </div>
@@ -638,7 +525,6 @@
                     <div class="inner">
                         <h3>We Change Your Life & World</h3>
                     </div>
-                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
                 <h2>Meet Our Volunteers</h2>
             </div>
@@ -795,7 +681,6 @@
                     <div class="inner">
                         <h3>We Change Your Life &amp; World</h3>
                     </div>
-                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
                 <h2>News & Happenings</h2>
             </div>
@@ -851,7 +736,6 @@
                     <div class="inner">
                         <h3>We Change Your Life &amp; World</h3>
                     </div>
-                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
                 <h2>Our Partner Organization</h2>
             </div>
@@ -862,7 +746,8 @@
                     @if ($partner_organization->partner_type == 'Partner Organization')
                         <li class="single-partner-logo-box">
                             <a href="javascript:void(0)"><img style="width: 250px; height:130px"
-                                    src="{{ asset('uploads/partner/' . $partner_organization->image) }}" alt="Partner Logo"></a>
+                                    src="{{ asset('uploads/partner/' . $partner_organization->image) }}"
+                                    alt="Partner Logo"></a>
                         </li>
                     @endif
                 @endforeach
@@ -883,7 +768,6 @@
                     <div class="inner">
                         <h3>We Change Your Life &amp; World</h3>
                     </div>
-                    <div class="outer"><img src="assets/frontend/images/icon/loveicon.png" alt=""></div>
                 </div>
                 <h2>Our Valued Sponsor</h2>
             </div>
@@ -915,12 +799,11 @@
 
                 @foreach ($partners as $partner)
                     @if ($partner->partner_type == 'Valued Sponsor')
-                    <li class="single-partner-logo-box">
-                        <a href="javascript:void(0)"><img style="width: 250px; height:130px"
-                                src="{{ asset('uploads/partner/' . $partner->image) }}" alt="Partner Logo"></a>
-                    </li>
+                        <li class="single-partner-logo-box">
+                            <a href="javascript:void(0)"><img style="width: 250px; height:130px"
+                                    src="{{ asset('uploads/partner/' . $partner->image) }}" alt="Partner Logo"></a>
+                        </li>
                     @endif
-
                 @endforeach
 
             </ul>

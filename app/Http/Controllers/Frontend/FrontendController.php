@@ -28,8 +28,9 @@ class FrontendController extends Controller
         $data['sliders']                = Slider::orderBy('id', 'ASC')->where('status', 'YES')->get();
         $data['programs']               = Programs::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['projects']               = Project::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['upcoming_projects']      = Project::orderBy('id', 'DESC')->where('status', 'YES')->where('project_status', 'Upcoming')->get();
         $data['project_follow_ups']     = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
-        $data['events']                 = Event::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['events']                 = Event::orderBy('id', 'DESC')->where('status', 'YES')->where('event_status', 'Upcoming')->get();
         $data['blogs']                  = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['partners']               = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['volunteers']             = Volunteer::orderBy('id', 'ASC')->where('status', 'YES')->get();
