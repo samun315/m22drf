@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('frontend_title', 'How we help')
+@section('frontend_title', 'Get Inspire And Help')
 
 @section('frontend_main_content')
 
@@ -28,14 +28,14 @@
                             </div>
                         </div>
                         <div class="title">
-                            <h2>How We Help?</h2>
+                            <h2>Get Inspire And Help</h2>
                         </div>
                         <div class="border-box"></div>
                         <div class="breadcrumb-menu">
                             <ul>
                                 <li><a href="/">Home</a></li>
                                 <li><span class="flaticon-right-arrow"></span></li>
-                                <li class="active">How We Help</li>
+                                <li class="active">Get Inspire And Help</li>
                             </ul>
                         </div>
                     </div>
@@ -51,23 +51,46 @@
     <section class="about-style2-area bg-white">
         <div class="container">
             <div class="row">
+                <div class="col-xl-4"></div>
+                <div class="col-xl-4" style="margin-top: 30px;">
+                    <h6 class="text-center">To donate money is not only the CHARITY, <br> because “Every good act is a CHARITY”</h6>
+                </div>
+                <div class="col-xl-4"></div>
+            </div>
+            <div class="row">
+
                 <div class="col-xl-12" style="margin-top: 30px;">
 
-                    <h1>HOW WE HELP? <br><br></h1>
+                    <h6 class="text-center">DONATE YOUR <br><br> TIME, EFFORT, HOUSE HOLD COMMODITIES, FOOD, VEHICLE SUPPORT, LAND & MANY MORE <br>
+                        FOR A GOOD CAUSE</h6>
 
-                    <ul style="list-style-type:disc !important;">
-                        <li style="list-style-type:disc !important;" >M22 Doctors’ Foundation Sponsor, implement & Monitor all of its charity programs through a
-                            “Social -Entrepreneur” or “Community Volunteer Group” & They will operate the assigned projects. <br> <br>
-                        </li>
-                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                {{-- <div class="col-md-4"></div> --}}
+                <div class="col-xl-12" style="margin-top: 30px;">
 
-                    <h6>To donate money is not only the CHARITY, <br> because “Every good act is a CHARITY”</h6>
+                    <h6 class="text-center"><a href="/all-programs">Please go through our programs</a> </h6>
 
-                    <ul style="list-style-type:disc !important;">
-                        <li style="list-style-type:disc !important;">Motivated by the vision of our foundation.</li>
-                        <li style="list-style-type:disc !important;">Must be a trustworthy person or group bearing a good track record among the Neighbors and
-                            locality.</li>
-                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 d-flex justify-content-center" style="margin-top: 30px;">
+                    <div class="text-center justify-content-center">
+                        <div class="circle text-center">
+                            <p style="font-size: 35 px;  font-weight: 900; color:rgb(9, 14, 173)">Get <br> Inspired <br> & <br> Help</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                {{-- <div class="col-md-4"></div> --}}
+                <div class="col-xl-12" style="margin-top: 30px;">
+
+                    <h6 class="text-center">Contact Us: <a href="/contact-us">M22 Doctors’ Foundation</a></h6>
+
                 </div>
             </div>
         </div>

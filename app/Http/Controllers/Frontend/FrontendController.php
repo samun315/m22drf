@@ -303,7 +303,7 @@ class FrontendController extends Controller
     public function inspireAndHelp()
     {
 
-        return view('frontend.about.becomeVolunteer');
+        return view('frontend.about.inspireAndHelp');
     }
 
     public function sendUsDonation()
