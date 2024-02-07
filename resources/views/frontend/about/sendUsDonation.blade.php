@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('frontend_title', 'How we help')
+@section('frontend_title', 'Send Us Donation')
 
 @section('frontend_main_content')
 
@@ -28,14 +28,14 @@
                             </div>
                         </div>
                         <div class="title">
-                            <h2>How We Help?</h2>
+                            <h2>Send Us Donation</h2>
                         </div>
                         <div class="border-box"></div>
                         <div class="breadcrumb-menu">
                             <ul>
                                 <li><a href="/">Home</a></li>
                                 <li><span class="flaticon-right-arrow"></span></li>
-                                <li class="active">How We Help</li>
+                                <li class="active">Send Us Donation</li>
                             </ul>
                         </div>
                     </div>
@@ -52,23 +52,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-xl-12" style="margin-top: 30px;">
+                    <h6 class="text-center">Donate for a Good Cause, Make a small contribution be a part of change
+                        <br>Let’s work together to develop a <br><br> <b>"Sustainable Community Welfare"</b></h6>
+                </div>
+                <div class="col-xl-4"></div>
+            </div>
+            <div class="row">
 
-                    <h1>HOW WE HELP? <br><br></h1>
+                <div class="col-xl-12" style="margin-top: 30px;">
 
-                    <ul style="list-style-type:disc !important;">
-                        <li style="list-style-type:disc !important;" >M22 Doctors’ Foundation Sponsor, implement & Monitor all of its charity programs through a
-                            “Social -Entrepreneur” or “Community Volunteer Group” & They will operate the assigned projects. <br> <br>
-                        </li>
-                    </ul>
+                    <div class="text-center justify-content-center">
+                        <a href="/"> <img style="width: 120px; height: 100px" src="/assets/frontend/logo/Picture2.png" alt="logo"></a>
+                    </div>
+                    <br>
+                    <h6 class="text-center">Join Our Mission</h6>
 
-                    <h6>SELECTION CRITERIA OF THE “Social Entrepreneur or
-                        Community Volunteer Group”: <br> <br></h6>
+                </div>
+            </div>
+            <div class="row">
+                {{-- <div class="col-md-4"></div> --}}
+                <div class="col-xl-12" style="margin-top: 30px;">
 
-                    <ul style="list-style-type:disc !important;">
-                        <li style="list-style-type:disc !important;">Motivated by the vision of our foundation.</li>
-                        <li style="list-style-type:disc !important;">Must be a trustworthy person or group bearing a good track record among the Neighbors and
-                            locality.</li>
-                    </ul>
+                    <h6 class="text-center"><a href="/all-programs">Please go through our programs</a> </h6>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 d-flex justify-content-center" style="margin-top: 30px;">
+                    <div class="text-center justify-content-center">
+                        <a href="/"> <img style="width: 150px; height: 150px" src="http://127.0.0.1:8000/assets/frontend/logo/m22 foundation logo.jpg" alt="logo"></a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                {{-- <div class="col-md-4"></div> --}}
+                <div class="col-xl-12" style="margin-top: 30px;">
+
+                    <h6 class="text-center"><a href="/contact-us">M22 Doctors’ Foundation</a></h6>
+
                 </div>
             </div>
         </div>

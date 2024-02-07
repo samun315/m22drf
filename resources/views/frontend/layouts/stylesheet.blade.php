@@ -87,5 +87,18 @@
         justify-content: center;
         align-items: center;
     }
+
+    .circle2 {
+        background-color: #aba6a6f0;
+        border: 5px solid rgb(25, 139, 3);
+        height: 300px;
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 </style>
 @yield('frontend_page_style')

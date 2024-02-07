@@ -1,6 +1,6 @@
 @extends('frontend.master')
 
-@section('frontend_title', 'How we help')
+@section('frontend_title', 'Become a Volunteer')
 
 @section('frontend_main_content')
 
@@ -28,14 +28,14 @@
                             </div>
                         </div>
                         <div class="title">
-                            <h2>How We Help?</h2>
+                            <h2>Become a Volunteer</h2>
                         </div>
                         <div class="border-box"></div>
                         <div class="breadcrumb-menu">
                             <ul>
                                 <li><a href="/">Home</a></li>
                                 <li><span class="flaticon-right-arrow"></span></li>
-                                <li class="active">How We Help</li>
+                                <li class="active">Become a Volunteer</li>
                             </ul>
                         </div>
                     </div>
@@ -51,24 +51,56 @@
     <section class="about-style2-area bg-white">
         <div class="container">
             <div class="row">
+                <div class="col-xl-12" style="margin-top: 45px;">
+                    <h6 class="text-center">Being a volunteer has lots of benefits. <br>
+                        Volunteer works give us a sense of achievement and purpose, <br>
+                        thereby improve mental health and sense of wellbeing. <br>
+                        It helps us feel part of a community.
+                        </h6>
+                </div>
+                <div class="col-xl-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 d-flex justify-content-center" style="margin-top: 45px;">
+                    <div class="text-center justify-content-center">
+                        <div class="circle2 text-center">
+                            <div>
+                                <h5>BECOME A FUNDRAISING <br> VOLUNTEER:</h5>
+                                <p>Help, raise money for M22 Doctors’ Foundation in your local community</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex justify-content-center" style="margin-top: 45px;">
+                    <div class="text-center justify-content-center">
+                        <div class="circle2 text-center">
+                            <div>
+                                <h5>BECOME A PROJECT ORGANIZER <br> FOR THE NEEDY</h5>
+                                <p>Inform us any help we can do at your locality</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {{-- <div class="col-md-4"></div> --}}
                 <div class="col-xl-12" style="margin-top: 30px;">
 
-                    <h1>HOW WE HELP? <br><br></h1>
+                    <h6 class="text-center"><a href="/all-programs">Please go through our programs</a> </h6>
 
-                    <ul style="list-style-type:disc !important;">
-                        <li style="list-style-type:disc !important;" >M22 Doctors’ Foundation Sponsor, implement & Monitor all of its charity programs through a
-                            “Social -Entrepreneur” or “Community Volunteer Group” & They will operate the assigned projects. <br> <br>
-                        </li>
-                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                {{-- <div class="col-md-4"></div> --}}
+                <div class="col-xl-12" style="margin-top: 50px;">
 
-                    <h6>SELECTION CRITERIA OF THE “Social Entrepreneur or
-                        Community Volunteer Group”: <br> <br></h6>
+                    <h6 class="text-center">CONTACT US to become a volunteer
+                        <a href="/contact-us">M22 Doctors’ Foundation</a> implement projects though a
+                        Community Volunteers’ Group
+                        </h6>
 
-                    <ul style="list-style-type:disc !important;">
-                        <li style="list-style-type:disc !important;">Motivated by the vision of our foundation.</li>
-                        <li style="list-style-type:disc !important;">Must be a trustworthy person or group bearing a good track record among the Neighbors and
-                            locality.</li>
-                    </ul>
                 </div>
             </div>
         </div>

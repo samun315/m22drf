@@ -309,7 +309,7 @@ class FrontendController extends Controller
     public function sendUsDonation()
     {
 
-        return view('frontend.about.becomeVolunteer');
+        return view('frontend.about.sendUsDonation');
     }
 
     public function becomeVolunteer()
