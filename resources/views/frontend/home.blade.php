@@ -859,8 +859,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <textarea class="form-control" placeholder="Enter address" name="address" rows="3"></textarea>
+                            <label for="address" class="form-label">Message</label>
+                            <textarea class="form-control" placeholder="Enter Message" name="address" rows="3"></textarea>
                         </div>
                     </div>
 

@@ -51,24 +51,36 @@
     <section class="about-style2-area bg-white">
         <div class="container">
             <div class="row">
-                <div class="col-xl-12" style="margin-top: 30px;">
+                <div class="col-xl-2"></div>
+                <div class="col-xl-8" style="margin-top: 30px;">
 
-                    <h1>HOW WE HELP? <br><br></h1>
+                    <h1 class="text-center">HOW WE HELP? <br><br></h1>
 
                     <ul style="list-style-type:disc !important;">
-                        <li style="list-style-type:disc !important;" >M22 Doctors’ Foundation Sponsor, implement & Monitor all of its charity programs through a
-                            “Social -Entrepreneur” or “Community Volunteer Group” & They will operate the assigned projects. <br> <br>
+                        <li style="list-style-type:disc !important;" >M22 Doctors’ Foundation Sponsor, Implement & Monitor all of its charity projects through a selected “Social -Entrepreneur” or “Community Volunteer Group”. <br> <br>
+                        </li>
+                        <li style="list-style-type:disc !important;" >The selected “Social -Entrepreneur” or “Community Volunteer Group” operate the project accordingly. <br> <br>
                         </li>
                     </ul>
 
-                    <h6>SELECTION CRITERIA OF THE “Social Entrepreneur or
-                        Community Volunteer Group”: <br> <br></h6>
+                    <h6 class="text-center"><a href="/all-programs">Please go through our programs</a> <br> & </h6>
+                    <h6 class="text-center"><a href="/all-programs">Become a Volunteer</a> <br><br><br> </h6>
+                    <div class="text-center">
+                        <div class="btn-box">
+                            <a class="btn-one" href="/contact-us"><span class="txt"><i class="arrow1 fa fa-check-circle"></i>CONTACT US</span></a>
+                        </div>
+                    </div>
 
-                    <ul style="list-style-type:disc !important;">
-                        <li style="list-style-type:disc !important;">Motivated by the vision of our foundation.</li>
-                        <li style="list-style-type:disc !important;">Must be a trustworthy person or group bearing a good track record among the Neighbors and
-                            locality.</li>
-                    </ul>
+                    <div class="text-center justify-content-center">
+                        <br><br>
+                        <a href="/"> <img style="width: 150px; height: 150px" src="http://127.0.0.1:8000/assets/frontend/logo/m22 foundation logo.jpg" alt="logo"></a>
+                        <br><br>
+                    </div>
+                    <h6 class="text-center"><a href="/all-programs">M22 Doctors’ Foundation</a> </h6>
+
+
+
+
                 </div>
             </div>
         </div>
