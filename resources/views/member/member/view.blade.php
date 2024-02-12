@@ -60,6 +60,16 @@
                                     <div class="text-gray-600">
                                         {{ $member->spouse_name }}
                                     </div>
+
+                                    <div class="fw-bolder mt-5">Member Status</div>
+                                    <div class="text-gray-600">
+                                        {{ $member->member_status }}
+                                    </div>
+
+                                    <div class="fw-bolder mt-5">Executive Status</div>
+                                    <div class="text-gray-600">
+                                        {{ $member->executive_status }}
+                                    </div>
                                 </div>
                             </div>
                             <!--end::Details content-->
@@ -94,6 +104,11 @@
                                     <div class="py-0">
 
                                         <div class="fs-6 ps-10">
+
+                                            <div class="fw-bolder mt-5">About your self</div>
+                                            <div class="text-gray-600">
+                                                {!! $member->about_your_self !!}
+                                            </div>
 
                                             <div class="fw-bolder mt-5">Present Address</div>
                                             <div class="text-gray-600">
