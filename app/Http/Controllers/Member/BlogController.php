@@ -17,7 +17,7 @@ class BlogController extends Controller
         $created_by = session('logged_session_data.id');
 
         $results = DB::table('blogs as a')
-            ->select('a.*', 'b.name as category_name')
+            ->select('a.*', 'b.title as category_name')
             ->leftJoin('blog_categories as b', 'a.category_id', '=', 'b.id')
             ->orderBy('id', 'DESC')
             ->where('a.created_by', $created_by)

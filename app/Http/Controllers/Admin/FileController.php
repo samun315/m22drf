@@ -13,13 +13,13 @@ use Illuminate\Support\Str;
 
 class FileController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        $results = DB::table('documents as a')
-            ->select('a.*', 'b.name as folder_name')
-            ->leftJoin('folders as b', 'a.folder_id', '=', 'b.id')
-            ->orderBy('id', 'DESC');
-
+        //dd($id);
+        //$results = DB::table('documents as a')
+        $results = DB::table('documents')->where('id', $id)->get();
+        //dd($results);
+        //print($results);
         return view('admin.document.file', ['results' => $results]);
     }
 

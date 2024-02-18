@@ -226,6 +226,6 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
 
     //files
     Route::group(['prefix' => 'admin/files'], function () {
-        Route::get('/index', [FileController::class, 'index'])->name('admin.files.index');
+        Route::get('/index/{id}', [FileController::class, 'index'])->name('admin.files.index');
     });
 });
