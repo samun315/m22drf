@@ -31,7 +31,7 @@ class FrontendController extends Controller
         $data['upcoming_projects']      = Project::orderBy('id', 'DESC')->where('status', 'YES')->where('project_status', 'Upcoming')->get();
         $data['project_follow_ups']     = ProjectFollowUp::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['events']                 = Event::orderBy('id', 'DESC')->where('status', 'YES')->where('event_status', 'Upcoming')->get();
-        $data['blogs']                  = Blog::orderBy('id', 'DESC')->where('status', 'YES')->get();
+        $data['blogs']                  = Blog::orderBy('id', 'DESC')->where('status', 'YES')->where('blog_type','PUBLIC')->get();
         $data['partners']               = Partner::orderBy('id', 'DESC')->where('status', 'YES')->get();
         $data['volunteers']             = Volunteer::orderBy('id', 'ASC')->where('status', 'YES')->get();
         $data['quotes']                 = Quote::orderBy('id', 'ASC')->where('status', 'YES')->get();
@@ -174,7 +174,7 @@ class FrontendController extends Controller
 
     public function blog()
     {
-        $results = DB::table('blogs')->orderBy('id', 'DESC')->paginate(10);
+        $results = DB::table('blogs')->where('status', 'YES')->where('blog_type','PUBLIC')->orderBy('id', 'DESC')->paginate(10);
 
         return view('frontend.blog.index', compact('results'));
     }
@@ -187,6 +187,7 @@ class FrontendController extends Controller
             ->select('a.*', 'b.title as category_name')
             ->leftJoin('blog_categories as b', 'a.category_id', '=', 'b.id')
             ->where('a.id', $blog_id)
+            ->where('blog_type','PUBLIC')
             ->first();
 
         $data['blog_categories'] = DB::table('blog_categories')->orderBy('id', 'DESC')->take(5)->get();
