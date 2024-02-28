@@ -100,6 +100,7 @@
                                         <div class="btn-group">
                                             <a href="{{ route('admin.slider.edit', $value->id) }}"
                                                class="btn btn-sm btn-primary">
+                                                Edit
                                             </a>
                                             <a href="" class="btn btn-danger btn-sm">Delete</a>
                                         </div>

@@ -13,7 +13,7 @@ class PasswordChangeController extends Controller
 {
     public function showPasswordChangeForm()
     {
-        return view('user.passwordChangeForm');
+        return view('admin.user.passwordChangeForm');
     }
 
     public function updateUserPassword(PasswordChangeRequest $request)
