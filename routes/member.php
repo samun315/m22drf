@@ -13,6 +13,7 @@ Route::middleware(['preventBackHistory', 'member'])->group(function () {
         Route::get('/create', [BlogController::class, 'create'])->name('member.blog.create');
         Route::post('/store', [BlogController::class, 'store'])->name('member.blog.store');
         Route::get('/{blog_id}/edit', [BlogController::class, 'edit'])->name('member.blog.edit');
+        Route::get('/{blog_id}/delete', [BlogController::class, 'delete'])->name('member.blog.delete');
         Route::put('/{blog_id}/update', [BlogController::class, 'update'])->name('member.blog.update');
         Route::put('/update-status', [BlogController::class, 'updateStatus'])->name('member.blog.update.status');
     });

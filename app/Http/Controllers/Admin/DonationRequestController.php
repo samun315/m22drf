@@ -8,6 +8,7 @@ use App\Models\Donation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Exception;
 
 class DonationRequestController extends Controller
 {
@@ -80,6 +81,16 @@ class DonationRequestController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Donation::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

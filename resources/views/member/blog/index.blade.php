@@ -98,11 +98,12 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{ route('admin.blog.edit', $value->id) }}"
+                                            <a href="{{ route('member.blog.edit', $value->id) }}"
                                                class="btn btn-primary btn-sm">
                                                 Edit
                                             </a>
-                                            <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                            <a href="{{ route('member.blog.delete', $value->id) }}"
+                                               class="btn btn-danger btn-sm">Delete</a>
                                         </div>
                                     </td>
                                 </tr>

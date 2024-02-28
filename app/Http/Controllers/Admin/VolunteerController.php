@@ -8,6 +8,7 @@ use App\Models\Volunteer;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use PHPUnit\Exception;
 
 class VolunteerController extends Controller
 {
@@ -101,6 +102,16 @@ class VolunteerController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Volunteer::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

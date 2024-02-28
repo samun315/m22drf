@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use PHPUnit\Exception;
 
 class MemberController extends Controller
 {
@@ -33,9 +34,9 @@ class MemberController extends Controller
 
     public function store(MemberRequest $request)
     {
-        $input                  = $request->all();
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $passport_photo_image = $request->file('passport_photo');
 
@@ -70,17 +71,17 @@ class MemberController extends Controller
         }
 
         //set user table data
-        $userInputData['name']          = $request->name;
-        $userInputData['email']         = $request->email;
-        $userInputData['phone_number']  = $request->phone_number;
-        $userInputData['role_type']     = "USER";
-        $userInputData['password']      = Hash::make('password'); //set default password for all member when registered by admin user
+        $userInputData['name'] = $request->name;
+        $userInputData['email'] = $request->email;
+        $userInputData['phone_number'] = $request->phone_number;
+        $userInputData['role_type'] = "USER";
+        $userInputData['password'] = Hash::make('password'); //set default password for all member when registered by admin user
 
         try {
 
             unset($input['_token']);
 
-            $user =  User::create($userInputData);
+            $user = User::create($userInputData);
 
             unset($userInputData['role_type']);
 
@@ -99,7 +100,7 @@ class MemberController extends Controller
 
     public function edit($id)
     {
-        $editModeData =  DB::table('member_details as a')
+        $editModeData = DB::table('member_details as a')
             ->select('a.*', 'b.id as user_id', 'b.name', 'b.email', 'b.phone_number',)
             ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
             ->where('a.id', $id)
@@ -110,10 +111,10 @@ class MemberController extends Controller
 
     public function update(MemberRequest $request, $id)
     {
-        $member                 = Member::findOrFail($id);
-        $input                  = $request->all();
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $member = Member::findOrFail($id);
+        $input = $request->all();
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $passport_photo_image = $request->file('passport_photo');
 
@@ -172,9 +173,9 @@ class MemberController extends Controller
         }
 
         //set user table data
-        $userUpdateData['name']          = $request->name;
-        $userUpdateData['email']         = $request->email;
-        $userUpdateData['phone_number']  = $request->phone_number;
+        $userUpdateData['name'] = $request->name;
+        $userUpdateData['email'] = $request->email;
+        $userUpdateData['phone_number'] = $request->phone_number;
 
         try {
             $member->update($input);
@@ -204,6 +205,16 @@ class MemberController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Member::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

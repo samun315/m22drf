@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use PHPUnit\Exception;
 
 class ProjectFollowUpController extends Controller
 {
@@ -134,6 +135,16 @@ class ProjectFollowUpController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            ProjectFollowUp::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

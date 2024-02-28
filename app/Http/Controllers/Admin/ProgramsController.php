@@ -8,6 +8,7 @@ use App\Models\Programs;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use PHPUnit\Exception;
 
 class ProgramsController extends Controller
 {
@@ -26,9 +27,9 @@ class ProgramsController extends Controller
     public function store(ProgramsRequest $request)
     {
 
-        $input                  = $request->all();
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $categoryImage = $request->file('image');
 
@@ -57,10 +58,10 @@ class ProgramsController extends Controller
 
     public function update(ProgramsRequest $request, $id)
     {
-        $programs               = Programs::findOrFail($id);
-        $input                  = $request->all();
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $programs = Programs::findOrFail($id);
+        $input = $request->all();
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $programsImage = $request->file('image');
 
@@ -99,6 +100,16 @@ class ProgramsController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Programs::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

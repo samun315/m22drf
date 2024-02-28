@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Exception;
 
 class ProjectController extends Controller
 {
@@ -34,10 +35,10 @@ class ProjectController extends Controller
 
     public function store(ProjectRequest $request)
     {
-        $input                  = $request->all();
-        $input['program_id']   = $request->program_name;
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['program_id'] = $request->program_name;
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $projectImage = $request->file('banner_img');
 
@@ -61,19 +62,19 @@ class ProjectController extends Controller
 
     public function edit($id)
     {
-        $data['editModeData']   = Project::findOrFail($id);
-        $data['programs']       = DB::table('programs')->orderBy('id', 'DESC')->get();
+        $data['editModeData'] = Project::findOrFail($id);
+        $data['programs'] = DB::table('programs')->orderBy('id', 'DESC')->get();
 
         return view('admin.project.form', $data);
     }
 
     public function update(ProjectRequest $request, $id)
     {
-        $project                = Project::findOrFail($id);
-        $input                  = $request->all();
-        $input['program_id']    = $request->program_name;
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $project = Project::findOrFail($id);
+        $input = $request->all();
+        $input['program_id'] = $request->program_name;
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $projectImage = $request->file('banner_img');
 
@@ -131,6 +132,16 @@ class ProjectController extends Controller
             $url = asset('uploads/project/ckeditor/' . $fileName);
 
             return response()->json(['fileName' => $fileName, 'uploaded' => 1, 'url' => $url]);
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Project::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use PHPUnit\Exception;
 
 class BlogController extends Controller
 {
@@ -36,11 +37,11 @@ class BlogController extends Controller
     public function store(BlogRequest $request)
     {
 
-        $input                  = $request->all();
-        $input['category_id']   = $request->category_name;
-        $input['blog_type']     = 'PRIVATE';
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['category_id'] = $request->category_name;
+        $input['blog_type'] = 'PRIVATE';
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $blogImage = $request->file('banner_img');
 
@@ -71,10 +72,10 @@ class BlogController extends Controller
 
     public function update(BlogRequest $request, $id)
     {
-        $blog                   = Blog::findOrFail($id);
-        $input                  = $request->all();
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $blog = Blog::findOrFail($id);
+        $input = $request->all();
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $blogImage = $request->file('banner_img');
 
@@ -113,6 +114,16 @@ class BlogController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Blog::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

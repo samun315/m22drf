@@ -8,6 +8,7 @@ use App\Models\Slider;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use PHPUnit\Exception;
 
 class SliderController extends Controller
 {
@@ -25,9 +26,9 @@ class SliderController extends Controller
 
     public function store(SliderRequest $request)
     {
-        $input                  = $request->all();
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $slider_image = $request->file('banner_img');
 
@@ -57,10 +58,10 @@ class SliderController extends Controller
 
     public function update(SliderRequest $request, $id)
     {
-        $slider                = Slider::findOrFail($id);
-        $input                  = $request->all();
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $slider = Slider::findOrFail($id);
+        $input = $request->all();
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $sliderImage = $request->file('banner_img');
 
@@ -99,6 +100,16 @@ class SliderController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Slider::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

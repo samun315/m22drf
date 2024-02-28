@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use PHPUnit\Exception;
 
 class DocumentController extends Controller
 {
@@ -33,10 +34,10 @@ class DocumentController extends Controller
 
     public function store(DocumentRequest $request)
     {
-        $input                  = $request->all();
-        $input['folder_id']     = $request->folder_name;
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['folder_id'] = $request->folder_name;
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $document_image = $request->file('document_file');
 
@@ -69,12 +70,12 @@ class DocumentController extends Controller
 
     public function update(DocumentRequest $request, $id)
     {
-        $document               = Document::findOrFail($id);
+        $document = Document::findOrFail($id);
 
-        $input                  = $request->all();
-        $input['folder_id']     = $request->folder_name;
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $input = $request->all();
+        $input['folder_id'] = $request->folder_name;
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $documentImage = $request->file('document_file');
 
@@ -116,6 +117,16 @@ class DocumentController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Document::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

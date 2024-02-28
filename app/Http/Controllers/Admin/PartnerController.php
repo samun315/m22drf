@@ -8,6 +8,7 @@ use App\Models\Partner;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use PHPUnit\Exception;
 
 class PartnerController extends Controller
 {
@@ -25,9 +26,9 @@ class PartnerController extends Controller
 
     public function store(PartnerRequest $request)
     {
-        $input                  = $request->all();
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $partner_image = $request->file('image');
 
@@ -57,10 +58,10 @@ class PartnerController extends Controller
 
     public function update(PartnerRequest $request, $id)
     {
-        $partner                = Partner::findOrFail($id);
-        $input                  = $request->all();
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $partner = Partner::findOrFail($id);
+        $input = $request->all();
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $partner_image = $request->file('image');
 
@@ -99,6 +100,17 @@ class PartnerController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+
+    public function delete($id)
+    {
+        try {
+            Partner::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

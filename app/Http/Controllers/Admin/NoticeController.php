@@ -8,6 +8,7 @@ use App\Models\Notice;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use PHPUnit\Exception;
 
 class NoticeController extends Controller
 {
@@ -26,9 +27,9 @@ class NoticeController extends Controller
     public function store(NoticeRequest $request)
     {
 
-        $input                  = $request->all();
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $notice_image = $request->file('image');
 
@@ -58,11 +59,11 @@ class NoticeController extends Controller
 
     public function update(NoticeRequest $request, $id)
     {
-        $notice                 = Notice::findOrFail($id);
+        $notice = Notice::findOrFail($id);
 
-        $input                  = $request->all();
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $input = $request->all();
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $notice_image = $request->file('image');
 
@@ -102,6 +103,16 @@ class NoticeController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Notice::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

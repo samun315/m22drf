@@ -127,7 +127,8 @@
                                                class="btn btn-primary btn-sm">
                                                 Edit
                                             </a>
-                                            <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                            <a href="{{ route('admin.project.delete', $value->id) }}"
+                                               class="btn btn-danger btn-sm">Delete</a>
                                         </div>
                                     </td>
                                 </tr>

@@ -8,6 +8,7 @@ use App\Models\Quote;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use PHPUnit\Exception;
 
 class QuoteController extends Controller
 {
@@ -26,9 +27,9 @@ class QuoteController extends Controller
     public function store(QuoteRequest $request)
     {
 
-        $input                  = $request->all();
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $quote_image = $request->file('author_image');
 
@@ -58,11 +59,11 @@ class QuoteController extends Controller
 
     public function update(QuoteRequest $request, $id)
     {
-        $quote                  = Quote::findOrFail($id);
+        $quote = Quote::findOrFail($id);
 
-        $input                  = $request->all();
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $input = $request->all();
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $quote_image = $request->file('author_image');
 
@@ -102,6 +103,16 @@ class QuoteController extends Controller
             return response()->json('success');
         } else {
             return response()->json('error');
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            Quote::where('id', $id)->delete();
+            return back()->with('success', 'Deleted successfully');
+        } catch (Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 }

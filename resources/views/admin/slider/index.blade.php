@@ -102,7 +102,8 @@
                                                class="btn btn-sm btn-primary">
                                                 Edit
                                             </a>
-                                            <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                            <a href="{{ route('admin.slider.delete', $value->id) }}"
+                                               class="btn btn-danger btn-sm">Delete</a>
                                         </div>
                                     </td>
                                 </tr>
