@@ -4,7 +4,7 @@
             <marquee behavior="" direction="" class="notice" scrollamount="5"><p>
 
                 @foreach ($notices as $notice)
-                    <a href="">{{$notice->title}}</a>
+                    <a href="#" target="_blank">{{$notice->title}}</a>
                 @endforeach
 
 
