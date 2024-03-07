@@ -10,7 +10,7 @@
 
     <!--Start Features Style1 Area-->
     <section class="features-style1-area">
-        <marquee behavior="" direction="">Hello foundation</marquee>
+
         <div class="container">
             <div class="sec-title text-center">
                 <div class="sub-title">

@@ -100,5 +100,23 @@
         justify-content: center;
         align-items: center;
     }
+
+    .notice {
+        margin: auto;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+    .notice  p {
+        color: #ffffff;
+        font-size: 16px !important;
+        margin: auto;
+        /* padding: 0; */
+    }
+
+    .notice p a {
+        text-decoration: none;
+        color: #ffffff;
+    }
 </style>
 @yield('frontend_page_style')

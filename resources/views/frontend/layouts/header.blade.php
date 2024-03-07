@@ -4,11 +4,15 @@
         ->orderBy('id', 'ASC')
         ->get();
 
+    $notices = \DB::table('notices')
+        ->orderBy('id', 'DESC')
+        ->get();
+
 @endphp
 
 <header class="main-header header-style-one">
 
-    {{-- @include('frontend.layouts.top_header') --}}
+    @include('frontend.layouts.top_header')
 
     <!--Start Header-->
     <div class="header">
