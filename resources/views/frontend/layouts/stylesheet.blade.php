@@ -111,7 +111,7 @@
         color: #ffffff;
         font-size: 16px !important;
         margin: auto;
-        /* padding: 0; */
+        padding: 5px 0 5px 0;
     }
 
     .notice p a {
