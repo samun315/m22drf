@@ -59,7 +59,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [MemberController::class, 'create'])->name('admin.member.create');
         Route::post('/store', [MemberController::class, 'store'])->name('admin.member.store');
         Route::get('/{member_id}/edit', [MemberController::class, 'edit'])->name('admin.member.edit');
-        Route::get('/{member_id}/delete', [MemberController::class, 'delete'])->name('admin.member.delete');
+        Route::get('/delete/{member_id}', [MemberController::class, 'delete'])->name('admin.member.delete');
         Route::put('/{member_id}/update', [MemberController::class, 'update'])->name('admin.member.update');
         Route::put('/update-status', [MemberController::class, 'updateStatus'])->name('admin.member.update.status');
     });
@@ -81,7 +81,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [BlogCategoryController::class, 'create'])->name('admin.blog.category.create');
         Route::post('/store', [BlogCategoryController::class, 'store'])->name('admin.blog.category.store');
         Route::get('/{blog_category_id}/edit', [BlogCategoryController::class, 'edit'])->name('admin.blog.category.edit');
-        Route::get('/{blog_category_id}/delete', [BlogCategoryController::class, 'delete'])->name('admin.blog.category.delete');
+        Route::get('/delete/{blog_category_id}', [BlogCategoryController::class, 'delete'])->name('admin.blog.category.delete');
         Route::put('/{blog_category_id}/update', [BlogCategoryController::class, 'update'])->name('admin.blog.category.update');
         Route::put('/update-status', [BlogCategoryController::class, 'updateStatus'])->name('admin.blog.category.update.status');
     });
@@ -92,7 +92,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [BlogController::class, 'create'])->name('admin.blog.create');
         Route::post('/store', [BlogController::class, 'store'])->name('admin.blog.store');
         Route::get('/{blog_id}/edit', [BlogController::class, 'edit'])->name('admin.blog.edit');
-        Route::get('/{blog_id}/delete', [BlogController::class, 'delete'])->name('admin.blog.delete');
+        Route::get('/delete/{blog_id}', [BlogController::class, 'delete'])->name('admin.blog.delete');
         Route::put('/{blog_id}/update', [BlogController::class, 'update'])->name('admin.blog.update');
         Route::put('/update-status', [BlogController::class, 'updateStatus'])->name('admin.blog.update.status');
         Route::put('/update-blog-type', [BlogController::class, 'updateBlogType'])->name('admin.blog.type.update');
@@ -116,7 +116,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [DonationRequestController::class, 'create'])->name('admin.donation_request.create');
         Route::post('/store', [DonationRequestController::class, 'store'])->name('admin.donation_request.store');
         Route::get('/{id}/edit', [DonationRequestController::class, 'edit'])->name('admin.donation_request.edit');
-        Route::get('/{id}/delete', [DonationRequestController::class, 'delete'])->name('admin.donation_request.delete');
+        Route::get('/delete/{id}', [DonationRequestController::class, 'delete'])->name('admin.donation_request.delete');
         Route::put('/{id}/update', [DonationRequestController::class, 'update'])->name('admin.donation_request.update');
         Route::put('/update-status', [DonationRequestController::class, 'updateStatus'])->name('admin.donation_request.update.status');
     });
@@ -127,7 +127,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [NoticeController::class, 'create'])->name('admin.notice.create');
         Route::post('/store', [NoticeController::class, 'store'])->name('admin.notice.store');
         Route::get('/{notice_id}/edit', [NoticeController::class, 'edit'])->name('admin.notice.edit');
-        Route::get('/{notice_id}/delete', [NoticeController::class, 'delete'])->name('admin.notice.delete');
+        Route::get('/delete/{notice_id}', [NoticeController::class, 'delete'])->name('admin.notice.delete');
         Route::put('/{notice_id}/update', [NoticeController::class, 'update'])->name('admin.notice.update');
         Route::put('/update-status', [NoticeController::class, 'updateStatus'])->name('admin.notice.update.status');
     });
@@ -149,7 +149,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [PartnerController::class, 'create'])->name('admin.partner.create');
         Route::post('/store', [PartnerController::class, 'store'])->name('admin.partner.store');
         Route::get('/{partner_id}/edit', [PartnerController::class, 'edit'])->name('admin.partner.edit');
-        Route::get('/{partner_id}/delete', [PartnerController::class, 'delete'])->name('admin.partner.delete');
+        Route::get('/delete/{partner_id}', [PartnerController::class, 'delete'])->name('admin.partner.delete');
         Route::put('/{partner_id}/update', [PartnerController::class, 'update'])->name('admin.partner.update');
         Route::put('/update-status', [PartnerController::class, 'updateStatus'])->name('admin.partner.update.status');
     });
@@ -171,7 +171,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [FolderController::class, 'create'])->name('admin.folder.create');
         Route::post('/store', [FolderController::class, 'store'])->name('admin.folder.store');
         Route::get('/{folder_id}/edit', [FolderController::class, 'edit'])->name('admin.folder.edit');
-        Route::get('/{folder_id}/delete', [FolderController::class, 'delete'])->name('admin.folder.delete');
+        Route::get('/delete/{folder_id}', [FolderController::class, 'delete'])->name('admin.folder.delete');
         Route::put('/{folder_id}/update', [FolderController::class, 'update'])->name('admin.folder.update');
         Route::put('/update-status', [FolderController::class, 'updateStatus'])->name('admin.folder.update.status');
     });
@@ -182,7 +182,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [DocumentController::class, 'create'])->name('admin.document.create');
         Route::post('/store', [DocumentController::class, 'store'])->name('admin.document.store');
         Route::get('/{document_id}/edit', [DocumentController::class, 'edit'])->name('admin.document.edit');
-        Route::get('/{document_id}/delete', [DocumentController::class, 'delete'])->name('admin.document.delete');
+        Route::get('/delete/{document_id}', [DocumentController::class, 'delete'])->name('admin.document.delete');
         Route::put('/{document_id}/update', [DocumentController::class, 'update'])->name('admin.document.update');
         Route::put('/update-status', [DocumentController::class, 'updateStatus'])->name('admin.document.update.status');
     });
@@ -193,7 +193,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [VolunteerController::class, 'create'])->name('admin.volunteer.create');
         Route::post('/store', [VolunteerController::class, 'store'])->name('admin.volunteer.store');
         Route::get('/{volunteer_id}/edit', [VolunteerController::class, 'edit'])->name('admin.volunteer.edit');
-        Route::get('/{volunteer_id}/delete', [VolunteerController::class, 'delete'])->name('admin.volunteer.delete');
+        Route::get('/delete/{volunteer_id}', [VolunteerController::class, 'delete'])->name('admin.volunteer.delete');
         Route::put('/{volunteer_id}/update', [VolunteerController::class, 'update'])->name('admin.volunteer.update');
         Route::put('/update-status', [VolunteerController::class, 'updateStatus'])->name('admin.volunteer.update.status');
     });
