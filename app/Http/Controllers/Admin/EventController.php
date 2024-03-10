@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PHPUnit\Exception;
 
 class EventController extends Controller
 {
@@ -138,9 +139,9 @@ class EventController extends Controller
     {
         try {
             Event::where('id', $id)->delete();
-            return back()->with('success', 'Deleted successfully');
+            return response()->json(['success' => true, 'status' => 200, 'message' => 'Deleted successfully']);
         } catch (Exception $exception) {
-            return back()->with('error', $exception->getMessage());
+            return response()->json(['success' => false, 'status' => 400, 'message' => $exception->getMessage()]);
         }
     }
 }

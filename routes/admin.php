@@ -35,7 +35,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [ProjectController::class, 'create'])->name('admin.project.create');
         Route::post('/store', [ProjectController::class, 'store'])->name('admin.project.store');
         Route::get('/{project_id}/edit', [ProjectController::class, 'edit'])->name('admin.project.edit');
-        Route::get('/{project_id}/delete', [ProjectController::class, 'delete'])->name('admin.project.delete');
+        Route::get('/delete/{project_id}', [ProjectController::class, 'delete'])->name('admin.project.delete');
         Route::put('/{project_id}/update', [ProjectController::class, 'update'])->name('admin.project.update');
         Route::put('/update-status', [ProjectController::class, 'updateStatus'])->name('admin.project.update.status');
         Route::post('/ckeditor-upload-image', [ProjectController::class, 'uploadCkeditorImage'])->name('admin.project.ckeditor.uploadImage');
@@ -47,7 +47,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [EventController::class, 'create'])->name('admin.event.create');
         Route::post('/store', [EventController::class, 'store'])->name('admin.event.store');
         Route::get('/{event_id}/edit', [EventController::class, 'edit'])->name('admin.event.edit');
-        Route::get('/{event_id}/delete', [EventController::class, 'delete'])->name('admin.event.delete');
+        Route::get('/delete/{event_id}', [EventController::class, 'delete'])->name('admin.event.delete');
         Route::put('/{event_id}/update', [EventController::class, 'update'])->name('admin.event.update');
         Route::put('/update-status', [EventController::class, 'updateStatus'])->name('admin.event.update.status');
         Route::post('/ckeditor-upload-image', [EventController::class, 'uploadCkeditorImage'])->name('admin.event.ckeditor.uploadImage');
@@ -70,7 +70,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [ProgramsController::class, 'create'])->name('admin.programs.create');
         Route::post('/store', [ProgramsController::class, 'store'])->name('admin.programs.store');
         Route::get('/{programs_id}/edit', [ProgramsController::class, 'edit'])->name('admin.programs.edit');
-        Route::get('/{programs_id}/delete', [ProgramsController::class, 'delete'])->name('admin.programs.delete');
+        Route::get('/delete/{programs_id}', [ProgramsController::class, 'delete'])->name('admin.programs.delete');
         Route::put('/{programs_id}/update', [ProgramsController::class, 'update'])->name('admin.programs.update');
         Route::put('/update-status', [ProgramsController::class, 'updateStatus'])->name('admin.programs.update.status');
     });
@@ -105,7 +105,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [ProjectFollowUpController::class, 'create'])->name('admin.project_follow_up.create');
         Route::post('/store', [ProjectFollowUpController::class, 'store'])->name('admin.project_follow_up.store');
         Route::get('/{id}/edit', [ProjectFollowUpController::class, 'edit'])->name('admin.project_follow_up.edit');
-        Route::get('/{id}/delete', [ProjectFollowUpController::class, 'delete'])->name('admin.project_follow_up.delete');
+        Route::get('/delete/{id}', [ProjectFollowUpController::class, 'delete'])->name('admin.project_follow_up.delete');
         Route::put('/{id}/update', [ProjectFollowUpController::class, 'update'])->name('admin.project_follow_up.update');
         Route::put('/update-status', [ProjectFollowUpController::class, 'updateStatus'])->name('admin.project_follow_up.update.status');
     });
@@ -160,7 +160,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [QuoteController::class, 'create'])->name('admin.quotes.create');
         Route::post('/store', [QuoteController::class, 'store'])->name('admin.quotes.store');
         Route::get('/{quotes_id}/edit', [QuoteController::class, 'edit'])->name('admin.quotes.edit');
-        Route::get('/{quotes_id}/delete', [QuoteController::class, 'delete'])->name('admin.quotes.delete');
+        Route::get('/delete/{quotes_id}', [QuoteController::class, 'delete'])->name('admin.quotes.delete');
         Route::put('/{quotes_id}/update', [QuoteController::class, 'update'])->name('admin.quotes.update');
         Route::put('/update-status', [QuoteController::class, 'updateStatus'])->name('admin.quotes.update.status');
     });
@@ -204,7 +204,7 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::get('/create', [ProjectGalleryController::class, 'create'])->name('admin.project_gallery.create');
         Route::post('/store', [ProjectGalleryController::class, 'store'])->name('admin.project_gallery.store');
         Route::get('/{id}/edit', [ProjectGalleryController::class, 'edit'])->name('admin.project_gallery.edit');
-        Route::get('/{id}/delete', [ProjectGalleryController::class, 'delete'])->name('admin.project_gallery.delete');
+        Route::get('/delete/{id}', [ProjectGalleryController::class, 'delete'])->name('admin.project_gallery.delete');
         Route::put('/{id}/update', [ProjectGalleryController::class, 'update'])->name('admin.project_gallery.update');
         Route::put('/update-status', [ProjectGalleryController::class, 'updateStatus'])->name('admin.project_gallery.update.status');
     });

@@ -34,10 +34,10 @@ class ProjectGalleryController extends Controller
     public function store(ProjectGalleryRequest $request)
     {
 
-        $input                  = $request->all();
-        $input['project_id']    = $request->project_name;
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['project_id'] = $request->project_name;
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $request_image = $request->file('image');
 
@@ -60,18 +60,18 @@ class ProjectGalleryController extends Controller
 
     public function edit($id)
     {
-        $data['projects']     = DB::table('projects')->orderBy('id', 'DESC')->get();
-        $data['editModeData']   = ProjectGallery::findOrFail($id);
+        $data['projects'] = DB::table('projects')->orderBy('id', 'DESC')->get();
+        $data['editModeData'] = ProjectGallery::findOrFail($id);
 
         return view('admin.project_gallery.form', $data);
     }
 
     public function update(ProjectGalleryRequest $request, $id)
     {
-        $blog                   = ProjectGallery::findOrFail($id);
-        $input                  = $request->all();
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $blog = ProjectGallery::findOrFail($id);
+        $input = $request->all();
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $request_image = $request->file('image');
 
@@ -118,9 +118,9 @@ class ProjectGalleryController extends Controller
     {
         try {
             ProjectGallery::where('id', $id)->delete();
-            return back()->with('success', 'Deleted successfully');
+            return response()->json(['success' => true, 'status' => 200, 'message' => 'Deleted successfully']);
         } catch (Exception $exception) {
-            return back()->with('error', $exception->getMessage());
+            return response()->json(['success' => false, 'status' => 400, 'message' => $exception->getMessage()]);
         }
     }
 }
