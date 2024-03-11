@@ -35,10 +35,10 @@ class BlogController extends Controller
     public function store(BlogRequest $request)
     {
 
-        $input                  = $request->all();
-        $input['category_id']   = $request->category_name;
-        $input['created_by']    = session('logged_session_data.id');
-        $input['created_at']    = Carbon::now();
+        $input = $request->all();
+        $input['category_id'] = $request->category_name;
+        $input['created_by'] = session('logged_session_data.id');
+        $input['created_at'] = Carbon::now();
 
         $blogImage = $request->file('banner_img');
 
@@ -69,11 +69,11 @@ class BlogController extends Controller
 
     public function update(BlogRequest $request, $id)
     {
-        $blog                   = Blog::findOrFail($id);
-        $input                  = $request->all();
-        $input['category_id']   = $request->category_name;
-        $input['updated_by']    = session('logged_session_data.id');
-        $input['updated_at']    = Carbon::now();
+        $blog = Blog::findOrFail($id);
+        $input = $request->all();
+        $input['category_id'] = $request->category_name;
+        $input['updated_by'] = session('logged_session_data.id');
+        $input['updated_at'] = Carbon::now();
 
         $blogImage = $request->file('banner_img');
 
@@ -155,9 +155,10 @@ class BlogController extends Controller
     {
         try {
             Blog::where('id', $id)->delete();
-            return back()->with('success', 'Deleted successfully');
+            return response()->json(['success' => true, 'status' => 200, 'message' => 'Deleted successfully']);
+
         } catch (Exception $exception) {
-            return back()->with('error', $exception->getMessage());
+            return response()->json(['success' => false, 'status' => 400, 'message' => $exception->getMessage()]);
         }
     }
 }

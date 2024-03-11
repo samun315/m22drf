@@ -117,8 +117,10 @@
                                         <div class="btn-group">
                                             <a href="{{ route('admin.blog.edit', $value->id) }}"
                                                class="btn btn-primary btn-sm">Edit</a>
-                                            <a href="{{ route('admin.blog.delete', $value->id) }}"
-                                               class="btn btn-danger btn-sm">Delete</a>
+                                            <button onclick="removeData({{ $value->id }})"
+                                                    class="btn btn-danger btn-sm me-1">
+                                                Delete
+                                            </button>
                                         </div>
                                     </td>
                                 </tr>
@@ -199,5 +201,47 @@
                 }
             });
         }
+
+        //Delete or Remove Data
+        function removeData(id) {
+            Swal.fire({
+                title: "Are you sure! Delete?",
+                text: "Please ensure and then confirm!",
+                type: "warning",
+                showCancelButton: !0,
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: !0
+            }).then(function(e) {
+
+                if (e.value === true) {
+                    var CSRF_TOKEN = "{{ csrf_token() }}";
+                    $.ajax({
+                        type: 'GET',
+                        url: "{{ url('/blog/delete') }}/" + id,
+                        data: {
+                            _token: CSRF_TOKEN
+                        },
+                        dataType: 'JSON',
+                        success: function(results) {
+
+                            if (results.success === true) {
+                                Swal.fire("Done!", results.message, "success");
+                                $('#tbody').load(document.URL + ' #tbody tr');
+                            } else {
+                                Swal.fire("Error!", results.message, "error");
+                            }
+                        }
+                    });
+
+                } else {
+                    e.dismiss;
+                }
+
+            }, function(dismiss) {
+                return false;
+            })
+        }
+
     </script>
 @endsection

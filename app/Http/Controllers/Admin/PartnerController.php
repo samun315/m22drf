@@ -108,9 +108,9 @@ class PartnerController extends Controller
     {
         try {
             Partner::where('id', $id)->delete();
-            return back()->with('success', 'Deleted successfully');
+            return response()->json(['success' => true, 'status' => 200, 'message' => 'Deleted successfully']);
         } catch (Exception $exception) {
-            return back()->with('error', $exception->getMessage());
+            return response()->json(['success' => false, 'status' => 400, 'message' => $exception->getMessage()]);
         }
     }
 }
