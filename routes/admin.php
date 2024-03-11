@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\GetInTouchController;
 use App\Http\Controllers\Admin\HomeSettingController;
 use App\Http\Controllers\Admin\MemberController;
+use App\Http\Controllers\Admin\MemberGalleryController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\ProgramsController;
@@ -64,7 +65,18 @@ Route::middleware(['preventBackHistory', 'admin'])->group(function () {
         Route::put('/update-status', [MemberController::class, 'updateStatus'])->name('admin.member.update.status');
     });
 
-    //Programms
+    //Member Gallery
+    Route::group(['prefix' => 'member-gallery'], function () {
+        Route::get('/index', [MemberGalleryController::class, 'index'])->name('admin.memberGallery.index');
+        Route::get('/create', [MemberGalleryController::class, 'create'])->name('admin.memberGallery.create');
+        Route::post('/store', [MemberGalleryController::class, 'store'])->name('admin.memberGallery.store');
+        Route::get('/{id}/edit', [MemberGalleryController::class, 'edit'])->name('admin.memberGallery.edit');
+        Route::get('/delete/{id}', [MemberGalleryController::class, 'delete'])->name('admin.memberGallery.delete');
+        Route::put('/{id}/update', [MemberGalleryController::class, 'update'])->name('admin.memberGallery.update');
+        Route::put('/update-status', [MemberGalleryController::class, 'updateStatus'])->name('admin.memberGallery.update.status');
+    });
+
+    //Programs
     Route::group(['prefix' => 'programs'], function () {
         Route::get('/index', [ProgramsController::class, 'index'])->name('admin.programs.index');
         Route::get('/create', [ProgramsController::class, 'create'])->name('admin.programs.create');
