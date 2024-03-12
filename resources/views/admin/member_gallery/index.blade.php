@@ -27,7 +27,7 @@
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.project_gallery.create') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.memberGallery.create') }}" class="btn btn-sm btn-light-success">
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                      fill="none">
@@ -55,9 +55,10 @@
                             <thead>
                             <tr class="fw-bolder text-muted bg-light">
                                 <th>SL</th>
+                                <th>User Name</th>
                                 <th>Image</th>
-                                <th>Project Name</th>
                                 <th>Caption</th>
+                                <th>Type</th>
                                 <th>Active</th>
                                 <th>Action</th>
                             </tr>
@@ -69,23 +70,24 @@
                             @foreach ($results as $value)
                                 <tr>
                                     <td> {{ $loop->iteration }} </td>
+                                    <td> {{ $value->user_name }} </td>
                                     <td>
                                         <img style="width: 80px; height: 80px; border-radius: 50%"
-                                             src="{{ asset('uploads/project_gallery/' . $value->image) }}"
+                                             src="{{ asset('uploads/member_gallery/' . $value->image) }}"
                                              alt="{{ $value->caption }}">
                                     </td>
-                                    <td> {{ $value->project_name }} </td>
                                     <td> {{ $value->caption }} </td>
+                                    <td> {{ $value->type }} </td>
                                     <td>
                                         <label class="form-check form-switch form-check-custom form-check-solid">
 
                                             @if ($value->status == 'YES')
                                                 <input class="form-check-input"
-                                                       onchange="updateActiveStatus('NO', {{ $value->project_gallery_id }})"
+                                                       onchange="updateActiveStatus('NO', {{ $value->id }})"
                                                        name="status" type="checkbox" value="YES" checked="checked"/>
                                             @else
                                                 <input class="form-check-input"
-                                                       onchange="updateActiveStatus('YES', {{ $value->project_gallery_id }})"
+                                                       onchange="updateActiveStatus('YES', {{ $value->id }})"
                                                        name="status" type="checkbox" value="NO"/>
                                             @endif
 
@@ -96,7 +98,7 @@
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="{{ route('admin.project_gallery.edit', $value->project_gallery_id) }}"
+                                            <a href="{{ route('admin.memberGallery.edit', $value->id) }}"
                                                class="btn btn-primary btn-sm">
                                                 Edit
                                             </a>
@@ -129,15 +131,15 @@
 @section('page_scripts')
 
     <script>
-        function updateActiveStatus(status, project_gallery_id) {
+        function updateActiveStatus(status, id) {
 
             var v_token = "{{ csrf_token() }}";
 
             $.ajax({
                 type: "PUT",
-                url: "{{ route('admin.project_gallery.update.status') }}",
+                url: "{{ route('admin.memberGallery.update.status') }}",
                 data: {
-                    project_gallery_id: project_gallery_id,
+                    id: id,
                     status: status,
                     _token: v_token
                 },
@@ -170,10 +172,10 @@
             }).then(function (e) {
 
                 if (e.value === true) {
-                    var CSRF_TOKEN = "{{ csrf_token() }}";
+                    const CSRF_TOKEN = "{{ csrf_token() }}";
                     $.ajax({
                         type: 'GET',
-                        url: "{{ url('/admin/project-gallery/delete') }}/" + id,
+                        url: "{{ url('/member-gallery/delete') }}/" + id,
                         data: {
                             _token: CSRF_TOKEN
                         },

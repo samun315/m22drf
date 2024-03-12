@@ -21,11 +21,11 @@
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000"></rect>
                                     <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
-                                        opacity="0.3"></rect>
+                                          opacity="0.3"></rect>
                                     <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
-                                        opacity="0.3"></rect>
+                                          opacity="0.3"></rect>
                                     <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
-                                        opacity="0.3"></rect>
+                                          opacity="0.3"></rect>
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1"> {{ isset($editModeData) ? 'Edit' : 'Create' }}
@@ -33,7 +33,7 @@
                         </span>
                     </h3>
                     <div class="card-toolbar">
-                        <a href="{{ route('admin.member_gallery.index') }}" class="btn btn-sm btn-light-success">
+                        <a href="{{ route('admin.memberGallery.index') }}" class="btn btn-sm btn-light-success">
                             <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
                             <span class="svg-icon svg-icon-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
@@ -41,11 +41,11 @@
                                         <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000">
                                         </rect>
                                         <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
-                                            opacity="0.3"></rect>
+                                              opacity="0.3"></rect>
                                         <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
-                                            opacity="0.3"></rect>
+                                              opacity="0.3"></rect>
                                         <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
-                                            opacity="0.3"></rect>
+                                              opacity="0.3"></rect>
                                     </g>
                                 </svg>
                             </span>
@@ -62,7 +62,7 @@
 
                     <!--begin::Form-->
                     <form class="form" method="POST" enctype="multipart/form-data"
-                        action="{{ isset($editModeData) ? route('admin.member_gallery.update', $editModeData->id) : route('admin.member_gallery.store') }}">
+                          action="{{ isset($editModeData) ? route('admin.memberGallery.update', $editModeData->id) : route('admin.memberGallery.store') }}">
                         @csrf
 
                         @isset($editModeData)
@@ -76,7 +76,7 @@
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Member Name</label>
                                 <select name="member_name" data-control="select2" data-placeholder="Select Member Name"
-                                    class="form-select form-select-solid member_name">
+                                        class="form-select form-select-solid member_name">
                                     <option value="">Select Member Name</option>
                                     @foreach ($users as $user)
                                         <option
@@ -88,53 +88,79 @@
                                     @endforeach
                                 </select>
                                 @error('category_name')
-                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Caption</label>
                                 <input type="text"
-                                    class="form-control form-control-solid @error('caption') is-invalid @enderror"
-                                    placeholder="Enter caption" name="caption"
-                                    value="{{ $editModeData->caption ?? old('caption') }}" />
+                                       class="form-control form-control-solid @error('caption') is-invalid @enderror"
+                                       placeholder="Enter caption" name="caption"
+                                       value="{{ $editModeData->caption ?? old('caption') }}"/>
                                 @error('caption')
-                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="fs-5 fw-bold mb-2">Upload Image</label>
                                 <input type="file"
-                                    class="form-control form-control-solid @error('image') is-invalid @enderror"
-                                    name="image" />
+                                       class="form-control form-control-solid @error('image') is-invalid @enderror"
+                                       name="image"/>
 
                                 @isset($editModeData->image)
                                     <a target="_blank"
-                                        href="{{ asset('uploads/project_gallery/' . $editModeData->image) }}">View
+                                       href="{{ asset('uploads/project_gallery/' . $editModeData->image) }}">View
                                         Image</a>
                                 @endisset
 
                                 @error('image')
-                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                <span class="text-danger mt-2">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6 fv-row mb-5">
+                                <label class="required fs-5 fw-bold mb-2">Type</label>
+                                <select name="type"
+                                        class="form-select form-select-solid @error('type') is-invalid @enderror"
+                                        data-control="select2" data-hide-search="true" data-placeholder="Type">
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->type == 'Student' ? 'selected' : '' }}
+                                        value="Student">
+                                        Student
+                                    </option>
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->type == 'Family' ? 'selected' : '' }}
+                                        value="Family">Family
+                                    </option>
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->type == 'Doctor' ? 'selected' : '' }}
+                                        value="Doctor">Doctor
+                                    </option>
+                                </select>
+                                @error('type')
+                                <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
 
                             <div class="col-md-6 fv-row mb-5">
                                 <label class="required fs-5 fw-bold mb-2">Active</label>
                                 <select name="status"
-                                    class="form-select form-select-solid @error('status') is-invalid @enderror"
-                                    data-control="select2" data-hide-search="true" data-placeholder="Active">
-                                    <option {{ isset($editModeData) && $editModeData->status == 'YES' ? 'selected' : '' }}
+                                        class="form-select form-select-solid @error('status') is-invalid @enderror"
+                                        data-control="select2" data-hide-search="true" data-placeholder="Active">
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->status == 'YES' ? 'selected' : '' }}
                                         value="YES">
                                         YES
                                     </option>
-                                    <option {{ isset($editModeData) && $editModeData->status == 'NO' ? 'selected' : '' }}
+                                    <option
+                                        {{ isset($editModeData) && $editModeData->status == 'NO' ? 'selected' : '' }}
                                         value="NO">NO
                                     </option>
                                 </select>
                                 @error('status')
-                                    <span class="text-danger mt-2">{{ $message }}</span>
+                                <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
 

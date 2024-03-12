@@ -15,7 +15,11 @@ class MemberGalleryController extends Controller
 {
     public function index()
     {
-        $results = DB::table('member_galleries')->latest()->paginate(10);
+        $results = DB::table('member_galleries as a')
+            ->select('a.*', 'b.name as user_name')
+            ->leftJoin('users as b', 'a.user_id', '=', 'b.id')
+            ->latest('a.id')
+            ->paginate(10);
 
         return view('admin.member_gallery.index', ['results' => $results]);
     }
@@ -29,9 +33,8 @@ class MemberGalleryController extends Controller
 
     public function store(MemberGalleryRequest $request)
     {
-
         $input = $request->all();
-        $input['member_id'] = $request->member_name;
+        $input['user_id'] = $request->member_name;
         $input['created_by'] = session('logged_session_data.id');
         $input['created_at'] = Carbon::now();
 
@@ -66,6 +69,7 @@ class MemberGalleryController extends Controller
     {
         $blog = MemberGallery::findOrFail($id);
         $input = $request->all();
+        $input['user_id'] = $request->member_name;
         $input['updated_by'] = session('logged_session_data.id');
         $input['updated_at'] = Carbon::now();
 
@@ -84,7 +88,7 @@ class MemberGalleryController extends Controller
 
         try {
             $blog->update($input);
-            return redirect(route('admin.member_gallery.index'))->with('success', 'Member gallery updated successfully.');
+            return redirect(route('admin.memberGallery.index'))->with('success', 'Member gallery updated successfully.');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
