@@ -161,7 +161,7 @@
                             </div>
                             <!--end::Card-->
 
-                            <div class="card pt-2 mb-6 mb-xl-9">
+                            {{-- <div class="card pt-2 mb-6 mb-xl-9">
                                 <div class="card-body p-lg-20">
                                     <!--begin::Heading-->
                                     <div class="text-center mb-5 mb-lg-10">
@@ -349,7 +349,7 @@
                                     </div>
                                     <!--end::Tabs content-->
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
