@@ -252,14 +252,14 @@
                                                 </div>
                                                 <div class="bottom-box">
                                                     <div class="rate-box">
-                                                        <p>Achieved<span>Tk {{ $project->achieved }}</span></p>
-                                                        <p>Target<span>Tk {{ $project->budget }}</span></p>
+                                                        <p>Achieved<span>BDT {{ $project->achieved }}</span></p>
+                                                        <p>Target<span>BDT {{ $project->budget }}</span></p>
                                                     </div>
                                                     <div class="skill-percent">
                                                         <span class="count-text" data-speed="3000"
                                                             data-stop="50">0</span>
                                                         <span class="percent">%</span>
-                                                        <p class="outer-text">Pledged So Far</p>
+                                                        <p class="outer-text">Achieved So Far</p>
                                                     </div>
                                                 </div>
                                             </div>
