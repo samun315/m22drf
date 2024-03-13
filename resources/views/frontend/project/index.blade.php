@@ -91,14 +91,14 @@
                                                 </div>
                                                 <div class="bottom-box">
                                                     <div class="rate-box">
-                                                        <p>Achieved<span>৳ {{ number_format($row->achieved, 2) }}</span></p>
-                                                        <p>Target<span>৳ {{ number_format($row->budget, 2) }}</span></p>
+                                                        <p>Achieved<span>BDT {{ number_format($row->achieved, 2) }}</span></p>
+                                                        <p>Target<span>BDT {{ number_format($row->budget, 2) }}</span></p>
                                                     </div>
                                                     <div class="skill-percent">
                                                         <span class="count-text" data-speed="3000"
                                                             data-stop="{{ number_format(($row->achieved * 100) / $row->budget, 2) }}">0</span>
                                                         <span class="percent">%</span>
-                                                        <p class="outer-text">Pledged So Far</p>
+                                                        <p class="outer-text">Achieved So Far</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,14 +178,14 @@
                                                 </div>
                                                 <div class="bottom-box">
                                                     <div class="rate-box">
-                                                        <p>Achieved<span>৳ {{ number_format($row->achieved, 2) }}</span></p>
-                                                        <p>Target<span>৳ {{ number_format($row->budget, 2) }}</span></p>
+                                                        <p>Achieved<span>BDT {{ number_format($row->achieved, 2) }}</span></p>
+                                                        <p>Target<span>BDT {{ number_format($row->budget, 2) }}</span></p>
                                                     </div>
                                                     <div class="skill-percent">
                                                         <span class="count-text" data-speed="3000"
                                                             data-stop="{{ number_format(($row->achieved * 100) / $row->budget, 2) }}">0</span>
                                                         <span class="percent">%</span>
-                                                        <p class="outer-text">Pledged So Far</p>
+                                                        <p class="outer-text">Achieved So Far</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -274,8 +274,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <textarea class="form-control" placeholder="Enter address" name="address" rows="3"></textarea>
+                            <label for="address" class="form-label">Message</label>
+                            <textarea class="form-control" placeholder="Enter Your Message" name="address" rows="3"></textarea>
                         </div>
                     </div>
 

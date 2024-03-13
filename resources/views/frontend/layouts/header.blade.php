@@ -63,7 +63,7 @@
                                             href="/project">Project</a>
                                     </li> --}}
 
-                                    <li class="dropdown"><a href="javascrip:void(0)">Project</a>
+                                    <li class="dropdown"><a href="javascrip:void(0)">Program</a>
                                         <ul>
                                             <li><a href="/all-programs">All Programs</a></li>
                                             {{-- <li><a href="/project">All Projects</a></li> --}}

@@ -77,14 +77,14 @@
                                         </div>
                                         <div class="bottom-box">
                                             <div class="rate-box">
-                                                <p>Achieved<span>৳ {{ number_format($project->achieved, 2) }}</span></p>
-                                                <p>Target<span>৳ {{ number_format($project->budget, 2) }}</span></p>
+                                                <p>Achieved<span>BDT {{ number_format($project->achieved, 2) }}</span></p>
+                                                <p>Target<span>BDT {{ number_format($project->budget, 2) }}</span></p>
                                             </div>
                                             <div class="skill-percent">
                                                 <span class="count-text" data-speed="3000"
                                                     data-stop="{{ number_format(($project->achieved * 100) / $project->budget, 2) }}"></span>
                                                 <span class="percent">%</span>
-                                                <p class="outer-text">Pledged So Far</p>
+                                                <p class="outer-text">Achieved So Far</p>
                                             </div>
                                         </div>
                                     </div>
@@ -93,7 +93,7 @@
 
                             <div class="donation_wrapper">
                                 <div class="bottom-box">
-                                    @if ($project->project_status == 'Executed' || $project->achieved < $project->budget)
+                                    @if ($project->project_status == 'Executed' || $project->achieved >= $project->budget)
                                         {{-- <a class="btn-one" href="/project-details?project={{ $project->id }}">
                                             <span class="txt">
                                                 <i class="arrow1 fa fa-check-circle"></i>
@@ -229,8 +229,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="address" class="form-label">Address</label>
-                            <textarea class="form-control" placeholder="Enter address" name="address" rows="3"></textarea>
+                            <label for="address" class="form-label">Message</label>
+                            <textarea class="form-control" placeholder="Enter Your Message" name="address" rows="3"></textarea>
                         </div>
                     </div>
 
