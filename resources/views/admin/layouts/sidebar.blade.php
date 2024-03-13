@@ -57,6 +57,16 @@
                 </div>
 
                 <div class="menu-item">
+                    <a class="menu-link {{ request()->is('member-gallery/*') ? 'active' : '' }}"
+                       href="{{ route('admin.memberGallery.index') }}">
+                        <span class="menu-icon">
+                            <i class="bi bi-people fs-3 text-warning"></i>
+                        </span>
+                        <span class="menu-title">Manage Member Gallery</span>
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <a class="menu-link {{ request()->is('member/*') ? 'active' : '' }}"
                         href="{{ route('admin.member.index') }}">
                         <span class="menu-icon">

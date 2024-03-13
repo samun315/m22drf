@@ -13,8 +13,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $data['members'] = DB::table('member_details')->orderBy('id', 'DESC')->where('status', 'YES')->get();
-
-        return view('admin.gallery.index', $data);
+        $members = DB::table('member_galleries')->orderBy('id', 'DESC')->where('status', 'YES')->get(['id', 'caption', 'image', 'type']);
+        return view('admin.gallery.index', compact('members'));
     }
 }

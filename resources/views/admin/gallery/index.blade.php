@@ -6,7 +6,7 @@
 @section('page_style')
 
     <!-- For Gallery -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css"/>
 
     <style>
         .portfolio-menu {
@@ -50,11 +50,11 @@
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <rect x="5" y="5" width="5" height="5" rx="1" fill="#000000"></rect>
                                     <rect x="14" y="5" width="5" height="5" rx="1" fill="#000000"
-                                        opacity="0.3"></rect>
+                                          opacity="0.3"></rect>
                                     <rect x="5" y="14" width="5" height="5" rx="1" fill="#000000"
-                                        opacity="0.3"></rect>
+                                          opacity="0.3"></rect>
                                     <rect x="14" y="14" width="5" height="5" rx="1" fill="#000000"
-                                        opacity="0.3"></rect>
+                                          opacity="0.3"></rect>
                                 </g>
                             </svg>
                             <span class="card-label fw-bolder fs-3 mb-1">Photo Gallery</span>
@@ -74,47 +74,46 @@
                                 <li class="btn btn-outline-dark" data-filter=".doctor_photo">Doctor Photo</li>
                                 <li class="btn btn-outline-dark text" data-filter=".family_photo">Family Photo</li>
                             </ul>
-                        </div> <br><br>
+                        </div>
+                        <br><br>
                         <div class="portfolio-item row">
 
-                            @foreach ($members as $student_photo)
-                                <div class="item student_photo col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('uploads/member/' . $student_photo->student_photo) }}"
-                                        class="fancylight popup-btn" data-fancybox-group="light">
+                            @foreach ($members as $gallery)
+                                @if($gallery->type === 'Student')
+                                    <div class="item student_photo col-lg-3 col-md-4 col-6 col-sm">
+                                        <a href="{{ asset('uploads/member_gallery/' . $gallery->image) }}"
+                                           class="fancylight popup-btn" data-fancybox-group="light">
 
-                                        <img style="width:263px; height:175px" class="img-fluid"
-                                            src="{{ asset('uploads/member/' . $student_photo->student_photo) }}"
-                                            alt="Student Photo">
-                                    </a>
-                                    <p class="text-center"> {{ $student_photo->student_photo_caption }} </p>
-                                </div>
+                                            <img style="width:263px; height:175px" class="img-fluid"
+                                                 src="{{ asset('uploads/member_gallery/' . $gallery->image) }}"
+                                                 alt="Student Photo">
+                                        </a>
+                                        <p class="text-center"> {{ $gallery->caption }} </p>
+                                    </div>
+
+                                @elseif($gallery->type === 'Doctor')
+                                    <div class="item doctor_photo col-lg-3 col-md-4 col-6 col-sm">
+                                        <a href="{{ asset('uploads/member_gallery/' . $gallery->image) }}"
+                                           class="fancylight popup-btn" data-fancybox-group="light">
+
+                                            <img style="width:263px; height:175px" class="img-fluid"
+                                                 src="{{ asset('uploads/member_gallery/' . $gallery->image) }}"
+                                                 alt="Doctor Photo">
+                                        </a>
+                                        <p class="text-center">{{ $gallery->caption }}</p>
+                                    </div>
+                                @elseif($gallery->type === 'Family')
+                                    <div class="item family_photo col-lg-3 col-md-4 col-6 col-sm">
+                                        <a href="{{ asset('uploads/member_gallery/' . $gallery->image) }}"
+                                           class="fancylight popup-btn" data-fancybox-group="light">
+                                            <img style="width:263px; height:175px" class="img-fluid"
+                                                 src="{{ asset('uploads/member_gallery/' . $gallery->image) }}"
+                                                 alt="Family Photo">
+                                        </a>
+                                        <p class="text-center">{{ $gallery->caption }}</p>
+                                    </div>
+                                @endif
                             @endforeach
-
-                            @foreach ($members as $doctor_photo)
-                                <div class="item doctor_photo col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('uploads/member/' . $doctor_photo->doctor_photo) }}"
-                                        class="fancylight popup-btn" data-fancybox-group="light">
-
-                                        <img style="width:263px; height:175px" class="img-fluid"
-                                            src="{{ asset('uploads/member/' . $doctor_photo->doctor_photo) }}"
-                                            alt="Doctor Photo">
-                                    </a>
-                                    <p class="text-center">{{ $doctor_photo->doctor_photo_caption }}</p>
-                                </div>
-                            @endforeach
-
-                            @foreach ($members as $family_photo)
-                                <div class="item family_photo col-lg-3 col-md-4 col-6 col-sm">
-                                    <a href="{{ asset('uploads/member/' . $family_photo->family_photo) }}"
-                                        class="fancylight popup-btn" data-fancybox-group="light">
-                                        <img style="width:263px; height:175px" class="img-fluid"
-                                            src="{{ asset('uploads/member/' . $family_photo->family_photo) }}"
-                                            alt="Family Photo">
-                                    </a>
-                                    <p class="text-center">{{ $family_photo->family_photo_caption }}</p>
-                                </div>
-                            @endforeach
-
                         </div>
                     </div>
 
@@ -132,7 +131,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
 
     <script>
-        $('.portfolio-menu ul li').click(function() {
+        $('.portfolio-menu ul li').click(function () {
             $('.portfolio-menu ul li').removeClass('active');
             $(this).addClass('active');
 
@@ -142,7 +141,7 @@
             });
             return false;
         });
-        $(document).ready(function() {
+        $(document).ready(function () {
             var popup_btn = $('.popup-btn');
             popup_btn.magnificPopup({
                 type: 'image',
