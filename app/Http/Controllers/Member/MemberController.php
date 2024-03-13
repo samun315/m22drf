@@ -21,7 +21,10 @@ class MemberController extends Controller
 
     public function memberGallery()
     {
-        $galleries = DB::table('member_details')->get();
+        $galleries = DB::table('member_galleries')->orderBy('id', 'DESC')
+            ->where('status', 'YES')
+            // ->where('user_id', session('logged_session_data.id'))
+            ->get(['id', 'caption', 'image', 'type']);
 
         return view('member.gallery.index', compact('galleries'));
     }

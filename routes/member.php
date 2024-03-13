@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Member\BlogController;
 use App\Http\Controllers\Member\MemberController;
+use App\Http\Controllers\Member\MemberGalleryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,6 +18,18 @@ Route::middleware(['preventBackHistory', 'member'])->group(function () {
         Route::put('/{blog_id}/update', [BlogController::class, 'update'])->name('member.blog.update');
         Route::put('/update-status', [BlogController::class, 'updateStatus'])->name('member.blog.update.status');
     });
+
+    //Member Gallery
+    Route::group(['prefix' => 'member/member-gallery'], function () {
+        Route::get('/index', [MemberGalleryController::class, 'index'])->name('member.memberGallery.index');
+        Route::get('/create', [MemberGalleryController::class, 'create'])->name('member.memberGallery.create');
+        Route::post('/store', [MemberGalleryController::class, 'store'])->name('member.memberGallery.store');
+        Route::get('/{id}/edit', [MemberGalleryController::class, 'edit'])->name('member.memberGallery.edit');
+        Route::get('/delete/{id}', [MemberGalleryController::class, 'delete'])->name('member.memberGallery.delete');
+        Route::put('/{id}/update', [MemberGalleryController::class, 'update'])->name('member.memberGallery.update');
+        Route::put('/update-status', [MemberGalleryController::class, 'updateStatus'])->name('member.memberGallery.update.status');
+    });
+
 
     //members
     Route::get('member/member-list', [MemberController::class, 'index'])->name('member.list.index');
