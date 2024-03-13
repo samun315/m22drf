@@ -87,7 +87,7 @@
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('category_name')
+                                @error('member_name')
                                 <span class="text-danger mt-2">{{ $message }}</span>
                                 @enderror
                             </div>
