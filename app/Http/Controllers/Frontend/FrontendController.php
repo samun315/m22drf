@@ -184,8 +184,10 @@ class FrontendController extends Controller
         // $data['blog'] = DB::table('blogs')->where('id', $blog_id)->first();
 
         $data['blog_details'] = DB::table('blogs as a')
-            ->select('a.*', 'b.title as category_name')
+            ->select('a.*', 'b.title as category_name', 'c.name as writter', 'd.passport_photo')
             ->leftJoin('blog_categories as b', 'a.category_id', '=', 'b.id')
+            ->leftJoin('users as c', 'a.created_by', '=', 'c.id')
+            ->leftJoin('member_details as d', 'a.created_by', '=', 'd.user_id')
             ->where('a.id', $blog_id)
             ->where('blog_type','PUBLIC')
             ->first();
@@ -257,6 +259,12 @@ class FrontendController extends Controller
     {
 
         return view('frontend.about.faq');
+    }
+
+    public function disclaimer()
+    {
+
+        return view('frontend.about.disclaimer');
     }
 
     public function whatMakesUsApart()

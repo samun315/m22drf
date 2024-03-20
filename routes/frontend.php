@@ -49,6 +49,7 @@ Route::get('member-details/{member}', [FrontendController::class, 'memberDetails
 Route::get('privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('frontend.privacyPolicy');
 Route::get('resolution', [FrontendController::class, 'resolution'])->name('frontend.resolution');
 Route::get('faq', [FrontendController::class, 'faq'])->name('frontend.faq');
+Route::get('disclaimer', [FrontendController::class, 'disclaimer'])->name('frontend.disclaimer');
 Route::get('what-makes-us-apart', [FrontendController::class, 'whatMakesUsApart'])->name('frontend.whatMakesUsApart');
 
 //programs

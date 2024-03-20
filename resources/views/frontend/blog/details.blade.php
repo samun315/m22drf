@@ -55,15 +55,15 @@
                                 <img src="{{ asset('uploads/blog/' . $blog_details->banner_img) }}" alt="">
                             </div>
                             <div class="text-holder">
-                                <div class="categories">
+                                {{-- <div class="categories">
                                     <h6> {{ $blog_details->category_name }} </h6>
-                                </div>
+                                </div> --}}
                                 <h3 class="blog-title"> {{ $blog_details->title }}
                                 </h3>
                                 <div class="meta-box">
-                                    <div class="author-thumb">
+                                    {{-- <div class="author-thumb">
                                         <img src="../assets/frontend/images/blog/author-thumb-1.jpg" alt="">
-                                    </div>
+                                    </div> --}}
                                     <ul class="meta-info">
                                         {{-- <li><a href="javascript:void(0)">Malay D’soza</a></li> --}}
                                         <li>
@@ -88,20 +88,20 @@
                         <div class="single-sidebar-box">
                             <div class="sidebar-author-box text-center">
                                 <div class="img-holder">
-                                    <img src="{{ asset('assets/frontend/images/resources/sidebar-author-1.png') }}"
+                                    <img src="{{ asset('uploads/member')}}/{{ $blog_details->passport_photo}}"
                                         alt="">
                                 </div>
                                 <div class="title-holder">
-                                    <h3>Saima Hayden</h3>
-                                    <p>Nostrud aliquip exrcitation laboris<br>nisiut temp duis autey. Lorem
-                                        unt<br>ipsum sit amet elit dolor.</p>
+                                    <h3>{{$blog_details->writter}}</h3>
+                                    {{-- <p>Nostrud aliquip exrcitation laboris<br>nisiut temp duis autey. Lorem
+                                        unt<br>ipsum sit amet elit dolor.</p> --}}
                                 </div>
-                                <ul class="social-links">
+                                {{-- <ul class="social-links">
                                     <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                     <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <!--End Single Sidebar Box-->
