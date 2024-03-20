@@ -88,6 +88,7 @@
                             <li><a href="/privacy-policy">Privacy Policy</a></li>
                             <li><a href="/resolution">Resolution</a></li>
                             <li><a href="/faq">Faq</a></li>
+                            <li><a href="/disclaimer">Disclaimer</a></li>
                         </ul>
                     </div>
                 </div>
