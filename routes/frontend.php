@@ -51,6 +51,7 @@ Route::get('resolution', [FrontendController::class, 'resolution'])->name('front
 Route::get('faq', [FrontendController::class, 'faq'])->name('frontend.faq');
 Route::get('disclaimer', [FrontendController::class, 'disclaimer'])->name('frontend.disclaimer');
 Route::get('what-makes-us-apart', [FrontendController::class, 'whatMakesUsApart'])->name('frontend.whatMakesUsApart');
+Route::get('how-we-spend-your-money', [FrontendController::class, 'howWeSpendMony'])->name('frontend.howWeSpendMony');
 
 //programs
 Route::get('all-programs', [FrontendController::class, 'program'])->name('frontend.program');

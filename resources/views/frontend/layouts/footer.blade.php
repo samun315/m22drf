@@ -13,6 +13,8 @@
 
     $footer_setting = \DB::table('footer_settings')->first();
 
+    $contact_us_setting = \DB::table('contact_us_settings')->first();
+
 @endphp
 
 <footer class="footer-area">
@@ -29,15 +31,9 @@
                                         src="{{ asset('assets/frontend/logo/m22 foundation logo.jpg') }}"
                                         alt="logo" /></a>
                             </div>
-                            <div class="text-box">
-                                <p>
-                                    @if (isset($footer_setting->address))
-                                        {!! $footer_setting->address !!}
-                                    @endif
-                                </p>
-                            </div>
 
-                            <div class="footer-contact-info">
+
+                            {{-- <div class="footer-contact-info">
                                 <div class="icon">
                                     <span class="flaticon-phone-call"></span>
                                 </div>
@@ -60,26 +56,36 @@
                                         </p>
                                     </div>
                                 </div>
+                            </div> --}}
+
+                        </div>
+                    </div>
+                </div>
+                <!--End single footer widget-->
+
+                <!--Start single footer widget-->
+                <div class="col-xl-3 col-lg-4 col-md-3 col-sm-12 wow animated fadeInUp" data-wow-delay="0.3s">
+                    <div class="single-footer-widget martop pd40-0">
+                        <div class="title">
+                            <h3>  Address</h3>
+                            <div class="text-box">
+
+                                @if (isset($contact_us_setting->office_address))
+                                    <p style="color: rgb(252, 252, 252)">
+                                        <span class="flaticon-maps-and-flags"></span>
+                                     {{ $contact_us_setting->office_address }}</p>
+                                @endif
+
                             </div>
 
                         </div>
-                    </div>
-                </div>
-                <!--End single footer widget-->
-
-                <!--Start single footer widget-->
-                <div class="col-xl-2 col-lg-4 col-md-3 col-sm-12 wow animated fadeInUp" data-wow-delay="0.3s">
-                    <div class="single-footer-widget martop pd40-0">
-                        <div class="title">
-                            <h3>Address</h3>
-                        </div>
 
                     </div>
                 </div>
                 <!--End single footer widget-->
 
                 <!--Start single footer widget-->
-                <div class="col-xl-2 col-lg-4 col-md-3 col-sm-12 wow animated fadeInUp" data-wow-delay="0.5s">
+                <div class="col-xl-3 col-lg-4 col-md-3 col-sm-12 wow animated fadeInUp" data-wow-delay="0.5s">
                     <div class="single-footer-widget martop">
                         <div class="title">
                             <h3>Quick Access</h3>
@@ -94,17 +100,19 @@
                 </div>
                 <!--End single footer widget-->
                 <!--Start single footer widget-->
-                <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 wow animated fadeInUp" data-wow-delay="0.5s">
+                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 wow animated fadeInUp" data-wow-delay="0.5s">
                     <div class="single-footer-widget martop pdtop40">
                         <div class="title">
-                            <h3>Contach Us</h3>
+                            <h3>Contact Us</h3>
+                            <p style="color: white"> <span class="flaticon-phone-call-1"></span> {{ $contact_us_setting->support_phone }}</p>
+                            <p  style="color: white"><span class="flaticon-opened"></span> {{ $contact_us_setting->support_email }}</p>
                         </div>
 
                     </div>
                 </div>
                 <!--End single footer widget-->
                 <!--Start single footer widget-->
-                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 wow animated fadeInUp" data-wow-delay="0.7s">
+                {{-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12 wow animated fadeInUp" data-wow-delay="0.7s">
                     <div class="single-footer-widget fixwidth martop pdtop40">
                         <div class="title">
                             <h3>Subscribe</h3>
@@ -119,7 +127,7 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

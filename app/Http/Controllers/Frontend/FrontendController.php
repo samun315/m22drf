@@ -272,6 +272,11 @@ class FrontendController extends Controller
 
         return view('frontend.about.whatMakesUsApart');
     }
+    public function howWeSpendMony()
+    {
+
+        return view('frontend.about.howWeSpendMony');
+    }
 
     public function program(Request $request)
     {

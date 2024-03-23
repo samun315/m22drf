@@ -52,6 +52,7 @@
                                         <ul>
                                             <li><a href="/about-us">About Us</a></li>
                                             <li><a href="/what-makes-us-apart">What Makes us Apart</a></li>
+                                            <li><a href="/how-we-spend-your-money">How we spend your money</a></li>
                                             <li><a href="/chairman-message">Message from our Chairman</a></li>
                                             <li><a href="/executive-committee">Executive Committee</a></li>
                                             <li><a href="/our-members">Our Valued Members</a></li>
